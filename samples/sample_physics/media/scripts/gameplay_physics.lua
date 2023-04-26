@@ -8,8 +8,76 @@ CameraController.load()
 Entity.load()
 Node.load()
 CharacterController.load()
+DebugGeometry.load()
+VoxelShape.load()
+
+-- Helper function for grabbing voxel shapes in the scene
+function GrabVoxelShape()
+  -- Calculate camera ray
+  local cam = Entity.find_first_entity_with_name("game_camera")
+  local cam_node = Node.get_component_for_entity(cam)
+
+  local origin = Node.get_world_position(cam_node)
+  local dir = Math.quat_rotate(Node.get_world_orientation(cam_node), Vec3(0.0, 0.0, 1.0))
+
+  -- Search for a new shape if we have not found one yet
+  if not GrabShape then
+    local _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0)
+
+    if Ref.is_valid(hit_entity) then
+      GrabShape = VoxelShape.get_component_for_entity(hit_entity)
+      local node = Node.get_component_for_entity(hit_entity)
+      GrabPosLS = Node.to_local_space(node, hit_pos)
+      GrabDistance = Math.vec_distance(origin, hit_pos)
+    end
+  end
+
+  -- Apply force to the grabbed shape
+  if GrabShape then
+    -- Calculate the target for our grabbed shape
+    local grab_target_ws = Math.vec_add(origin, Math.vec_scale(GrabDistance, dir))
+
+    -- Compute the current position of the grab in world coordinates
+    local entity = VoxelShape.get_entity(GrabShape)
+    local node = Node.get_component_for_entity(entity)
+    local grab_pos_ws = Node.to_world_space(node, GrabPosLS)
+
+    -- Draw a line from the grab position to the target
+    DebugGeometry.draw_line(grab_pos_ws, grab_target_ws, Vec4(0.5, 0.5, 0.5, 0.5), true)
+
+    -- Compute vector pointing from the current position of the grab to the target
+    local to_grab_pos = Math.vec_sub(grab_target_ws, grab_pos_ws)
+    local dist_to_grab_pos = Math.vec_length(to_grab_pos)
+
+    if dist_to_grab_pos > 0.0001 then
+      to_grab_pos = Math.vec_scale(1.0 / dist_to_grab_pos, to_grab_pos)
+    end
+
+    -- Compute force vector to move the grabbed shape to the target position
+    local scale_dist = 0.5
+    local force_factor = 5.0 / scale_dist
+    -- Force is attenuated (stronger if the grabbed shape is farther away)
+    local force = 
+      Math.vec_scale(Math.min(dist_to_grab_pos, scale_dist) * force_factor, to_grab_pos)
+
+    -- Finally apply the force
+    VoxelShape.apply_force_at_local_position(GrabShape, force, GrabPosLS)
+  end
+end
+
+-- Simply resets the current grabbed shape
+function EndGrabVoxelShape()
+  GrabShape = nil
+end
 
 function UpdateCharacter(delta_t)
+  -- Try to grab a voxel shape in the scene
+  if Input.get_key_state(Key.kMouseRight, 0) == KeyState.kPressed then
+    GrabVoxelShape()
+  else
+    EndGrabVoxelShape()
+  end
+
   -- Fetch player and his character controller
   local player = Entity.find_first_entity_with_name("player")
   local player_cct = CharacterController.get_component_for_entity(player)
