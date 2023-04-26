@@ -1,8 +1,8 @@
 # IOLITE Samples
 
-Place the files in this directory in the root directory of IOLITE and select one of the worlds prefixed with "sample_*" in the editor. That's it!
+Place the files in this directory in the root directory of IOLITE and select one of the worlds prefixed with `sample_` in the editor. That's it!
 
-## Physics Sample
+## Physics (sample_physics)
 
 ![Physics Sample](../media/samples/sample_physics.png?raw=true)
 
