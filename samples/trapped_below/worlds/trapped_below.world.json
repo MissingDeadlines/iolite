@@ -287,7 +287,7 @@
                         "value": 5.0
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -417,10 +417,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -823,10 +823,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -901,10 +901,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -979,10 +979,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1057,10 +1057,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1135,10 +1135,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1213,10 +1213,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1291,10 +1291,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1410,10 +1410,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1488,10 +1488,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1566,10 +1566,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1644,10 +1644,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1722,10 +1722,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1800,10 +1800,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1878,10 +1878,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -1956,10 +1956,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2034,10 +2034,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2112,10 +2112,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2190,10 +2190,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2268,10 +2268,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2346,10 +2346,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2424,10 +2424,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2502,10 +2502,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2580,10 +2580,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2658,10 +2658,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2736,10 +2736,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2814,10 +2814,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2892,10 +2892,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -2970,10 +2970,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3048,10 +3048,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3126,10 +3126,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3204,10 +3204,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3282,10 +3282,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3360,10 +3360,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3438,10 +3438,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3516,10 +3516,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3594,10 +3594,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3672,10 +3672,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3750,10 +3750,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3828,10 +3828,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3906,10 +3906,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -3984,10 +3984,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4062,10 +4062,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4140,10 +4140,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4218,10 +4218,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4296,10 +4296,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4374,10 +4374,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4452,10 +4452,10 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
@@ -4604,7 +4604,7 @@
                         "value": 0.5
                     },
                     "linearDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "angularDamping": {
                         "value": 5.0
@@ -4754,7 +4754,7 @@
                         "value": 5.0
                     },
                     "angularDamping": {
-                        "value": 1.0
+                        "value": 0.1
                     },
                     "gravity": {
                         "values": [
