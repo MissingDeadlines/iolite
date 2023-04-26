@@ -9,4 +9,3 @@ Place the files in this directory in the root directory of IOLITE and select one
 ![Physics Sample](../media/samples/sample_physics.png?raw=true)
 
 Example focusing on physics with simple FPS controls. Showcases the usage of joints to create more complex structures, ragdolls, support structures, etc.
-
