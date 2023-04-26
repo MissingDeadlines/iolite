@@ -1,0 +1,94 @@
+{
+    "name": "fireflies",
+    "properties": {
+        "uuid": {
+            "value": 298595034603337919
+        },
+        "name": {
+            "value": "fireflies"
+        },
+        "dataSource": {
+            "value": "trapped_below"
+        },
+        "emitterFlags": {
+            "value": 4
+        },
+        "initialVelocity": {
+            "value": 0.0
+        },
+        "scaleMin": {
+            "value": 0.009999999776482582
+        },
+        "scaleMax": {
+            "value": 0.019999999552965164
+        },
+        "scaleFactor": {
+            "value": 1.0
+        },
+        "scaleFactorCurveEdgeStart": {
+            "value": 0.0
+        },
+        "scaleFactorCurveEdgeEnd": {
+            "value": 0.009999999776482582
+        },
+        "spawnRate": {
+            "value": 25.0
+        },
+        "lifetime": {
+            "value": 3.0
+        },
+        "emissiveIntensity": {
+            "value": 10.0
+        },
+        "colorStart": {
+            "values": [
+                1.0,
+                0.46332043409347534,
+                0.0,
+                1.0
+            ]
+        },
+        "colorEnd": {
+            "values": [
+                1.0,
+                0.27799224853515625,
+                0.0,
+                1.0
+            ]
+        },
+        "colorCurveEdgeStart": {
+            "value": 0.5
+        },
+        "colorCurveEdgeEnd": {
+            "value": 0.75
+        },
+        "emissionDirection": {
+            "values": [
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "emissionSpread": {
+            "value": 0.5
+        },
+        "emissionRadius": {
+            "value": 2.0
+        },
+        "vectorFieldIntensity": {
+            "value": 1.0
+        },
+        "vectorFieldTightness": {
+            "value": 0.009999999776482582
+        },
+        "vectorFieldScale": {
+            "value": 0.10700000077486038
+        },
+        "velocityScale": {
+            "value": 20.0
+        },
+        "gravity": {
+            "value": 0.0
+        }
+    }
+}

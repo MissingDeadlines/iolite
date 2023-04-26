@@ -2,7 +2,8 @@
 	"application_name": "IOLITE Samples",
 	"organization_name": "Missing Deadlines",
 	"data_sources": [
-		"sample_physics"
+		"sample_physics",
+		"trapped_below"
 	],
 	"initial_world": "sample_physics",
 	"initial_game_state": "Editing",
