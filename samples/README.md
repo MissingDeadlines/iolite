@@ -6,6 +6,6 @@ TODO
 
 ## Physics Sample
 
-![Physics Sample](media/samples/sample_physics.png?raw=true)
+![Physics Sample](../media/samples/sample_physics.png?raw=true)
 
 TODO
