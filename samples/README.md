@@ -1,10 +1,17 @@
 # Samples
 
-Place the files in this directory in the root directory of IOLITE and select one of the worlds prefixed with `sample_` in the editor. That's it!
+Simply place the files in this directory in the root directory of IOLITE and select one of the worlds (most of them are prefixed with `sample_`) in the editor. That's it!
 
 ## Physics (sample_physics)
 
 Example focusing on physics with simple FPS controls. Showcases the usage of joints to create more complex structures, ragdolls, support structures, etc.
+
+### Controls
+
+- Use `WASD` to move
+- Use the mouse to rotate the camera
+- Press `Space`
+- Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
 ![Physics Sample](../media/samples/sample_physics.png?raw=true)
 
