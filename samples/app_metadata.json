@@ -1,0 +1,11 @@
+{
+	"application_name": "IOLITE Samples",
+	"organization_name": "Missing Deadlines",
+	"data_sources": [
+		"sample_physics"
+	],
+	"initial_world": "sample_physics",
+	"initial_game_state": "Editing",
+	"active_data_source": "sample_physics",
+	"version_string": "development"
+}

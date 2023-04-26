@@ -1,0 +1,912 @@
+[
+    {
+        "uuid": {
+            "value": 246710989220341934
+        },
+        "name": {
+            "value": "mage1"
+        },
+        "offsetToParent": 0,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 246710989220341934
+                    },
+                    "localPos": {
+                        "values": [
+                            7.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 8175542145435652351
+        },
+        "name": {
+            "value": "lower_body"
+        },
+        "offsetToParent": -1,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 8175542145435652351
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            1.100000023841858,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 1125712375287246843
+                    },
+                    "voxelShapeName": {
+                        "value": "mage"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            2.0,
+                            4.0,
+                            3.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 7745369561334764958
+        },
+        "name": {
+            "value": "cape"
+        },
+        "offsetToParent": -2,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7745369561334764958
+                    },
+                    "localPos": {
+                        "values": [
+                            -0.20000000298023224,
+                            1.5,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 12766406161622495972
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_1"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            1.0,
+                            8.0,
+                            5.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 5512090449980753077
+        },
+        "name": {
+            "value": "left_leg"
+        },
+        "offsetToParent": -3,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5512090449980753077
+                    },
+                    "localPos": {
+                        "values": [
+                            0.20000000298023224,
+                            0.30000001192092896,
+                            -0.20000000298023224
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 2689460629445308417
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_2"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            3.0,
+                            3.0,
+                            1.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 17968368585711209051
+        },
+        "name": {
+            "value": "right_leg"
+        },
+        "offsetToParent": -4,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 17968368585711209051
+                    },
+                    "localPos": {
+                        "values": [
+                            0.20000000298023224,
+                            0.30000001192092896,
+                            0.20000000298023224
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 10125189876979161520
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_4"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            3.0,
+                            3.0,
+                            1.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 4243714722639907087
+        },
+        "name": {
+            "value": "right_arm"
+        },
+        "offsetToParent": -5,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 4243714722639907087
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            1.600000023841858,
+                            0.4000000059604645
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 9081689920900581123
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_5"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            2.0,
+                            6.0,
+                            1.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 14276338948394693341
+        },
+        "name": {
+            "value": "left_arm"
+        },
+        "offsetToParent": -6,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 14276338948394693341
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            1.600000023841858,
+                            -0.5
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 22639060297378637
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_6"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            2.0,
+                            6.0,
+                            1.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 18099634758079537912
+        },
+        "name": {
+            "value": "upper_body"
+        },
+        "offsetToParent": -7,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 18099634758079537912
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            2.6000001430511475,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 2575136999858093531
+                    },
+                    "voxelShapeName": {
+                        "value": "mage_7"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 12
+                    },
+                    "pivot": {
+                        "values": [
+                            5.0,
+                            10.0,
+                            5.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 7738832199264638269
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -8,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            -90.0,
+                            90.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -1.9371509552001953e-7,
+                            1.560017704963684,
+                            -0.033657267689704895
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 530596263786313303
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -9,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            0.0,
+                            90.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -1.9371509552001953e-7,
+                            0.6600176692008972,
+                            0.16634273529052734
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 10834041772764348539
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -10,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            0.0,
+                            90.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -1.9371509552001953e-7,
+                            0.6600176692008972,
+                            -0.23365727066993713
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 11898460090672174896
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -11,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            -90.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -1.9371509552001953e-7,
+                            2.0600175857543945,
+                            0.3663427531719208
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            -0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 16820716898574385566
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -12,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            -90.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -1.9371509552001953e-7,
+                            2.0600175857543945,
+                            -0.4336572587490082
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            -0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 15204434108469035592
+        },
+        "name": {
+            "value": "joint2"
+        },
+        "offsetToParent": -13,
+        "propertyEntries": [
+            {
+                "type": "Joint",
+                "properties": {
+                    "uuid": {
+                        "value": 8253818732434646404
+                    },
+                    "type": {
+                        "value": 2
+                    },
+                    "flags": {
+                        "value": 2
+                    },
+                    "limits": {
+                        "values": [
+                            0.0,
+                            90.0,
+                            0.0
+                        ]
+                    },
+                    "axis": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7738832199264638269
+                    },
+                    "localPos": {
+                        "values": [
+                            -0.20000019669532776,
+                            2.2600176334381104,
+                            -0.033657267689704895
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            -0.7071067690849304,
+                            -0.7071067690849304
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+]
