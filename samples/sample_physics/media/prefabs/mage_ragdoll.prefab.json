@@ -16,9 +16,9 @@
                     },
                     "localPos": {
                         "values": [
-                            7.0,
-                            0.0,
-                            0.0
+                            13.729280471801758,
+                            0.1379251480102539,
+                            -2.501265525817871
                         ]
                     },
                     "localOrient": {
@@ -100,6 +100,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -165,6 +171,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -230,6 +242,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -295,6 +313,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -360,6 +384,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -425,6 +455,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -490,6 +526,12 @@
                     },
                     "glassTransparency": {
                         "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 1.0
+                    },
+                    "angularDamping": {
+                        "value": 1.0
                     }
                 }
             }
@@ -587,8 +629,8 @@
                     },
                     "limits": {
                         "values": [
+                            -90.0,
                             0.0,
-                            90.0,
                             0.0
                         ]
                     },
@@ -656,8 +698,8 @@
                     },
                     "limits": {
                         "values": [
+                            -90.0,
                             0.0,
-                            90.0,
                             0.0
                         ]
                     },
