@@ -12,7 +12,7 @@ DebugGeometry.load()
 VoxelShape.load()
 
 -- Helper function for grabbing voxel shapes in the scene
-function GrabVoxelShape()
+function GrabVoxelShape(delta_t)
   -- Calculate camera ray
   local cam = Entity.find_first_entity_with_name("game_camera")
   local cam_node = Node.get_component_for_entity(cam)
@@ -54,8 +54,8 @@ function GrabVoxelShape()
     end
 
     -- Compute force vector to move the grabbed shape to the target position
-    local scale_dist = 0.5
-    local force_factor = 5.0 / scale_dist
+    local scale_dist = 1.0
+    local force_factor = 1000.0 * delta_t / scale_dist
     -- Force is attenuated (stronger if the grabbed shape is farther away)
     local force = 
       Math.vec_scale(Math.min(dist_to_grab_pos, scale_dist) * force_factor, to_grab_pos)
@@ -73,7 +73,7 @@ end
 function UpdateCharacter(delta_t)
   -- Try to grab a voxel shape in the scene
   if Input.get_key_state(Key.kMouseRight, 0) == KeyState.kPressed then
-    GrabVoxelShape()
+    GrabVoxelShape(delta_t)
   else
     EndGrabVoxelShape()
   end
