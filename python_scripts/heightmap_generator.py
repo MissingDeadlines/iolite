@@ -12,7 +12,7 @@ parser.add_argument("dir_path", help="The directory containing the maps to combi
 parser.add_argument("-o", "--output", default="heightmap.png", help="The path of the combined heightmap to genrate.")
 parser.add_argument("--height_pattern", default="height_*", help="The file pattern for heightmaps, defaults to 'height_*'")
 parser.add_argument("--splat_pattern", default="splat_*", help="The file pattern for splat maps, defaults to 'splat_*'.")
-parser.add_argument("--grass_pattern", default="grass_*", help="The pattern for grass maps, defaults to 'grass_*'.")
+parser.add_argument("--grass_pattern", default="grass_*", help="The file pattern for grass maps, defaults to 'grass_*'.")
 parser.add_argument("--max_grass_height", type=int, default=8, help="The maximum height of grass (in voxels). Defaults to '8'.")
 parser.add_argument("--num_sub_materials", type=int, default=8, help="The number of sub materials. A sub material number of, e.g., 8 picks a random material from the first 8 materials in the voxel palette for the first splat map. Defaults to '8'.")
 parser.add_argument("--grass_material_mask", type=int, nargs="*", default=[], help="A list of material indexes (e.g. index 0 matches the first splat mask) which should be used to mask out grass.")
