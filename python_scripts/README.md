@@ -4,7 +4,7 @@ Collection of helper scripts for IOLITE written in Python.
 
 ## heightmap_generator.py
 
-'''
+```
 usage: IOLITE Heightmap Generator [-h] [-o OUTPUT] [--height_pattern HEIGHT_PATTERN] [--splat_pattern SPLAT_PATTERN] [--grass_pattern GRASS_PATTERN] [--max_grass_height MAX_GRASS_HEIGHT]
                                   [--num_sub_materials NUM_SUB_MATERIALS] [--grass_material_mask [GRASS_MATERIAL_MASK ...]] [--max_grass_density MAX_GRASS_DENSITY]
                                   dir_path
@@ -32,4 +32,4 @@ options:
                         A list of material indexes (e.g. index 0 matches the first splat mask) which should be used to mask out grass.
   --max_grass_density MAX_GRASS_DENSITY
                         The maximum density of grass. A value of 0.5 limits grass to 50% of the area. Defaults to 0.5.
-'''
+
