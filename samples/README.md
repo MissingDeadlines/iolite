@@ -11,6 +11,8 @@ Example focusing on physics with simple FPS controls. Showcases the usage of joi
 - Use `WASD` to move
 - Use the mouse to rotate the camera
 - Press `Space` to jump
+- Press `Left Mouse Button` to throw a grenade
+- Press `E` to spawn a ragdoll
 - Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
 ![Physics Sample](../media/samples/sample_physics.png?raw=true)
