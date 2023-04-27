@@ -10,6 +10,27 @@ Node.load()
 CharacterController.load()
 DebugGeometry.load()
 VoxelShape.load()
+ParticleSystem.load()
+
+function SpawnPrefab(name, distance, force, torque)
+  local cam = Entity.find_first_entity_with_name("game_camera")
+  local cam_node = Node.get_component_for_entity(cam)
+
+  local origin = Node.get_world_position(cam_node)
+  local dir = Math.quat_rotate(Node.get_world_orientation(cam_node), Vec3(0.0, 0.0, 1.0))
+
+  -- Spawn 1m in front of the camera
+  local spawn_pos = Math.vec_add(origin, Math.vec_scale(distance, dir))
+
+  local node = World.spawn_prefab(name)
+  local shape = VoxelShape.get_component_for_entity(Node.get_entity(node))
+
+  Node.set_world_position(node, spawn_pos)
+  Node.update_transforms(node)
+
+  VoxelShape.apply_force(shape, Math.vec_scale(force, dir))
+  VoxelShape.apply_torque(shape, Vec3(torque, torque, 0.0))
+end
 
 -- Helper function for grabbing voxel shapes in the scene
 function GrabVoxelShape(delta_t)
@@ -71,13 +92,6 @@ function EndGrabVoxelShape()
 end
 
 function UpdateCharacter(delta_t)
-  -- Try to grab a voxel shape in the scene
-  if Input.get_key_state(Key.kMouseRight, 0) == KeyState.kPressed then
-    GrabVoxelShape(delta_t)
-  else
-    EndGrabVoxelShape()
-  end
-
   -- Fetch player and his character controller
   local player = Entity.find_first_entity_with_name("player")
   local player_cct = CharacterController.get_component_for_entity(player)
@@ -159,6 +173,27 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
+  -- Spawn a grenade
+  if Input.get_key_state(Key.kMouseLeft, 0) == KeyState.kPressed then
+    if not GrenadeSpawned then
+      SpawnPrefab("grenade", 2.0, 100.0, 1.0)
+      GrenadeSpawned = true
+    end
+  else
+    GrenadeSpawned = false
+  end
+
+  if Input.get_key_state(Key.kE, 0) == KeyState.kClicked then
+    SpawnPrefab("mage_ragdoll", 2.0, 900.0, 1.0)
+  end
+
+  -- Try to grab a voxel shape in the scene
+  if Input.get_key_state(Key.kMouseRight, 0) == KeyState.kPressed then
+    GrabVoxelShape(delta_t)
+  else
+    EndGrabVoxelShape()
+  end
+
   UpdateCharacter(delta_t)
 end
 
@@ -171,4 +206,34 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param events table List of all events.
 function OnEvent(entity, events)
+  ExplosionMask = {}
+
+  for i=1,#events do
+    local e = events[i]
+    if e.type == "Contact" then
+
+      -- Check if a grenade hit something
+      local grenade_node = nil
+      if Ref.is_valid(e.data.entity0) then
+        if Entity.get_name(e.data.entity0) == "grenade" then
+          grenade_node = Node.get_component_for_entity(e.data.entity0)
+        end
+      end
+      if not grenade_node and Ref.is_valid(e.data.entity1) then
+        if Entity.get_name(e.data.entity1) == "grenade" then
+          grenade_node = Node.get_component_for_entity(e.data.entity1)
+        end
+      end
+
+      if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
+        -- Apply damage
+        World.radius_damage(e.data.pos, 1.0, true)
+        ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
+        -- And destroy the grenade
+        Node.destroy(grenade_node)
+
+        ExplosionMask[Ref.get_id(grenade_node)] = true
+      end
+    end
+  end
 end

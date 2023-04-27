@@ -1,0 +1,73 @@
+[
+    {
+        "uuid": {
+            "value": 3661765094411484874
+        },
+        "name": {
+            "value": "grenade"
+        },
+        "offsetToParent": 0,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 3661765094411484874
+                    },
+                    "localPos": {
+                        "values": [
+                            18.99067497253418,
+                            0.6379251480102539,
+                            -5.354992866516113
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.05000000074505806,
+                            0.05000000074505806,
+                            0.05000000074505806
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 5527125669828525664
+                    },
+                    "voxelShapeName": {
+                        "value": "cube_1m"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 6
+                    },
+                    "pivot": {
+                        "values": [
+                            5.0,
+                            5.0,
+                            5.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    }
+]

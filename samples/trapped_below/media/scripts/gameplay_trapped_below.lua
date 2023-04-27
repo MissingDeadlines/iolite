@@ -173,7 +173,7 @@ end
 
 function HandleInteraction(delta_t)
   -- Reset highlight initially
-  World.highlight_node(InvalidRef(), Vec4(0.0), true)
+  World.highlight_node(Ref.create_invalid(), Vec4(0.0), true)
 
 
   local origin, dir = World.calc_mouse_ray()

@@ -1,0 +1,94 @@
+{
+    "name": "explosion",
+    "properties": {
+        "uuid": {
+            "value": 17930085489121457264
+        },
+        "name": {
+            "value": "explosion"
+        },
+        "dataSource": {
+            "value": "sample_physics"
+        },
+        "emitterFlags": {
+            "value": 5
+        },
+        "initialVelocity": {
+            "value": 5.0
+        },
+        "scaleMin": {
+            "value": 0.019999999552965164
+        },
+        "scaleMax": {
+            "value": 0.05000000074505806
+        },
+        "scaleFactor": {
+            "value": 1.0
+        },
+        "scaleFactorCurveEdgeStart": {
+            "value": 0.0
+        },
+        "scaleFactorCurveEdgeEnd": {
+            "value": 0.009999999776482582
+        },
+        "spawnRate": {
+            "value": 800.0
+        },
+        "lifetime": {
+            "value": 1.0
+        },
+        "emissiveIntensity": {
+            "value": 25.0
+        },
+        "colorStart": {
+            "values": [
+                0.8648648858070374,
+                0.581028938293457,
+                0.0,
+                1.0
+            ]
+        },
+        "colorEnd": {
+            "values": [
+                1.0,
+                0.46332043409347534,
+                0.0,
+                1.0
+            ]
+        },
+        "colorCurveEdgeStart": {
+            "value": 0.0560000017285347
+        },
+        "colorCurveEdgeEnd": {
+            "value": 0.3230000138282776
+        },
+        "emissionDirection": {
+            "values": [
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "emissionSpread": {
+            "value": 0.5
+        },
+        "emissionRadius": {
+            "value": 1.0
+        },
+        "vectorFieldIntensity": {
+            "value": 20.0
+        },
+        "vectorFieldTightness": {
+            "value": 0.009999999776482582
+        },
+        "vectorFieldScale": {
+            "value": 0.10000000149011612
+        },
+        "velocityScale": {
+            "value": 2.0
+        },
+        "gravity": {
+            "value": -20.0
+        }
+    }
+}
