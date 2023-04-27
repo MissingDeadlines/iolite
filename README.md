@@ -4,6 +4,6 @@
 
 IOLITE is a new voxel-based game engine that offers a unique set of features. More details can be found on the project's website: <https://iolite-engine.com>
 
-This repository houses all public resources, like the [issue tracker](https://github.com/MissingDeadlines/iolite/issues) and the [samples](https://github.com/MissingDeadlines/iolite/tree/main/samples).
+This repository houses all public resources, like the [issue tracker](https://github.com/MissingDeadlines/iolite/issues), [auxiliary Python scripts](https://github.com/MissingDeadlines/iolite/tree/main/python_scripts), [various resources](https://github.com/MissingDeadlines/iolite/tree/main/various), and the [samples](https://github.com/MissingDeadlines/iolite/tree/main/samples).
 
 ![Example scene rendered in IOLITE](media/screenshot.jpg?raw=true)
