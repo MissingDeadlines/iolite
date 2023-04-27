@@ -2,6 +2,8 @@
 
 Collection of helper scripts for IOLITE written in Python.
 
+To install the Python packages required by the scripts, simply run `pip install -r requirements.txt` and you are good to go!
+
 ## heightmap_generator.py
 
 ```
