@@ -57,17 +57,17 @@
                     },
                     "localPos": {
                         "values": [
-                            26.646656036376953,
-                            8.325204849243164,
-                            23.42331314086914
+                            -78.7851791381836,
+                            9.880621910095215,
+                            13.98833179473877
                         ]
                     },
                     "localOrient": {
                         "values": [
-                            -0.014241514727473259,
-                            -0.8726694583892822,
-                            -0.025496885180473328,
-                            0.48743736743927
+                            -0.002083865227177739,
+                            0.879218578338623,
+                            0.0038458837661892176,
+                            0.4763984680175781
                         ]
                     },
                     "localSize": {
@@ -123,17 +123,17 @@
                     },
                     "localPos": {
                         "values": [
-                            11.464991569519043,
-                            5.386575222015381,
-                            9.426566123962402
+                            -71.53125762939453,
+                            10.115983009338379,
+                            29.659204483032227
                         ]
                     },
                     "localOrient": {
                         "values": [
-                            0.046938154846429825,
-                            -0.8724967837333679,
-                            0.08553709089756012,
-                            0.47877931594848633
+                            0.00520304637029767,
+                            0.9257181286811829,
+                            -0.012743432074785233,
+                            0.377963662147522
                         ]
                     },
                     "localSize": {
@@ -307,67 +307,12 @@
     },
     {
         "uuid": {
-            "value": 5397768029211401763
-        },
-        "name": {
-            "value": "tree"
-        },
-        "offsetToParent": -5,
-        "propertyEntries": [
-            {
-                "type": "Script",
-                "properties": {
-                    "uuid": {
-                        "value": 18217453143196847317
-                    },
-                    "updateInterval": {
-                        "value": 100
-                    },
-                    "scriptName": {
-                        "value": "tree_generator"
-                    }
-                }
-            },
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 5397768029211401763
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "uuid": {
             "value": 2770300103515901624
         },
         "name": {
             "value": "plate_32_gray"
         },
-        "offsetToParent": -6,
+        "offsetToParent": -5,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -377,9 +322,9 @@
                     },
                     "localPos": {
                         "values": [
+                            19.30000114440918,
                             0.0,
-                            0.0,
-                            0.0
+                            -27.0
                         ]
                     },
                     "localOrient": {
@@ -426,6 +371,439 @@
                     },
                     "angularDamping": {
                         "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 16923043240078437098
+        },
+        "name": {
+            "value": "plate_32_gray"
+        },
+        "offsetToParent": -6,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 2770300103515901624
+                    },
+                    "localPos": {
+                        "values": [
+                            -12.0,
+                            0.0,
+                            15.100000381469727
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 4720712043722448371
+                    },
+                    "voxelShapeName": {
+                        "value": "plate_32_gray"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 0
+                    },
+                    "pivot": {
+                        "values": [
+                            16.0,
+                            2.0,
+                            16.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 11488550800997056914
+        },
+        "name": {
+            "value": "plate_32_gray"
+        },
+        "offsetToParent": -7,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 2770300103515901624
+                    },
+                    "localPos": {
+                        "values": [
+                            -47.599998474121094,
+                            0.0,
+                            -10.399999618530273
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 4720712043722448371
+                    },
+                    "voxelShapeName": {
+                        "value": "plate_32_gray"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 0
+                    },
+                    "pivot": {
+                        "values": [
+                            16.0,
+                            2.0,
+                            16.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 11539835014623163597
+        },
+        "name": {
+            "value": "plate_32_gray"
+        },
+        "offsetToParent": -8,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 2770300103515901624
+                    },
+                    "localPos": {
+                        "values": [
+                            -30.0,
+                            0.0,
+                            -118.10000610351563
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 4720712043722448371
+                    },
+                    "voxelShapeName": {
+                        "value": "plate_32_gray"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 0
+                    },
+                    "pivot": {
+                        "values": [
+                            16.0,
+                            2.0,
+                            16.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 1469725519310000996
+        },
+        "name": {
+            "value": "tree"
+        },
+        "offsetToParent": -1,
+        "propertyEntries": [
+            {
+                "type": "Script",
+                "properties": {
+                    "uuid": {
+                        "value": 18217453143196847317
+                    },
+                    "updateInterval": {
+                        "value": 100
+                    },
+                    "scriptName": {
+                        "value": "tree_generator"
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5397768029211401763
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            10.0,
+                            10.0,
+                            10.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 11760341293682609681
+        },
+        "name": {
+            "value": "tree"
+        },
+        "offsetToParent": -3,
+        "propertyEntries": [
+            {
+                "type": "Script",
+                "properties": {
+                    "uuid": {
+                        "value": 18217453143196847317
+                    },
+                    "updateInterval": {
+                        "value": 100
+                    },
+                    "scriptName": {
+                        "value": "tree_generator"
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5397768029211401763
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            10.0,
+                            10.0,
+                            10.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 4436430454041376447
+        },
+        "name": {
+            "value": "tree"
+        },
+        "offsetToParent": -5,
+        "propertyEntries": [
+            {
+                "type": "Script",
+                "properties": {
+                    "uuid": {
+                        "value": 18217453143196847317
+                    },
+                    "updateInterval": {
+                        "value": 100
+                    },
+                    "scriptName": {
+                        "value": "tree_generator"
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5397768029211401763
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            10.0,
+                            10.0,
+                            10.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 5397768029211401763
+        },
+        "name": {
+            "value": "tree"
+        },
+        "offsetToParent": -7,
+        "propertyEntries": [
+            {
+                "type": "Script",
+                "properties": {
+                    "uuid": {
+                        "value": 18217453143196847317
+                    },
+                    "updateInterval": {
+                        "value": 100
+                    },
+                    "scriptName": {
+                        "value": "tree_generator"
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5397768029211401763
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            10.0,
+                            10.0,
+                            10.0
+                        ]
                     }
                 }
             }
