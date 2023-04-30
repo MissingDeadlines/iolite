@@ -1,12 +1,15 @@
 {
-	"application_name": "IOLITE Samples",
-	"organization_name": "Missing Deadlines",
-	"data_sources": [
-		"sample_physics",
-		"trapped_below"
-	],
-	"initial_world": "sample_physics",
-	"initial_game_state": "Editing",
-	"active_data_source": "sample_physics",
-	"version_string": "development"
+    "application_name": "IOLITE Samples",
+    "organization_name": "Missing Deadlines",
+    "data_sources": [
+        "sample_base",
+        "sample_physics",
+        "sample_pathfinding",
+        "sample_tree_generator",
+        "trapped_below"
+    ],
+    "initial_world": "sample_physics",
+    "initial_game_state": "Editing",
+    "active_data_source": "sample_tree_generator",
+    "version_string": "development"
 }

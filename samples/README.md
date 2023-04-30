@@ -17,10 +17,24 @@ Example focusing on physics with simple FPS controls. Showcases the usage of joi
 - Press `E` to spawn a ragdoll
 - Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
-![Physics Sample](../media/samples/sample_physics.png?raw=true)
+### Additional credits
+
+- Mage voxel character by Lucy (Pentakie)
+
+![Screenshot of the Physics Sample](../media/samples/sample_physics.png?raw=true)
+
+## Tree Generator (sample_tree_generator)
+
+Showcases the procedural generation of trees.
+
+### References
+- Transport-Oriented Growth and Procedural Trees  
+<https://nickmcd.me/2020/10/19/transport-oriented-growth-and-procedural-trees/>
+
+![Screenshot of the Tree Generator Sample](../media/samples/sample_tree_generator.png?raw=true)
 
 ## Trapped Below (trapped_below)
 
 "Trapped Below" is a small game I'm building for the [Week Sauce](https://weeksauce.io/) game jam (April 2023).
 
-![Physics Sample](../media/samples/trapped_below.png?raw=true)
+![Screenshot of Trapped Below](../media/samples/trapped_below.png?raw=true)
