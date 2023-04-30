@@ -1,8 +1,8 @@
 # Samples
 
-Simply place the files in this directory in the root directory of IOLITE and select one of the worlds (most of them are prefixed with `sample_`) in the editor. That's it!
-
 The samples require the latest version of IOLITE `v0.1.7`.
+
+Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
 
 ## Physics (sample_physics)
 
