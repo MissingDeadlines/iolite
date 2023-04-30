@@ -307,83 +307,12 @@
     },
     {
         "uuid": {
-            "value": 2770300103515901624
-        },
-        "name": {
-            "value": "plate_32_gray"
-        },
-        "offsetToParent": -5,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 2770300103515901624
-                    },
-                    "localPos": {
-                        "values": [
-                            19.30000114440918,
-                            0.0,
-                            -27.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 4720712043722448371
-                    },
-                    "voxelShapeName": {
-                        "value": "plate_32_gray"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 0
-                    },
-                    "pivot": {
-                        "values": [
-                            16.0,
-                            2.0,
-                            16.0
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "uuid": {
             "value": 16923043240078437098
         },
         "name": {
             "value": "plate_32_gray"
         },
-        "offsetToParent": -6,
+        "offsetToParent": -5,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -454,7 +383,7 @@
         "name": {
             "value": "plate_32_gray"
         },
-        "offsetToParent": -7,
+        "offsetToParent": -6,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -525,7 +454,7 @@
         "name": {
             "value": "plate_32_gray"
         },
-        "offsetToParent": -8,
+        "offsetToParent": -7,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -707,61 +636,6 @@
             "value": "tree"
         },
         "offsetToParent": -5,
-        "propertyEntries": [
-            {
-                "type": "Script",
-                "properties": {
-                    "uuid": {
-                        "value": 18217453143196847317
-                    },
-                    "updateInterval": {
-                        "value": 100
-                    },
-                    "scriptName": {
-                        "value": "tree_generator"
-                    }
-                }
-            },
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 5397768029211401763
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            10.0,
-                            10.0,
-                            10.0
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "uuid": {
-            "value": 5397768029211401763
-        },
-        "name": {
-            "value": "tree"
-        },
-        "offsetToParent": -7,
         "propertyEntries": [
             {
                 "type": "Script",
