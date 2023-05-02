@@ -20,19 +20,19 @@ end
 
 function VecToDir(vec)
   if vec.x == 0 and vec.y == 1 then
-    return "e"
-  elseif vec.x == 1 and vec.y == 0 then
     return "n"
+  elseif vec.x == 1 and vec.y == 0 then
+    return "e"
   elseif vec.x == 0 and vec.y == -1 then
-    return "w"
+    return "s"
   end
 
-  return "s"
+  return "w"
 end
 
 function ConnectCells(from, to)
-  from_cell = Cells[from.x][from.y] 
-  to_cell = Cells[to.x][to.y] 
+  from_cell = Cells[from.y][from.x] 
+  to_cell = Cells[to.y][to.x] 
 
   vec = {x=to.x-from.x,y=to.y-from.y}
   vec_inv = {x=-vec.x, y=-vec.y}
@@ -49,14 +49,12 @@ function GenerateWorld()
   local idx_x = 0
   for x=-Extent/2, Extent/2 - 1 do
     local cell_idx_x = Extent - 1 - idx_x
-    Log.log_info(string.format("%i", cell_idx_x))
 
     Cells[cell_idx_x] = {}
 
     local idx_y = 0
     for y=-Extent/2, Extent/2 - 1 do
       local cell_idx_y = Extent - 1 - idx_y
-      Log.log_info(string.format("%i", cell_idx_y))
 
       local n = SpawnWall(Vec3(x*RoomSize, 0.0, y*RoomSize), "n")
       local e = SpawnWall(Vec3(x*RoomSize, 0.0, y*RoomSize), "e")
