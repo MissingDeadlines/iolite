@@ -3,6 +3,7 @@ DebugGeometry.load()
 Pathfinding.load()
 Entity.load()
 CharacterController.load()
+Random.load()
 
 Maze = Utils.require("maze_generator")
 
@@ -17,12 +18,15 @@ function UpdatePathfinding(context)
   if not context.target_cell then
     context.target_cell = Maze.get_random_cell()
     context.target_position = Maze.get_center_position(context.target_cell)
-    context.path = Pathfinding.find_path(char_pos, context.target_position)
+
+    local settings = Pathfinding.create_settings()
+    settings.capsule_radius = 0.4
+    context.path = Pathfinding.find_path(char_pos, context.target_position, settings)
   end
 
   if context.path then
-    Pathfinding.draw_debug_geometry(context.path, false, true)
-    DebugGeometry.draw_sphere(context.target_position, 1.0, Vec4(1.0, 0.0, 0.0, 1.0), false)
+    Pathfinding.draw_path(context.path, context.color, true)
+    DebugGeometry.draw_sphere(context.target_position, 1.0, context.color, false)
 
     if not context.next_position then
       local pos, success = Pathfinding.get_next_position_on_path(context.path)
@@ -69,8 +73,21 @@ function OnActivate(entity)
   Maze.mark({x=1, y=1})
 
   Contexts = {}
-  for i=1,6 do
-    table.insert(Contexts, {char_name=string.format("char%i", i)})
+  for i=1,8 do
+    local name = string.format("char%i", i)
+    local char = Entity.find_first_entity_with_name(name)
+    local char_node = Node.get_component_for_entity(char)
+
+    local rand_cell = Maze.get_random_cell()
+    local rand_pos = Maze.get_center_position(rand_cell)
+
+    Node.set_world_position(char_node, rand_pos)
+    Node.update_transforms(char_node)
+
+    table.insert(Contexts, {char_name=name, 
+      color=Vec4(Random.rand_float_min_max(0.0, 1.0), Random.rand_float_min_max(0.0, 1.0), 
+      Random.rand_float_min_max(0.0, 1.0), 1.0)
+    })
   end
 end
 
