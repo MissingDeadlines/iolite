@@ -8,42 +8,54 @@ Maze = Utils.require("maze_generator")
 
 ExecutePathfinding = false
 
-function UpdatePathfinding()
-  local char = Entity.find_first_entity_with_name("char1")
+function UpdatePathfinding(context)
+  local char = Entity.find_first_entity_with_name(context.char_name)
   local char_node = Node.get_component_for_entity(char)
-  local char_cct = CharacterController.get_component_for_entity(char)
   local char_pos = Node.get_world_position(char_node)
+  local char_cct = CharacterController.get_component_for_entity(char)
 
-  if not TargetCell then
-    TargetCell = Maze.get_random_cell()
-    TargetPosition = Maze.get_center_position(TargetCell)
-    Path = Pathfinding.find_path(char_pos, TargetPosition)
+  if not context.target_cell then
+    context.target_cell = Maze.get_random_cell()
+    context.target_position = Maze.get_center_position(context.target_cell)
+    context.path = Pathfinding.find_path(char_pos, context.target_position)
   end
 
-  if Path then
-    Pathfinding.draw_debug_geometry(Path, false, true)
-    DebugGeometry.draw_sphere(TargetPosition, 1.0, Vec4(1.0, 0.0, 0.0, 1.0), false)
+  if context.path then
+    Pathfinding.draw_debug_geometry(context.path, false, true)
+    DebugGeometry.draw_sphere(context.target_position, 1.0, Vec4(1.0, 0.0, 0.0, 1.0), false)
 
-    if not NextPosition then
-      local pos, success = Pathfinding.get_next_position_on_path(Path)
+    if not context.next_position then
+      local pos, success = Pathfinding.get_next_position_on_path(context.path)
 
       if success then
-        NextPosition = pos
+        context.next_position = pos
       end
     end
 
-    if NextPosition then
-      local to_target = Math.vec_sub(NextPosition, char_pos)
+    if context.next_position then
+      local to_target = Math.vec_sub(context.next_position, char_pos)
       local dist = Math.vec_length(to_target)
 
       if dist > 0 then
         to_target = Math.vec_scale(1.0 / dist, to_target)
       end
 
-      CharacterController.move(char_cct, Math.vec_scale(0.01, to_target))
+      local move_vec = Math.vec_scale(8.0, to_target)
+
+      CharacterController.move(char_cct, move_vec)
 
       if dist < 1.0 then
-        NextPosition, _ = Pathfinding.get_next_position_on_path(Path)
+        local pos, success = Pathfinding.get_next_position_on_path(context.path)
+
+        if success then
+          context.next_position = pos
+        else
+          context.target_cell = nil
+          context.next_position = nil
+
+          Pathfinding.destroy_path(context.path)
+          context.path = nil
+        end
       end
     end
   end
@@ -55,6 +67,11 @@ function OnActivate(entity)
   Maze.generate_world()
   Maze.initialize()
   Maze.mark({x=1, y=1})
+
+  Contexts = {}
+  for i=1,6 do
+    table.insert(Contexts, {char_name=string.format("char%i", i)})
+  end
 end
 
 --- Called every frame.
@@ -73,13 +90,20 @@ function Tick(entity, delta_t)
   end
 
   if ExecutePathfinding then
-    UpdatePathfinding()
+    for i=1,#Contexts do
+      UpdatePathfinding(Contexts[i])
+    end
   end
 end
 
 --- Called once when the script component becomes inactive.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnDeactivate(entity)
+    for i=1,#Contexts do
+      if Contexts[i].path then
+        Pathfinding.destroy_path(Contexts[i].path)
+      end
+    end
 end
 
 --- Event callback
