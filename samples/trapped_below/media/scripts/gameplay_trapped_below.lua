@@ -28,7 +28,7 @@ function AnimateLights()
 
  light_ceil_intens = light_ceil_intens - Math.pow(Noise.simplex(Vec4(TimePassed, 0.0, 0.0, 0.0)), 2.0) * light_ceil_intens
 
- Light.set_intensity(light_ceil_l, light_ceil_intens)
+ Light.set_property(light_ceil_l, "Intensity", Variant.from_float(light_ceil_intens))
 end
 
 function DrawCursor()

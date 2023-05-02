@@ -10,6 +10,6 @@
     ],
     "initial_world": "sample_physics",
     "initial_game_state": "Editing",
-    "active_data_source": "sample_tree_generator",
+    "active_data_source": "sample_pathfinding",
     "version_string": "development"
 }

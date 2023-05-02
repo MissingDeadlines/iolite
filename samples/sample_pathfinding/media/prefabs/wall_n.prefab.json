@@ -1,0 +1,114 @@
+[
+    {
+        "uuid": {
+            "value": 5811078929033493026
+        },
+        "name": {
+            "value": "wall_n"
+        },
+        "offsetToParent": 0,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 5811078929033493026
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 17729482290052137908
+        },
+        "name": {
+            "value": "wall_gray"
+        },
+        "offsetToParent": -1,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 12157394499309420710
+                    },
+                    "localPos": {
+                        "values": [
+                            -2.700000047683716,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            -0.7071067690849304,
+                            0.0,
+                            0.7071067690849304
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 9564764387287568706
+                    },
+                    "voxelShapeName": {
+                        "value": "wall_gray"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 0
+                    },
+                    "pivot": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    }
+]
