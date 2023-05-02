@@ -3,6 +3,9 @@ Math.load()
 Random.load()
 Node.load()
 
+-- Tree generator based on
+-- https://nickmcd.me/2020/10/19/transport-oriented-growth-and-procedural-trees/
+
 function BranchEmpty()
     return {
         parent = nil,
@@ -63,8 +66,8 @@ function LeafAverage(base_branch, branch)
 end
 
 function LeafDensity(branch)
-    local r = Math.vec_normalize(Vec3(Random.rand_float_min_max( -1.0, 1.0), Random.rand_float_min_max( -1.0, 1.0),
-        Random.rand_float_min_max( -1.0, 1.0)))
+    local r = Math.vec_normalize(Vec3(Random.rand_float_min_max(-1.0, 1.0), Random.rand_float_min_max(-1.0, 1.0),
+        Random.rand_float_min_max(-1.0, 1.0)))
 
     if not branch.parent then
         return r
@@ -92,7 +95,7 @@ function Split(branch)
 
     local d = LeafDensity(branch)
     local n = Math.vec_normalize(Math.vec_cross(branch.dir, d))
-    local m = Math.vec_scale( -1.0, n)
+    local m = Math.vec_scale(-1.0, n)
 
     local flip = 1
     if Random.rand_float_min_max(0.0, 1.0) > 0.5 then
@@ -114,12 +117,12 @@ function Grow(branch, feed)
         feed = feed - Math.pow(feed, 1.0 / 4.0) * branch.area
         branch.area = branch.area + feed / branch.length
 
-        if branch.length > branch.split_size * Math.exp( -SplitDecay * branch.depth) then
+        if branch.length > branch.split_size * Math.exp(-SplitDecay * branch.depth) then
             Split(branch)
         end
     else
         local pass = (branch.child_a.area + branch.child_b.area) /
-            (branch.child_a.area + branch.child_b.area + branch.area)
+                         (branch.child_a.area + branch.child_b.area + branch.area)
         branch.area = branch.area + pass * feed / branch.length
         feed = feed * (1.0 - pass)
 
@@ -165,10 +168,6 @@ function UpdateVoxels(pos, branch)
         branch.radius_drawn = radius
         branch.length_drawn = branch.length
     end
-
-    --[[DebugGeometry.draw_line(pos,
-            next_pos, Vec4(0.0, 1.0, 0.0, 1.0), false)]]
-    --
 
     if not IsLeaf(branch) then
         UpdateVoxels(next_pos, branch.child_a)
