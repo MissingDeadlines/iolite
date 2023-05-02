@@ -147,4 +147,8 @@ function Maze.get_center_position(cell)
   return Math.vec_add(Node.get_world_position(Maze.cells[cell.y][cell.x].n), Vec3(-0.5 * Maze.room_size, 0.0, 0.5 * Maze.room_size))
 end
 
+function Maze.is_ready()
+  return #Maze.frontier == 0
+end
+
 return Maze
