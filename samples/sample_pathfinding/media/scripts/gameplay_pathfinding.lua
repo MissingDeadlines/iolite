@@ -150,9 +150,8 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
-  --Maze.mark({x=Random.rand_uint_min_max(1, Extent + 1), y=Random.rand_uint_min_max(1, Extent + 1)})
   local steps = 2
-  for i=1,2 do
+  for i=1,steps do
     Maze.advance()
   end
 end
