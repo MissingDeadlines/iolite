@@ -123,17 +123,17 @@
                     },
                     "localPos": {
                         "values": [
-                            59.99220657348633,
-                            51.890323638916016,
-                            1.4045753479003906
+                            49.14643096923828,
+                            19.101205825805664,
+                            41.66749954223633
                         ]
                     },
                     "localOrient": {
                         "values": [
-                            0.27626344561576843,
-                            -0.6483422517776489,
-                            0.2736378014087677,
-                            0.654563307762146
+                            0.33652809262275696,
+                            -0.6284235119819641,
+                            0.34701111912727356,
+                            0.6094391345977783
                         ]
                     },
                     "localSize": {
@@ -340,6 +340,196 @@
                             0.0,
                             0.0,
                             0.0
+                        ]
+                    },
+                    "glassTransparency": {
+                        "value": 0.5
+                    },
+                    "linearDamping": {
+                        "value": 0.10000000149011612
+                    },
+                    "angularDamping": {
+                        "value": 0.10000000149011612
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 7023471995932399433
+        },
+        "name": {
+            "value": "char1"
+        },
+        "offsetToParent": -6,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 7023471995932399433
+                    },
+                    "localPos": {
+                        "values": [
+                            38.73314666748047,
+                            0.39999842643737793,
+                            42.176971435546875
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "CharacterController",
+                "properties": {
+                    "halfHeight": {
+                        "value": 1.100000023841858
+                    },
+                    "radius": {
+                        "value": 0.6000000238418579
+                    },
+                    "contactOffset": {
+                        "value": 0.10000000149011612
+                    },
+                    "stepOffset": {
+                        "value": 0.5
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 14771199180895921643
+        },
+        "name": {
+            "value": "post_effect"
+        },
+        "offsetToParent": -7,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 14771199180895921643
+                    },
+                    "localPos": {
+                        "values": [
+                            37.380836486816406,
+                            0.40000152587890625,
+                            41.30588150024414
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "PostEffectVolume",
+                "properties": {
+                    "uuid": {
+                        "value": 11134636709746927202
+                    },
+                    "postEffectName": {
+                        "value": "clean"
+                    },
+                    "radius": {
+                        "value": 5000.0
+                    },
+                    "blendRange": {
+                        "value": 2.0
+                    },
+                    "priority": {
+                        "value": 0.0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
+            "value": 6789753722956696999
+        },
+        "name": {
+            "value": "capsule"
+        },
+        "offsetToParent": -2,
+        "propertyEntries": [
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 6789753722956696999
+                    },
+                    "localPos": {
+                        "values": [
+                            0.0,
+                            0.8000000715255737,
+                            0.0
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            0.05000000074505806,
+                            0.05000000074505806,
+                            0.05000000074505806
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "VoxelShape",
+                "properties": {
+                    "uuid": {
+                        "value": 6387427337177922492
+                    },
+                    "voxelShapeName": {
+                        "value": "capsule"
+                    },
+                    "voxelShapeFlags": {
+                        "value": 0
+                    },
+                    "pivot": {
+                        "values": [
+                            9.5,
+                            16.0,
+                            9.5
                         ]
                     },
                     "glassTransparency": {

@@ -151,8 +151,10 @@ end
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
   --Maze.mark({x=Random.rand_uint_min_max(1, Extent + 1), y=Random.rand_uint_min_max(1, Extent + 1)})
-  Maze.advance()
-  Maze.advance()
+  local steps = 2
+  for i=1,2 do
+    Maze.advance()
+  end
 end
 
 --- Called once when the script component becomes inactive.
