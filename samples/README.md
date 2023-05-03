@@ -1,8 +1,14 @@
 # Samples
 
-The samples require the latest version of IOLITE `v0.1.7`.
+The samples require the latest version of IOLITE `v0.1.8`.
 
 Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
+
+## Pathfinding (sample_pathfinding)
+
+Sample showcases a simple procedurally generated maze and the pathfinding with multiple agents.
+
+![Screenshot of the Pathfinding Sample](../media/samples/sample_pathfinding.jpg?raw=true)
 
 ## Physics (sample_physics)
 
