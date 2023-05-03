@@ -163,80 +163,12 @@
     },
     {
         "uuid": {
-            "value": 5007941648137565835
-        },
-        "name": {
-            "value": "sky"
-        },
-        "offsetToParent": -3,
-        "propertyEntries": [
-            {
-                "type": "Mesh",
-                "properties": {
-                    "uuid": {
-                        "value": 15864547361486475102
-                    },
-                    "meshName": {
-                        "value": "sky"
-                    },
-                    "colorTint": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    },
-                    "parameterBias": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 5007941648137565835
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            5000.0,
-                            5000.0,
-                            5000.0
-                        ]
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "uuid": {
             "value": 17638172443412986321
         },
         "name": {
             "value": "gameplay"
         },
-        "offsetToParent": -4,
+        "offsetToParent": -3,
         "propertyEntries": [
             {
                 "type": "Script",
@@ -291,7 +223,7 @@
         "name": {
             "value": "plate_32_gray"
         },
-        "offsetToParent": -5,
+        "offsetToParent": -4,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -362,7 +294,7 @@
         "name": {
             "value": "char1"
         },
-        "offsetToParent": -6,
+        "offsetToParent": -5,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -420,7 +352,7 @@
         "name": {
             "value": "post_effect"
         },
-        "offsetToParent": -7,
+        "offsetToParent": -6,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -481,7 +413,7 @@
         "name": {
             "value": "char2"
         },
-        "offsetToParent": -8,
+        "offsetToParent": -7,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -539,7 +471,7 @@
         "name": {
             "value": "char3"
         },
-        "offsetToParent": -9,
+        "offsetToParent": -8,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -597,7 +529,7 @@
         "name": {
             "value": "char4"
         },
-        "offsetToParent": -10,
+        "offsetToParent": -9,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -655,7 +587,7 @@
         "name": {
             "value": "char5"
         },
-        "offsetToParent": -11,
+        "offsetToParent": -10,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -713,7 +645,7 @@
         "name": {
             "value": "char6"
         },
-        "offsetToParent": -12,
+        "offsetToParent": -11,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -771,7 +703,7 @@
         "name": {
             "value": "char9"
         },
-        "offsetToParent": -13,
+        "offsetToParent": -12,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -829,7 +761,7 @@
         "name": {
             "value": "char7"
         },
-        "offsetToParent": -14,
+        "offsetToParent": -13,
         "propertyEntries": [
             {
                 "type": "Node",
@@ -887,7 +819,7 @@
         "name": {
             "value": "char8"
         },
-        "offsetToParent": -15,
+        "offsetToParent": -14,
         "propertyEntries": [
             {
                 "type": "Node",

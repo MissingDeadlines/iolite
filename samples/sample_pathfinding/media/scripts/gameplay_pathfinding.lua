@@ -14,22 +14,24 @@ function UpdatePathfinding(context)
     local char_cct = CharacterController.get_component_for_entity(char)
 
     -- If we've got no random cell yet, select a new one
-    if not context.target_cell then
-        context.target_cell = Maze.get_random_cell()
-        context.target_position = Maze.get_center_position(context.target_cell)
+    if not context.target_position then
+        local target_cell = Maze.get_random_cell()
+        context.target_position = Maze.get_center_position(target_cell)
+        context.start_position = char_pos
 
         -- Start calculating a path from the current position of the character
         -- to the chosen random target position
         local settings = Pathfinding.create_settings()
         settings.capsule_radius = 0.4
-        context.path = Pathfinding.find_path(char_pos, context.target_position, settings)
+        context.path = Pathfinding.find_path(context.start_position, context.target_position, settings)
     end
 
     -- Process our path
     if context.path then
         -- Draw the path and a sphere at the target position
-        Pathfinding.draw_path(context.path, context.color, true)
+        Pathfinding.draw_path(context.path, context.color, false)
         DebugGeometry.draw_sphere(context.target_position, 1.0, context.color, false)
+        DebugGeometry.draw_sphere(context.start_position, 1.0, context.color, false)
 
         -- If we've got no next target position yet, try to retrieve a new one
         -- from our path
@@ -76,8 +78,8 @@ function UpdatePathfinding(context)
                     -- We've reached our target. Reset everything
                     -- so the character choses a new random position
                     -- to target
-                    context.target_cell = nil
                     context.next_position = nil
+                    context.target_position = nil
 
                     Pathfinding.destroy_path(context.path)
                     context.path = nil
@@ -169,6 +171,7 @@ function OnDeactivate(entity)
         local ctxt = PathfindingContexts[i]
         if ctxt.path then
             Pathfinding.destroy_path(ctxt.path)
+            ctxt.path = nil
         end
     end
 end
