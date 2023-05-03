@@ -520,12 +520,67 @@
     },
     {
         "uuid": {
+            "value": 18148145995500366473
+        },
+        "name": {
+            "value": "gameplay"
+        },
+        "offsetToParent": -8,
+        "propertyEntries": [
+            {
+                "type": "Script",
+                "properties": {
+                    "uuid": {
+                        "value": 9284202390095742012
+                    },
+                    "updateInterval": {
+                        "value": 100
+                    },
+                    "scriptName": {
+                        "value": "gameplay_tree_generator"
+                    }
+                }
+            },
+            {
+                "type": "Node",
+                "properties": {
+                    "uuid": {
+                        "value": 18148145995500366473
+                    },
+                    "localPos": {
+                        "values": [
+                            -71.53125762939453,
+                            10.115983009338379,
+                            29.659204483032227
+                        ]
+                    },
+                    "localOrient": {
+                        "values": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "localSize": {
+                        "values": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "uuid": {
             "value": 1469725519310000996
         },
         "name": {
             "value": "tree"
         },
-        "offsetToParent": -1,
+        "offsetToParent": -2,
         "propertyEntries": [
             {
                 "type": "Script",
@@ -580,7 +635,7 @@
         "name": {
             "value": "tree"
         },
-        "offsetToParent": -3,
+        "offsetToParent": -4,
         "propertyEntries": [
             {
                 "type": "Script",
@@ -635,7 +690,7 @@
         "name": {
             "value": "tree"
         },
-        "offsetToParent": -5,
+        "offsetToParent": -6,
         "propertyEntries": [
             {
                 "type": "Script",

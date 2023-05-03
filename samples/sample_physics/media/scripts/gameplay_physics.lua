@@ -11,6 +11,7 @@ CharacterController.load()
 DebugGeometry.load()
 VoxelShape.load()
 ParticleSystem.load()
+UI.load()
 
 function SpawnPrefab(name, distance, force, torque)
     local cam = Entity.find_first_entity_with_name("game_camera")
@@ -172,6 +173,9 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
+    -- Draw the logo
+    UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
+
     -- Spawn a grenade
     if Input.get_key_state(Key.kMouseLeft, 0) == KeyState.kPressed then
         if not GrenadeSpawned then

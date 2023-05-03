@@ -4,6 +4,7 @@ Pathfinding.load()
 Entity.load()
 CharacterController.load()
 Random.load()
+UI.load()
 
 function UpdatePathfinding(context)
     -- Collect the components of our character
@@ -48,6 +49,8 @@ function UpdatePathfinding(context)
             -- Calculate a vector pointing from the current position to the
             -- next position on the path
             local to_target = Math.vec_sub(context.next_position, char_pos)
+            -- Cancel out movement along y-axis
+            to_target.y = 0
             -- Calculate the distance to the next target
             local dist = Math.vec_length(to_target)
             -- Normalize the vector
@@ -100,34 +103,14 @@ function OnActivate(entity)
     -- Contexts store the data needed to compute and update the pathfinding
     PathfindingContexts = {}
     ExecutePathfinding = false
-
-    -- Initialize contexts for eight characters
-    local num_chars = 9
-    for i = 1, num_chars do
-        local name = string.format("char%i", i)
-        local char = Entity.find_first_entity_with_name(name)
-        local char_node = Node.get_component_for_entity(char)
-
-        -- Calculate and assign random position for this character
-        local rand_cell = Maze.get_random_cell()
-        local rand_pos = Maze.get_center_position(rand_cell)
-        Node.set_world_position(char_node, rand_pos)
-        Node.update_transforms(char_node)
-
-        -- Finally initialize and store the context
-        local color = Vec4(Random.rand_float_min_max(0.0, 1.0), Random.rand_float_min_max(0.0, 1.0),
-            Random.rand_float_min_max(0.0, 1.0), 1.0)
-        table.insert(PathfindingContexts, {
-            char_name = name,
-            color = color
-        })
-    end
 end
 
 --- Called every frame.
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
+    -- Draw the logo
+    UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
 
     -- Generate the maze incrementally. Increase the number of steps
     -- to speed up the process
@@ -137,16 +120,45 @@ function Tick(entity, delta_t)
     end
 
     -- Start to execute the pathfinding when the maze is ready
-    if Maze.is_ready() then
+    if Maze.is_ready() and not ExecutePathfinding then
+        -- Initialize contexts for eight characters
+        local num_chars = 9
+        for i = 1, num_chars do
+            local name = string.format("char%i", i)
+            local char = Entity.find_first_entity_with_name(name)
+            local char_node = Node.get_component_for_entity(char)
+
+            -- Calculate and assign random position for this character
+            local rand_cell = Maze.get_random_cell()
+            local rand_pos = Maze.get_center_position(rand_cell)
+            Node.set_world_position(char_node, rand_pos)
+            Node.update_transforms(char_node)
+
+            -- Finally initialize and store the context
+            local color = Vec4(Random.rand_float_min_max(0.0, 1.0), Random.rand_float_min_max(0.0, 1.0),
+                Random.rand_float_min_max(0.0, 1.0), 0.25)
+            table.insert(PathfindingContexts, {
+                char_name = name,
+                color = color
+            })
+        end
+
         ExecutePathfinding = true
     end
 
+    local num_active_agents = 0
     if ExecutePathfinding then
         -- Update pathfinding for all contexts
         for i = 1, #PathfindingContexts do
-            UpdatePathfinding(PathfindingContexts[i])
+            local ctxt = PathfindingContexts[i]
+            UpdatePathfinding(ctxt)
+            if ctxt.next_position then
+                num_active_agents = num_active_agents + 1
+            end
         end
     end
+
+    UI.draw_text(string.format("Active Agents: %i", num_active_agents), Vec2(0.01, 0.98), Vec2(0.0, 0.0), Vec4(1.0), 0)
 end
 
 --- Called once when the script component becomes inactive.
