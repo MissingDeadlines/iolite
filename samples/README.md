@@ -8,6 +8,10 @@ Place the files in this directory in the root directory of IOLITE, load one of t
 
 Sample showcases a simple procedurally generated maze and the pathfinding with multiple agents.
 
+### Controls
+
+- Press `R` to generate a new maze
+
 ![Screenshot of the Pathfinding Sample](../media/samples/sample_pathfinding.jpg?raw=true)
 
 ## Physics (sample_physics)

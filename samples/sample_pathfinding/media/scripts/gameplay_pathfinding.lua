@@ -5,6 +5,8 @@ Entity.load()
 CharacterController.load()
 Random.load()
 UI.load()
+Input.load()
+World.load()
 
 function UpdatePathfinding(context)
     -- Collect the components of our character
@@ -113,6 +115,10 @@ end
 function Tick(entity, delta_t)
     -- Draw the logo
     UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
+
+    if Input.get_key_state(Key.kR, 0) == KeyState.kClicked then
+        World.load_world("sample_pathfinding")
+    end
 
     -- Generate the maze incrementally. Increase the number of steps
     -- to speed up the process
