@@ -1,15 +1,17 @@
 {
-    "application_name": "IOLITE Samples",
-    "organization_name": "Missing Deadlines",
-    "data_sources": [
-        "sample_base",
-        "sample_physics",
-        "sample_pathfinding",
-        "sample_tree_generator",
-        "trapped_below"
-    ],
-    "initial_world": "sample_physics",
-    "initial_game_state": "Editing",
-    "active_data_source": "sample_pathfinding",
-    "version_string": "development"
+  "application_name": "IOLITE Samples",
+  "organization_name": "Missing Deadlines",
+  "data_sources": [
+    "sample_base",
+    "sample_physics",
+    "sample_pathfinding",
+    "sample_tree_generator",
+    "sample_flappy",
+    "sample_minecraft_map",
+    "trapped_below"
+  ],
+  "initial_world": "sample_flappy",
+  "initial_game_state": "Editing",
+  "active_data_source": "sample_minecraft_map",
+  "version_string": "development"
 }

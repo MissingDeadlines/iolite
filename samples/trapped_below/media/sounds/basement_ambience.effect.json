@@ -1,0 +1,14 @@
+{
+  "basement_ambience": {
+    "looping": true,
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "basement_ambience.ogg"
+        ],
+        "volume": 1.0
+      }
+    ]
+  }
+}

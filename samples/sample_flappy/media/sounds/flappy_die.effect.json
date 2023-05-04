@@ -1,0 +1,17 @@
+{
+  "flappy_die": {
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "flappy_die.ogg"
+        ],
+        "volume": 1.0,
+        "pitch": [
+          -4.0,
+          4.0
+        ]
+      }
+    ]
+  }
+}

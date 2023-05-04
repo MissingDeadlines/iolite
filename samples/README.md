@@ -1,12 +1,40 @@
 # Samples
 
-The samples require the latest version of IOLITE `v0.1.8`.
+The samples require the latest version of IOLITE `v0.1.9`.
 
 Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
 
+## Minecraft Map (sample_minecraft_map)
+
+Shows a segment of the Minecraft map [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) converted to the VOX file format via [Avoyd's voxel editor](https://www.avoyd.com) and imported as a scene in IOLITE.
+
+### References
+
+- Hohenzollern Castle and Kingdom  
+<https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/>
+- Avoyd Voxel Editor & Game  
+<https://www.avoyd.com/>
+
+![Screenshot of the Minecraft Map Sample](../media/samples/sample_minecraft_map.jpg?raw=true)
+
+## Flappy Bird (sample_flappy)
+
+Flappy Bird clone as an example for a simple physics-based game with a somewhat procedurally generated world.
+
+### Controls
+
+- Press `Space`, `Controller Button A`, or `Left Mouse Button` to flap
+
+### References
+
+- Flappy Bird assets sourced from  
+<https://github.com/samuelcust/flappy-bird-assets/tree/master>
+
+![Screenshot of the Flappy Bird Sample](../media/samples/sample_flappy.jpg?raw=true)
+
 ## Pathfinding (sample_pathfinding)
 
-Sample showcases a simple procedurally generated maze and the pathfinding with multiple agents.
+Sample showcases a procedurally generated maze and the usage of the pathfinding system with multiple agents in it.
 
 ### Controls
 
@@ -27,7 +55,7 @@ Example focusing on physics with FPS controls. Showcases the usage of joints to 
 - Press `E` to spawn a ragdoll
 - Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
-### Additional credits
+### References
 
 - Mage voxel character by Lucy (Pentakie)
 
@@ -38,6 +66,7 @@ Example focusing on physics with FPS controls. Showcases the usage of joints to 
 Showcases the procedural generation of trees.
 
 ### References
+
 - Transport-Oriented Growth and Procedural Trees  
 <https://nickmcd.me/2020/10/19/transport-oriented-growth-and-procedural-trees/>
 

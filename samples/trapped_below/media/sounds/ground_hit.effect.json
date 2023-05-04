@@ -1,0 +1,17 @@
+{
+  "ground_hit": {
+    "volume": 0.2,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "ground_hit.ogg"
+        ],
+        "volume": 1.0,
+        "pitch": [
+          -4.0,
+          4.0
+        ]
+      }
+    ]
+  }
+}

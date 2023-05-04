@@ -1,0 +1,17 @@
+{
+  "flappy_hit": {
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "flappy_hit.ogg"
+        ],
+        "volume": 1.0,
+        "pitch": [
+          -4.0,
+          4.0
+        ]
+      }
+    ]
+  }
+}
