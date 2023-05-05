@@ -72,6 +72,12 @@ Showcases the procedural generation of trees.
 
 ![Screenshot of the Tree Generator Sample](../media/samples/sample_tree_generator.jpg?raw=true)
 
+## Heightmap (sample_heightmap)
+
+Shows the procedural generation of a heightmap-based terrain directly from Lua.
+
+![Screenshot of the Heightmap Sample](../media/samples/sample_heightmap.jpg?raw=true)
+
 ## Trapped Below (trapped_below)
 
 "Trapped Below" is a small game I'm building for the [Week Sauce](https://weeksauce.io/) game jam (April 2023).

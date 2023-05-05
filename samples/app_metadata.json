@@ -8,10 +8,11 @@
     "sample_tree_generator",
     "sample_flappy",
     "sample_minecraft_map",
+    "sample_heightmap",
     "trapped_below"
   ],
   "initial_world": "sample_flappy",
   "initial_game_state": "Editing",
-  "active_data_source": "sample_minecraft_map",
+  "active_data_source": "sample_heightmap",
   "version_string": "development"
 }
