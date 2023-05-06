@@ -4,6 +4,22 @@ Collection of helper scripts for IOLITE written in Python.
 
 To install the Python packages required by the scripts, simply run `pip install -r requirements.txt` and you are good to go!
 
+## package_generator.py
+
+```
+usage: IOLITE Package Generator [-h] -o OUTPUT data_source_path
+
+Generates an IOLITE Package File (IOPKG) from the provided data source directory.
+
+positional arguments:
+  data_source_path      The data source directory to create the package for.
+
+options:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        The filepath of the package file to create. Example: 'base.iopkg'.
+```
+
 ## heightmap_generator.py
 
 ```

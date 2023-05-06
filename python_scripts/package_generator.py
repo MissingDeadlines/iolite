@@ -4,6 +4,7 @@ import glob
 import json
 import argparse
 
+
 def hash_djb2(b):
     h = 5381
     for x in b:
@@ -11,10 +12,14 @@ def hash_djb2(b):
         h &= 0xFFFFFFFF
     return h
 
-parser = argparse.ArgumentParser(prog="IOLITE Package Generator", description="Generates an IOLITE Package File (IOPKG) file from the provided data source directory.")
 
-parser.add_argument("data_source_path", help="The data source directory to create the package for.")
-parser.add_argument("-o", "--output", required=True, help="The filepath of the package file to create. Example: 'base.iopkg'.")
+parser = argparse.ArgumentParser(prog="IOLITE Package Generator",
+                                 description="Generates an IOLITE Package File (IOPKG) from the provided data source directory.")
+
+parser.add_argument("data_source_path",
+                    help="The data source directory to create the package for.")
+parser.add_argument("-o", "--output", required=True,
+                    help="The filepath of the package file to create. Example: 'base.iopkg'.")
 
 args = parser.parse_args()
 
