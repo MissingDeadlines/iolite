@@ -1,94 +1,91 @@
 {
-    "name": "flappy_explosion",
-    "properties": {
-        "uuid": {
-            "value": 17930085489121457264
-        },
-        "name": {
-            "value": "flappy_explosion"
-        },
-        "dataSource": {
-            "value": "sample_flappy"
-        },
-        "emitterFlags": {
-            "value": 4
-        },
-        "initialVelocity": {
-            "value": 5.0
-        },
-        "scaleMin": {
-            "value": 0.019999999552965164
-        },
-        "scaleMax": {
-            "value": 0.05000000074505806
-        },
-        "scaleFactor": {
-            "value": 0.5
-        },
-        "scaleFactorCurveEdgeStart": {
-            "value": 0.0
-        },
-        "scaleFactorCurveEdgeEnd": {
-            "value": 0.009999999776482582
-        },
-        "spawnRate": {
-            "value": 5000.0
-        },
-        "lifetime": {
-            "value": 2.0
-        },
-        "emissiveIntensity": {
-            "value": 100.0
-        },
-        "colorStart": {
-            "values": [
-                1.0,
-                0.4247104525566101,
-                0.4247104525566101,
-                1.0
-            ]
-        },
-        "colorEnd": {
-            "values": [
-                0.633204460144043,
-                0.0,
-                1.0,
-                1.0
-            ]
-        },
-        "colorCurveEdgeStart": {
-            "value": 0.0
-        },
-        "colorCurveEdgeEnd": {
-            "value": 1.0
-        },
-        "emissionDirection": {
-            "values": [
-                0.0,
-                0.0,
-                1.0
-            ]
-        },
-        "emissionSpread": {
-            "value": 0.5
-        },
-        "emissionRadius": {
-            "value": 1.0
-        },
-        "vectorFieldIntensity": {
-            "value": 20.0
-        },
-        "vectorFieldTightness": {
-            "value": 0.009999999776482582
-        },
-        "vectorFieldScale": {
-            "value": 0.10000000149011612
-        },
-        "velocityScale": {
-            "value": 2.0
-        },
-        "gravity": {
-            "value": -20.0
-        }
+  "name": "flappy_explosion",
+  "properties": {
+    "name": {
+      "value": "flappy_explosion"
+    },
+    "dataSource": {
+      "value": "sample_flappy"
+    },
+    "emitterFlags": {
+      "value": 4
+    },
+    "initialVelocity": {
+      "value": 5.0
+    },
+    "scaleMin": {
+      "value": 0.019999999552965164
+    },
+    "scaleMax": {
+      "value": 0.05000000074505806
+    },
+    "scaleFactor": {
+      "value": 0.5
+    },
+    "scaleFactorCurveEdgeStart": {
+      "value": 0.0
+    },
+    "scaleFactorCurveEdgeEnd": {
+      "value": 0.009999999776482582
+    },
+    "spawnRate": {
+      "value": 5000.0
+    },
+    "lifetime": {
+      "value": 2.0
+    },
+    "emissiveIntensity": {
+      "value": 100.0
+    },
+    "colorStart": {
+      "values": [
+        1.0,
+        0.4247104525566101,
+        0.4247104525566101,
+        1.0
+      ]
+    },
+    "colorEnd": {
+      "values": [
+        0.633204460144043,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    "colorCurveEdgeStart": {
+      "value": 0.0
+    },
+    "colorCurveEdgeEnd": {
+      "value": 1.0
+    },
+    "emissionDirection": {
+      "values": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "emissionSpread": {
+      "value": 0.5
+    },
+    "emissionRadius": {
+      "value": 1.0
+    },
+    "vectorFieldIntensity": {
+      "value": 20.0
+    },
+    "vectorFieldTightness": {
+      "value": 0.009999999776482582
+    },
+    "vectorFieldScale": {
+      "value": 0.10000000149011612
+    },
+    "velocityScale": {
+      "value": 2.0
+    },
+    "gravity": {
+      "value": -20.0
     }
+  }
 }

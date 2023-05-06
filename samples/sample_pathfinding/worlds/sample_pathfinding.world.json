@@ -1,1512 +1,1323 @@
 [
-    {
-        "uuid": {
-            "value": 13553490037303984299
-        },
-        "name": {
-            "value": "sample_pathfinding"
-        },
-        "offsetToParent": 0,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 13553490037303984299
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
+  {
+    "name": {
+      "value": "sample_pathfinding"
     },
-    {
-        "uuid": {
-            "value": 13260746527346070506
-        },
-        "name": {
-            "value": "game_camera"
-        },
-        "offsetToParent": -1,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 13260746527346070506
-                    },
-                    "localPos": {
-                        "values": [
-                            47.41813659667969,
-                            57.72205352783203,
-                            -0.44377389550209045
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.33448028564453125,
-                            -0.6219708919525146,
-                            0.3329456150531769,
-                            0.6248378157615662
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "Camera",
-                "properties": {
-                    "uuid": {
-                        "value": 15864547361486475102
-                    },
-                    "projectionType": {
-                        "value": 0
-                    },
-                    "fov": {
-                        "value": 60.000003814697266
-                    }
-                }
-            },
-            {
-                "type": "CameraController",
-                "properties": {
-                    "uuid": {
-                        "value": 5508520073598673688
-                    },
-                    "cameraControllerType": {
-                        "value": 1
-                    }
-                }
-            }
-        ]
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "game_camera"
     },
-    {
-        "uuid": {
-            "value": 2247814422158590797
-        },
-        "name": {
-            "value": "editing_camera"
-        },
-        "offsetToParent": -2,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 2247814422158590797
-                    },
-                    "localPos": {
-                        "values": [
-                            61.4378547668457,
-                            44.18852615356445,
-                            12.940908432006836
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.22803804278373718,
-                            -0.6636407375335693,
-                            0.22373515367507935,
-                            0.6764038801193237
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "Camera",
-                "properties": {
-                    "uuid": {
-                        "value": 17159394745622765248
-                    },
-                    "projectionType": {
-                        "value": 0
-                    },
-                    "fov": {
-                        "value": 60.000003814697266
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              47.41813659667969,
+              57.72205352783203,
+              -0.44377389550209045
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.33448028564453125,
+              -0.6219708919525146,
+              0.3329456150531769,
+              0.6248378157615662
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      },
+      {
+        "type": "CameraController",
+        "properties": {
+          "cameraControllerType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "editing_camera"
     },
-    {
-        "uuid": {
-            "value": 17638172443412986321
-        },
-        "name": {
-            "value": "gameplay"
-        },
-        "offsetToParent": -3,
-        "propertyEntries": [
-            {
-                "type": "Script",
-                "properties": {
-                    "uuid": {
-                        "value": 13025853411938817694
-                    },
-                    "updateInterval": {
-                        "value": 100
-                    },
-                    "scriptName": {
-                        "value": "gameplay_pathfinding"
-                    }
-                }
-            },
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 17638172443412986321
-                    },
-                    "localPos": {
-                        "values": [
-                            41.16824722290039,
-                            6.5271124839782715,
-                            14.037031173706055
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -2,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              61.4378547668457,
+              44.18852615356445,
+              12.940908432006836
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.22803804278373718,
+              -0.6636407375335693,
+              0.22373515367507935,
+              0.6764038801193237
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "gameplay"
     },
-    {
-        "uuid": {
-            "value": 12218250954224956367
-        },
-        "name": {
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Script",
+        "properties": {
+          "updateInterval": {
+            "value": 100
+          },
+          "scriptName": {
+            "value": "gameplay_pathfinding"
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              41.16824722290039,
+              6.5271124839782715,
+              14.037031173706055
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "plate_32_gray"
+    },
+    "offsetToParent": -4,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -46.400001525878906,
+              0.0,
+              -43.5
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              2.7184998989105225,
+              0.10000000149011612,
+              2.7179999351501465
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "plate_32_gray"
-        },
-        "offsetToParent": -4,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 12218250954224956367
-                    },
-                    "localPos": {
-                        "values": [
-                            -46.400001525878906,
-                            0.0,
-                            -43.5
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            2.7184998989105225,
-                            0.10000000149011612,
-                            2.7179999351501465
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 2473939768901783316
-                    },
-                    "voxelShapeName": {
-                        "value": "plate_32_gray"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 0
-                    },
-                    "pivot": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char1"
     },
-    {
-        "uuid": {
-            "value": 7023471995932399433
-        },
-        "name": {
-            "value": "char1"
-        },
-        "offsetToParent": -5,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            4.8331451416015625,
-                            0.39999842643737793,
-                            -4.823028564453125
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -5,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              4.8331451416015625,
+              0.39999842643737793,
+              -4.823028564453125
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "post_effect"
     },
-    {
-        "uuid": {
-            "value": 14771199180895921643
-        },
-        "name": {
-            "value": "post_effect"
-        },
-        "offsetToParent": -6,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 14771199180895921643
-                    },
-                    "localPos": {
-                        "values": [
-                            37.380836486816406,
-                            0.40000152587890625,
-                            41.30588150024414
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "PostEffectVolume",
-                "properties": {
-                    "uuid": {
-                        "value": 11134636709746927202
-                    },
-                    "postEffectName": {
-                        "value": "clean"
-                    },
-                    "radius": {
-                        "value": 5000.0
-                    },
-                    "blendRange": {
-                        "value": 2.0
-                    },
-                    "priority": {
-                        "value": 0.0
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -6,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              37.380836486816406,
+              0.40000152587890625,
+              41.30588150024414
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "PostEffectVolume",
+        "properties": {
+          "postEffectName": {
+            "value": "clean"
+          },
+          "radius": {
+            "value": 5000.0
+          },
+          "blendRange": {
+            "value": 2.0
+          },
+          "priority": {
+            "value": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char2"
     },
-    {
-        "uuid": {
-            "value": 8552712432941836135
-        },
-        "name": {
-            "value": "char2"
-        },
-        "offsetToParent": -7,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            -16.26685333251953,
-                            0.39999842643737793,
-                            -19.623027801513672
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -7,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -16.26685333251953,
+              0.39999842643737793,
+              -19.623027801513672
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char3"
     },
-    {
-        "uuid": {
-            "value": 3435197986315277526
-        },
-        "name": {
-            "value": "char3"
-        },
-        "offsetToParent": -8,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            -35.66685485839844,
-                            0.39999842643737793,
-                            28.07697296142578
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -8,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -35.66685485839844,
+              0.39999842643737793,
+              28.07697296142578
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char4"
     },
-    {
-        "uuid": {
-            "value": 6600070975662291924
-        },
-        "name": {
-            "value": "char4"
-        },
-        "offsetToParent": -9,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            13.13314437866211,
-                            0.39999842643737793,
-                            28.07697296142578
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -9,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              13.13314437866211,
+              0.39999842643737793,
+              28.07697296142578
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char5"
     },
-    {
-        "uuid": {
-            "value": 14555841103101104163
-        },
-        "name": {
-            "value": "char5"
-        },
-        "offsetToParent": -10,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            13.13314437866211,
-                            0.39999842643737793,
-                            -18.323028564453125
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -10,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              13.13314437866211,
+              0.39999842643737793,
+              -18.323028564453125
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char6"
     },
-    {
-        "uuid": {
-            "value": 12081136285313397134
-        },
-        "name": {
-            "value": "char6"
-        },
-        "offsetToParent": -11,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            -28.46685791015625,
-                            0.39999842643737793,
-                            4.676971435546875
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -11,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -28.46685791015625,
+              0.39999842643737793,
+              4.676971435546875
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char9"
     },
-    {
-        "uuid": {
-            "value": 7782847026253185198
-        },
-        "name": {
-            "value": "char9"
-        },
-        "offsetToParent": -12,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            28.03314208984375,
-                            0.39999842643737793,
-                            20.776973724365234
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -12,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              28.03314208984375,
+              0.39999842643737793,
+              20.776973724365234
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char7"
     },
-    {
-        "uuid": {
-            "value": 18152960003416703778
-        },
-        "name": {
-            "value": "char7"
-        },
-        "offsetToParent": -13,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            28.03314208984375,
-                            0.39999842643737793,
-                            -14.023026466369629
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -13,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              28.03314208984375,
+              0.39999842643737793,
+              -14.023026466369629
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "char8"
     },
-    {
-        "uuid": {
-            "value": 3808950124037750184
-        },
-        "name": {
-            "value": "char8"
-        },
-        "offsetToParent": -14,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 7023471995932399433
-                    },
-                    "localPos": {
-                        "values": [
-                            -2.7668590545654297,
-                            0.39999842643737793,
-                            19.07697296142578
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "CharacterController",
-                "properties": {
-                    "halfHeight": {
-                        "value": 1.100000023841858
-                    },
-                    "radius": {
-                        "value": 0.6000000238418579
-                    },
-                    "contactOffset": {
-                        "value": 0.10000000149011612
-                    },
-                    "stepOffset": {
-                        "value": 0.5
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -14,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -2.7668590545654297,
+              0.39999842643737793,
+              19.07697296142578
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 5356979282803667411
-        },
-        "name": {
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -1,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 5182954730925147684
-        },
-        "name": {
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -3,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 16408433413508769455
-        },
-        "name": {
+    "offsetToParent": -5,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -5,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 6746846263565225453
-        },
-        "name": {
+    "offsetToParent": -7,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -7,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 13066567981401884355
-        },
-        "name": {
+    "offsetToParent": -9,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -9,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 18158751876119289891
-        },
-        "name": {
+    "offsetToParent": -11,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -11,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 4200908250885032575
-        },
-        "name": {
+    "offsetToParent": -13,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -13,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 5293144090210779113
-        },
-        "name": {
+    "offsetToParent": -15,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -15,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "capsule"
     },
-    {
-        "uuid": {
-            "value": 6789753722956696999
-        },
-        "name": {
+    "offsetToParent": -18,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.8000000715255737,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.05000000074505806,
+              0.05000000074505806,
+              0.05000000074505806
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "capsule"
-        },
-        "offsetToParent": -18,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6789753722956696999
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.8000000715255737,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.05000000074505806,
-                            0.05000000074505806,
-                            0.05000000074505806
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 6387427337177922492
-                    },
-                    "voxelShapeName": {
-                        "value": "capsule"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 1
-                    },
-                    "pivot": {
-                        "values": [
-                            9.5,
-                            16.0,
-                            9.5
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
-    }
+          },
+          "voxelShapeFlags": {
+            "value": 1
+          },
+          "pivot": {
+            "values": [
+              9.5,
+              16.0,
+              9.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  }
 ]

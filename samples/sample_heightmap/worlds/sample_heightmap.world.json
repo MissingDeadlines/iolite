@@ -1,219 +1,183 @@
 [
-    {
-        "uuid": {
-            "value": 13553490037303984299
-        },
-        "name": {
-            "value": "sample_heightmap"
-        },
-        "offsetToParent": 0,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 13553490037303984299
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
+  {
+    "name": {
+      "value": "sample_heightmap"
     },
-    {
-        "uuid": {
-            "value": 13260746527346070506
-        },
-        "name": {
-            "value": "game_camera"
-        },
-        "offsetToParent": -1,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 13260746527346070506
-                    },
-                    "localPos": {
-                        "values": [
-                            -40.0,
-                            50.0,
-                            50.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.18305735290050507,
-                            0.682845950126648,
-                            -0.18296802043914795,
-                            0.6831793785095215
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            114.9000015258789,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "Camera",
-                "properties": {
-                    "uuid": {
-                        "value": 15864547361486475102
-                    },
-                    "projectionType": {
-                        "value": 0
-                    },
-                    "fov": {
-                        "value": 60.000003814697266
-                    }
-                }
-            },
-            {
-                "type": "CameraController",
-                "properties": {
-                    "uuid": {
-                        "value": 5508520073598673688
-                    },
-                    "cameraControllerType": {
-                        "value": 1
-                    }
-                }
-            }
-        ]
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "game_camera"
     },
-    {
-        "uuid": {
-            "value": 2247814422158590797
-        },
-        "name": {
-            "value": "editing_camera"
-        },
-        "offsetToParent": -2,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 2247814422158590797
-                    },
-                    "localPos": {
-                        "values": [
-                            -17.910869598388672,
-                            13.38787841796875,
-                            12.012502670288086
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.10858608782291412,
-                            0.8576595783233643,
-                            -0.20243224501609802,
-                            0.4600546658039093
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "Camera",
-                "properties": {
-                    "uuid": {
-                        "value": 17159394745622765248
-                    },
-                    "projectionType": {
-                        "value": 0
-                    },
-                    "fov": {
-                        "value": 60.000003814697266
-                    }
-                }
-            }
-        ]
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -40.0,
+              50.0,
+              50.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.18305735290050507,
+              0.682845950126648,
+              -0.18296802043914795,
+              0.6831793785095215
+            ]
+          },
+          "localSize": {
+            "values": [
+              114.9000015258789,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      },
+      {
+        "type": "CameraController",
+        "properties": {
+          "cameraControllerType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "editing_camera"
     },
-    {
-        "uuid": {
-            "value": 6720267544208028840
-        },
-        "name": {
+    "offsetToParent": -2,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -17.910869598388672,
+              13.38787841796875,
+              12.012502670288086
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.10858608782291412,
+              0.8576595783233643,
+              -0.20243224501609802,
+              0.4600546658039093
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "heightmap"
+    },
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Script",
+        "properties": {
+          "updateInterval": {
+            "value": 100
+          },
+          "scriptName": {
             "value": "heightmap"
-        },
-        "offsetToParent": -3,
-        "propertyEntries": [
-            {
-                "type": "Script",
-                "properties": {
-                    "uuid": {
-                        "value": 4748141937244320821
-                    },
-                    "updateInterval": {
-                        "value": 100
-                    },
-                    "scriptName": {
-                        "value": "heightmap"
-                    }
-                }
-            },
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 6720267544208028840
-                    },
-                    "localPos": {
-                        "values": [
-                            5.395661354064941,
-                            6.801437854766846,
-                            7.351048469543457
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
-    }
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              5.395661354064941,
+              6.801437854766846,
+              7.351048469543457
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  }
 ]

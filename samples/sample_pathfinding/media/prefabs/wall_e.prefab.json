@@ -1,114 +1,99 @@
 [
-    {
-        "uuid": {
-            "value": 4389566071477578326
-        },
-        "name": {
-            "value": "wall_e"
-        },
-        "offsetToParent": 0,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 4389566071477578326
-                    },
-                    "localPos": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                }
-            }
-        ]
+  {
+    "name": {
+      "value": "wall_e"
     },
-    {
-        "uuid": {
-            "value": 12157394499309420710
-        },
-        "name": {
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "wall_gray"
+    },
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -3.0999999046325684,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
             "value": "wall_gray"
-        },
-        "offsetToParent": -1,
-        "propertyEntries": [
-            {
-                "type": "Node",
-                "properties": {
-                    "uuid": {
-                        "value": 12157394499309420710
-                    },
-                    "localPos": {
-                        "values": [
-                            -3.0999999046325684,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "localOrient": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0,
-                            1.0
-                        ]
-                    },
-                    "localSize": {
-                        "values": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ]
-                    }
-                }
-            },
-            {
-                "type": "VoxelShape",
-                "properties": {
-                    "uuid": {
-                        "value": 9564764387287568706
-                    },
-                    "voxelShapeName": {
-                        "value": "wall_gray"
-                    },
-                    "voxelShapeFlags": {
-                        "value": 0
-                    },
-                    "pivot": {
-                        "values": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ]
-                    },
-                    "glassTransparency": {
-                        "value": 0.5
-                    },
-                    "linearDamping": {
-                        "value": 0.10000000149011612
-                    },
-                    "angularDamping": {
-                        "value": 0.10000000149011612
-                    }
-                }
-            }
-        ]
-    }
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          }
+        }
+      }
+    ]
+  }
 ]
