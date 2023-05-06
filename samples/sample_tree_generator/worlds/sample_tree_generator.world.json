@@ -106,10 +106,10 @@
           },
           "localOrient": {
             "values": [
-              0.00520304637029767,
-              0.9257181286811829,
-              -0.012743432074785233,
-              0.377963662147522
+              0.05852482095360756,
+              0.9226375818252563,
+              -0.1550566703081131,
+              0.3482416868209839
             ]
           },
           "localSize": {
@@ -207,9 +207,9 @@
           },
           "colorTint": {
             "values": [
-              1.0,
-              1.0,
-              1.0,
+              0.17537008225917816,
+              0.23124489188194275,
+              0.2625482678413391,
               1.0
             ]
           },
@@ -302,6 +302,9 @@
           "voxelShapeFlags": {
             "value": 0
           },
+          "rigidBodyFlags": {
+            "value": 0
+          },
           "pivot": {
             "values": [
               16.0,
@@ -317,6 +320,9 @@
           },
           "angularDamping": {
             "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
           }
         }
       }
@@ -364,6 +370,9 @@
           "voxelShapeFlags": {
             "value": 0
           },
+          "rigidBodyFlags": {
+            "value": 0
+          },
           "pivot": {
             "values": [
               16.0,
@@ -379,6 +388,9 @@
           },
           "angularDamping": {
             "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
           }
         }
       }
@@ -426,6 +438,9 @@
           "voxelShapeFlags": {
             "value": 0
           },
+          "rigidBodyFlags": {
+            "value": 0
+          },
           "pivot": {
             "values": [
               16.0,
@@ -441,6 +456,9 @@
           },
           "angularDamping": {
             "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
           }
         }
       }

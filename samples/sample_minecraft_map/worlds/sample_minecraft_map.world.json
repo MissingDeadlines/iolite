@@ -1,7 +1,7 @@
 [
   {
     "name": {
-      "value": "sample_minecraf_map"
+      "value": "sample_minecraft_map"
     },
     "offsetToParent": 0,
     "propertyEntries": [
@@ -99,17 +99,17 @@
         "properties": {
           "localPos": {
             "values": [
-              10.466409683227539,
-              12.517033576965332,
-              12.860587120056152
+              15.320773124694824,
+              12.47325611114502,
+              12.726518630981445
             ]
           },
           "localOrient": {
             "values": [
-              -0.07238150388002396,
-              0.8611252307891846,
-              -0.12808115780353546,
-              -0.4866410195827484
+              0.09131652861833572,
+              -0.7737870216369629,
+              0.11465991288423538,
+              0.6162532567977905
             ]
           },
           "localSize": {
@@ -195,76 +195,9 @@
   },
   {
     "name": {
-      "value": "water_plane"
-    },
-    "offsetToParent": -4,
-    "propertyEntries": [
-      {
-        "type": "Mesh",
-        "properties": {
-          "meshName": {
-            "value": "water_plane"
-          },
-          "colorTint": {
-            "values": [
-              1.0,
-              1.0,
-              1.0,
-              1.0
-            ]
-          },
-          "parameterBias": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "WaterPlane",
-        "properties": {
-          "uuid": {
-            "value": 10350083962041272160
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "localPos": {
-            "values": [
-              0.0,
-              -1.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              -0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              100.0,
-              100.0,
-              100.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "name": {
       "value": "vox_scene"
     },
-    "offsetToParent": -5,
+    "offsetToParent": -4,
     "propertyEntries": [
       {
         "type": "Node",
@@ -299,7 +232,7 @@
     "name": {
       "value": "post_effect"
     },
-    "offsetToParent": -6,
+    "offsetToParent": -5,
     "propertyEntries": [
       {
         "type": "Node",
