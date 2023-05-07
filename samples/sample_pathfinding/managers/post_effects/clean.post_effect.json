@@ -158,58 +158,6 @@
     "gradingLut": {
       "value": "neutral",
       "blendFactor": 0.0
-    },
-    "gradingStyle": {
-      "value": 0
-    },
-    "gradingLift": {
-      "values": [
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ]
-    },
-    "gradingLiftMaster": {
-      "value": 0.0
-    },
-    "gradingGamma": {
-      "values": [
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ]
-    },
-    "gradingGammaMaster": {
-      "value": 0.0
-    },
-    "gradingGain": {
-      "values": [
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ]
-    },
-    "gradingGainMaster": {
-      "value": 1.0
-    },
-    "gradingOffset": {
-      "values": [
-        0.0,
-        0.0,
-        0.0
-      ]
-    },
-    "gradingOffsetMaster": {
-      "value": 0.0
-    },
-    "gradingSaturation": {
-      "value": 1.0
-    },
-    "gradingPivot": {
-      "value": 0.18000000715255737
     }
   }
 }
