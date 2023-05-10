@@ -12,7 +12,7 @@
       "blendFactor": 1.0
     },
     "heightFogDensity": {
-      "value": 30.0,
+      "value": 0.05000000074505806,
       "blendFactor": 1.0
     },
     "heightFogAlbedo": {
@@ -25,7 +25,7 @@
       "blendFactor": 0.0
     },
     "heightFogYOffset": {
-      "value": -0.10000000149011612,
+      "value": 7.699999809265137,
       "blendFactor": 1.0
     },
     "heightFogNoiseFactor": {
