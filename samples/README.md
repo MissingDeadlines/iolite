@@ -10,7 +10,7 @@ Showcases the usage of the audio spectrum to create some exciting effects.
 
 ### References
 
-- Music used in the Sample  
+- Music used in the sample  
 <https://freesound.org/people/joshuaempyre/sounds/251461/>
 
 ![Screenshot of the Audio Spectrum Sample](../media/samples/sample_spectrum.jpg?raw=true)
