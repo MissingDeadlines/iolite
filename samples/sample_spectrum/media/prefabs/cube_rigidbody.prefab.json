@@ -1,0 +1,70 @@
+[
+  {
+    "name": {
+      "value": "cube"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -1.7839311361312866,
+              0.5,
+              -0.778111457824707
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
+            "value": "crate"
+          },
+          "voxelShapeFlags": {
+            "value": 4
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              4.0,
+              4.0,
+              4.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          }
+        }
+      }
+    ]
+  }
+]

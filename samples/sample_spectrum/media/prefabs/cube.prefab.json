@@ -1,0 +1,70 @@
+[
+  {
+    "name": {
+      "value": "cube"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              0.46139097213745117,
+              0.5,
+              5.080041885375977
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
+            "value": "cube_1m"
+          },
+          "voxelShapeFlags": {
+            "value": 4
+          },
+          "rigidBodyFlags": {
+            "value": 64
+          },
+          "pivot": {
+            "values": [
+              5.0,
+              5.0,
+              5.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          }
+        }
+      }
+    ]
+  }
+]

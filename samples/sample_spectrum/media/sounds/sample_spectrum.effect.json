@@ -1,0 +1,13 @@
+{
+  "sample_spectrum": {
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "sample_spectrum.ogg"
+        ],
+        "volume": 1.0
+      }
+    ]
+  }
+}

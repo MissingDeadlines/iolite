@@ -1,6 +1,9 @@
 {
   "name": "evening",
   "properties": {
+    "uuid": {
+      "value": 16918403869157727472
+    },
     "name": {
       "value": "evening"
     },
@@ -8,7 +11,7 @@
       "value": "sample_minecraft_map"
     },
     "globalDensityFactor": {
-      "value": 1.0,
+      "value": 0.30000001192092896,
       "blendFactor": 1.0
     },
     "heightFogDensity": {
@@ -153,11 +156,47 @@
       "blendFactor": 0.0
     },
     "tonemapper": {
-      "value": 4
+      "value": 3
     },
     "gradingLut": {
       "value": "neutral",
       "blendFactor": 1.0
+    },
+    "gradingStyle": {
+      "value": 0
+    },
+    "gradingLift": {
+      "values": [
+        0.0,
+        0.047759126871824265,
+        0.11078277230262756
+      ]
+    },
+    "gradingLiftMaster": {
+      "value": 0.0
+    },
+    "gradingGamma": {
+      "values": [
+        0.23376625776290894,
+        0.0,
+        0.009171622805297375
+      ]
+    },
+    "gradingGammaMaster": {
+      "value": 0.0
+    },
+    "gradingGain": {
+      "values": [
+        0.22958609461784363,
+        0.1229829266667366,
+        0.0
+      ]
+    },
+    "gradingGainMaster": {
+      "value": 0.0
+    },
+    "gradingSaturation": {
+      "value": 1.0
     }
   }
 }

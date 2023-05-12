@@ -1,8 +1,19 @@
 # Samples
 
-The samples require the latest version of IOLITE `v0.1.9`.
+The samples require the latest version of IOLITE `v0.1.10`.
 
 Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
+
+## Audio Spectrum (sample_spectrum)
+
+Showcases the usage of the audio spectrum to create some exciting effects.
+
+### References
+
+- Music used in the Sample  
+<https://freesound.org/people/joshuaempyre/sounds/251461/>
+
+![Screenshot of the Audio Spectrum Sample](../media/samples/sample_spectrum.jpg?raw=true)
 
 ## Minecraft Map (sample_minecraft_map)
 
