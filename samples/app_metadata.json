@@ -13,7 +13,7 @@
     "trapped_below"
   ],
   "initial_world": "sample_flappy",
+  "active_data_source": "sample_flappy",
   "initial_game_state": "Editing",
-  "active_data_source": "sample_heightmap",
   "version_string": "development"
 }
