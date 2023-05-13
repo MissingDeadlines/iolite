@@ -3,10 +3,35 @@ World.load()
 Node.load()
 Random.load()
 Math.load()
+Entity.load()
+VoxelShape.load()
 
 NumRows = 25
 Intensity = 2
 Delay = 2
+
+function UpdateSpectrum(spectrum, delta_t)
+    local s_entity = Entity.find_first_entity_with_name("spectrum")
+    local s_shape = VoxelShape.get_component_for_entity(s_entity)
+
+    for x = 1, 50 do
+        local amp = spectrum[x]
+        local height = amp * 20
+
+        for y = 1, 10 do
+            local pos = UVec3((x - 1) * 2 + 1, y - 1, 0)
+
+            local color = 0
+            if y <= height then
+                color = Math.floor(1 + y / 10 * 5)
+            end
+
+            VoxelShape.set_unsafe(s_shape, pos, color)
+        end
+    end
+
+    VoxelShape.voxelize(s_shape)
+end
 
 ---Called once when the script component becomes active.
 ---@param entity Ref The ref of the entity the script component is attached to.
@@ -39,6 +64,7 @@ end
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
     local spectrum = Sound.get_spectrum()
+    UpdateSpectrum(spectrum, delta_t)
 
     TimePassed = TimePassed + delta_t
     if TimePassed > Delay and not Music then

@@ -1,7 +1,7 @@
 [
   {
     "uuid": {
-      "value": 8227984086594112276
+      "value": 18049033321922196983
     },
     "name": {
       "value": "sample_spectrum"
@@ -12,7 +12,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 8227984086594112276
+            "value": 18049033321922196983
           },
           "localPos": {
             "values": [
@@ -42,7 +42,7 @@
   },
   {
     "uuid": {
-      "value": 3351745643767925378
+      "value": 1397129203888902364
     },
     "name": {
       "value": "game_camera"
@@ -53,7 +53,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3351745643767925378
+            "value": 1397129203888902364
           },
           "localPos": {
             "values": [
@@ -64,8 +64,8 @@
           },
           "localOrient": {
             "values": [
-              0.15255269408226013,
-              0.376708447933197,
+              0.15255267918109894,
+              0.3767084777355194,
               -0.06304717808961868,
               0.911506175994873
             ]
@@ -83,7 +83,7 @@
         "type": "Camera",
         "properties": {
           "uuid": {
-            "value": 7574448267760172774
+            "value": 16134157523969815218
           },
           "projectionType": {
             "value": 0
@@ -97,7 +97,7 @@
         "type": "CameraController",
         "properties": {
           "uuid": {
-            "value": 5930464090188486682
+            "value": 4790084748272636291
           },
           "cameraControllerType": {
             "value": 1
@@ -108,7 +108,7 @@
   },
   {
     "uuid": {
-      "value": 6397661857075194391
+      "value": 16420664262255761789
     },
     "name": {
       "value": "editing_camera"
@@ -119,21 +119,21 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6397661857075194391
+            "value": 16420664262255761789
           },
           "localPos": {
             "values": [
-              -11.138097763061523,
-              19.29045867919922,
-              -48.02235794067383
+              -9.70248031616211,
+              14.885336875915527,
+              -7.063752174377441
             ]
           },
           "localOrient": {
             "values": [
-              0.08812602609395981,
-              0.1854436695575714,
-              -0.01670059561729431,
-              0.9785527586936951
+              0.15534017980098724,
+              0.43091872334480286,
+              -0.07557740062475204,
+              0.8857011795043945
             ]
           },
           "localSize": {
@@ -149,7 +149,7 @@
         "type": "Camera",
         "properties": {
           "uuid": {
-            "value": 4427242371674886811
+            "value": 5305462528258771799
           },
           "projectionType": {
             "value": 0
@@ -163,7 +163,7 @@
   },
   {
     "uuid": {
-      "value": 10294390276088012547
+      "value": 5008279419186073487
     },
     "name": {
       "value": "sky"
@@ -174,7 +174,7 @@
         "type": "Mesh",
         "properties": {
           "uuid": {
-            "value": 7574448267760172774
+            "value": 16134157523969815218
           },
           "meshName": {
             "value": "sky"
@@ -201,7 +201,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10294390276088012547
+            "value": 5008279419186073487
           },
           "localPos": {
             "values": [
@@ -231,7 +231,7 @@
   },
   {
     "uuid": {
-      "value": 7327413669231940605
+      "value": 6045170987605341392
     },
     "name": {
       "value": "water_plane"
@@ -242,7 +242,7 @@
         "type": "Mesh",
         "properties": {
           "uuid": {
-            "value": 4427242371674886811
+            "value": 5305462528258771799
           },
           "meshName": {
             "value": "water_plane"
@@ -269,7 +269,7 @@
         "type": "WaterPlane",
         "properties": {
           "uuid": {
-            "value": 5930464090188486682
+            "value": 4790084748272636291
           }
         }
       },
@@ -277,7 +277,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7327413669231940605
+            "value": 6045170987605341392
           },
           "localPos": {
             "values": [
@@ -307,7 +307,7 @@
   },
   {
     "uuid": {
-      "value": 817665147420007962
+      "value": 11562752368309628345
     },
     "name": {
       "value": "gameplay"
@@ -318,7 +318,7 @@
         "type": "Script",
         "properties": {
           "uuid": {
-            "value": 5930464090188486682
+            "value": 4790084748272636291
           },
           "updateInterval": {
             "value": 100
@@ -332,7 +332,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 817665147420007962
+            "value": 11562752368309628345
           },
           "localPos": {
             "values": [
@@ -362,7 +362,7 @@
   },
   {
     "uuid": {
-      "value": 157681175449913126
+      "value": 13996835381032218146
     },
     "name": {
       "value": "cube"
@@ -373,7 +373,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 157681175449913126
+            "value": 13996835381032218146
           },
           "localPos": {
             "values": [
@@ -403,7 +403,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 5688236790526937118
+            "value": 15480441872085732181
           },
           "voxelShapeName": {
             "value": "cube_1m"
@@ -439,7 +439,7 @@
   },
   {
     "uuid": {
-      "value": 15889092795058922536
+      "value": 16705707789458911358
     },
     "name": {
       "value": "cube"
@@ -450,7 +450,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15889092795058922536
+            "value": 16705707789458911358
           },
           "localPos": {
             "values": [
@@ -480,7 +480,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1429282422107937422
+            "value": 13613806677070528387
           },
           "voxelShapeName": {
             "value": "cube_1m"
@@ -516,7 +516,7 @@
   },
   {
     "uuid": {
-      "value": 5136191873509082976
+      "value": 6276696850931332766
     },
     "name": {
       "value": "post_effect"
@@ -527,7 +527,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5136191873509082976
+            "value": 6276696850931332766
           },
           "localPos": {
             "values": [
@@ -557,7 +557,7 @@
         "type": "PostEffectVolume",
         "properties": {
           "uuid": {
-            "value": 17728780931701233762
+            "value": 4790084748272636291
           },
           "postEffectName": {
             "value": "spectrum"
@@ -570,6 +570,83 @@
           },
           "priority": {
             "value": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 8776985627298002803
+    },
+    "name": {
+      "value": "spectrum"
+    },
+    "offsetToParent": -9,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 8776985627298002803
+          },
+          "localPos": {
+            "values": [
+              44.79700469970703,
+              0.5,
+              25.125423431396484
+            ]
+          },
+          "localOrient": {
+            "values": [
+              6.18279116793019e-8,
+              0.7069846987724304,
+              6.180656697551967e-8,
+              -0.7072288393974304
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.5,
+              0.5,
+              0.5
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 1656162109983161660
+          },
+          "voxelShapeName": {
+            "value": "spectrum"
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              50.0,
+              5.0,
+              0.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
           }
         }
       }
