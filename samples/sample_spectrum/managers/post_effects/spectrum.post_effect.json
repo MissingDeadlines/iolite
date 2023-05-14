@@ -79,7 +79,7 @@
       "blendFactor": 0.0
     },
     "chromaShiftFactor": {
-      "value": 0.0,
+      "value": 1.0,
       "blendFactor": 1.0
     },
     "chromaShiftFalloff": {
@@ -87,18 +87,18 @@
       "blendFactor": 0.0
     },
     "vignetteFalloff": {
-      "value": 0.8999999761581421,
+      "value": 1.0,
       "blendFactor": 1.0
     },
     "scanlinesFalloff": {
-      "value": 0.0,
+      "value": 0.4000000059604645,
       "blendFactor": 0.0
     },
     "scanlinesColor": {
       "values": [
         0.0,
-        0.0,
-        0.0,
+        0.6640927791595459,
+        1.0,
         0.0
       ],
       "blendFactor": 0.0
@@ -140,16 +140,16 @@
       "blendFactor": 0.0
     },
     "focusDistance": {
-      "value": 40.0,
-      "blendFactor": 1.0
+      "value": 29.5,
+      "blendFactor": 0.0
     },
     "focusRange": {
-      "value": 80.0,
-      "blendFactor": 1.0
+      "value": 37.34000015258789,
+      "blendFactor": 0.0
     },
     "blurRadius": {
       "value": 10.0,
-      "blendFactor": 1.0
+      "blendFactor": 0.0
     },
     "grainIntensity": {
       "value": 0.10000000149011612,

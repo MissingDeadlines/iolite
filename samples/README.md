@@ -1,12 +1,12 @@
 # Samples
 
-The samples require the latest version of IOLITE `v0.1.10`.
+The samples require the latest version of IOLITE `v0.1.11`.
 
 Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
 
 ## Audio Spectrum (sample_spectrum)
 
-Showcases the usage of the audio spectrum to create some exciting effects.
+Showcases the usage of the audio spectrum to create some exciting effects. It also demonstrates how to modify voxel shapes dynamically.
 
 ### References
 

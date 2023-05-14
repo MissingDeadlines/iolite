@@ -1,7 +1,7 @@
 [
   {
     "name": {
-      "value": "cube"
+      "value": "spectrum_cube"
     },
     "offsetToParent": 0,
     "propertyEntries": [
@@ -36,7 +36,7 @@
         "type": "VoxelShape",
         "properties": {
           "voxelShapeName": {
-            "value": "cube_1m"
+            "value": "cube_spectrum"
           },
           "voxelShapeFlags": {
             "value": 4
