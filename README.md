@@ -10,7 +10,7 @@ This repository houses all public resources, like the [issue tracker](https://gi
 
 ## Engine Resources
 
-- Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the development on [Mastodon](https://mastodon.gamedev.place/@bwrensch), and become a part of our deveopment journey
+- Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the development on [Mastodon](https://mastodon.missing-deadlines.com/@benjamin), and become a part of our deveopment journey
 - The latest builds can be found on the [landing page of the website](https://iolite-engine.com)
 - Details on how to use IOLITE are available in the [documentation](https://iolite-engine.com/docs)
 - Changes are documented in the [changelog](https://iolite-engine.com/changelog)
