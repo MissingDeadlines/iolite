@@ -1,8 +1,16 @@
 # Samples
 
-The samples require the latest version of IOLITE `v0.1.11`.
+This directory contains various samples that showcase IOLITE's feature set.
 
-Place the files in this directory in the root directory of IOLITE, load one of the worlds (most prefixed with `sample_`) in the editor, and switch to the game mode. That's it!
+## Installation
+
+> Please check each of the sample descriptions in this README. Some samples require additional installation steps, like, e.g., the `Minecraft Map` sample.
+
+1. Place the files in this directory in the root directory of IOLITE
+2. Load one of the worlds prefixed with `sample_` via the editor
+3. Switch to game mode and done!
+
+> The samples are compatible with IOLITE `v0.1.11` and upwards.
 
 ## Audio Spectrum (sample_spectrum)
 
@@ -18,6 +26,12 @@ Showcases the usage of the audio spectrum to create some exciting effects. It al
 ## Minecraft Map (sample_minecraft_map)
 
 Shows a segment of the Minecraft map [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) converted to the VOX file format via [Avoyd's voxel editor](https://www.avoyd.com) and imported as a scene in IOLITE.
+
+### Additional Installation Steps
+
+The `.vox` scene is provided as a `.7z` archive.
+
+Please extract `hohenzollern_castle_and_kingdom.7z` located in `sample_minecraft_map/media/voxels` first before running the sample.
 
 ### References
 
