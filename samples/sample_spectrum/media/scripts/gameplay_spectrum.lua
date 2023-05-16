@@ -5,6 +5,7 @@ Random.load()
 Math.load()
 Entity.load()
 VoxelShape.load()
+Settings.load()
 
 NumRows = 25
 Intensity = 2
@@ -36,6 +37,9 @@ end
 ---Called once when the script component becomes active.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnActivate(entity)
+    -- Ensure all shapes are updated as quickly as possible
+    Settings.set_uint("vs_num_to_voxelize_per_frame", 1024)
+
     TimePassed = 0.0
     Cubes = {}
 
