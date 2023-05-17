@@ -51,9 +51,12 @@ try:
 
                 # Compress
                 file_data_compressed = lz4.block.compress(
-                    file_data, store_size=False)
+                    file_data, store_size=False, mode="high_compression")
                 size_compressed = len(file_data_compressed)
                 checksum = hash_djb2(file_data_compressed)
+
+                print("Size before: {:.3f} MB".format(size_uncompressed / 1024.0 / 1024.0))
+                print("Size compressed: {:.3f} MB".format(size_compressed / 1024.0 / 1024.0))
 
                 # Write to package
                 temp_package_file.write(file_data_compressed)
