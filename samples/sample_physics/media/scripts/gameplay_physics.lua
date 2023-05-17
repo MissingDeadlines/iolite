@@ -44,7 +44,7 @@ function GrabVoxelShape(delta_t)
 
     -- Search for a new shape if we have not found one yet
     if not GrabShape then
-        local _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0)
+        local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0)
 
         if Ref.is_valid(hit_entity) then
             GrabShape = VoxelShape.get_component_for_entity(hit_entity)

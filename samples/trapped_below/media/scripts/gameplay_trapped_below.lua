@@ -55,7 +55,7 @@ function GrabVoxelShape(delta_t)
     local origin, dir = World.calc_mouse_ray()
 
     if not GrabShape then
-        local _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 100.0)
+        local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 100.0)
 
         if Ref.is_valid(hit_entity) then
             GrabShape = VoxelShape.get_component_for_entity(hit_entity)
@@ -183,7 +183,7 @@ function HandleInteraction(delta_t)
     World.highlight_node(Ref.create_invalid(), Vec4(0.0), true)
 
     local origin, dir = World.calc_mouse_ray()
-    local hit, _, _, entity = Physics.raycast(origin, dir, 1000.0)
+    local hit, _, _, _, entity = Physics.raycast(origin, dir, 1000.0)
     if hit then
         local node = Node.get_component_for_entity(entity)
         local name = Entity.get_name(entity)
