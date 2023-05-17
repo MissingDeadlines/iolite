@@ -10,7 +10,7 @@ This directory contains various samples that showcase IOLITE's feature set.
 2. Load one of the worlds prefixed with `sample_` via the editor
 3. Switch to game mode and done!
 
-> The samples are compatible with IOLITE `v0.1.11` and upwards.
+> The samples are compatible with IOLITE `v0.1.12` and upwards.
 
 ## Audio Spectrum (sample_spectrum)
 
