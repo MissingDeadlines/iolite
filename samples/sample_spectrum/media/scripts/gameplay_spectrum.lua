@@ -38,6 +38,7 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnActivate(entity)
     -- Ensure all shapes are updated as quickly as possible
+    NumToVoxelizePerFrameBefore = Settings.get_uint("vs_num_to_voxelize_per_frame")
     Settings.set_uint("vs_num_to_voxelize_per_frame", 1024)
 
     TimePassed = 0.0
@@ -115,6 +116,9 @@ function OnDeactivate(entity)
     if Music then
         Sound.stop_sound_effect(Music)
     end
+
+    -- Reset setting
+    Settings.set_uint("vs_num_to_voxelize_per_frame", NumToVoxelizePerFrameBefore)
 end
 
 --- Event callback
