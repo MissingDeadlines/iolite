@@ -16,6 +16,22 @@ PipeDistance = 3.0
 PipeSpacing = 1.5
 PipeMaxRandomOffset = 1.5
 
+function GetBird()
+    local bird = Entity.find_first_entity_with_name("bird")
+    local bird_shape = VoxelShape.get_component_for_entity(bird)
+    local bird_node = Node.get_component_for_entity(bird)
+
+    return bird, bird_shape, bird_node
+end
+
+function GetGamera()
+    local cam = Entity.find_first_entity_with_name("game_camera")
+    local cam_node = Node.get_component_for_entity(cam)
+
+    return cam_node
+end
+
+-- Returns the cached random offset for the pipe at the given index
 function GetRandomOffsetForPipe(idx)
     if not RandomOffsets[idx] then
         RandomOffsets[idx] = Random.rand_float_min_max(0.0, PipeMaxRandomOffset)
@@ -23,6 +39,7 @@ function GetRandomOffsetForPipe(idx)
     return RandomOffsets[idx]
 end
 
+-- Positions the pipe shapes around the bird
 function PositionPipes()
     for i = 1, NumPipes do
         local pipe_idx = Score + i
@@ -43,6 +60,7 @@ function GetNode(name)
 end
 
 function KillBird(pos)
+    -- Apply radius damage, spawn particles, play sound, and end game
     ParticleSystem.spawn_particle_emitter("flappy_explosion", pos, 0.1, true)
     World.radius_damage(pos, 1.0, true)
     State = "End"
@@ -51,7 +69,7 @@ function KillBird(pos)
     Sound.play_sound_effect("flappy_hit")
 end
 
--- Returns true when the "flap key" has ben pressed
+-- Returns true when the "flap key" has been pressed
 function GetFlap()
     local flap = Input.get_key_state(Key.kSpace, 0) == KeyState.kClicked
     flap = flap or Input.get_key_state(Key.kControllerButtonA, 0) == KeyState.kClicked
@@ -63,21 +81,6 @@ function GetFlap()
     end
 
     return flap
-end
-
-function GetBird()
-    local bird = Entity.find_first_entity_with_name("bird")
-    local bird_shape = VoxelShape.get_component_for_entity(bird)
-    local bird_node = Node.get_component_for_entity(bird)
-
-    return bird, bird_shape, bird_node
-end
-
-function GetGamera()
-    local cam = Entity.find_first_entity_with_name("game_camera")
-    local cam_node = Node.get_component_for_entity(cam)
-
-    return cam_node
 end
 
 function UpdateCamera()
@@ -156,6 +159,8 @@ function OnActivate(entity)
     RandomOffsets = {}
 
     Pipes = {}
+
+    -- Collect the pipe shapes
     for i = 1, NumPipes do
         table.insert(Pipes, {
             top = GetNode(string.format("pipe_top%i", i)),
@@ -169,6 +174,8 @@ end
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
     UI.push_font_scale(1.5)
+
+    -- Draw splash image
     UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
 
     PositionPipes()

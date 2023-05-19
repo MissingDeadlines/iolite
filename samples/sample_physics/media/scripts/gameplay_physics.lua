@@ -13,6 +13,7 @@ VoxelShape.load()
 ParticleSystem.load()
 UI.load()
 
+-- Spawns a prefab at the provided distance and applies force/torque to it
 function SpawnPrefab(name, distance, force, torque)
     local cam = Entity.find_first_entity_with_name("game_camera")
     local cam_node = Node.get_component_for_entity(cam)
@@ -91,6 +92,7 @@ function EndGrabVoxelShape()
     GrabShape = nil
 end
 
+-- Handles character movement
 function UpdateCharacter(delta_t)
     -- Fetch player and his character controller
     local player = Entity.find_first_entity_with_name("player")
@@ -186,6 +188,7 @@ function Tick(entity, delta_t)
         GrenadeSpawned = false
     end
 
+    -- Spawn a mage ragdoll
     if Input.get_key_state(Key.kE, 0) == KeyState.kClicked then
         SpawnPrefab("mage_ragdoll", 2.0, 900.0, 1.0)
     end
