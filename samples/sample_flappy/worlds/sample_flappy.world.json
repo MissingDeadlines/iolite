@@ -1,5 +1,8 @@
 [
   {
+    "uuid": {
+      "value": 5299779713011147225
+    },
     "name": {
       "value": "sample_flappy"
     },
@@ -8,6 +11,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 5299779713011147225
+          },
           "localPos": {
             "values": [
               0.0,
@@ -35,6 +41,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 7052238343315457114
+    },
     "name": {
       "value": "game_camera"
     },
@@ -43,6 +52,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 7052238343315457114
+          },
           "localPos": {
             "values": [
               -1.567910147829502e-22,
@@ -70,6 +82,9 @@
       {
         "type": "Camera",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "projectionType": {
             "value": 0
           },
@@ -81,6 +96,9 @@
       {
         "type": "CameraController",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "cameraControllerType": {
             "value": 1
           }
@@ -89,6 +107,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 9073213604332976338
+    },
     "name": {
       "value": "editing_camera"
     },
@@ -97,6 +118,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 9073213604332976338
+          },
           "localPos": {
             "values": [
               -2.2008109092712402,
@@ -107,8 +131,8 @@
           "localOrient": {
             "values": [
               0.06473615020513535,
-              0.020731121301651,
-              -0.0013451655395328999,
+              0.02073112316429615,
+              -0.0013451656559482217,
               0.9976861476898193
             ]
           },
@@ -124,6 +148,9 @@
       {
         "type": "Camera",
         "properties": {
+          "uuid": {
+            "value": 7498619445279925010
+          },
           "projectionType": {
             "value": 0
           },
@@ -135,6 +162,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 12799032530906073123
+    },
     "name": {
       "value": "sky"
     },
@@ -143,6 +173,9 @@
       {
         "type": "Mesh",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "meshName": {
             "value": "sky"
           },
@@ -167,6 +200,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 12799032530906073123
+          },
           "localPos": {
             "values": [
               0.0,
@@ -194,6 +230,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 749402042560251507
+    },
     "name": {
       "value": "water_plane"
     },
@@ -202,6 +241,9 @@
       {
         "type": "Mesh",
         "properties": {
+          "uuid": {
+            "value": 7498619445279925010
+          },
           "meshName": {
             "value": "water_plane"
           },
@@ -234,6 +276,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 749402042560251507
+          },
           "localPos": {
             "values": [
               0.0,
@@ -261,6 +306,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 16280641232467261887
+    },
     "name": {
       "value": "gameplay"
     },
@@ -269,6 +317,9 @@
       {
         "type": "Script",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "updateInterval": {
             "value": 100
           },
@@ -280,6 +331,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 16280641232467261887
+          },
           "localPos": {
             "values": [
               -71.53125762939453,
@@ -307,6 +361,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 17155299851032454540
+    },
     "name": {
       "value": "bird"
     },
@@ -315,6 +372,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 17155299851032454540
+          },
           "localPos": {
             "values": [
               0.0,
@@ -342,6 +402,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "voxelShapeName": {
             "value": "bird"
           },
@@ -375,6 +438,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 15500217591331763527
+    },
     "name": {
       "value": "pipe_bottom1"
     },
@@ -383,6 +449,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 15500217591331763527
+          },
           "localPos": {
             "values": [
               -3.0,
@@ -410,6 +479,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 7498619445279925010
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -443,6 +515,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 3409221054781565677
+    },
     "name": {
       "value": "post_effect"
     },
@@ -451,6 +526,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 3409221054781565677
+          },
           "localPos": {
             "values": [
               -0.09012279659509659,
@@ -478,6 +556,9 @@
       {
         "type": "PostEffectVolume",
         "properties": {
+          "uuid": {
+            "value": 14442022288584065042
+          },
           "postEffectName": {
             "value": "flappy"
           },
@@ -495,6 +576,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 787821619502949112
+    },
     "name": {
       "value": "pipe_top1"
     },
@@ -503,6 +587,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 787821619502949112
+          },
           "localPos": {
             "values": [
               -3.0,
@@ -530,6 +617,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 7825117557195987412
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -563,6 +653,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 15588534664599743933
+    },
     "name": {
       "value": "pipe_top2"
     },
@@ -571,6 +664,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 15588534664599743933
+          },
           "localPos": {
             "values": [
               -6.0,
@@ -598,6 +694,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 15465946812817375591
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -631,6 +730,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 4346039829560871846
+    },
     "name": {
       "value": "pipe_bottom2"
     },
@@ -639,6 +741,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 4346039829560871846
+          },
           "localPos": {
             "values": [
               -6.0,
@@ -666,6 +771,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 12305454042248386981
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -699,6 +807,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 12498014324141439921
+    },
     "name": {
       "value": "pipe_top3"
     },
@@ -707,6 +818,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 12498014324141439921
+          },
           "localPos": {
             "values": [
               -9.0,
@@ -734,6 +848,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 6973275550487603414
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -767,6 +884,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 15257651897496835206
+    },
     "name": {
       "value": "pipe_bottom3"
     },
@@ -775,6 +895,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 15257651897496835206
+          },
           "localPos": {
             "values": [
               -9.0,
@@ -802,6 +925,9 @@
       {
         "type": "VoxelShape",
         "properties": {
+          "uuid": {
+            "value": 9641021459887515783
+          },
           "voxelShapeName": {
             "value": "pipe"
           },
@@ -829,6 +955,60 @@
           },
           "density": {
             "value": 1.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 17382211870315204399
+    },
+    "name": {
+      "value": "highscore"
+    },
+    "offsetToParent": -14,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 17382211870315204399
+          },
+          "localPos": {
+            "values": [
+              -1.2543338537216187,
+              0.0,
+              17.33111572265625
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CustomData",
+        "properties": {
+          "uuid": {
+            "value": 14441990404785144339
+          },
+          "data": {
+            "value": [
+              0
+            ]
           }
         }
       }

@@ -9,6 +9,8 @@ World.load()
 ParticleSystem.load()
 Sound.load()
 Random.load()
+CustomData.load()
+SaveData.load()
 
 -- Config
 NumPipes = 3
@@ -77,7 +79,6 @@ function GetFlap()
 
     if flap then
         Sound.play_sound_effect("flappy_wing")
-        Log.log_info("Flap!")
     end
 
     return flap
@@ -141,12 +142,24 @@ function UpdateStateStart()
 end
 
 function UpdateStateEnd(delta_t)
+    local highscore = Variant.get_uint(CustomData.get(Highscore, 0))
+
     UI.draw_text("GAME OVER!", Vec2(0.5, 0.5), Vec2(0.0, 0.0), Vec4(1.0), 1)
     UI.draw_text(string.format("YOUR SCORE: %i", Score), Vec2(0.5, 0.6), Vec2(0.0, 0.0), Vec4(1.0), 1)
+    UI.draw_text(string.format("HIGHSCORE: %i", highscore), Vec2(0.5, 0.7), Vec2(0.0, 0.0), Vec4(1.0), 1)
 
     -- Restart the game after some time
     TimePassed = TimePassed + delta_t
     if TimePassed > 3.0 then
+        Log.log_info(string.format("Score: %i | Highscore: %i", Score, highscore))
+
+        -- Save highscore
+        if Score > highscore then
+            CustomData.set(Highscore, 0, Variant.from_uint(Score))
+            SaveData.save_to_user_data("highscore", HighscoreNode)
+
+            Log.log_info("Highscore updated!")
+        end
         World.load_world("sample_flappy")
     end
 end
@@ -154,6 +167,22 @@ end
 ---Called once when the script component becomes active.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnActivate(entity)
+    -- Default highscore
+    local highscore_entity = Entity.find_first_entity_with_name("highscore")
+    Highscore = CustomData.get_component_for_entity(highscore_entity)
+    HighscoreNode = Node.get_component_for_entity(highscore_entity)
+    -- Try to load highscore
+    local saved_highscore_node = SaveData.load_from_user_data("highscore")
+    if Ref.is_valid(saved_highscore_node) then
+        highscore_entity = Node.get_entity(saved_highscore_node)
+        HighscoreNode = saved_highscore_node
+        Highscore = CustomData.get_component_for_entity(highscore_entity)
+
+        Log.log_info("Loaded highscore from user data...")
+    else
+        Log.log_info("No saved highscore available!")
+    end
+
     State = "Start"
     Score = 0
     RandomOffsets = {}
