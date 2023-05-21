@@ -97,7 +97,7 @@ function UpdateCamera()
 end
 
 function UpdateStateGame()
-    UI.draw_text(string.format("%i", Score), Vec2(0.5, 0.75), Vec2(0.0, 0.0), Vec4(1.0), 1)
+    UI.draw_text(string.format("%03i", Score), Vec2(0.5, 0.75), Vec2(0.0, 0.0), Vec4(1.0), 1)
 
     -- Push the bird upwards on flap
     local _, bird_shape, bird_node = GetBird()
@@ -142,23 +142,23 @@ function UpdateStateStart()
 end
 
 function UpdateStateEnd(delta_t)
-    local highscore = Variant.get_uint(CustomData.get(Highscore, 0))
+    local high_score = Variant.get_uint(CustomData.get(HighScore, 0))
 
     UI.draw_text("GAME OVER!", Vec2(0.5, 0.5), Vec2(0.0, 0.0), Vec4(1.0), 1)
-    UI.draw_text(string.format("YOUR SCORE: %i", Score), Vec2(0.5, 0.6), Vec2(0.0, 0.0), Vec4(1.0), 1)
-    UI.draw_text(string.format("HIGHSCORE: %i", highscore), Vec2(0.5, 0.7), Vec2(0.0, 0.0), Vec4(1.0), 1)
+    UI.draw_text(string.format("SCORE: %03i | HIGH SCORE: %03i", Score, high_score), Vec2(0.5, 0.6), Vec2(0.0, 0.0),
+        Vec4(1.0), 1)
 
     -- Restart the game after some time
     TimePassed = TimePassed + delta_t
     if TimePassed > 3.0 then
-        Log.log_info(string.format("Score: %i | Highscore: %i", Score, highscore))
+        Log.log_info(string.format("Score: %i | High Score: %i", Score, high_score))
 
-        -- Save highscore
-        if Score > highscore then
-            CustomData.set(Highscore, 0, Variant.from_uint(Score))
-            SaveData.save_to_user_data("highscore", HighscoreNode)
+        -- Save high score
+        if Score > high_score then
+            CustomData.set(HighScore, 0, Variant.from_uint(Score))
+            SaveData.save_to_user_data("high_score", HighScoreNode)
 
-            Log.log_info("Highscore updated!")
+            Log.log_info("High score updated!")
         end
         World.load_world("sample_flappy")
     end
@@ -167,20 +167,20 @@ end
 ---Called once when the script component becomes active.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnActivate(entity)
-    -- Default highscore
-    local highscore_entity = Entity.find_first_entity_with_name("highscore")
-    Highscore = CustomData.get_component_for_entity(highscore_entity)
-    HighscoreNode = Node.get_component_for_entity(highscore_entity)
-    -- Try to load highscore
-    local saved_highscore_node = SaveData.load_from_user_data("highscore")
-    if Ref.is_valid(saved_highscore_node) then
-        highscore_entity = Node.get_entity(saved_highscore_node)
-        HighscoreNode = saved_highscore_node
-        Highscore = CustomData.get_component_for_entity(highscore_entity)
+    -- Default high score
+    local high_score_entity = Entity.find_first_entity_with_name("high_score")
+    HighScore = CustomData.get_component_for_entity(high_score_entity)
+    HighScoreNode = Node.get_component_for_entity(high_score_entity)
+    -- Try to load high score
+    local saved_high_score_node = SaveData.load_from_user_data("high_score")
+    if Ref.is_valid(saved_high_score_node) then
+        high_score_entity = Node.get_entity(saved_high_score_node)
+        HighScoreNode = saved_high_score_node
+        HighScore = CustomData.get_component_for_entity(high_score_entity)
 
-        Log.log_info("Loaded highscore from user data...")
+        Log.log_info("Loaded high score from user data...")
     else
-        Log.log_info("No saved highscore available!")
+        Log.log_info("No saved high score available!")
     end
 
     State = "Start"
