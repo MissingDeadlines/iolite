@@ -18,8 +18,8 @@ Showcases the usage of the audio spectrum to create some exciting effects. It al
 
 ### References
 
-- Music used in the sample  
-<https://freesound.org/people/joshuaempyre/sounds/251461/>
+- Music used in the sample
+  - <https://freesound.org/people/joshuaempyre/sounds/251461/>
 
 ![Screenshot of the Audio Spectrum Sample](../media/samples/sample_spectrum.jpg?raw=true)
 
@@ -33,13 +33,6 @@ The `.vox` scene is provided as a `.7z` archive.
 
 Please extract `hohenzollern_castle_and_kingdom.7z` located in `sample_minecraft_map/media/voxels` first before running the sample.
 
-### References
-
-- Hohenzollern Castle and Kingdom  
-<https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/>
-- Avoyd Voxel Editor & Game  
-<https://www.avoyd.com/>
-
 ![Screenshot of the Minecraft Map Sample](../media/samples/sample_minecraft_map.jpg?raw=true)
 
 ## Flappy Bird (sample_flappy)
@@ -52,8 +45,8 @@ Flappy Bird clone as an example for a simple physics-based game with a somewhat 
 
 ### References
 
-- Flappy Bird assets sourced from  
-<https://github.com/samuelcust/flappy-bird-assets/tree/master>
+- Flappy Bird assets
+  - <https://github.com/samuelcust/flappy-bird-assets/tree/master>
 
 ![Screenshot of the Flappy Bird Sample](../media/samples/sample_flappy.jpg?raw=true)
 
@@ -82,7 +75,10 @@ Example focusing on physics with FPS controls. Showcases the usage of joints to 
 
 ### References
 
-- Mage voxel character by Lucy (Pentakie)
+- Mage voxel character by Lucy/Pentakie
+- Sounds used in the sample
+  - <https://freesound.org/people/Nox_Sound/sounds/560510/>
+  - <https://freesound.org/people/Disagree/sounds/433725/>
 
 ![Screenshot of the Physics Sample](../media/samples/sample_physics.jpg?raw=true)
 
