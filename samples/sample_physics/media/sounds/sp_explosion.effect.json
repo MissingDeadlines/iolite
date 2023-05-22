@@ -1,0 +1,16 @@
+{
+  "sp_explosion": {
+    "looping": false,
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "sp_explosion_1.ogg",
+          "sp_explosion_2.ogg",
+          "sp_explosion_3.ogg"
+        ],
+        "volume": 1.0
+      }
+    ]
+  }
+}

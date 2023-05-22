@@ -12,6 +12,7 @@ DebugGeometry.load()
 VoxelShape.load()
 ParticleSystem.load()
 UI.load()
+Sound.load()
 
 -- Spawns a prefab at the provided distance and applies force/torque to it
 function SpawnPrefab(name, distance, force, torque)
@@ -97,13 +98,14 @@ function UpdateCharacter(delta_t)
     -- Fetch player and his character controller
     local player = Entity.find_first_entity_with_name("player")
     local player_cct = CharacterController.get_component_for_entity(player)
+    local grounded = CharacterController.is_grounded(player_cct)
 
     -- Fetch camera controller
     local cam = Entity.find_first_entity_with_name("game_camera")
     local cam_ctrl = CameraController.get_component_for_entity(cam)
 
     -- Apply gravity
-    if not CharacterController.is_grounded(player_cct) then
+    if not grounded then
         PlayerVelocity.y = PlayerVelocity.y - delta_t * 9.81
     end
 
@@ -131,6 +133,18 @@ function UpdateCharacter(delta_t)
     local mov_vec_len = Math.vec_length(mov_vec_local)
     if mov_vec_len > 0.0 then
         mov_vec_local = Math.vec_scale(1.0 / mov_vec_len, mov_vec_local)
+
+        if not FootstepsSound and grounded then
+            FootstepsSound = Sound.play_sound_effect("sp_footsteps")
+        elseif FootstepsSound and not grounded then
+            Sound.stop_sound_effect(FootstepsSound)
+            FootstepsSound = nil
+        end
+    else
+        if FootstepsSound then
+            Sound.stop_sound_effect(FootstepsSound)
+            FootstepsSound = nil
+        end
     end
 
     -- Apply speed
@@ -235,6 +249,8 @@ function OnEvent(entity, events)
                 -- Apply damage
                 World.radius_damage(e.data.pos, 1.0, true)
                 ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
+                Sound.play_sound_effect("sp_explosion")
+
                 -- And destroy the grenade
                 Node.destroy(grenade_node)
 

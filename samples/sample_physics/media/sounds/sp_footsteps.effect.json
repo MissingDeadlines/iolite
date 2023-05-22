@@ -1,0 +1,14 @@
+{
+  "sp_footsteps": {
+    "looping": true,
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "sp_footsteps.ogg"
+        ],
+        "volume": 1.0
+      }
+    ]
+  }
+}
