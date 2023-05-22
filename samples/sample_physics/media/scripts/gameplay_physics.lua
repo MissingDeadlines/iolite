@@ -100,6 +100,15 @@ function UpdateCharacter(delta_t)
     local player_cct = CharacterController.get_component_for_entity(player)
     local grounded = CharacterController.is_grounded(player_cct)
 
+    if not grounded then
+        if not TimeAirborne then
+            TimeAirborne = 0.0
+        end
+        TimeAirborne = TimeAirborne + delta_t
+    else
+        TimeAirborne = 0.0
+    end
+
     -- Fetch camera controller
     local cam = Entity.find_first_entity_with_name("game_camera")
     local cam_ctrl = CameraController.get_component_for_entity(cam)
@@ -136,7 +145,7 @@ function UpdateCharacter(delta_t)
 
         if not FootstepsSound and grounded then
             FootstepsSound = Sound.play_sound_effect("sp_footsteps")
-        elseif FootstepsSound and not grounded then
+        elseif FootstepsSound and TimeAirborne > 0.2 then
             Sound.stop_sound_effect(FootstepsSound)
             FootstepsSound = nil
         end
