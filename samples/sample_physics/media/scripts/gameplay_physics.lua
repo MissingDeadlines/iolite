@@ -227,11 +227,11 @@ end
 ---@param events table List of all events.
 function OnEvent(entity, events)
     ExplosionMask = {}
+    local num_impact_sounds = 0
 
     for i = 1, #events do
         local e = events[i]
         if e.type == "Contact" then
-
             -- Check if a grenade hit something
             local grenade_node = nil
             if Ref.is_valid(e.data.entity0) then
@@ -243,6 +243,13 @@ function OnEvent(entity, events)
                 if Entity.get_name(e.data.entity1) == "grenade" then
                     grenade_node = Node.get_component_for_entity(e.data.entity1)
                 end
+            end
+
+            -- Play impact effects for everything but grenades
+            local strength = Math.vec_length(e.data.impulse)
+            if strength > 0.5 and num_impact_sounds < 3 then
+                Sound.play_sound_effect("sp_ground_hit")
+                num_impact_sounds = num_impact_sounds + 1
             end
 
             if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
