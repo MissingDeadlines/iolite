@@ -1,6 +1,7 @@
 {
   "sp_ground_hit": {
     "looping": false,
+    "spatial": true,
     "volume": 1.0,
     "audio_samplers": [
       {

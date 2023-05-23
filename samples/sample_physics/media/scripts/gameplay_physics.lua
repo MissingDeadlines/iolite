@@ -174,7 +174,7 @@ function UpdateCharacter(delta_t)
     PlayerVelocity.z = move_vec_global.z
 
     -- Jumping
-    if (grounded or in_water) and Input.get_key_state(Key.kSpace, 0) == KeyState.kPressed and not Jumped then
+    if (TimeAirborne < 0.1 or in_water) and Input.get_key_state(Key.kSpace, 0) == KeyState.kPressed and not Jumped then
         PlayerVelocity.y = 5.0
         Jumped = true
     elseif Input.get_key_state(Key.kSpace, 0) == KeyState.kReleased then
@@ -264,7 +264,8 @@ function OnEvent(entity, events)
             -- Play impact effects for everything but grenades
             local strength = Math.vec_length(e.data.impulse)
             if strength > 0.5 and num_impact_sounds < 3 then
-                Sound.play_sound_effect("sp_ground_hit")
+                local impact_sound = Sound.play_sound_effect("sp_ground_hit")
+                Sound.set_position(impact_sound, e.data.pos)
                 num_impact_sounds = num_impact_sounds + 1
             end
 
@@ -272,7 +273,9 @@ function OnEvent(entity, events)
                 -- Apply damage
                 World.radius_damage(e.data.pos, 1.0, true)
                 ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
-                Sound.play_sound_effect("sp_explosion")
+
+                local explosion_sound = Sound.play_sound_effect("sp_explosion")
+                Sound.set_position(explosion_sound, e.data.pos)
 
                 -- And destroy the grenade
                 Node.destroy(grenade_node)
