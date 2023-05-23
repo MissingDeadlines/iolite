@@ -4,6 +4,7 @@
   "data_sources": [
     "sample_base",
     "sample_physics",
+    "sample_destruction",
     "sample_pathfinding",
     "sample_tree_generator",
     "sample_flappy",
@@ -12,8 +13,8 @@
     "sample_spectrum",
     "trapped_below"
   ],
-  "initial_world": "sample_flappy",
-  "active_data_source": "sample_flappy",
+  "initial_world": "sample_destruction",
+  "active_data_source": "sample_destruction",
   "initial_game_state": "Editing",
   "version_string": "development"
 }

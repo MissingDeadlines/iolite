@@ -12,16 +12,11 @@ This directory contains various samples that showcase IOLITE's feature set.
 
 > The samples are compatible with IOLITE `v0.1.17` and upwards.
 
-## Audio Spectrum (sample_spectrum)
+## Destruction (sample_destruction)
 
-Showcases the usage of the audio spectrum to create some exciting effects. It also demonstrates how to modify voxel shapes dynamically.
+Minecraft-esque example with a single chunk from [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) showcasing some of IOLITE's destruction features. Gameplay based on the physics sample; please check the according section in this README for usage instructions.
 
-### References
-
-- Music used in the sample
-  - <https://freesound.org/people/joshuaempyre/sounds/251461/>
-
-![Screenshot of the Audio Spectrum Sample](../media/samples/sample_spectrum.jpg?raw=true)
+![Screenshot of the Destruction Sample](../media/samples/sample_destruction.jpg?raw=true)
 
 ## Minecraft Map (sample_minecraft_map)
 
@@ -34,6 +29,18 @@ The `.vox` scene is provided as a `.7z` archive.
 Please extract `hohenzollern_castle_and_kingdom.7z` located in `sample_minecraft_map/media/voxels` first before running the sample.
 
 ![Screenshot of the Minecraft Map Sample](../media/samples/sample_minecraft_map.jpg?raw=true)
+
+## Audio Spectrum (sample_spectrum)
+
+Showcases the usage of the audio spectrum to create some exciting effects. It also demonstrates how to modify voxel shapes dynamically.
+
+### References
+
+- Music used in the sample
+  - <https://freesound.org/people/joshuaempyre/sounds/251461/>
+
+![Screenshot of the Audio Spectrum Sample](../media/samples/sample_spectrum.jpg?raw=true)
+
 
 ## Flappy Bird (sample_flappy)
 

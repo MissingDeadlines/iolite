@@ -1,0 +1,562 @@
+[
+  {
+    "uuid": {
+      "value": 15089201114124857047
+    },
+    "name": {
+      "value": "sample_destruction"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 15089201114124857047
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 6343457109479118154
+    },
+    "name": {
+      "value": "game_camera"
+    },
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 6343457109479118154
+          },
+          "localPos": {
+            "values": [
+              16.074281692504883,
+              8.810446739196777,
+              11.207460403442383
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.06873872876167297,
+              -0.9148019552230835,
+              0.176197811961174,
+              0.35688480734825134
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "uuid": {
+            "value": 1140550029967659133
+          },
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      },
+      {
+        "type": "CameraController",
+        "properties": {
+          "uuid": {
+            "value": 2649967020073737412
+          },
+          "cameraControllerType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 12536945136420330592
+    },
+    "name": {
+      "value": "editing_camera"
+    },
+    "offsetToParent": -2,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 12536945136420330592
+          },
+          "localPos": {
+            "values": [
+              -20.06563949584961,
+              16.61382484436035,
+              -18.04072380065918
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.12967362999916077,
+              0.5607401132583618,
+              -0.08945272862911224,
+              0.8128674626350403
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "uuid": {
+            "value": 13541125576125365789
+          },
+          "projectionType": {
+            "value": 0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 8077080659534794328
+    },
+    "name": {
+      "value": "sky"
+    },
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Mesh",
+        "properties": {
+          "uuid": {
+            "value": 1140550029967659133
+          },
+          "meshName": {
+            "value": "sky"
+          },
+          "colorTint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "parameterBias": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 8077080659534794328
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              5000.0,
+              5000.0,
+              5000.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 17998293619971467204
+    },
+    "name": {
+      "value": "water_plane"
+    },
+    "offsetToParent": -4,
+    "propertyEntries": [
+      {
+        "type": "Mesh",
+        "properties": {
+          "uuid": {
+            "value": 13541125576125365789
+          },
+          "meshName": {
+            "value": "water_plane"
+          },
+          "colorTint": {
+            "values": [
+              0.2230139970779419,
+              0.29595065116882324,
+              0.3088803291320801,
+              1.0
+            ]
+          },
+          "parameterBias": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "WaterPlane",
+        "properties": {
+          "uuid": {
+            "value": 2649967020073737412
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 17998293619971467204
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              -0.10000000894069672,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              -0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              100.0,
+              100.0,
+              100.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 18423108431819341451
+    },
+    "name": {
+      "value": "post_effect"
+    },
+    "offsetToParent": -5,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 18423108431819341451
+          },
+          "localPos": {
+            "values": [
+              3.4421300888061523,
+              5.747244358062744,
+              -4.8433942794799805
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "PostEffectVolume",
+        "properties": {
+          "uuid": {
+            "value": 2649967020073737412
+          },
+          "postEffectName": {
+            "value": "sunny"
+          },
+          "radius": {
+            "value": 357.70001220703125
+          },
+          "blendRange": {
+            "value": 2.0
+          },
+          "priority": {
+            "value": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 10654107922330062006
+    },
+    "name": {
+      "value": "gameplay"
+    },
+    "offsetToParent": -6,
+    "propertyEntries": [
+      {
+        "type": "Script",
+        "properties": {
+          "uuid": {
+            "value": 2649967020073737412
+          },
+          "updateInterval": {
+            "value": 100
+          },
+          "scriptName": {
+            "value": "gameplay_physics"
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 10654107922330062006
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 5098106545052921903
+    },
+    "name": {
+      "value": "player"
+    },
+    "offsetToParent": -7,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 5098106545052921903
+          },
+          "localPos": {
+            "values": [
+              7.136905670166016,
+              1.5379244089126587,
+              -2.9562888145446777
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "type": {
+            "value": 0
+          },
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 2122624805969013135
+    },
+    "name": {
+      "value": "minecraft_chunk"
+    },
+    "offsetToParent": -8,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 2122624805969013135
+          },
+          "localPos": {
+            "values": [
+              21.96181869506836,
+              7.799999237060547,
+              -4.563544273376465
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 9835323675229629194
+          },
+          "voxelShapeName": {
+            "value": "minecraft_chunk"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              32.0,
+              28.0,
+              32.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          }
+        }
+      }
+    ]
+  }
+]
