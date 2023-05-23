@@ -98,7 +98,13 @@ function UpdateCharacter(delta_t)
     -- Fetch player and his character controller
     local player = Entity.find_first_entity_with_name("player")
     local player_cct = CharacterController.get_component_for_entity(player)
+    local player_node = Node.get_component_for_entity(player)
     local grounded = CharacterController.is_grounded(player_cct)
+
+    -- Simple water handling
+    local water_plane = Entity.find_first_entity_with_name("water_plane")
+    local water_plane_node = Node.get_component_for_entity(water_plane)
+    local in_water = Node.get_world_position(player_node).y < Node.get_world_position(water_plane_node).y
 
     if not grounded then
         if not TimeAirborne then
@@ -114,8 +120,10 @@ function UpdateCharacter(delta_t)
     local cam_ctrl = CameraController.get_component_for_entity(cam)
 
     -- Apply gravity
-    if not grounded then
+    if not grounded and not in_water then
         PlayerVelocity.y = PlayerVelocity.y - delta_t * 9.81
+    elseif PlayerVelocity.y < 0.0 then
+        PlayerVelocity.y = PlayerVelocity.y * 0.999
     end
 
     -- Apply mouse movement
@@ -166,8 +174,7 @@ function UpdateCharacter(delta_t)
     PlayerVelocity.z = move_vec_global.z
 
     -- Jumping
-    if CharacterController.is_grounded(player_cct) and Input.get_key_state(Key.kSpace, 0) == KeyState.kPressed and
-        not Jumped then
+    if (grounded or in_water) and Input.get_key_state(Key.kSpace, 0) == KeyState.kPressed and not Jumped then
         PlayerVelocity.y = 5.0
         Jumped = true
     elseif Input.get_key_state(Key.kSpace, 0) == KeyState.kReleased then
