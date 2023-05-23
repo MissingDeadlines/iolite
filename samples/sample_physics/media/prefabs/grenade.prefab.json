@@ -10,9 +10,9 @@
         "properties": {
           "localPos": {
             "values": [
-              18.99067497253418,
-              0.6379251480102539,
-              -5.354992866516113
+              1.9618186950683594,
+              0.22975388169288635,
+              -5.813454627990723
             ]
           },
           "localOrient": {
@@ -25,9 +25,9 @@
           },
           "localSize": {
             "values": [
-              0.05000000074505806,
-              0.05000000074505806,
-              0.05000000074505806
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
             ]
           }
         }
@@ -36,16 +36,19 @@
         "type": "VoxelShape",
         "properties": {
           "voxelShapeName": {
-            "value": "cube_1m"
+            "value": "grenade"
           },
           "voxelShapeFlags": {
             "value": 6
           },
+          "rigidBodyFlags": {
+            "value": 0
+          },
           "pivot": {
             "values": [
-              5.0,
-              5.0,
-              5.0
+              3.0,
+              1.5,
+              1.5
             ]
           },
           "glassTransparency": {
@@ -56,6 +59,9 @@
           },
           "angularDamping": {
             "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 2.0
           }
         }
       }
