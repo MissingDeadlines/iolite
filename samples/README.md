@@ -70,7 +70,7 @@ Example focusing on physics with FPS controls. Showcases the usage of joints to 
 - Use the mouse to rotate the camera
 - Press `Space` to jump
 - Press `Left Mouse Button` to throw a grenade
-- Press `E` to spawn a ragdoll
+- Press `E` to toggle through different explosion radii 
 - Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
 ### References

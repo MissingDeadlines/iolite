@@ -14,6 +14,10 @@ ParticleSystem.load()
 UI.load()
 Sound.load()
 
+GrenadeSetting = 0
+GrenadeRadii = {1, 5, 10, 20}
+GrenadeLabels = {"Small", "Medium", "Large", "Insane"}
+
 -- Spawns a prefab at the provided distance and applies force/torque to it
 function SpawnPrefab(name, distance, force, torque)
     local cam = Entity.find_first_entity_with_name("game_camera")
@@ -215,6 +219,10 @@ function Tick(entity, delta_t)
     -- Draw the logo
     UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
 
+    -- Draw HUD
+    UI.draw_text(string.format("Grenade Radius: %s", GrenadeLabels[GrenadeSetting + 1]), Vec2(0.99, 0.97),
+        Vec2(0.0, 0.0), Vec4(1.0), 2)
+
     -- Spawn a grenade
     if Input.get_key_state(Key.kMouseLeft, 0) == KeyState.kPressed then
         if not GrenadeSpawned then
@@ -227,7 +235,7 @@ function Tick(entity, delta_t)
 
     -- Spawn a mage ragdoll
     if Input.get_key_state(Key.kE, 0) == KeyState.kClicked then
-        SpawnPrefab("mage_ragdoll", 2.0, 900.0, 1.0)
+        GrenadeSetting = (GrenadeSetting + 1) % #GrenadeRadii
     end
 
     -- Try to grab a voxel shape in the scene
@@ -278,7 +286,7 @@ function OnEvent(entity, events)
 
             if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
                 -- Apply damage
-                World.radius_damage(e.data.pos, 1.0, true)
+                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], true)
                 ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
 
                 local explosion_sound = Sound.play_sound_effect("sp_explosion")
