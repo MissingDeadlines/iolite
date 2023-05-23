@@ -1,0 +1,18 @@
+{
+  "sp_water_splash": {
+    "looping": false,
+    "volume": 1.0,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "sp_water_splash.ogg"
+        ],
+        "volume": 1.0,
+        "pitch": [
+          -4.0,
+          4.0
+        ]
+      }
+    ]
+  }
+}

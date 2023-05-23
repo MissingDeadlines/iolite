@@ -106,6 +106,13 @@ function UpdateCharacter(delta_t)
     local water_plane_node = Node.get_component_for_entity(water_plane)
     local in_water = Node.get_world_position(player_node).y < Node.get_world_position(water_plane_node).y
 
+    if not WasInWater and in_water then
+        Sound.play_sound_effect("sp_water_splash")
+        WasInWater = true
+    elseif not in_water then
+        WasInWater = false
+    end
+
     if not grounded then
         if not TimeAirborne then
             TimeAirborne = 0.0
