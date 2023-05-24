@@ -13,8 +13,8 @@
     "sample_spectrum",
     "trapped_below"
   ],
-  "initial_world": "sample_destruction",
-  "active_data_source": "sample_destruction",
+  "initial_world": "sample_physics",
+  "active_data_source": "sample_physics",
   "initial_game_state": "Editing",
   "version_string": "development"
 }

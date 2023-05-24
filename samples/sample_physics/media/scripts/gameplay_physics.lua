@@ -286,7 +286,8 @@ function OnEvent(entity, events)
 
             if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
                 -- Apply damage
-                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], true)
+                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], 1)
+                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, 2)
                 ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
 
                 local explosion_sound = Sound.play_sound_effect("sp_explosion")

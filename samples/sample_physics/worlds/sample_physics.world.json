@@ -123,17 +123,17 @@
           },
           "localPos": {
             "values": [
-              25.512939453125,
-              5.36011266708374,
-              -7.771987438201904
+              16.558818817138672,
+              3.1874806880950928,
+              8.608807563781738
             ]
           },
           "localOrient": {
             "values": [
-              0.090507373213768,
-              -0.5113798975944519,
-              0.054269369691610336,
-              0.8528504371643066
+              -0.060442883521318436,
+              0.8369798064231873,
+              -0.09444998949766159,
+              -0.5356218218803406
             ]
           },
           "localSize": {
@@ -464,94 +464,12 @@
   },
   {
     "uuid": {
-      "value": 12029454287882095457
-    },
-    "name": {
-      "value": "orange_cubes"
-    },
-    "offsetToParent": -8,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12029454287882095457
-          },
-          "localPos": {
-            "values": [
-              14.565323829650879,
-              0.1379241943359375,
-              -2.6888914108276367
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              1.0,
-              1.0,
-              1.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 9065237624780617015
-    },
-    "name": {
-      "value": "wall"
-    },
-    "offsetToParent": -9,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 9065237624780617015
-          },
-          "localPos": {
-            "values": [
-              13.497262001037598,
-              0.1379251480102539,
-              4.9880900382995605
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              1.0,
-              1.0,
-              1.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
       "value": 16827371375973319453
     },
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -10,
+    "offsetToParent": -8,
     "propertyEntries": [
       {
         "type": "Node",
@@ -616,6 +534,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -628,7 +549,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -11,
+    "offsetToParent": -9,
     "propertyEntries": [
       {
         "type": "Node",
@@ -693,6 +614,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -705,7 +629,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -12,
+    "offsetToParent": -10,
     "propertyEntries": [
       {
         "type": "Node",
@@ -770,6 +694,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -782,7 +709,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -13,
+    "offsetToParent": -11,
     "propertyEntries": [
       {
         "type": "Node",
@@ -847,6 +774,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -859,7 +789,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -14,
+    "offsetToParent": -12,
     "propertyEntries": [
       {
         "type": "Node",
@@ -924,6 +854,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -936,7 +869,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -15,
+    "offsetToParent": -13,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1001,6 +934,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1013,7 +949,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -16,
+    "offsetToParent": -14,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1078,6 +1014,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1090,7 +1029,7 @@
     "name": {
       "value": "player"
     },
-    "offsetToParent": -17,
+    "offsetToParent": -15,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1151,7 +1090,7 @@
     "name": {
       "value": "mage1"
     },
-    "offsetToParent": -18,
+    "offsetToParent": -16,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1187,12 +1126,412 @@
   },
   {
     "uuid": {
+      "value": 16644036627395467902
+    },
+    "name": {
+      "value": "world_11"
+    },
+    "offsetToParent": -17,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 16644036627395467902
+          },
+          "localPos": {
+            "values": [
+              6.5511674880981445,
+              1.737925410270691,
+              4.077653884887695
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -1.0,
+              0.0,
+              -4.371138828673793e-8
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 14444464478121262008
+          },
+          "voxelShapeName": {
+            "value": "world_11"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              2.5,
+              16.0,
+              16.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 3951307728568908618
+    },
+    "name": {
+      "value": "world_11"
+    },
+    "offsetToParent": -18,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 3951307728568908618
+          },
+          "localPos": {
+            "values": [
+              6.5511674880981445,
+              1.737925410270691,
+              0.877653956413269
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -1.0,
+              0.0,
+              -4.371138828673793e-8
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 3871645440764526927
+          },
+          "voxelShapeName": {
+            "value": "world_11"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              2.5,
+              16.0,
+              16.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 1663561795688228740
+    },
+    "name": {
+      "value": "world_15"
+    },
+    "offsetToParent": -19,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 1663561795688228740
+          },
+          "localPos": {
+            "values": [
+              8.264816284179688,
+              1.7379251718521118,
+              -3.6619179248809814
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 4711105653850829495
+          },
+          "voxelShapeName": {
+            "value": "world_15"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              16.0,
+              16.0,
+              2.5
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 7127914200543581771
+    },
+    "name": {
+      "value": "world_16"
+    },
+    "offsetToParent": -20,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 7127914200543581771
+          },
+          "localPos": {
+            "values": [
+              6.498260974884033,
+              1.7379251718521118,
+              -2.332695960998535
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 3824390875530167954
+          },
+          "voxelShapeName": {
+            "value": "world_16"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              2.5,
+              16.0,
+              16.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 10878774365934034215
+    },
+    "name": {
+      "value": "world_11"
+    },
+    "offsetToParent": -21,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 10878774365934034215
+          },
+          "localPos": {
+            "values": [
+              6.5511674880981445,
+              1.737925410270691,
+              7.277653694152832
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -1.0,
+              0.0,
+              -4.371138828673793e-8
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 1773068889898423071
+          },
+          "voxelShapeName": {
+            "value": "world_11"
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              2.5,
+              16.0,
+              16.0
+            ]
+          },
+          "glassTransparency": {
+            "value": 0.5
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
       "value": 4461345241570951984
     },
     "name": {
       "value": "lower_body"
     },
-    "offsetToParent": -1,
+    "offsetToParent": -6,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1257,6 +1596,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1269,7 +1611,7 @@
     "name": {
       "value": "cape"
     },
-    "offsetToParent": -2,
+    "offsetToParent": -7,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1334,6 +1676,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1346,7 +1691,7 @@
     "name": {
       "value": "left_leg"
     },
-    "offsetToParent": -3,
+    "offsetToParent": -8,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1411,6 +1756,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1423,7 +1771,7 @@
     "name": {
       "value": "right_leg"
     },
-    "offsetToParent": -4,
+    "offsetToParent": -9,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1488,6 +1836,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1500,7 +1851,7 @@
     "name": {
       "value": "right_arm"
     },
-    "offsetToParent": -5,
+    "offsetToParent": -10,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1565,6 +1916,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1577,7 +1931,7 @@
     "name": {
       "value": "left_arm"
     },
-    "offsetToParent": -6,
+    "offsetToParent": -11,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1642,6 +1996,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1654,7 +2011,7 @@
     "name": {
       "value": "upper_body"
     },
-    "offsetToParent": -7,
+    "offsetToParent": -12,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1719,6 +2076,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -1731,7 +2091,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -8,
+    "offsetToParent": -13,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -1800,7 +2160,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -9,
+    "offsetToParent": -14,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -1869,7 +2229,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -10,
+    "offsetToParent": -15,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -1938,7 +2298,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -11,
+    "offsetToParent": -16,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2007,7 +2367,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -12,
+    "offsetToParent": -17,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2076,7 +2436,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -13,
+    "offsetToParent": -18,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2140,2532 +2500,12 @@
   },
   {
     "uuid": {
-      "value": 3983448412734247280
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -23,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3983448412734247280
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              -0.7071067690849304,
-              0.0,
-              0.7071067690849304
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 7376443535219743402
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 8
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 16839345252002968018
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -24,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 16839345252002968018
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              3.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              -5.3290705182007514e-14,
-              -0.7071068286895752,
-              -2.8803264315340653e-15,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 4123076646590664607
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 8222556951103380785
-    },
-    "name": {
-      "value": "wall"
-    },
-    "offsetToParent": -25,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 8222556951103380785
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              0.0,
-              -3.1000001430511475
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              1.0,
-              1.0,
-              1.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 7903531313124552267
-    },
-    "name": {
-      "value": "wall"
-    },
-    "offsetToParent": -26,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 7903531313124552267
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              4.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              1.0,
-              1.0,
-              1.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 11814587647849935575
-    },
-    "name": {
-      "value": "wall"
-    },
-    "offsetToParent": -27,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 11814587647849935575
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              4.0,
-              -3.1000001430511475
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.0,
-              0.0,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              1.0,
-              1.0,
-              1.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12840695257636652914
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -1,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12840695257636652914
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              -0.7071067690849304,
-              0.0,
-              0.7071067690849304
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 10509193316108973504
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 16260386007261030524
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -2,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 16260386007261030524
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              3.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              -5.3290705182007514e-14,
-              -0.7071068286895752,
-              -2.8803264315340653e-15,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 7889302102817894059
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 2495520988799778225
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -2,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 16380151226135724955
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 2495520988799778225
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 3136180041046135690
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -3,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 5453438121968777948
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3136180041046135690
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 10449152631851074093
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -4,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 12447463530393994921
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 10449152631851074093
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 3540469216564465129
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -7,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3540469216564465129
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              -0.7071067690849304,
-              0.0,
-              0.7071067690849304
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 5936247763050775478
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 2676945403498371122
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -8,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 2676945403498371122
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              3.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              -5.3290705182007514e-14,
-              -0.7071068286895752,
-              -2.8803264315340653e-15,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 7888740546494323889
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12879946538563857506
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -2,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 10038588763654185906
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12879946538563857506
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 3848056307978832186
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -3,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 15219068742506833141
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3848056307978832186
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 17701921807995701416
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -4,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 11140132016941679740
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 17701921807995701416
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 13914261937947444409
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -13,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 13914261937947444409
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              -0.7071067690849304,
-              0.0,
-              0.7071067690849304
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 595478723288684360
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 8
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 3567904414716443632
-    },
-    "name": {
-      "value": "wall_gray"
-    },
-    "offsetToParent": -14,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3567904414716443632
-          },
-          "localPos": {
-            "values": [
-              0.0,
-              3.0,
-              0.0
-            ]
-          },
-          "localOrient": {
-            "values": [
-              -5.3290705182007514e-14,
-              -0.7071068286895752,
-              -2.8803264315340653e-15,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 10489893201784462566
-          },
-          "voxelShapeName": {
-            "value": "wall_gray"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              15.5,
-              10.0,
-              2.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 8584406640950326919
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -1,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 15111908698070244596
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 8584406640950326919
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 16524951249760732458
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -2,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 11230368916367366221
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 16524951249760732458
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 15468871940598368800
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -3,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 8862243663246704573
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 15468871940598368800
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 3632219370796596532
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -5,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 16823439726952545666
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 3632219370796596532
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12729715475680284494
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -6,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 763843968488979449
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12729715475680284494
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12109895424766784080
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -7,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 11176689566161231310
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12109895424766784080
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 18440028494325617204
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -22,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 4548846783061154805
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 18440028494325617204
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 15914397601329751824
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -23,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 4234660590376817922
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 15914397601329751824
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 6883162564790996574
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -24,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 13773317592163227304
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 6883162564790996574
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 6820207602926181698
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -26,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 5277867544976994949
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 6820207602926181698
-          },
-          "localPos": {
-            "values": [
-              11.991240501403809,
-              10.012619018554688,
-              -0.4999895393848419
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12130314155405076344
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -27,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 14239131397589395104
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12130314155405076344
-          },
-          "localPos": {
-            "values": [
-              -0.608759880065918,
-              10.012619018554688,
-              -0.4999902844429016
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 924340963247695542
-    },
-    "name": {
-      "value": "joint"
-    },
-    "offsetToParent": -28,
-    "propertyEntries": [
-      {
-        "type": "Joint",
-        "properties": {
-          "uuid": {
-            "value": 11083084677475734637
-          },
-          "type": {
-            "value": 0
-          },
-          "flags": {
-            "value": 0
-          },
-          "limits": {
-            "values": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "axis": {
-            "values": [
-              0.0,
-              1.0,
-              0.0
-            ]
-          }
-        }
-      },
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 924340963247695542
-          },
-          "localPos": {
-            "values": [
-              -13.208760261535645,
-              10.012619018554688,
-              -0.4999910295009613
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0,
-              0.7071068286895752,
-              0.0,
-              0.7071068286895752
-            ]
-          },
-          "localSize": {
-            "values": [
-              10.0,
-              10.0,
-              10.0
-            ]
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 2974864180964407931
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -53,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 2974864180964407931
-          },
-          "localPos": {
-            "values": [
-              -12.723164558410645,
-              1.5999871492385864,
-              -2.021731376647949
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.000003733314997589332,
-              0.000003825179646810284,
-              -0.000010613532140268944,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 2836211533789294303
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 12080794968185606607
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -54,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 12080794968185606607
-          },
-          "localPos": {
-            "values": [
-              -12.722672462463379,
-              4.799505710601807,
-              -5.221379280090332
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0000650246802251786,
-              -0.000007123127488739556,
-              -0.0000878593054949306,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 4401126240703150530
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 7849348469487832364
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -55,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 7849348469487832364
-          },
-          "localPos": {
-            "values": [
-              -12.722787857055664,
-              4.799832344055176,
-              -2.021207332611084
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.00008977467223303393,
-              0.0000021951077542325947,
-              -0.000059565591072896495,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 5274276358657100977
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 10718610767223647798
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -56,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 10718610767223647798
-          },
-          "localPos": {
-            "values": [
-              -12.723196983337402,
-              1.6000244617462158,
-              -8.42182731628418
-            ]
-          },
-          "localOrient": {
-            "values": [
-              -0.000007678105248487554,
-              -0.0000010570437325441162,
-              -0.0000015658415577490814,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 12081486791679655528
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 316272723790116458
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -57,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 316272723790116458
-          },
-          "localPos": {
-            "values": [
-              -12.723127365112305,
-              1.5999597311019897,
-              -5.221742153167725
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.00000933589763008058,
-              -0.000004105122116015991,
-              -0.00001744955443427898,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 17400322978753307412
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 16588781867859714950
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -58,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 16588781867859714950
-          },
-          "localPos": {
-            "values": [
-              -12.723184585571289,
-              1.5999810695648193,
-              1.1782387495040894
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.0000047379890020238236,
-              -0.0000014656141047453275,
-              -0.000003134538019367028,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 10793223031324767954
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
-      "value": 14693375953635537473
-    },
-    "name": {
-      "value": "cube_32_orange"
-    },
-    "offsetToParent": -59,
-    "propertyEntries": [
-      {
-        "type": "Node",
-        "properties": {
-          "uuid": {
-            "value": 14693375953635537473
-          },
-          "localPos": {
-            "values": [
-              -12.722905158996582,
-              4.799678325653076,
-              1.1787980794906616
-            ]
-          },
-          "localOrient": {
-            "values": [
-              0.00009193127334583551,
-              -0.000001455883761991572,
-              -0.00007786049536662176,
-              1.0
-            ]
-          },
-          "localSize": {
-            "values": [
-              0.10000000149011612,
-              0.10000000149011612,
-              0.10000000149011612
-            ]
-          }
-        }
-      },
-      {
-        "type": "VoxelShape",
-        "properties": {
-          "uuid": {
-            "value": 3107929937871624383
-          },
-          "voxelShapeName": {
-            "value": "cube_32_orange"
-          },
-          "voxelShapeFlags": {
-            "value": 12
-          },
-          "rigidBodyFlags": {
-            "value": 0
-          },
-          "pivot": {
-            "values": [
-              16.0,
-              16.0,
-              16.0
-            ]
-          },
-          "glassTransparency": {
-            "value": 0.5
-          },
-          "linearDamping": {
-            "value": 0.10000000149011612
-          },
-          "angularDamping": {
-            "value": 0.10000000149011612
-          },
-          "density": {
-            "value": 1.0
-          }
-        }
-      }
-    ]
-  },
-  {
-    "uuid": {
       "value": 1706188406693801701
     },
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -61,
+    "offsetToParent": -28,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4730,6 +2570,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -4742,7 +2585,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -62,
+    "offsetToParent": -29,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4807,6 +2650,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -4819,7 +2665,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -63,
+    "offsetToParent": -30,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4884,6 +2730,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -4896,7 +2745,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -64,
+    "offsetToParent": -31,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4961,6 +2810,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -4973,7 +2825,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -65,
+    "offsetToParent": -32,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5038,6 +2890,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5050,7 +2905,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -66,
+    "offsetToParent": -33,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5115,6 +2970,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5127,7 +2985,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -67,
+    "offsetToParent": -34,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5192,6 +3050,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5204,7 +3065,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -68,
+    "offsetToParent": -35,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5269,6 +3130,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5281,7 +3145,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -69,
+    "offsetToParent": -36,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5346,6 +3210,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5358,7 +3225,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -70,
+    "offsetToParent": -37,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5423,6 +3290,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5435,7 +3305,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -71,
+    "offsetToParent": -38,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5500,6 +3370,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5512,7 +3385,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -72,
+    "offsetToParent": -39,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5577,6 +3450,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5654,6 +3530,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5731,6 +3610,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5808,6 +3690,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5885,6 +3770,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -5962,6 +3850,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6039,6 +3930,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6116,6 +4010,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6193,6 +4090,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6270,6 +4170,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6347,6 +4250,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6424,6 +4330,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6501,6 +4410,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6578,6 +4490,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6655,6 +4570,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6732,6 +4650,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6809,6 +4730,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6886,6 +4810,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -6963,6 +4890,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7040,6 +4970,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7117,6 +5050,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7194,6 +5130,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7271,6 +5210,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7348,6 +5290,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7425,6 +5370,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7502,6 +5450,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7579,6 +5530,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7656,6 +5610,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7733,6 +5690,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7810,6 +5770,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7887,6 +5850,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -7964,6 +5930,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8041,6 +6010,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8118,6 +6090,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8195,6 +6170,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8272,6 +6250,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8349,6 +6330,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8426,6 +6410,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8503,6 +6490,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8580,6 +6570,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8657,6 +6650,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8734,6 +6730,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8811,6 +6810,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8888,6 +6890,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -8965,6 +6970,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9042,6 +7050,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9119,6 +7130,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9196,6 +7210,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9273,6 +7290,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9350,6 +7370,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9427,6 +7450,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9504,6 +7530,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9581,6 +7610,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9658,6 +7690,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9735,6 +7770,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9812,6 +7850,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9889,6 +7930,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -9966,6 +8010,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10043,6 +8090,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10120,6 +8170,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10197,6 +8250,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10274,6 +8330,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10351,6 +8410,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10428,6 +8490,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10505,6 +8570,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10582,6 +8650,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10659,6 +8730,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10736,6 +8810,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10813,6 +8890,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10890,6 +8970,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -10967,6 +9050,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11044,6 +9130,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11121,6 +9210,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11198,6 +9290,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11275,6 +9370,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11352,6 +9450,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11429,6 +9530,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11506,6 +9610,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11583,6 +9690,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11660,6 +9770,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11737,6 +9850,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11814,6 +9930,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11891,6 +10010,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -11968,6 +10090,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
@@ -12045,6 +10170,9 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
           }
         }
       }
