@@ -241,7 +241,7 @@ function Tick(entity, delta_t)
     end
 
     if Input.get_key_state(Key.kQ, 0) == KeyState.kClicked then
-        GrenadeMaxHardness = (GrenadeMaxHardness + 5) % 15
+        GrenadeMaxHardness = (GrenadeMaxHardness + 5) % 20
     end
 
     -- Try to grab a voxel shape in the scene
