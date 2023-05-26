@@ -17,6 +17,7 @@ Sound.load()
 GrenadeSetting = 0
 GrenadeRadii = {1, 5, 10, 20}
 GrenadeLabels = {"Small", "Medium", "Large", "Insane"}
+GrenadeMaxHardness = 0
 
 -- Spawns a prefab at the provided distance and applies force/torque to it
 function SpawnPrefab(name, distance, force, torque)
@@ -222,6 +223,7 @@ function Tick(entity, delta_t)
     -- Draw HUD
     UI.draw_text(string.format("Grenade Radius: %s", GrenadeLabels[GrenadeSetting + 1]), Vec2(0.99, 0.97),
         Vec2(0.0, 0.0), Vec4(1.0), 2)
+    UI.draw_text(string.format("Max Hardness: %i", GrenadeMaxHardness), Vec2(0.99, 0.93), Vec2(0.0, 0.0), Vec4(1.0), 2)
 
     -- Spawn a grenade
     if Input.get_key_state(Key.kMouseLeft, 0) == KeyState.kPressed then
@@ -236,6 +238,10 @@ function Tick(entity, delta_t)
     -- Spawn a mage ragdoll
     if Input.get_key_state(Key.kE, 0) == KeyState.kClicked then
         GrenadeSetting = (GrenadeSetting + 1) % #GrenadeRadii
+    end
+
+    if Input.get_key_state(Key.kQ, 0) == KeyState.kClicked then
+        GrenadeMaxHardness = (GrenadeMaxHardness + 5) % 15
     end
 
     -- Try to grab a voxel shape in the scene
@@ -286,8 +292,8 @@ function OnEvent(entity, events)
 
             if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
                 -- Apply damage
-                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], 1)
-                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, 2)
+                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], 1, GrenadeMaxHardness)
+                World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, 2, GrenadeMaxHardness)
                 ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
 
                 local explosion_sound = Sound.play_sound_effect("sp_explosion")
