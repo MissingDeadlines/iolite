@@ -1,7 +1,7 @@
 [
   {
     "uuid": {
-      "value": 2242511267782185222
+      "value": 18417820892208834495
     },
     "name": {
       "value": "sample_physics"
@@ -12,7 +12,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2242511267782185222
+            "value": 18417820892208834495
           },
           "localPos": {
             "values": [
@@ -42,7 +42,7 @@
   },
   {
     "uuid": {
-      "value": 17587889970673794852
+      "value": 13886128969938364464
     },
     "name": {
       "value": "game_camera"
@@ -53,7 +53,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17587889970673794852
+            "value": 13886128969938364464
           },
           "localPos": {
             "values": [
@@ -83,7 +83,7 @@
         "type": "Camera",
         "properties": {
           "uuid": {
-            "value": 16826238970844029457
+            "value": 16216755477639727622
           },
           "projectionType": {
             "value": 0
@@ -97,7 +97,7 @@
         "type": "CameraController",
         "properties": {
           "uuid": {
-            "value": 7576296391164426494
+            "value": 464059204916560325
           },
           "cameraControllerType": {
             "value": 1
@@ -108,7 +108,7 @@
   },
   {
     "uuid": {
-      "value": 10327229225124275034
+      "value": 9053079059827735520
     },
     "name": {
       "value": "editing_camera"
@@ -119,21 +119,21 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10327229225124275034
+            "value": 9053079059827735520
           },
           "localPos": {
             "values": [
-              -10.087812423706055,
-              6.695937633514404,
-              -23.397092819213867
+              -1.8808512687683105,
+              8.158796310424805,
+              -18.416025161743164
             ]
           },
           "localOrient": {
             "values": [
-              0.07858841866254807,
-              0.30002036690711975,
-              -0.024809513241052628,
-              0.9503662586212158
+              0.20627988874912262,
+              0.15818186104297638,
+              -0.033812131732702255,
+              0.9650304913520813
             ]
           },
           "localSize": {
@@ -149,7 +149,7 @@
         "type": "Camera",
         "properties": {
           "uuid": {
-            "value": 14558370148444240405
+            "value": 16424711481252931474
           },
           "projectionType": {
             "value": 0
@@ -163,7 +163,7 @@
   },
   {
     "uuid": {
-      "value": 6258827315915003036
+      "value": 14731597040849706391
     },
     "name": {
       "value": "sky"
@@ -174,7 +174,7 @@
         "type": "Mesh",
         "properties": {
           "uuid": {
-            "value": 16826238970844029457
+            "value": 16216755477639727622
           },
           "meshName": {
             "value": "sky"
@@ -201,7 +201,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6258827315915003036
+            "value": 14731597040849706391
           },
           "localPos": {
             "values": [
@@ -231,7 +231,7 @@
   },
   {
     "uuid": {
-      "value": 15981017805510931381
+      "value": 11059286442373238252
     },
     "name": {
       "value": "water_plane"
@@ -242,7 +242,7 @@
         "type": "Mesh",
         "properties": {
           "uuid": {
-            "value": 14558370148444240405
+            "value": 16424711481252931474
           },
           "meshName": {
             "value": "water_plane"
@@ -269,7 +269,7 @@
         "type": "WaterPlane",
         "properties": {
           "uuid": {
-            "value": 7576296391164426494
+            "value": 464059204916560325
           }
         }
       },
@@ -277,7 +277,7 @@
         "type": "KillPlane",
         "properties": {
           "uuid": {
-            "value": 7576296391164426494
+            "value": 464059204916560325
           }
         }
       },
@@ -285,7 +285,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15981017805510931381
+            "value": 11059286442373238252
           },
           "localPos": {
             "values": [
@@ -315,7 +315,7 @@
   },
   {
     "uuid": {
-      "value": 3484794931577940242
+      "value": 15153186920408174711
     },
     "name": {
       "value": "post_effect"
@@ -326,7 +326,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3484794931577940242
+            "value": 15153186920408174711
           },
           "localPos": {
             "values": [
@@ -356,7 +356,7 @@
         "type": "PostEffectVolume",
         "properties": {
           "uuid": {
-            "value": 7576296391164426494
+            "value": 464059204916560325
           },
           "postEffectName": {
             "value": "sunny"
@@ -376,7 +376,7 @@
   },
   {
     "uuid": {
-      "value": 14056487323072691264
+      "value": 16353957016485404951
     },
     "name": {
       "value": "gameplay"
@@ -387,7 +387,7 @@
         "type": "Script",
         "properties": {
           "uuid": {
-            "value": 7576296391164426494
+            "value": 464059204916560325
           },
           "updateInterval": {
             "value": 100
@@ -401,7 +401,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14056487323072691264
+            "value": 16353957016485404951
           },
           "localPos": {
             "values": [
@@ -431,7 +431,7 @@
   },
   {
     "uuid": {
-      "value": 7457534431591621304
+      "value": 5495421129245931925
     },
     "name": {
       "value": "floor"
@@ -442,7 +442,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7457534431591621304
+            "value": 5495421129245931925
           },
           "localPos": {
             "values": [
@@ -472,7 +472,7 @@
   },
   {
     "uuid": {
-      "value": 16102334495666489981
+      "value": 18373719410952519334
     },
     "name": {
       "value": "player"
@@ -483,7 +483,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 16102334495666489981
+            "value": 18373719410952519334
           },
           "localPos": {
             "values": [
@@ -533,7 +533,7 @@
   },
   {
     "uuid": {
-      "value": 16528763330473362857
+      "value": 13096602258355936091
     },
     "name": {
       "value": "sample_physics"
@@ -544,7 +544,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 16528763330473362857
+            "value": 13096602258355936091
           },
           "localPos": {
             "values": [
@@ -574,13 +574,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13398742587632229784
+            "value": 12991000140564023488
           },
           "voxelShapeName": {
             "value": "sample_physics"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -613,7 +613,7 @@
   },
   {
     "uuid": {
-      "value": 11840165559297438690
+      "value": 4569794087040723245
     },
     "name": {
       "value": "sample_physics_1"
@@ -624,7 +624,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 11840165559297438690
+            "value": 4569794087040723245
           },
           "localPos": {
             "values": [
@@ -654,13 +654,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1030272738801783971
+            "value": 16106266114851914833
           },
           "voxelShapeName": {
             "value": "sample_physics_1"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -693,7 +693,7 @@
   },
   {
     "uuid": {
-      "value": 8817803697618760325
+      "value": 14553623069242605119
     },
     "name": {
       "value": "sample_physics"
@@ -704,7 +704,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 8817803697618760325
+            "value": 14553623069242605119
           },
           "localPos": {
             "values": [
@@ -734,13 +734,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 14410028656887711050
+            "value": 17618562611994075545
           },
           "voxelShapeName": {
             "value": "sample_physics"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -773,7 +773,7 @@
   },
   {
     "uuid": {
-      "value": 15996858369359106464
+      "value": 11701661267145430147
     },
     "name": {
       "value": "sample_physics"
@@ -784,7 +784,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15996858369359106464
+            "value": 11701661267145430147
           },
           "localPos": {
             "values": [
@@ -814,13 +814,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10983671847524248640
+            "value": 5650630784837755546
           },
           "voxelShapeName": {
             "value": "sample_physics"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -853,7 +853,7 @@
   },
   {
     "uuid": {
-      "value": 502732441864371459
+      "value": 13135884053281216874
     },
     "name": {
       "value": "sample_physics"
@@ -864,7 +864,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 502732441864371459
+            "value": 13135884053281216874
           },
           "localPos": {
             "values": [
@@ -894,13 +894,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16977717534796379160
+            "value": 8015263756573445215
           },
           "voxelShapeName": {
             "value": "sample_physics"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -933,7 +933,7 @@
   },
   {
     "uuid": {
-      "value": 3628214043925420601
+      "value": 12308491906653721816
     },
     "name": {
       "value": "sample_physics"
@@ -944,7 +944,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3628214043925420601
+            "value": 12308491906653721816
           },
           "localPos": {
             "values": [
@@ -974,13 +974,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13615888610842089712
+            "value": 635696976515974279
           },
           "voxelShapeName": {
             "value": "sample_physics"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -1013,7 +1013,7 @@
   },
   {
     "uuid": {
-      "value": 7761730970525053005
+      "value": 13040780789180013041
     },
     "name": {
       "value": "sample_physics_1"
@@ -1024,7 +1024,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7761730970525053005
+            "value": 13040780789180013041
           },
           "localPos": {
             "values": [
@@ -1054,13 +1054,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8848863971946572737
+            "value": 6951532474798672334
           },
           "voxelShapeName": {
             "value": "sample_physics_1"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -1093,7 +1093,7 @@
   },
   {
     "uuid": {
-      "value": 14803463167110026605
+      "value": 17855373643239253378
     },
     "name": {
       "value": "sample_physics_1"
@@ -1104,7 +1104,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14803463167110026605
+            "value": 17855373643239253378
           },
           "localPos": {
             "values": [
@@ -1134,13 +1134,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16964389686736665302
+            "value": 16494855048618038621
           },
           "voxelShapeName": {
             "value": "sample_physics_1"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -1173,7 +1173,7 @@
   },
   {
     "uuid": {
-      "value": 2731614557037966855
+      "value": 16876447880396443337
     },
     "name": {
       "value": "sample_physics_1"
@@ -1184,7 +1184,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2731614557037966855
+            "value": 16876447880396443337
           },
           "localPos": {
             "values": [
@@ -1214,13 +1214,13 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16920521777405572387
+            "value": 5729690477825621431
           },
           "voxelShapeName": {
             "value": "sample_physics_1"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -1253,7 +1253,7 @@
   },
   {
     "uuid": {
-      "value": 4632374957785794219
+      "value": 10818888478366156180
     },
     "name": {
       "value": "plate_32_gray"
@@ -1264,7 +1264,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 4632374957785794219
+            "value": 10818888478366156180
           },
           "localPos": {
             "values": [
@@ -1294,7 +1294,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8086273200838088585
+            "value": 3464502462322116492
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1333,7 +1333,7 @@
   },
   {
     "uuid": {
-      "value": 12652316063841023462
+      "value": 13505371879115458847
     },
     "name": {
       "value": "plate_32_gray"
@@ -1344,7 +1344,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 12652316063841023462
+            "value": 13505371879115458847
           },
           "localPos": {
             "values": [
@@ -1374,7 +1374,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 3295652702045256678
+            "value": 17825817899406147203
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1413,7 +1413,7 @@
   },
   {
     "uuid": {
-      "value": 3082469180129910925
+      "value": 2502587327630400205
     },
     "name": {
       "value": "plate_32_gray"
@@ -1424,7 +1424,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3082469180129910925
+            "value": 2502587327630400205
           },
           "localPos": {
             "values": [
@@ -1454,7 +1454,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16583053794146152209
+            "value": 10356807959029035070
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1493,7 +1493,7 @@
   },
   {
     "uuid": {
-      "value": 17346500585483621516
+      "value": 205357144768729656
     },
     "name": {
       "value": "plate_32_gray"
@@ -1504,7 +1504,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17346500585483621516
+            "value": 205357144768729656
           },
           "localPos": {
             "values": [
@@ -1534,7 +1534,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8743279688709244815
+            "value": 11439778754729297374
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1573,7 +1573,7 @@
   },
   {
     "uuid": {
-      "value": 1750374554540065061
+      "value": 16317432842588574364
     },
     "name": {
       "value": "plate_32_gray"
@@ -1584,7 +1584,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 1750374554540065061
+            "value": 16317432842588574364
           },
           "localPos": {
             "values": [
@@ -1614,7 +1614,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8435951921242950208
+            "value": 16215008455298290901
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1653,7 +1653,7 @@
   },
   {
     "uuid": {
-      "value": 17518031811644675303
+      "value": 11897972374136710201
     },
     "name": {
       "value": "plate_32_gray"
@@ -1664,7 +1664,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17518031811644675303
+            "value": 11897972374136710201
           },
           "localPos": {
             "values": [
@@ -1694,7 +1694,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4968659573749101012
+            "value": 5075870472986756284
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1733,7 +1733,7 @@
   },
   {
     "uuid": {
-      "value": 1519679843877595278
+      "value": 15784240074385777329
     },
     "name": {
       "value": "plate_32_gray"
@@ -1744,7 +1744,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 1519679843877595278
+            "value": 15784240074385777329
           },
           "localPos": {
             "values": [
@@ -1774,7 +1774,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1090058375986550199
+            "value": 7514248128079405493
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1813,7 +1813,7 @@
   },
   {
     "uuid": {
-      "value": 562962403258892639
+      "value": 17000498509827215668
     },
     "name": {
       "value": "plate_32_gray"
@@ -1824,7 +1824,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 562962403258892639
+            "value": 17000498509827215668
           },
           "localPos": {
             "values": [
@@ -1854,7 +1854,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13237349902768383068
+            "value": 1811483916129488566
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1893,7 +1893,7 @@
   },
   {
     "uuid": {
-      "value": 6083370655585959325
+      "value": 1810087419906900502
     },
     "name": {
       "value": "plate_32_gray"
@@ -1904,7 +1904,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6083370655585959325
+            "value": 1810087419906900502
           },
           "localPos": {
             "values": [
@@ -1934,7 +1934,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13195698667526368276
+            "value": 13110233798085858731
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -1973,7 +1973,7 @@
   },
   {
     "uuid": {
-      "value": 9058834302195384870
+      "value": 8345890587976003346
     },
     "name": {
       "value": "plate_32_gray"
@@ -1984,7 +1984,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9058834302195384870
+            "value": 8345890587976003346
           },
           "localPos": {
             "values": [
@@ -2014,7 +2014,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13570520819077131084
+            "value": 14322954385633061824
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2053,7 +2053,7 @@
   },
   {
     "uuid": {
-      "value": 2233878445062913570
+      "value": 9932579123177799756
     },
     "name": {
       "value": "plate_32_gray"
@@ -2064,7 +2064,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2233878445062913570
+            "value": 9932579123177799756
           },
           "localPos": {
             "values": [
@@ -2094,7 +2094,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1554874154540973338
+            "value": 8535766554671270807
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2133,7 +2133,7 @@
   },
   {
     "uuid": {
-      "value": 18343231886013068894
+      "value": 10291015317562859980
     },
     "name": {
       "value": "plate_32_gray"
@@ -2144,7 +2144,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 18343231886013068894
+            "value": 10291015317562859980
           },
           "localPos": {
             "values": [
@@ -2174,7 +2174,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 11845387132970600672
+            "value": 4127999338426589376
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2213,7 +2213,7 @@
   },
   {
     "uuid": {
-      "value": 9283720901922388786
+      "value": 2305053769515479695
     },
     "name": {
       "value": "plate_32_gray"
@@ -2224,7 +2224,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9283720901922388786
+            "value": 2305053769515479695
           },
           "localPos": {
             "values": [
@@ -2254,7 +2254,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4399037793166251249
+            "value": 7025618187370315009
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2293,7 +2293,7 @@
   },
   {
     "uuid": {
-      "value": 16305288882773200964
+      "value": 288339590338329386
     },
     "name": {
       "value": "plate_32_gray"
@@ -2304,7 +2304,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 16305288882773200964
+            "value": 288339590338329386
           },
           "localPos": {
             "values": [
@@ -2334,7 +2334,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7527136620695530008
+            "value": 1021882468881476411
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2373,7 +2373,7 @@
   },
   {
     "uuid": {
-      "value": 5053859366896510052
+      "value": 9176316775259580892
     },
     "name": {
       "value": "plate_32_gray"
@@ -2384,7 +2384,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5053859366896510052
+            "value": 9176316775259580892
           },
           "localPos": {
             "values": [
@@ -2414,7 +2414,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16319260210705032268
+            "value": 17584741108451723181
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2453,7 +2453,7 @@
   },
   {
     "uuid": {
-      "value": 4167736855001921068
+      "value": 6281060278321693327
     },
     "name": {
       "value": "plate_32_gray"
@@ -2464,7 +2464,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 4167736855001921068
+            "value": 6281060278321693327
           },
           "localPos": {
             "values": [
@@ -2494,7 +2494,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10115368209663495556
+            "value": 2732539637897756258
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2533,7 +2533,7 @@
   },
   {
     "uuid": {
-      "value": 15879355837020774336
+      "value": 7331934880703929802
     },
     "name": {
       "value": "plate_32_gray"
@@ -2544,7 +2544,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15879355837020774336
+            "value": 7331934880703929802
           },
           "localPos": {
             "values": [
@@ -2574,7 +2574,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 884438059673905055
+            "value": 12551639753758934302
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2613,7 +2613,7 @@
   },
   {
     "uuid": {
-      "value": 17829473367775290367
+      "value": 9033019699841606129
     },
     "name": {
       "value": "plate_32_gray"
@@ -2624,7 +2624,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17829473367775290367
+            "value": 9033019699841606129
           },
           "localPos": {
             "values": [
@@ -2654,7 +2654,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17203030317966919056
+            "value": 18284675430247919764
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2693,7 +2693,7 @@
   },
   {
     "uuid": {
-      "value": 7683817842388151672
+      "value": 7073508334251026930
     },
     "name": {
       "value": "plate_32_gray"
@@ -2704,7 +2704,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7683817842388151672
+            "value": 7073508334251026930
           },
           "localPos": {
             "values": [
@@ -2734,7 +2734,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 5496779804774597275
+            "value": 8729502938856402805
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2773,7 +2773,7 @@
   },
   {
     "uuid": {
-      "value": 15264220313692816930
+      "value": 8727728974451412257
     },
     "name": {
       "value": "plate_32_gray"
@@ -2784,7 +2784,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15264220313692816930
+            "value": 8727728974451412257
           },
           "localPos": {
             "values": [
@@ -2814,7 +2814,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7601929789814736734
+            "value": 14837081293983864171
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2853,7 +2853,7 @@
   },
   {
     "uuid": {
-      "value": 412308602049159726
+      "value": 14472530796952091259
     },
     "name": {
       "value": "plate_32_gray"
@@ -2864,7 +2864,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 412308602049159726
+            "value": 14472530796952091259
           },
           "localPos": {
             "values": [
@@ -2894,7 +2894,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 11516592586217663696
+            "value": 17099123279345839873
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -2933,7 +2933,7 @@
   },
   {
     "uuid": {
-      "value": 3320397896814615914
+      "value": 879499441719439695
     },
     "name": {
       "value": "plate_32_gray"
@@ -2944,7 +2944,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3320397896814615914
+            "value": 879499441719439695
           },
           "localPos": {
             "values": [
@@ -2974,7 +2974,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 2520378129061336457
+            "value": 100750027052844447
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3013,7 +3013,7 @@
   },
   {
     "uuid": {
-      "value": 17157014160805849680
+      "value": 4083365441199631469
     },
     "name": {
       "value": "plate_32_gray"
@@ -3024,7 +3024,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17157014160805849680
+            "value": 4083365441199631469
           },
           "localPos": {
             "values": [
@@ -3054,7 +3054,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1716415997359533410
+            "value": 5971393888448492372
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3093,7 +3093,7 @@
   },
   {
     "uuid": {
-      "value": 7954378888408147332
+      "value": 11231229151137909237
     },
     "name": {
       "value": "plate_32_gray"
@@ -3104,7 +3104,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7954378888408147332
+            "value": 11231229151137909237
           },
           "localPos": {
             "values": [
@@ -3134,7 +3134,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 5742241765671069368
+            "value": 11341685157375947826
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3173,7 +3173,7 @@
   },
   {
     "uuid": {
-      "value": 8157552032373283535
+      "value": 5539101609564813350
     },
     "name": {
       "value": "plate_32_gray"
@@ -3184,7 +3184,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 8157552032373283535
+            "value": 5539101609564813350
           },
           "localPos": {
             "values": [
@@ -3214,7 +3214,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 2873648887535153269
+            "value": 11754561235183900122
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3253,7 +3253,7 @@
   },
   {
     "uuid": {
-      "value": 6273012630557264186
+      "value": 14611787062025174742
     },
     "name": {
       "value": "plate_32_gray"
@@ -3264,7 +3264,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6273012630557264186
+            "value": 14611787062025174742
           },
           "localPos": {
             "values": [
@@ -3294,7 +3294,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 3868751968500414549
+            "value": 1865335723847700081
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3333,7 +3333,7 @@
   },
   {
     "uuid": {
-      "value": 4415235328628312232
+      "value": 1539776879922289195
     },
     "name": {
       "value": "plate_32_gray"
@@ -3344,7 +3344,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 4415235328628312232
+            "value": 1539776879922289195
           },
           "localPos": {
             "values": [
@@ -3374,7 +3374,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 14959316708160754661
+            "value": 14109482222893654445
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3413,7 +3413,7 @@
   },
   {
     "uuid": {
-      "value": 9912092408348485689
+      "value": 10638110538320523743
     },
     "name": {
       "value": "plate_32_gray"
@@ -3424,7 +3424,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9912092408348485689
+            "value": 10638110538320523743
           },
           "localPos": {
             "values": [
@@ -3454,7 +3454,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7143633879627232002
+            "value": 10101423971149458734
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3493,7 +3493,7 @@
   },
   {
     "uuid": {
-      "value": 15399608770449566761
+      "value": 7012109687326472316
     },
     "name": {
       "value": "plate_32_gray"
@@ -3504,7 +3504,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15399608770449566761
+            "value": 7012109687326472316
           },
           "localPos": {
             "values": [
@@ -3534,7 +3534,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1033179711219807076
+            "value": 13479385266411525108
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3573,7 +3573,7 @@
   },
   {
     "uuid": {
-      "value": 14145183688654816177
+      "value": 10520517620621160844
     },
     "name": {
       "value": "plate_32_gray"
@@ -3584,7 +3584,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14145183688654816177
+            "value": 10520517620621160844
           },
           "localPos": {
             "values": [
@@ -3614,7 +3614,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 6782460527608668418
+            "value": 7540917539283239251
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3653,7 +3653,7 @@
   },
   {
     "uuid": {
-      "value": 11803838470063429878
+      "value": 10935864098294066159
     },
     "name": {
       "value": "plate_32_gray"
@@ -3664,7 +3664,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 11803838470063429878
+            "value": 10935864098294066159
           },
           "localPos": {
             "values": [
@@ -3694,7 +3694,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16457777191748850624
+            "value": 673681778107960977
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3733,7 +3733,7 @@
   },
   {
     "uuid": {
-      "value": 6561651156692112455
+      "value": 1876000793004439544
     },
     "name": {
       "value": "plate_32_gray"
@@ -3744,7 +3744,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6561651156692112455
+            "value": 1876000793004439544
           },
           "localPos": {
             "values": [
@@ -3774,7 +3774,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 18429900943492435303
+            "value": 990277022701405260
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3813,7 +3813,7 @@
   },
   {
     "uuid": {
-      "value": 3530745469963907503
+      "value": 9283972888605444887
     },
     "name": {
       "value": "plate_32_gray"
@@ -3824,7 +3824,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3530745469963907503
+            "value": 9283972888605444887
           },
           "localPos": {
             "values": [
@@ -3854,7 +3854,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 5767325159080359229
+            "value": 11025701890039440836
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3893,7 +3893,7 @@
   },
   {
     "uuid": {
-      "value": 8936603196469949196
+      "value": 7727114999792808001
     },
     "name": {
       "value": "plate_32_gray"
@@ -3904,7 +3904,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 8936603196469949196
+            "value": 7727114999792808001
           },
           "localPos": {
             "values": [
@@ -3934,7 +3934,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16663632342784068247
+            "value": 16770025222908598799
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -3973,7 +3973,7 @@
   },
   {
     "uuid": {
-      "value": 11024001840456866922
+      "value": 14210095745276738657
     },
     "name": {
       "value": "plate_32_gray"
@@ -3984,7 +3984,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 11024001840456866922
+            "value": 14210095745276738657
           },
           "localPos": {
             "values": [
@@ -4014,7 +4014,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 12437555019417926338
+            "value": 8136471491512640635
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4053,7 +4053,7 @@
   },
   {
     "uuid": {
-      "value": 6516426990777407698
+      "value": 9254917729740144857
     },
     "name": {
       "value": "plate_32_gray"
@@ -4064,7 +4064,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6516426990777407698
+            "value": 9254917729740144857
           },
           "localPos": {
             "values": [
@@ -4094,7 +4094,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 11253259714076432951
+            "value": 15515341078486397683
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4133,7 +4133,7 @@
   },
   {
     "uuid": {
-      "value": 10091831421765709923
+      "value": 14517388102993843736
     },
     "name": {
       "value": "plate_32_gray"
@@ -4144,7 +4144,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10091831421765709923
+            "value": 14517388102993843736
           },
           "localPos": {
             "values": [
@@ -4174,7 +4174,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16767622154869427523
+            "value": 13200007478427485270
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4213,7 +4213,7 @@
   },
   {
     "uuid": {
-      "value": 3304329747035125827
+      "value": 14988574507619470388
     },
     "name": {
       "value": "plate_32_gray"
@@ -4224,7 +4224,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3304329747035125827
+            "value": 14988574507619470388
           },
           "localPos": {
             "values": [
@@ -4254,7 +4254,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1970337331290738969
+            "value": 8126604196273981150
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4293,7 +4293,7 @@
   },
   {
     "uuid": {
-      "value": 14039336561337244019
+      "value": 12233702448829531564
     },
     "name": {
       "value": "plate_32_gray"
@@ -4304,7 +4304,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14039336561337244019
+            "value": 12233702448829531564
           },
           "localPos": {
             "values": [
@@ -4334,7 +4334,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 9351338002978798203
+            "value": 12148662575606417747
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4373,7 +4373,7 @@
   },
   {
     "uuid": {
-      "value": 4637706384603510657
+      "value": 15831687324712432039
     },
     "name": {
       "value": "plate_32_gray"
@@ -4384,7 +4384,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 4637706384603510657
+            "value": 15831687324712432039
           },
           "localPos": {
             "values": [
@@ -4414,7 +4414,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 12749767180038624847
+            "value": 8302812130053605633
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4453,7 +4453,7 @@
   },
   {
     "uuid": {
-      "value": 5410949030855181102
+      "value": 16521004945418775428
     },
     "name": {
       "value": "plate_32_gray"
@@ -4464,7 +4464,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5410949030855181102
+            "value": 16521004945418775428
           },
           "localPos": {
             "values": [
@@ -4494,7 +4494,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10950104478274478115
+            "value": 7535652496076924371
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4533,7 +4533,7 @@
   },
   {
     "uuid": {
-      "value": 3146893269928555688
+      "value": 1659238818620136019
     },
     "name": {
       "value": "plate_32_gray"
@@ -4544,7 +4544,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3146893269928555688
+            "value": 1659238818620136019
           },
           "localPos": {
             "values": [
@@ -4574,7 +4574,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 14067704639332902179
+            "value": 17547149011287709656
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4613,7 +4613,7 @@
   },
   {
     "uuid": {
-      "value": 2082910651005194177
+      "value": 13814385436405818919
     },
     "name": {
       "value": "plate_32_gray"
@@ -4624,7 +4624,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2082910651005194177
+            "value": 13814385436405818919
           },
           "localPos": {
             "values": [
@@ -4654,7 +4654,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7322961782991181609
+            "value": 6807481295363058935
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4693,7 +4693,7 @@
   },
   {
     "uuid": {
-      "value": 9220045033391327774
+      "value": 12941529911338309419
     },
     "name": {
       "value": "plate_32_gray"
@@ -4704,7 +4704,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9220045033391327774
+            "value": 12941529911338309419
           },
           "localPos": {
             "values": [
@@ -4734,7 +4734,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 957329651213556679
+            "value": 8389976925730277230
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4773,7 +4773,7 @@
   },
   {
     "uuid": {
-      "value": 10630573726459529098
+      "value": 5377728413553258181
     },
     "name": {
       "value": "plate_32_gray"
@@ -4784,7 +4784,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10630573726459529098
+            "value": 5377728413553258181
           },
           "localPos": {
             "values": [
@@ -4814,7 +4814,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10503579335058086576
+            "value": 4758528461735943648
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4853,7 +4853,7 @@
   },
   {
     "uuid": {
-      "value": 5968412660745262085
+      "value": 13166718044859679832
     },
     "name": {
       "value": "plate_32_gray"
@@ -4864,7 +4864,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5968412660745262085
+            "value": 13166718044859679832
           },
           "localPos": {
             "values": [
@@ -4894,7 +4894,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 15903921641895197701
+            "value": 2407680874979562331
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -4933,7 +4933,7 @@
   },
   {
     "uuid": {
-      "value": 2035815662872207853
+      "value": 2381946556855058128
     },
     "name": {
       "value": "plate_32_gray"
@@ -4944,7 +4944,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2035815662872207853
+            "value": 2381946556855058128
           },
           "localPos": {
             "values": [
@@ -4974,7 +4974,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17498223203060499389
+            "value": 12433170553936180413
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5013,7 +5013,7 @@
   },
   {
     "uuid": {
-      "value": 5938739655627121646
+      "value": 17436130254097110061
     },
     "name": {
       "value": "plate_32_gray"
@@ -5024,7 +5024,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5938739655627121646
+            "value": 17436130254097110061
           },
           "localPos": {
             "values": [
@@ -5054,7 +5054,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 6493463567032769146
+            "value": 16414945674424129300
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5093,7 +5093,7 @@
   },
   {
     "uuid": {
-      "value": 16462181624252941353
+      "value": 9173171249456952261
     },
     "name": {
       "value": "plate_32_gray"
@@ -5104,7 +5104,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 16462181624252941353
+            "value": 9173171249456952261
           },
           "localPos": {
             "values": [
@@ -5134,7 +5134,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8805140388265189198
+            "value": 16706069945972627258
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5173,7 +5173,7 @@
   },
   {
     "uuid": {
-      "value": 15230064334967304417
+      "value": 8365690738716051682
     },
     "name": {
       "value": "plate_32_gray"
@@ -5184,7 +5184,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15230064334967304417
+            "value": 8365690738716051682
           },
           "localPos": {
             "values": [
@@ -5214,7 +5214,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17916680260571379568
+            "value": 1263136082735175572
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5253,7 +5253,7 @@
   },
   {
     "uuid": {
-      "value": 15472291795132632128
+      "value": 11938087323755975795
     },
     "name": {
       "value": "plate_32_gray"
@@ -5264,7 +5264,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15472291795132632128
+            "value": 11938087323755975795
           },
           "localPos": {
             "values": [
@@ -5294,7 +5294,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17724188711621022494
+            "value": 16402682541399417787
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5333,7 +5333,7 @@
   },
   {
     "uuid": {
-      "value": 17388337699283630296
+      "value": 14037884518059264923
     },
     "name": {
       "value": "plate_32_gray"
@@ -5344,7 +5344,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17388337699283630296
+            "value": 14037884518059264923
           },
           "localPos": {
             "values": [
@@ -5374,7 +5374,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4936754649353913656
+            "value": 2621857511981815612
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5413,7 +5413,7 @@
   },
   {
     "uuid": {
-      "value": 9369470185283707945
+      "value": 10048500099697904844
     },
     "name": {
       "value": "plate_32_gray"
@@ -5424,7 +5424,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9369470185283707945
+            "value": 10048500099697904844
           },
           "localPos": {
             "values": [
@@ -5454,7 +5454,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7955411229424366642
+            "value": 6103611882626704146
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5493,7 +5493,7 @@
   },
   {
     "uuid": {
-      "value": 12417355316265626529
+      "value": 8897591842724892373
     },
     "name": {
       "value": "plate_32_gray"
@@ -5504,7 +5504,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 12417355316265626529
+            "value": 8897591842724892373
           },
           "localPos": {
             "values": [
@@ -5534,7 +5534,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16797888242809996506
+            "value": 6316059159565321556
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5573,7 +5573,7 @@
   },
   {
     "uuid": {
-      "value": 14632222536470316982
+      "value": 5710882336033395720
     },
     "name": {
       "value": "plate_32_gray"
@@ -5584,7 +5584,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14632222536470316982
+            "value": 5710882336033395720
           },
           "localPos": {
             "values": [
@@ -5614,7 +5614,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13040596453293571923
+            "value": 10884696041375788254
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5653,7 +5653,7 @@
   },
   {
     "uuid": {
-      "value": 565107083265172665
+      "value": 4036385881117193120
     },
     "name": {
       "value": "plate_32_gray"
@@ -5664,7 +5664,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 565107083265172665
+            "value": 4036385881117193120
           },
           "localPos": {
             "values": [
@@ -5694,7 +5694,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 12070999470855429101
+            "value": 16221988276028276871
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5733,7 +5733,7 @@
   },
   {
     "uuid": {
-      "value": 8579772133645864240
+      "value": 17554389673621214023
     },
     "name": {
       "value": "plate_32_gray"
@@ -5744,7 +5744,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 8579772133645864240
+            "value": 17554389673621214023
           },
           "localPos": {
             "values": [
@@ -5774,7 +5774,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 12618977911907272858
+            "value": 10584447954658340422
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5813,7 +5813,7 @@
   },
   {
     "uuid": {
-      "value": 6351954956908429994
+      "value": 15807191641448879649
     },
     "name": {
       "value": "plate_32_gray"
@@ -5824,7 +5824,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6351954956908429994
+            "value": 15807191641448879649
           },
           "localPos": {
             "values": [
@@ -5854,7 +5854,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 9306833508967897483
+            "value": 4660314087558772122
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5893,7 +5893,7 @@
   },
   {
     "uuid": {
-      "value": 13302541467800270383
+      "value": 4334064726764164429
     },
     "name": {
       "value": "plate_32_gray"
@@ -5904,7 +5904,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 13302541467800270383
+            "value": 4334064726764164429
           },
           "localPos": {
             "values": [
@@ -5934,7 +5934,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 14319505672373775608
+            "value": 13494424635356820465
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -5973,7 +5973,7 @@
   },
   {
     "uuid": {
-      "value": 227850422489012995
+      "value": 17422313019354271271
     },
     "name": {
       "value": "plate_32_gray"
@@ -5984,7 +5984,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 227850422489012995
+            "value": 17422313019354271271
           },
           "localPos": {
             "values": [
@@ -6014,7 +6014,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 15014397371607129505
+            "value": 1040873492860018134
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6053,7 +6053,7 @@
   },
   {
     "uuid": {
-      "value": 3549230555770993013
+      "value": 1920418332597529467
     },
     "name": {
       "value": "plate_32_gray"
@@ -6064,7 +6064,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3549230555770993013
+            "value": 1920418332597529467
           },
           "localPos": {
             "values": [
@@ -6094,7 +6094,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13961842347988923098
+            "value": 632499218901187949
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6133,7 +6133,7 @@
   },
   {
     "uuid": {
-      "value": 6063310132267361863
+      "value": 629267035522411245
     },
     "name": {
       "value": "plate_32_gray"
@@ -6144,7 +6144,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6063310132267361863
+            "value": 629267035522411245
           },
           "localPos": {
             "values": [
@@ -6174,7 +6174,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10652192414168023359
+            "value": 10174874978716181591
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6213,7 +6213,7 @@
   },
   {
     "uuid": {
-      "value": 443869303480808139
+      "value": 2120947973190347768
     },
     "name": {
       "value": "plate_32_gray"
@@ -6224,7 +6224,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 443869303480808139
+            "value": 2120947973190347768
           },
           "localPos": {
             "values": [
@@ -6254,7 +6254,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7739198522911498237
+            "value": 17018363924502173535
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6293,7 +6293,7 @@
   },
   {
     "uuid": {
-      "value": 15111671914255677678
+      "value": 8535050682990961967
     },
     "name": {
       "value": "plate_32_gray"
@@ -6304,7 +6304,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 15111671914255677678
+            "value": 8535050682990961967
           },
           "localPos": {
             "values": [
@@ -6334,7 +6334,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1760131294719310978
+            "value": 4192768937310481457
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6373,7 +6373,7 @@
   },
   {
     "uuid": {
-      "value": 6542439272880794271
+      "value": 8697524444645576101
     },
     "name": {
       "value": "plate_32_gray"
@@ -6384,7 +6384,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6542439272880794271
+            "value": 8697524444645576101
           },
           "localPos": {
             "values": [
@@ -6414,7 +6414,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17138216693463779835
+            "value": 2290000402063203753
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6453,7 +6453,7 @@
   },
   {
     "uuid": {
-      "value": 11157379092936102538
+      "value": 17833282547257394302
     },
     "name": {
       "value": "plate_32_gray"
@@ -6464,7 +6464,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 11157379092936102538
+            "value": 17833282547257394302
           },
           "localPos": {
             "values": [
@@ -6494,7 +6494,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 6474026511767322408
+            "value": 16180827355020010194
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6533,7 +6533,7 @@
   },
   {
     "uuid": {
-      "value": 10783357384368445231
+      "value": 144058024294710646
     },
     "name": {
       "value": "plate_32_gray"
@@ -6544,7 +6544,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10783357384368445231
+            "value": 144058024294710646
           },
           "localPos": {
             "values": [
@@ -6574,7 +6574,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 2088881312610140502
+            "value": 8664014509327719959
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6613,7 +6613,7 @@
   },
   {
     "uuid": {
-      "value": 9489799175799654209
+      "value": 4517299725388653068
     },
     "name": {
       "value": "plate_32_gray"
@@ -6624,7 +6624,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 9489799175799654209
+            "value": 4517299725388653068
           },
           "localPos": {
             "values": [
@@ -6654,7 +6654,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4014464583998045268
+            "value": 9526471182756799979
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6693,7 +6693,7 @@
   },
   {
     "uuid": {
-      "value": 10057630089476840847
+      "value": 875729650125120584
     },
     "name": {
       "value": "plate_32_gray"
@@ -6704,7 +6704,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10057630089476840847
+            "value": 875729650125120584
           },
           "localPos": {
             "values": [
@@ -6734,7 +6734,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 3912091779233629356
+            "value": 12489688026206999264
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6773,7 +6773,7 @@
   },
   {
     "uuid": {
-      "value": 1121989907119179380
+      "value": 2487762011032243712
     },
     "name": {
       "value": "plate_32_gray"
@@ -6784,7 +6784,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 1121989907119179380
+            "value": 2487762011032243712
           },
           "localPos": {
             "values": [
@@ -6814,7 +6814,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13296323405076171557
+            "value": 16663746269909164997
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6853,7 +6853,7 @@
   },
   {
     "uuid": {
-      "value": 14708170641883285624
+      "value": 15161404052095425948
     },
     "name": {
       "value": "plate_32_gray"
@@ -6864,7 +6864,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14708170641883285624
+            "value": 15161404052095425948
           },
           "localPos": {
             "values": [
@@ -6894,7 +6894,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 11475053740738997363
+            "value": 14704674853709097154
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -6933,7 +6933,7 @@
   },
   {
     "uuid": {
-      "value": 1378413630651877096
+      "value": 7729772863255780135
     },
     "name": {
       "value": "plate_32_gray"
@@ -6944,7 +6944,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 1378413630651877096
+            "value": 7729772863255780135
           },
           "localPos": {
             "values": [
@@ -6974,7 +6974,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16927234464935188331
+            "value": 947847624253685267
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7013,7 +7013,7 @@
   },
   {
     "uuid": {
-      "value": 5175955179859108709
+      "value": 16674181172882379729
     },
     "name": {
       "value": "plate_32_gray"
@@ -7024,7 +7024,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 5175955179859108709
+            "value": 16674181172882379729
           },
           "localPos": {
             "values": [
@@ -7054,7 +7054,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13046953927136035205
+            "value": 10256529287687763887
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7093,7 +7093,7 @@
   },
   {
     "uuid": {
-      "value": 3865740482603887331
+      "value": 10275932433937307062
     },
     "name": {
       "value": "plate_32_gray"
@@ -7104,7 +7104,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3865740482603887331
+            "value": 10275932433937307062
           },
           "localPos": {
             "values": [
@@ -7134,7 +7134,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4647966532163316038
+            "value": 7641307903754171776
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7173,7 +7173,7 @@
   },
   {
     "uuid": {
-      "value": 12271099632283522422
+      "value": 14597640755170199325
     },
     "name": {
       "value": "plate_32_gray"
@@ -7184,7 +7184,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 12271099632283522422
+            "value": 14597640755170199325
           },
           "localPos": {
             "values": [
@@ -7214,7 +7214,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 3898260552844035988
+            "value": 782345899284158571
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7253,7 +7253,7 @@
   },
   {
     "uuid": {
-      "value": 17952813784035710940
+      "value": 17511538328764115
     },
     "name": {
       "value": "plate_32_gray"
@@ -7264,7 +7264,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 17952813784035710940
+            "value": 17511538328764115
           },
           "localPos": {
             "values": [
@@ -7294,7 +7294,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8115585426793102619
+            "value": 9540374378081485595
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7333,7 +7333,7 @@
   },
   {
     "uuid": {
-      "value": 914795008578518643
+      "value": 12595879537887983342
     },
     "name": {
       "value": "plate_32_gray"
@@ -7344,7 +7344,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 914795008578518643
+            "value": 12595879537887983342
           },
           "localPos": {
             "values": [
@@ -7374,7 +7374,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1421011904260765217
+            "value": 9638900222811387869
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7413,7 +7413,7 @@
   },
   {
     "uuid": {
-      "value": 13193266737795152975
+      "value": 16454134827859842051
     },
     "name": {
       "value": "plate_32_gray"
@@ -7424,7 +7424,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 13193266737795152975
+            "value": 16454134827859842051
           },
           "localPos": {
             "values": [
@@ -7454,7 +7454,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7812059217515118221
+            "value": 8461344447680304882
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7493,7 +7493,7 @@
   },
   {
     "uuid": {
-      "value": 6688099781449075959
+      "value": 11745358018639987947
     },
     "name": {
       "value": "plate_32_gray"
@@ -7504,7 +7504,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6688099781449075959
+            "value": 11745358018639987947
           },
           "localPos": {
             "values": [
@@ -7534,7 +7534,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4862183098705733168
+            "value": 11934811685708939487
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7573,7 +7573,7 @@
   },
   {
     "uuid": {
-      "value": 6780505085891663534
+      "value": 13981655963035466530
     },
     "name": {
       "value": "plate_32_gray"
@@ -7584,7 +7584,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 6780505085891663534
+            "value": 13981655963035466530
           },
           "localPos": {
             "values": [
@@ -7614,7 +7614,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 9228801221303364860
+            "value": 9487377429050470046
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7653,7 +7653,7 @@
   },
   {
     "uuid": {
-      "value": 2003657459183363971
+      "value": 1313475024674428244
     },
     "name": {
       "value": "plate_32_gray"
@@ -7664,7 +7664,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2003657459183363971
+            "value": 1313475024674428244
           },
           "localPos": {
             "values": [
@@ -7694,7 +7694,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 18348487147997112101
+            "value": 6777031023242506307
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7733,7 +7733,7 @@
   },
   {
     "uuid": {
-      "value": 3054455782111868940
+      "value": 16832359426291982974
     },
     "name": {
       "value": "plate_32_gray"
@@ -7744,7 +7744,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3054455782111868940
+            "value": 16832359426291982974
           },
           "localPos": {
             "values": [
@@ -7774,7 +7774,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4418946736189812267
+            "value": 7986826468614330211
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7813,7 +7813,7 @@
   },
   {
     "uuid": {
-      "value": 4413452467980218364
+      "value": 9278801120619664442
     },
     "name": {
       "value": "plate_32_gray"
@@ -7824,7 +7824,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 4413452467980218364
+            "value": 9278801120619664442
           },
           "localPos": {
             "values": [
@@ -7854,7 +7854,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 18245842347912866487
+            "value": 14414330572217420813
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7893,7 +7893,7 @@
   },
   {
     "uuid": {
-      "value": 2727991250963415203
+      "value": 13585535883967089298
     },
     "name": {
       "value": "plate_32_gray"
@@ -7904,7 +7904,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2727991250963415203
+            "value": 13585535883967089298
           },
           "localPos": {
             "values": [
@@ -7934,7 +7934,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 7099300735539881762
+            "value": 12777796322122664533
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -7973,7 +7973,7 @@
   },
   {
     "uuid": {
-      "value": 14161342367264411874
+      "value": 15644222155948749447
     },
     "name": {
       "value": "plate_32_gray"
@@ -7984,7 +7984,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14161342367264411874
+            "value": 15644222155948749447
           },
           "localPos": {
             "values": [
@@ -8014,7 +8014,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 9362568839143662572
+            "value": 13690068586783107841
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8053,7 +8053,7 @@
   },
   {
     "uuid": {
-      "value": 2844708661167427651
+      "value": 3378551424222203554
     },
     "name": {
       "value": "plate_32_gray"
@@ -8064,7 +8064,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 2844708661167427651
+            "value": 3378551424222203554
           },
           "localPos": {
             "values": [
@@ -8094,7 +8094,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13985901958509838763
+            "value": 6424366944420883095
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8133,7 +8133,7 @@
   },
   {
     "uuid": {
-      "value": 14035785983754656163
+      "value": 3377219204672268607
     },
     "name": {
       "value": "plate_32_gray"
@@ -8144,7 +8144,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14035785983754656163
+            "value": 3377219204672268607
           },
           "localPos": {
             "values": [
@@ -8174,7 +8174,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13179051421304528360
+            "value": 10601518674078744706
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8213,7 +8213,7 @@
   },
   {
     "uuid": {
-      "value": 14862845210819978704
+      "value": 4451757790129011373
     },
     "name": {
       "value": "plate_32_gray"
@@ -8224,7 +8224,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 14862845210819978704
+            "value": 4451757790129011373
           },
           "localPos": {
             "values": [
@@ -8254,7 +8254,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 13204651877324294867
+            "value": 17001032811103413379
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8293,7 +8293,7 @@
   },
   {
     "uuid": {
-      "value": 3695373102036944155
+      "value": 10954075582243659416
     },
     "name": {
       "value": "plate_32_gray"
@@ -8304,7 +8304,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3695373102036944155
+            "value": 10954075582243659416
           },
           "localPos": {
             "values": [
@@ -8334,7 +8334,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 10151076447002682886
+            "value": 11088960935361514634
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8373,7 +8373,7 @@
   },
   {
     "uuid": {
-      "value": 7964438157061310417
+      "value": 13340556918035557157
     },
     "name": {
       "value": "plate_32_gray"
@@ -8384,7 +8384,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 7964438157061310417
+            "value": 13340556918035557157
           },
           "localPos": {
             "values": [
@@ -8414,7 +8414,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 1179901046279797834
+            "value": 4268330716817571347
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8453,7 +8453,7 @@
   },
   {
     "uuid": {
-      "value": 11409158522339162654
+      "value": 11210151303194936627
     },
     "name": {
       "value": "plate_32_gray"
@@ -8464,7 +8464,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 11409158522339162654
+            "value": 11210151303194936627
           },
           "localPos": {
             "values": [
@@ -8494,7 +8494,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 14210929287841124914
+            "value": 1027276735948833711
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8533,7 +8533,7 @@
   },
   {
     "uuid": {
-      "value": 10965963654434944874
+      "value": 3801045534794746873
     },
     "name": {
       "value": "plate_32_gray"
@@ -8544,7 +8544,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10965963654434944874
+            "value": 3801045534794746873
           },
           "localPos": {
             "values": [
@@ -8574,7 +8574,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 8697018014599098518
+            "value": 12694205311076878824
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8613,7 +8613,7 @@
   },
   {
     "uuid": {
-      "value": 3630646179419393284
+      "value": 13974911281306425518
     },
     "name": {
       "value": "plate_32_gray"
@@ -8624,7 +8624,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 3630646179419393284
+            "value": 13974911281306425518
           },
           "localPos": {
             "values": [
@@ -8654,7 +8654,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 11341508291353141623
+            "value": 16864286378123659643
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8693,7 +8693,7 @@
   },
   {
     "uuid": {
-      "value": 12125981505199084574
+      "value": 7348879931316637599
     },
     "name": {
       "value": "plate_32_gray"
@@ -8704,7 +8704,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 12125981505199084574
+            "value": 7348879931316637599
           },
           "localPos": {
             "values": [
@@ -8734,7 +8734,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 16837951057260338293
+            "value": 9269119809837546921
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8773,7 +8773,7 @@
   },
   {
     "uuid": {
-      "value": 10361893539937739190
+      "value": 8730296564574472256
     },
     "name": {
       "value": "plate_32_gray"
@@ -8784,7 +8784,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 10361893539937739190
+            "value": 8730296564574472256
           },
           "localPos": {
             "values": [
@@ -8814,7 +8814,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 4488650811422487949
+            "value": 2561971765620423058
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
@@ -8853,7 +8853,7 @@
   },
   {
     "uuid": {
-      "value": 12967659852370477813
+      "value": 9581403135590192336
     },
     "name": {
       "value": "plate_32_gray"
@@ -8864,7 +8864,7 @@
         "type": "Node",
         "properties": {
           "uuid": {
-            "value": 12967659852370477813
+            "value": 9581403135590192336
           },
           "localPos": {
             "values": [
@@ -8894,7 +8894,7 @@
         "type": "VoxelShape",
         "properties": {
           "uuid": {
-            "value": 17508255411876446374
+            "value": 6805764208476575841
           },
           "voxelShapeName": {
             "value": "plate_32_gray"
