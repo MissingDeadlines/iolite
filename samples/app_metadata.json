@@ -4,10 +4,10 @@
   "data_sources": [
     "sample_base",
     "sample_physics",
-    "sample_destruction",
     "sample_pathfinding",
     "sample_tree_generator",
     "sample_flappy",
+    "sample_minecraft",
     "sample_minecraft_map",
     "sample_heightmap",
     "sample_spectrum",

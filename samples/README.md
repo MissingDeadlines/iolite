@@ -10,11 +10,11 @@ This directory contains various samples that showcase IOLITE's feature set.
 2. Load one of the worlds prefixed with `sample_` via the editor
 3. Switch to game mode
 
-> The samples are compatible with IOLITE `v0.1.17` and upwards.
+> The samples are compatible with IOLITE `v0.1.18` and upwards.
 
-## Destruction (sample_destruction)
+## Minecraft (sample_minecraft)
 
-Minecraft-esque example with a single chunk from [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) showcasing some of IOLITE's destruction features. Gameplay based on the physics sample; please check the according section in this README for usage instructions.
+Minecraft-esque example using a small section imported from [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) as its world. The sample showcases some of IOLITE's destruction features and uses a voxel size of one meter. Gameplay based on the physics sample; please check the according section in this README for usage instructions.
 
 ![Screenshot of the Destruction Sample](../media/samples/sample_destruction.jpg?raw=true)
 
