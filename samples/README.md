@@ -78,6 +78,7 @@ Example focusing on physics with FPS controls. Showcases the usage of joints to 
 - Press `Space` to jump
 - Press `Left Mouse Button` to throw a grenade
 - Press `E` to toggle through different explosion radii 
+- Press `Q` to toggle through different thresholds for the hardness
 - Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
 
 ### References
