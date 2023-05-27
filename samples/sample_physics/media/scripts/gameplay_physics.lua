@@ -42,6 +42,16 @@ end
 
 -- Helper function for grabbing voxel shapes in the scene
 function GrabVoxelShape(delta_t)
+    -- Clean up if this shape got destroyed in the meantime
+    if GrabShape then
+        -- Voxel shapes that are about to be deleted don't have a valid entity anymore
+        local entity = VoxelShape.get_entity(GrabShape)
+        if not Ref.is_valid(entity) or not VoxelShape.is_alive(GrabShape) then
+            GrabShape = nil
+            return
+        end
+    end
+
     -- Calculate camera ray
     local cam = Entity.find_first_entity_with_name("game_camera")
     local cam_node = Node.get_component_for_entity(cam)
