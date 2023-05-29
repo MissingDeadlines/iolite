@@ -12,11 +12,30 @@ This directory contains various samples that showcase IOLITE's feature set.
 
 > The samples are compatible with IOLITE `v0.1.18` and upwards.
 
-## Minecraft (sample_minecraft)
+## Physics (sample_physics)
 
-Minecraft-esque example using a small section imported from [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) as its world. The sample showcases some of IOLITE's destruction features and uses a voxel size of one meter. Gameplay based on the physics sample; please check the according section in this README for usage instructions.
+Example focusing on physics with FPS controls. Showcases the usage of joints to create more complex structures, ragdolls, support structures, etc.
 
-![Screenshot of the Destruction Sample](../media/samples/sample_destruction.jpg?raw=true)
+### Controls
+
+- Use `WASD` to move
+- Use the mouse to rotate the camera
+- Press `Space` to jump
+- Press `Left Mouse Button` to throw a grenade
+- Press `E` to toggle through different explosion radii 
+- Press `Q` to toggle through different thresholds for the hardness
+- Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
+
+### References
+
+- Mage voxel character by Lucy/Pentakie
+- Sounds used in the sample
+  - <https://freesound.org/people/Nox_Sound/sounds/560510/>
+  - <https://freesound.org/people/Disagree/sounds/433725/>
+  - <https://freesound.org/people/FreqMan/sounds/43603/>
+  - <https://freesound.org/people/Nox_Sound/sounds/585744/>
+
+![Screenshot of the Physics Sample](../media/samples/sample_physics.jpg?raw=true)
 
 ## Minecraft Map (sample_minecraft_map)
 
@@ -29,6 +48,12 @@ The `.vox` scene is provided as a `.7z` archive.
 Please extract `hohenzollern_castle_and_kingdom.7z` located in `sample_minecraft_map/media/voxels` first before running the sample.
 
 ![Screenshot of the Minecraft Map Sample](../media/samples/sample_minecraft_map.jpg?raw=true)
+
+## Minecraft (sample_minecraft)
+
+Minecraft-esque example using a small section imported from [Hohenzollern Castle and Kingdom](https://www.planetminecraft.com/project/hohenzollern-castle-and-kingdom/) as its world. The sample showcases some of IOLITE's destruction features and uses a voxel size of one meter. Gameplay based on the physics sample; please check the according section in this README for usage instructions.
+
+![Screenshot of the Destruction Sample](../media/samples/sample_destruction.jpg?raw=true)
 
 ## Audio Spectrum (sample_spectrum)
 
@@ -66,31 +91,6 @@ Sample showcases a procedurally generated maze and the usage of the pathfinding 
 - Press `R` to generate a new maze
 
 ![Screenshot of the Pathfinding Sample](../media/samples/sample_pathfinding.jpg?raw=true)
-
-## Physics (sample_physics)
-
-Example focusing on physics with FPS controls. Showcases the usage of joints to create more complex structures, ragdolls, support structures, etc.
-
-### Controls
-
-- Use `WASD` to move
-- Use the mouse to rotate the camera
-- Press `Space` to jump
-- Press `Left Mouse Button` to throw a grenade
-- Press `E` to toggle through different explosion radii 
-- Press `Q` to toggle through different thresholds for the hardness
-- Press and hold `Right Mouse Button` to grab voxel shapes and move them around in the scene
-
-### References
-
-- Mage voxel character by Lucy/Pentakie
-- Sounds used in the sample
-  - <https://freesound.org/people/Nox_Sound/sounds/560510/>
-  - <https://freesound.org/people/Disagree/sounds/433725/>
-  - <https://freesound.org/people/FreqMan/sounds/43603/>
-  - <https://freesound.org/people/Nox_Sound/sounds/585744/>
-
-![Screenshot of the Physics Sample](../media/samples/sample_physics.jpg?raw=true)
 
 ## Tree Generator (sample_tree_generator)
 
