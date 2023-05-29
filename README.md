@@ -6,7 +6,7 @@ A modern, portable game engine with an embedded editor. Completely scriptable in
 
 <https://iolite-engine.com>
 
-This repository houses all public resources, like the [issue tracker](https://github.com/MissingDeadlines/iolite/issues), [auxiliary Python scripts](https://github.com/MissingDeadlines/iolite/tree/main/python_scripts), [various resources](https://github.com/MissingDeadlines/iolite/tree/main/various), and the [samples](https://github.com/MissingDeadlines/iolite/tree/main/samples).
+This repository houses all public resources, like the [issue tracker](https://github.com/MissingDeadlines/iolite/issues), [auxiliary Python scripts](https://github.com/MissingDeadlines/iolite/tree/main/python_scripts), [various resources](https://github.com/MissingDeadlines/iolite/tree/main/various), and the [samples](https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples).
 
 ## Engine Resources
 
