@@ -123,17 +123,17 @@
           },
           "localPos": {
             "values": [
-              -8.727943420410156,
-              5.9709553718566895,
-              -23.654556274414063
+              -6.5904860496521,
+              11.556395530700684,
+              -24.41266632080078
             ]
           },
           "localOrient": {
             "values": [
-              0.04903445765376091,
-              0.275432825088501,
-              -0.014068937860429287,
-              0.9599658250808716
+              0.15819768607616425,
+              0.29345735907554626,
+              -0.04930876940488815,
+              0.9415014386177063
             ]
           },
           "localSize": {
@@ -606,6 +606,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -686,6 +689,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -766,6 +772,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -846,6 +855,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -926,6 +938,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1006,6 +1021,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1086,6 +1104,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1166,6 +1187,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1246,6 +1270,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1417,12 +1444,210 @@
   },
   {
     "uuid": {
+      "value": 14036100905771945512
+    },
+    "name": {
+      "value": "debug_text"
+    },
+    "offsetToParent": -22,
+    "propertyEntries": [
+      {
+        "type": "Text",
+        "properties": {
+          "uuid": {
+            "value": 16057507301007268555
+          },
+          "text": {
+            "value": "Pillars with a soft shell (0) and a robust core (10)"
+          },
+          "scale": {
+            "value": 0.800000011920929
+          },
+          "color": {
+            "values": [
+              0.0,
+              0.8262548446655273,
+              1.0,
+              1.0
+            ]
+          },
+          "flags": {
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 14036100905771945512
+          },
+          "localPos": {
+            "values": [
+              10.87885570526123,
+              7.299999237060547,
+              -6.230500221252441
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 17756790289973181205
+    },
+    "name": {
+      "value": "debug_text1"
+    },
+    "offsetToParent": -23,
+    "propertyEntries": [
+      {
+        "type": "Text",
+        "properties": {
+          "uuid": {
+            "value": 5091828915808214393
+          },
+          "text": {
+            "value": "Ragdolls "
+          },
+          "scale": {
+            "value": 0.800000011920929
+          },
+          "color": {
+            "values": [
+              0.8187265396118164,
+              0.5057915449142456,
+              1.0,
+              1.0
+            ]
+          },
+          "flags": {
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 17756790289973181205
+          },
+          "localPos": {
+            "values": [
+              -2.8211445808410645,
+              7.299999237060547,
+              -11.130499839782715
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 985115918437676963
+    },
+    "name": {
+      "value": "debug_text1"
+    },
+    "offsetToParent": -24,
+    "propertyEntries": [
+      {
+        "type": "Text",
+        "properties": {
+          "uuid": {
+            "value": 452678463261670403
+          },
+          "text": {
+            "value": "Wall with soft bricks (0) and a robust core (5)"
+          },
+          "scale": {
+            "value": 0.800000011920929
+          },
+          "color": {
+            "values": [
+              1.0,
+              0.8571428656578064,
+              0.0,
+              1.0
+            ]
+          },
+          "flags": {
+            "value": 1
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 985115918437676963
+          },
+          "localPos": {
+            "values": [
+              -6.221144676208496,
+              5.09999942779541,
+              -4.5304999351501465
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
       "value": 17806646969768926977
     },
     "name": {
       "value": "lower_body"
     },
-    "offsetToParent": -1,
+    "offsetToParent": -4,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1490,6 +1715,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1502,7 +1730,7 @@
     "name": {
       "value": "cape"
     },
-    "offsetToParent": -2,
+    "offsetToParent": -5,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1570,6 +1798,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1582,7 +1813,7 @@
     "name": {
       "value": "left_leg"
     },
-    "offsetToParent": -3,
+    "offsetToParent": -6,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1650,6 +1881,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1662,7 +1896,7 @@
     "name": {
       "value": "right_leg"
     },
-    "offsetToParent": -4,
+    "offsetToParent": -7,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1730,6 +1964,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1742,7 +1979,7 @@
     "name": {
       "value": "right_arm"
     },
-    "offsetToParent": -5,
+    "offsetToParent": -8,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1810,6 +2047,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1822,7 +2062,7 @@
     "name": {
       "value": "left_arm"
     },
-    "offsetToParent": -6,
+    "offsetToParent": -9,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1890,6 +2130,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1902,7 +2145,7 @@
     "name": {
       "value": "upper_body"
     },
-    "offsetToParent": -7,
+    "offsetToParent": -10,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1970,6 +2213,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -1982,7 +2228,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -8,
+    "offsetToParent": -11,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2051,7 +2297,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -9,
+    "offsetToParent": -12,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2120,7 +2366,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -10,
+    "offsetToParent": -13,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2189,7 +2435,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -11,
+    "offsetToParent": -14,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2258,7 +2504,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -12,
+    "offsetToParent": -15,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2327,7 +2573,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -13,
+    "offsetToParent": -16,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -2396,7 +2642,7 @@
     "name": {
       "value": "lower_body"
     },
-    "offsetToParent": -15,
+    "offsetToParent": -18,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2464,6 +2710,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2476,7 +2725,7 @@
     "name": {
       "value": "cape"
     },
-    "offsetToParent": -16,
+    "offsetToParent": -19,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2544,6 +2793,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2556,7 +2808,7 @@
     "name": {
       "value": "left_leg"
     },
-    "offsetToParent": -17,
+    "offsetToParent": -20,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2624,6 +2876,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2636,7 +2891,7 @@
     "name": {
       "value": "right_leg"
     },
-    "offsetToParent": -18,
+    "offsetToParent": -21,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2704,6 +2959,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2716,7 +2974,7 @@
     "name": {
       "value": "right_arm"
     },
-    "offsetToParent": -19,
+    "offsetToParent": -22,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2784,6 +3042,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2796,7 +3057,7 @@
     "name": {
       "value": "left_arm"
     },
-    "offsetToParent": -20,
+    "offsetToParent": -23,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2864,6 +3125,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2876,7 +3140,7 @@
     "name": {
       "value": "upper_body"
     },
-    "offsetToParent": -21,
+    "offsetToParent": -24,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2944,6 +3208,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -2956,7 +3223,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -22,
+    "offsetToParent": -25,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3025,7 +3292,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -23,
+    "offsetToParent": -26,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3094,7 +3361,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -24,
+    "offsetToParent": -27,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3163,7 +3430,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -25,
+    "offsetToParent": -28,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3232,7 +3499,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -26,
+    "offsetToParent": -29,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3301,7 +3568,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -27,
+    "offsetToParent": -30,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3347,9 +3614,9 @@
           "localOrient": {
             "values": [
               0.0,
-              0.0,
-              -0.7071067690849304,
-              -0.7071067690849304
+              -0.0,
+              0.7071067690849304,
+              0.7071067690849304
             ]
           },
           "localSize": {
@@ -3370,7 +3637,7 @@
     "name": {
       "value": "lower_body"
     },
-    "offsetToParent": -29,
+    "offsetToParent": -32,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3438,6 +3705,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3450,7 +3720,7 @@
     "name": {
       "value": "cape"
     },
-    "offsetToParent": -30,
+    "offsetToParent": -33,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3518,6 +3788,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3530,7 +3803,7 @@
     "name": {
       "value": "left_leg"
     },
-    "offsetToParent": -31,
+    "offsetToParent": -34,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3598,6 +3871,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3610,7 +3886,7 @@
     "name": {
       "value": "right_leg"
     },
-    "offsetToParent": -32,
+    "offsetToParent": -35,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3678,6 +3954,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3690,7 +3969,7 @@
     "name": {
       "value": "right_arm"
     },
-    "offsetToParent": -33,
+    "offsetToParent": -36,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3758,6 +4037,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3770,7 +4052,7 @@
     "name": {
       "value": "left_arm"
     },
-    "offsetToParent": -34,
+    "offsetToParent": -37,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3838,6 +4120,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3850,7 +4135,7 @@
     "name": {
       "value": "upper_body"
     },
-    "offsetToParent": -35,
+    "offsetToParent": -38,
     "propertyEntries": [
       {
         "type": "Node",
@@ -3918,6 +4203,9 @@
           },
           "fractureType": {
             "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -3930,7 +4218,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -36,
+    "offsetToParent": -39,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -3999,7 +4287,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -37,
+    "offsetToParent": -40,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -4068,7 +4356,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -38,
+    "offsetToParent": -41,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -4137,7 +4425,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -39,
+    "offsetToParent": -42,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -4206,7 +4494,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -40,
+    "offsetToParent": -43,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -4275,7 +4563,7 @@
     "name": {
       "value": "joint2"
     },
-    "offsetToParent": -41,
+    "offsetToParent": -44,
     "propertyEntries": [
       {
         "type": "Joint",
@@ -4344,7 +4632,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -43,
+    "offsetToParent": -46,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4412,6 +4700,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4424,7 +4715,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -44,
+    "offsetToParent": -47,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4492,6 +4783,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4504,7 +4798,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -45,
+    "offsetToParent": -48,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4572,6 +4866,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4584,7 +4881,7 @@
     "name": {
       "value": "cube_1m"
     },
-    "offsetToParent": -46,
+    "offsetToParent": -49,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4652,6 +4949,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4664,7 +4964,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -58,
+    "offsetToParent": -61,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4732,6 +5032,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4744,7 +5047,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -59,
+    "offsetToParent": -62,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4812,6 +5115,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4824,7 +5130,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -60,
+    "offsetToParent": -63,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4892,6 +5198,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4904,7 +5213,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -61,
+    "offsetToParent": -64,
     "propertyEntries": [
       {
         "type": "Node",
@@ -4972,6 +5281,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -4984,7 +5296,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -62,
+    "offsetToParent": -65,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5052,6 +5364,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5064,7 +5379,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -63,
+    "offsetToParent": -66,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5132,6 +5447,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5144,7 +5462,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -64,
+    "offsetToParent": -67,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5212,6 +5530,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5224,7 +5545,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -65,
+    "offsetToParent": -68,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5292,6 +5613,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5304,7 +5628,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -66,
+    "offsetToParent": -69,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5372,6 +5696,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5384,7 +5711,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -67,
+    "offsetToParent": -70,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5452,6 +5779,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5464,7 +5794,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -68,
+    "offsetToParent": -71,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5532,6 +5862,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5544,7 +5877,7 @@
     "name": {
       "value": "plate_32_gray"
     },
-    "offsetToParent": -69,
+    "offsetToParent": -72,
     "propertyEntries": [
       {
         "type": "Node",
@@ -5612,6 +5945,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5692,6 +6028,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5772,6 +6111,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5852,6 +6194,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -5932,6 +6277,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6012,6 +6360,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6092,6 +6443,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6172,6 +6526,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6252,6 +6609,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6332,6 +6692,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6412,6 +6775,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6492,6 +6858,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6572,6 +6941,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6652,6 +7024,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6732,6 +7107,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6812,6 +7190,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6892,6 +7273,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -6972,6 +7356,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7052,6 +7439,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7132,6 +7522,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7212,6 +7605,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7292,6 +7688,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7372,6 +7771,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7452,6 +7854,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7532,6 +7937,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7612,6 +8020,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7692,6 +8103,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7772,6 +8186,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7852,6 +8269,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -7932,6 +8352,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8012,6 +8435,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8092,6 +8518,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8172,6 +8601,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8252,6 +8684,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8332,6 +8767,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8412,6 +8850,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8492,6 +8933,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8572,6 +9016,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8652,6 +9099,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8732,6 +9182,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8812,6 +9265,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8892,6 +9348,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -8972,6 +9431,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9052,6 +9514,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9132,6 +9597,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9212,6 +9680,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9292,6 +9763,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9372,6 +9846,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9452,6 +9929,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9532,6 +10012,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9612,6 +10095,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9692,6 +10178,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9772,6 +10261,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9852,6 +10344,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -9932,6 +10427,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10012,6 +10510,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10092,6 +10593,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10172,6 +10676,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10252,6 +10759,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10332,6 +10842,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10412,6 +10925,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10492,6 +11008,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10572,6 +11091,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10652,6 +11174,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10732,6 +11257,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10812,6 +11340,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10892,6 +11423,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -10972,6 +11506,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11052,6 +11589,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11132,6 +11672,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11212,6 +11755,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11292,6 +11838,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11372,6 +11921,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11452,6 +12004,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11532,6 +12087,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11612,6 +12170,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11692,6 +12253,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11772,6 +12336,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11852,6 +12419,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -11932,6 +12502,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -12012,6 +12585,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -12092,6 +12668,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -12172,6 +12751,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -12252,6 +12834,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -12332,6 +12917,9 @@
           },
           "fractureType": {
             "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }

@@ -131,8 +131,8 @@
           "localOrient": {
             "values": [
               0.06473615020513535,
-              0.02073112316429615,
-              -0.0013451656559482217,
+              0.0207311250269413,
+              -0.0013451657723635435,
               0.9976861476898193
             ]
           },
@@ -432,6 +432,12 @@
           },
           "density": {
             "value": 150.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -486,7 +492,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -509,6 +515,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -624,7 +636,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -647,6 +659,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -676,9 +694,9 @@
           },
           "localOrient": {
             "values": [
-              1.0,
+              -1.0,
               0.0,
-              0.0,
+              -0.0,
               -4.371138828673793e-8
             ]
           },
@@ -701,7 +719,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -724,6 +742,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -778,7 +802,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -801,6 +825,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -830,9 +860,9 @@
           },
           "localOrient": {
             "values": [
-              -1.0,
+              1.0,
               0.0,
-              -0.0,
+              0.0,
               -4.371138828673793e-8
             ]
           },
@@ -855,7 +885,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -878,6 +908,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }
@@ -932,7 +968,7 @@
             "value": "pipe"
           },
           "voxelShapeFlags": {
-            "value": 8
+            "value": 24
           },
           "rigidBodyFlags": {
             "value": 0
@@ -955,6 +991,12 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 1
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
           }
         }
       }

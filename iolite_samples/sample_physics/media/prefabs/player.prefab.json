@@ -1,0 +1,57 @@
+[
+  {
+    "name": {
+      "value": "player"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "localPos": {
+            "values": [
+              -4.963094711303711,
+              0.13792526721954346,
+              -10.756288528442383
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "CharacterController",
+        "properties": {
+          "type": {
+            "value": 0
+          },
+          "halfHeight": {
+            "value": 1.100000023841858
+          },
+          "radius": {
+            "value": 0.6000000238418579
+          },
+          "contactOffset": {
+            "value": 0.10000000149011612
+          },
+          "stepOffset": {
+            "value": 0.5
+          }
+        }
+      }
+    ]
+  }
+]
