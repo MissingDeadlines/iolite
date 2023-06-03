@@ -10,8 +10,7 @@ This repository houses all public resources, like the [issue tracker](https://gi
 
 ## Join our Community
 
-Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the development on [Mastodon](https://mastodon.missing-deadlines.com/@benjamin), and become a part of our development journey
-
+Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the development on [Mastodon](https://mastodon.missing-deadlines.com/@benjamin), and become a part of our development journey.
 
 ## Download the Latest Version
 
