@@ -1,5 +1,8 @@
 [
   {
+    "uuid": {
+      "value": 2441255557119086122
+    },
     "name": {
       "value": "sample_heightmap"
     },
@@ -8,6 +11,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 2441255557119086122
+          },
           "localPos": {
             "values": [
               0.0,
@@ -35,6 +41,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 9046784043756213430
+    },
     "name": {
       "value": "game_camera"
     },
@@ -43,6 +52,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 9046784043756213430
+          },
           "localPos": {
             "values": [
               -40.0,
@@ -70,6 +82,9 @@
       {
         "type": "Camera",
         "properties": {
+          "uuid": {
+            "value": 17466424281075859352
+          },
           "projectionType": {
             "value": 0
           },
@@ -81,14 +96,26 @@
       {
         "type": "CameraController",
         "properties": {
+          "uuid": {
+            "value": 9795677503542679092
+          },
           "cameraControllerType": {
             "value": 1
+          },
+          "flags": {
+            "value": 1
+          },
+          "offsetY": {
+            "value": 2.0
           }
         }
       }
     ]
   },
   {
+    "uuid": {
+      "value": 8421672202202561695
+    },
     "name": {
       "value": "editing_camera"
     },
@@ -97,19 +124,22 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 8421672202202561695
+          },
           "localPos": {
             "values": [
-              -17.910869598388672,
-              13.38787841796875,
-              12.012502670288086
+              -38.725257873535156,
+              32.03797912597656,
+              31.865886688232422
             ]
           },
           "localOrient": {
             "values": [
-              0.10858608782291412,
-              0.8576595783233643,
-              -0.20243224501609802,
-              0.4600546658039093
+              0.09083933383226395,
+              0.8779067397117615,
+              -0.18440623581409454,
+              0.4324607849121094
             ]
           },
           "localSize": {
@@ -124,6 +154,9 @@
       {
         "type": "Camera",
         "properties": {
+          "uuid": {
+            "value": 8039746695455164647
+          },
           "projectionType": {
             "value": 0
           },
@@ -135,6 +168,9 @@
     ]
   },
   {
+    "uuid": {
+      "value": 12010178417666710054
+    },
     "name": {
       "value": "heightmap"
     },
@@ -143,6 +179,9 @@
       {
         "type": "Script",
         "properties": {
+          "uuid": {
+            "value": 9795677503542679092
+          },
           "updateInterval": {
             "value": 100
           },
@@ -154,6 +193,9 @@
       {
         "type": "Node",
         "properties": {
+          "uuid": {
+            "value": 12010178417666710054
+          },
           "localPos": {
             "values": [
               5.395661354064941,
@@ -174,6 +216,142 @@
               1.0,
               1.0,
               1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 12131826939989981672
+    },
+    "name": {
+      "value": "water_plane"
+    },
+    "offsetToParent": -4,
+    "propertyEntries": [
+      {
+        "type": "Mesh",
+        "properties": {
+          "uuid": {
+            "value": 17466424281075859352
+          },
+          "meshName": {
+            "value": "water_plane"
+          },
+          "colorTint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "parameterBias": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 12131826939989981672
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              9.899999618530273,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              500.0,
+              500.0,
+              500.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 8578539459324000283
+    },
+    "name": {
+      "value": "sky"
+    },
+    "offsetToParent": -5,
+    "propertyEntries": [
+      {
+        "type": "Mesh",
+        "properties": {
+          "uuid": {
+            "value": 8039746695455164647
+          },
+          "meshName": {
+            "value": "sky"
+          },
+          "colorTint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "parameterBias": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 8578539459324000283
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              500.0,
+              500.0,
+              500.0
             ]
           }
         }

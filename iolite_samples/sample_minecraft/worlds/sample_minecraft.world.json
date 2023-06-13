@@ -4,7 +4,7 @@
       "value": 15089201114124857047
     },
     "name": {
-      "value": "sample_mineraft"
+      "value": "sample_minecraft"
     },
     "offsetToParent": 0,
     "propertyEntries": [
@@ -266,14 +266,6 @@
         }
       },
       {
-        "type": "WaterPlane",
-        "properties": {
-          "uuid": {
-            "value": 2649967020073737412
-          }
-        }
-      },
-      {
         "type": "Node",
         "properties": {
           "uuid": {
@@ -296,9 +288,9 @@
           },
           "localSize": {
             "values": [
-              100.0,
-              100.0,
-              100.0
+              5000.0,
+              5000.0,
+              5000.0
             ]
           }
         }
@@ -530,6 +522,16 @@
           "voxelShapeName": {
             "value": "minecraft_chunk"
           },
+          "paletteName": {
+            "value": ""
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
           "voxelShapeFlags": {
             "value": 8
           },
@@ -543,9 +545,6 @@
               32.0
             ]
           },
-          "glassTransparency": {
-            "value": 0.5
-          },
           "linearDamping": {
             "value": 0.10000000149011612
           },
@@ -554,6 +553,15 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
           }
         }
       }

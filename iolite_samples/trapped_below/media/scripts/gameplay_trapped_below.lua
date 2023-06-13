@@ -27,7 +27,7 @@ function AnimateLights()
     end
 
     light_ceil_intens = light_ceil_intens - Math.pow(Noise.simplex(Vec4(TimePassed, 0.0, 0.0, 0.0)), 2.0) *
-                            light_ceil_intens
+        light_ceil_intens
 
     Light.set_property(light_ceil_l, "Intensity", Variant.from_float(light_ceil_intens))
 end
@@ -94,14 +94,15 @@ function GrabVoxelShape(delta_t)
         local scale_power = 1.0
         local force_factor = 5.0
         local force = Math.vec_scale(Math.pow(Math.min(dist_to_grab_pos, scale_dist) / scale_dist, scale_power) *
-                                         force_factor, to_grab_pos)
+            force_factor, to_grab_pos)
 
+        ---@cast force Vec3
         VoxelShape.apply_force_at_local_position(GrabShape, force, GrabPosLS)
 
         return true, grab_pos_ws, grab_target_ws
     end
 
-    return false, _, _
+    return false, nil, nil
 end
 
 function PushHint(hint, duration, start_function)
@@ -180,7 +181,7 @@ end
 
 function HandleInteraction(delta_t)
     -- Reset highlight initially
-    World.highlight_node(Ref.create_invalid(), Vec4(0.0), true)
+    World.highlight_node(InvalidRef(), Vec4(0.0), true)
 
     local origin, dir = World.calc_mouse_ray()
     local hit, _, _, _, entity = Physics.raycast(origin, dir, 1000.0)

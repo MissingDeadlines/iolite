@@ -23,7 +23,7 @@ function UpdatePathfinding(context)
 
         -- Start calculating a path from the current position of the character
         -- to the chosen random target position
-        local settings = Pathfinding.create_settings()
+        local settings = Pathfinding.PathSettings()
         settings.capsule_radius = 0.4
         context.path = Pathfinding.find_path(context.start_position, context.target_position, settings)
     end
@@ -66,6 +66,7 @@ function UpdatePathfinding(context)
             -- direction of the position on our path
             local speed = 8.0
             local move_vec = Math.vec_scale(speed, to_target)
+            ---@cast move_vec Vec3
             CharacterController.move(char_cct, move_vec)
 
             -- If we're close to the next position, try to get

@@ -3,6 +3,7 @@ Terrain.load()
 Noise.load()
 Node.load()
 UI.load()
+Log.load()
 
 Size = 1024
 NumChunks = 128
@@ -19,19 +20,28 @@ function OnActivate(entity)
         for chunk = 1, NumChunks do
             for y = 1, Size / NumChunks do
                 for x = 1, Size do
-                    local height = Noise.simplex(Vec4((x - 1) * noise_scale,
-                        (y - 1 + (chunk - 1) * Size / NumChunks) * noise_scale, 0.0, 0.0))
-                    height = 0.1 + (0.5 + height * 0.5) * 0.9
+                    local noise_pos = Vec4((x - 1) * noise_scale,
+                        (y - 1 + (chunk - 1) * Size / NumChunks) * noise_scale, 0.0, 0.0)
 
-                    local palette_idx = 1
-                    if height > 0.75 then
-                        palette_idx = 0
-                    end
+                    local height = (Noise.simplex(noise_pos) * 0.5 + 0.5) * 0.5
+                    noise_pos.x = noise_pos.x * 2.0
+                    noise_pos.y = noise_pos.y * 2.0
+                    height = height + (Noise.simplex(noise_pos) * 0.5 + 0.5) * 0.25
+                    noise_pos.x = noise_pos.x * 2.0
+                    noise_pos.y = noise_pos.y * 2.0
+                    height = height + (Noise.simplex(noise_pos) * 0.5 + 0.5) * 0.125
+                    noise_pos.x = noise_pos.x * 2.0
+                    noise_pos.y = noise_pos.y * 2.0
+                    height = height + (Noise.simplex(noise_pos) * 0.5 + 0.5) * 0.125 * 0.5
+
+                    height = 0.25 + height * height
+
+                    local palette_idx = 0 + Math.floor(height * 23.0)
                     local grass_height = 0.0
 
-                    -- Pixel requires: 
+                    -- Pixel requires:
                     -- Terrain height [0, 1], grass height [0, 1], and the palette index [0, 255]
-                    table.insert(heightmap, Terrain.create_pixel(height, grass_height, palette_idx))
+                    table.insert(heightmap, Terrain.HeightmapPixel(height, grass_height, palette_idx))
                 end
             end
 
@@ -51,21 +61,21 @@ function Tick(entity, delta_t)
 
     -- Process the result when our async. worker has finished
     if not TerrainNode and Heightmap then
-        -- Requires: The heightmap as a table, the width/height (has to be square), 
-        -- the name of a voxel shape to source the palette from, the maximum 
+        -- Requires: The heightmap as a table, the width/height (has to be square),
+        -- the name of a voxel shape to source the palette from, the maximum
         -- height in voxels, and the scale (size of a single voxel)
-        TerrainNode = Terrain.generate_from_data(Heightmap, Size, "cube_1m", 256.0, 0.1)
+        TerrainNode = Terrain.generate_from_data(Heightmap, Size, "terrain", 256.0, 0.1)
     elseif not TerrainNode then
         UI.draw_text(string.format("Generating terrain... %.2f %%", Progress), Vec2(0.5), Vec2(0.0), Vec4(1.0), 1)
     end
 end
 
---- Called every frame and executed asynchronously. 
+--- Called every frame and executed asynchronously.
 --- Please note that **only working on local data is allowed here** and reading or writing scene data will lead to **crashes**.
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function TickAsync(entity, delta_t)
-    status, heightmap = coroutine.resume(HeightmapGenerator)
+    local status, heightmap = coroutine.resume(HeightmapGenerator)
     if status then
         Heightmap = heightmap
     end
@@ -80,10 +90,6 @@ end
 --- Called once when the script component becomes inactive.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnDeactivate(entity)
-    if TerrainNode then
-        Node.destroy(TerrainNode)
-        TerrainNode = nil
-    end
 end
 
 --- Event callback

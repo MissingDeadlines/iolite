@@ -130,10 +130,10 @@
           },
           "localOrient": {
             "values": [
-              0.05852475017309189,
-              0.9226376414299011,
+              0.0585247278213501,
+              0.9226377010345459,
               -0.15505659580230713,
-              0.3482414484024048
+              0.3482413589954376
             ]
           },
           "localSize": {
@@ -266,14 +266,6 @@
         }
       },
       {
-        "type": "WaterPlane",
-        "properties": {
-          "uuid": {
-            "value": 2963737730704367321
-          }
-        }
-      },
-      {
         "type": "Node",
         "properties": {
           "uuid": {
@@ -296,9 +288,9 @@
           },
           "localSize": {
             "values": [
-              100.0,
-              100.0,
-              100.0
+              5000.0,
+              5000.0,
+              5000.0
             ]
           }
         }
@@ -353,6 +345,16 @@
           "voxelShapeName": {
             "value": "plate_32_gray"
           },
+          "paletteName": {
+            "value": ""
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
           "voxelShapeFlags": {
             "value": 0
           },
@@ -366,9 +368,6 @@
               16.0
             ]
           },
-          "glassTransparency": {
-            "value": 0.5
-          },
           "linearDamping": {
             "value": 0.10000000149011612
           },
@@ -377,6 +376,15 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
           }
         }
       }
@@ -430,6 +438,16 @@
           "voxelShapeName": {
             "value": "plate_32_gray"
           },
+          "paletteName": {
+            "value": ""
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
           "voxelShapeFlags": {
             "value": 0
           },
@@ -443,9 +461,6 @@
               16.0
             ]
           },
-          "glassTransparency": {
-            "value": 0.5
-          },
           "linearDamping": {
             "value": 0.10000000149011612
           },
@@ -454,6 +469,15 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
           }
         }
       }
@@ -507,6 +531,16 @@
           "voxelShapeName": {
             "value": "plate_32_gray"
           },
+          "paletteName": {
+            "value": ""
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
           "voxelShapeFlags": {
             "value": 0
           },
@@ -520,9 +554,6 @@
               16.0
             ]
           },
-          "glassTransparency": {
-            "value": 0.5
-          },
           "linearDamping": {
             "value": 0.10000000149011612
           },
@@ -531,6 +562,15 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
           }
         }
       }

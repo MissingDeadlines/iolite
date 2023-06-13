@@ -10,7 +10,9 @@ Maze.extent = 30
 
 function Maze.spawn_wall(pos, dir)
     local wall_n = World.spawn_prefab(string.format("wall_%s", dir))
-    Node.set_world_position(wall_n, Math.vec_add(pos, Vec3(0.0, 0.4, 0.0)))
+    local position = Math.vec_add(pos, Vec3(0.0, 0.4, 0.0))
+    ---@cast position Vec3
+    Node.set_world_position(wall_n, position)
     Node.update_transforms(wall_n)
 
     return wall_n
@@ -33,19 +35,19 @@ function Maze.vec_to_dir(vec)
 end
 
 function Maze.connect_cells(from, to)
-    from_cell = Maze.cells[from.y][from.x]
-    to_cell = Maze.cells[to.y][to.x]
+    local from_cell = Maze.cells[from.y][from.x]
+    local to_cell = Maze.cells[to.y][to.x]
 
-    vec = {
+    local vec = {
         x = to.x - from.x,
         y = to.y - from.y
     }
-    vec_inv = {
+    local vec_inv = {
         x = -vec.x,
         y = -vec.y
     }
-    dir = Maze.vec_to_dir(vec)
-    dir_inv = Maze.vec_to_dir(vec_inv)
+    local dir = Maze.vec_to_dir(vec)
+    local dir_inv = Maze.vec_to_dir(vec_inv)
 
     Maze.remove_wall(from_cell, dir)
     Maze.remove_wall(to_cell, dir_inv)
@@ -100,7 +102,7 @@ end
 
 function Maze.neighbors(cell)
     local neighbors = {}
-    local coords = {{
+    local coords = { {
         x = cell.x + 1,
         y = cell.y
     }, {
@@ -112,7 +114,7 @@ function Maze.neighbors(cell)
     }, {
         x = cell.x,
         y = cell.y - 1
-    }}
+    } }
 
     for i = 1, #coords do
         if Maze.is_cell_valid(coords[i]) and Maze.grid[coords[i].x][coords[i].y].inside then
@@ -146,11 +148,11 @@ end
 function Maze.advance()
     if #Maze.frontier > 0 then
         local idx = Random.rand_uint_min_max(1, #Maze.frontier + 1)
-        cell = table.remove(Maze.frontier, idx)
-        neighbors = Maze.neighbors(cell)
+        local cell = table.remove(Maze.frontier, idx)
+        local neighbors = Maze.neighbors(cell)
         if #neighbors > 0 then
             local n_idx = Random.rand_uint_min_max(1, #neighbors + 1)
-            n = neighbors[n_idx]
+            local n = neighbors[n_idx]
 
             Maze.connect_cells(n, cell)
             Maze.mark(cell)
@@ -180,8 +182,10 @@ function Maze.get_random_cell(cell)
 end
 
 function Maze.get_center_position(cell)
-    return Math.vec_add(Node.get_world_position(Maze.cells[cell.y][cell.x].n),
+    local pos = Math.vec_add(Node.get_world_position(Maze.cells[cell.y][cell.x].n),
         Vec3(-0.5 * Maze.room_size, 0.0, 0.5 * Maze.room_size))
+    ---@cast pos Vec3
+    return pos
 end
 
 function Maze.is_ready()
