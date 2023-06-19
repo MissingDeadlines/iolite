@@ -32,7 +32,7 @@ Flatpak builds come with all samples from this repository preinstalled.
 
 - Details on how to use IOLITE are available in the [documentation](https://iolite-engine.com/docs)
 - Changes are documented in the [changelog](https://iolite-engine.com/changelog)
-- Planned features and changes are visible in the [roadmap](https://iolite-engine.com/roadmap)
+- Feature requests and bugs are maintained in the [issue tracker](https://github.com/MissingDeadlines/iolite/issues)
 - If you love IOLITE and like to support its development, take a look [here](https://iolite-engine.com/subscribe)
 
 ![Example scene rendered in IOLITE](media/screenshot.jpg?raw=true)
