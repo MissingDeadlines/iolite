@@ -1,0 +1,26 @@
+name: build_sample_plugins
+on: [push]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy: 
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name : "Build plugins"
+        run: |
+          cd iolite_c_api/sample_plugins
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+      - name : "Archive plugins"
+        uses: actions/upload-artifact@v3
+        with:
+          name: sample_plugins
+          path: |
+            iolite_c_api/sample_plugins/IoliteSamplePluginC.*
+            iolite_c_api/sample_plugins/IoliteSamplePluginCPP.*
+            iolite_c_api/sample_plugins/IoliteMinimalPlugin.*

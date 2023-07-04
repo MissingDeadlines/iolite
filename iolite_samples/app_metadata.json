@@ -16,5 +16,11 @@
   "initial_world": "sample_physics",
   "active_data_source": "sample_physics",
   "initial_game_state": "Editing",
-  "version_string": "development"
+  "version_string": "development",
+  "plugins": [
+    [
+      "lua_plugin",
+      "IoliteLuaPlugin"
+    ]
+  ]
 }

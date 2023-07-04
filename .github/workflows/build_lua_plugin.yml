@@ -1,0 +1,24 @@
+name: build_lua_plugin
+on: [push]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy: 
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name : "Build plugins"
+        run: |
+          cd iolite_lua_plugin
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+      - name : "Archive plugins"
+        uses: actions/upload-artifact@v3
+        with:
+          name: lua_plugin
+          path: |
+            iolite_lua_plugin/IoliteLuaPlugin.*

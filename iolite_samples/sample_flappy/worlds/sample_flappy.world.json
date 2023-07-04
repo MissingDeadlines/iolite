@@ -1111,7 +1111,10 @@
           },
           "data": {
             "value": [
-              0
+              {
+                "type": "uint",
+                "value": 0
+              }
             ]
           }
         }

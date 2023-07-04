@@ -1,0 +1,6 @@
+[submodule "iolite_c_api/sample_plugins/dependencies/imgui"]
+	path = iolite_c_api/sample_plugins/dependencies/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "iolite_c_api/sample_plugins/dependencies/glm"]
+	path = iolite_c_api/sample_plugins/dependencies/glm
+	url = https://github.com/g-truc/glm

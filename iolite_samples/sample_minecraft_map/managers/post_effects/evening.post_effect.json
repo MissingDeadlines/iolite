@@ -7,153 +7,44 @@
     "name": {
       "value": "evening"
     },
-    "dataSource": {
-      "value": "sample_minecraft_map"
-    },
     "globalDensityFactor": {
-      "value": 0.30000001192092896,
+      "value": 0.05000000074505806,
       "blendFactor": 1.0
     },
     "heightFogDensity": {
       "value": 0.05000000074505806,
       "blendFactor": 1.0
     },
-    "heightFogAlbedo": {
-      "values": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
-      ],
-      "blendFactor": 0.0
-    },
     "heightFogYOffset": {
       "value": 7.699999809265137,
       "blendFactor": 1.0
     },
-    "heightFogNoiseFactor": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
-    "heightFogNoiseScale": {
-      "value": 0.5,
-      "blendFactor": 0.0
-    },
-    "sunOrientation": {
+    "sunAzimuthElevation": {
       "values": [
-        0.019628068432211876,
-        0.6614123582839966,
-        0.0173196904361248,
-        -0.7495654821395874
+        254.28599548339844,
+        3.571000099182129
       ],
       "blendFactor": 1.0
     },
     "sunIntensity": {
-      "value": 2.0,
+      "value": 10.0,
       "blendFactor": 1.0
-    },
-    "sunColor": {
-      "values": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
-      ],
-      "blendFactor": 0.0
-    },
-    "backgroundColor": {
-      "values": [
-        0.0625,
-        0.0625,
-        0.0625,
-        0.0625
-      ],
-      "blendFactor": 0.0
-    },
-    "skyExposure": {
-      "value": 20.0,
-      "blendFactor": 0.0
-    },
-    "atmosphereDensity": {
-      "value": 1.0,
-      "blendFactor": 0.0
     },
     "chromaShiftFactor": {
       "value": 0.0,
       "blendFactor": 1.0
     },
-    "chromaShiftFalloff": {
-      "value": 0.5,
-      "blendFactor": 0.0
-    },
     "vignetteFalloff": {
       "value": 0.8999999761581421,
       "blendFactor": 1.0
-    },
-    "scanlinesFalloff": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
-    "scanlinesColor": {
-      "values": [
-        0.0,
-        0.0,
-        0.0,
-        0.0
-      ],
-      "blendFactor": 0.0
-    },
-    "cameraShakeFactor": {
-      "value": 0.0,
-      "blendFactor": 0.0
     },
     "preExposure": {
       "value": 0.6000000238418579,
       "blendFactor": 1.0
     },
-    "exposureCompensation": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
-    "minBrightness": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
-    "maxBrightness": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
     "bloomIntensity": {
       "value": 0.30000001192092896,
       "blendFactor": 1.0
-    },
-    "bloomThreshold": {
-      "value": 0.0,
-      "blendFactor": 0.0
-    },
-    "bloomRamp": {
-      "value": 1.0,
-      "blendFactor": 0.0
-    },
-    "bloomLuminanceClamp": {
-      "value": 10.0,
-      "blendFactor": 0.0
-    },
-    "focusDistance": {
-      "value": 14.5,
-      "blendFactor": 0.0
-    },
-    "focusRange": {
-      "value": 29.700000762939453,
-      "blendFactor": 0.0
-    },
-    "blurRadius": {
-      "value": 8.800000190734863,
-      "blendFactor": 0.0
-    },
-    "grainIntensity": {
-      "value": 0.10000000149011612,
-      "blendFactor": 0.0
     },
     "tonemapper": {
       "value": 3

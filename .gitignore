@@ -9,6 +9,15 @@ iolite_samples/Iolite
 iolite_samples/Iolite.exe
 iolite_samples/Iolite_RelWithDebInfo
 iolite_samples/Iolite_RelWithDebInfo.exe
+iolite_samples/settings.json
+
+iolite_c_api/sample_plugins/build
+iolite_c_api/sample_plugins/.cache
+iolite_c_api/sample_plugins/*.dll
+iolite_c_api/sample_plugins/*.pdb
+iolite_lua_plugin/build
+iolite_lua_plugin/.cache
+iolite_lua_plugin/*.dll
+iolite_lua_plugin/*.pdb
 
 hohenzollern_castle_and_kingdom.vox
-sample_minecraft_map_2
