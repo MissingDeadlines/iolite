@@ -88,7 +88,7 @@ void execute_queued_actions()
   for (auto node : queued_nodes_to_destroy)
   {
     if (io_base->ref_is_valid(node) && io_component_node->base.is_alive(node))
-      io_component_node->destroy(node);
+      io_component_node->base.destroy(node);
   }
   queued_nodes_to_destroy.clear();
 

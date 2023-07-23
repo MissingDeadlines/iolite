@@ -1123,12 +1123,13 @@ void script_init_state(sol::state& s)
       return math_helper::calc_random_float_min_max_fast(0.0f, 1.0f, seed);
     };
 
+    // clang-format off
     // @function rand_float_min_max
-    // @summary Calculates a random floating point value in the given
-    // interval.
+    // @summary Calculates a random floating point value in the given interval.
     // @param min number The minimum random value to generate.
     // @param max number The maximum random value to generate.
     // @return number value The random value.
+    // clang-format on
     s["Random"]["rand_float_min_max"] = [](io_float32_t min, io_float32_t max) {
       return math_helper::calc_random_float_min_max_fast(min, max, seed);
     };

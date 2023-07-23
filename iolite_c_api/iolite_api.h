@@ -63,7 +63,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 //----------------------------------------------------------------------------//
 #define IO_API_VERSION_MAJOR 0
 #define IO_API_VERSION_MINOR 2
-#define IO_API_VERSION_BUGFIX 0
+#define IO_API_VERSION_BUGFIX 1
 
 // The version of the IOLITE API as a single number
 //----------------------------------------------------------------------------//
@@ -998,6 +998,11 @@ struct io_logging_i
 //----------------------------------------------------------------------------//
 struct io_editor_i
 {
+  // Selects the provided node.
+  void (*select_node)(io_ref_t node);
+
+  // Returns the first selected node.
+  io_ref_t (*get_first_selected_node)();
   // Returns the first selected entity.
   io_ref_t (*get_first_selected_entity)();
 };
@@ -1457,8 +1462,6 @@ struct io_component_node_i
   io_ref_t (*create)(const char* name);
   // Creates a new node and attaches it to the provided parent node.
   io_ref_t (*create_with_parent)(const char* name, io_ref_t parent);
-  // Destroys the provided node
-  void (*destroy)(io_ref_t node);
 
   // Retrieves the parent node (if any).
   io_ref_t (*get_parent)(io_ref_t node);
@@ -1649,6 +1652,10 @@ struct io_component_voxel_shape_i
   // Sets the given voxel to the palette index (**without clamping** pos to the
   // dimensions of the shape).
   void (*set_unsafe)(io_ref_t shape, io_uvec3_t pos, io_uint8_t palette_index);
+
+  // Sets the fracture mask for the given voxel.
+  void (*set_fracture_mask)(io_ref_t shape, io_uvec3_t pos, io_bool_t fracture);
+
   // Sets the volume defined by min and max to the provided palette index.
   void (*fill)(io_ref_t shape, io_uvec3_t min, io_uvec3_t max,
                io_uint8_t palette_index);
