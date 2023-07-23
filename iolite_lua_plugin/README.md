@@ -6,7 +6,7 @@ You can use the Lua plugin either as a starting point to roll your own custom sc
 
 ## Building the Plugin
 
-Building the plugins requires a C++ compiler and a recent version of CMake.
+Building the plugin requires a C++ compiler and a recent version of CMake.
 
 The plugin can be built on any supported platform by running the `build_plugins.sh` shell script or by manually executing the following commands on the command line:
 
