@@ -63,7 +63,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 //----------------------------------------------------------------------------//
 #define IO_API_VERSION_MAJOR 0
 #define IO_API_VERSION_MINOR 2
-#define IO_API_VERSION_BUGFIX 1
+#define IO_API_VERSION_BUGFIX 2
 
 // The version of the IOLITE API as a single number
 //----------------------------------------------------------------------------//
@@ -1278,12 +1278,36 @@ struct io_physics_i
 //----------------------------------------------------------------------------//
 struct io_debug_geometry_i
 {
+  // Simple draw functions
+
   // Draws a line.
-  void (*draw_line)(io_vec3_t p0, io_vec3_t p1, io_vec4_t color,
+  void (*draw_line)(io_vec3_t start, io_vec3_t end, io_vec4_t color,
                     io_bool_t always_in_front);
   // Draws a sphere.
-  void (*draw_sphere)(io_vec3_t position, io_float32_t radius, io_vec4_t color,
+  void (*draw_sphere)(io_vec3_t center, io_float32_t radius, io_vec4_t color,
                       io_bool_t always_in_front);
+
+  // Batched draw functions
+
+  // Draws the given lines.
+  //   Line 1: positions[0], positions[1]
+  //   Line 2: positions[2], positions[3]
+  //   ...
+  void (*draw_lines)(io_vec3_t* positions, io_uint32_t num_positions,
+                     io_vec4_t color, io_bool_t always_in_front);
+  // Draws the given line strip.
+  //   Line 1: positions[0], positions[1]
+  //   Line 2: positions[1], positions[2]
+  //  ...
+  void (*draw_line_strip)(io_vec3_t* positions, io_uint32_t num_positions,
+                          io_vec4_t color, io_bool_t always_in_front);
+
+  // Draws the given triangles.
+  //   Triangle 1: positions[0], positions[1], positions[2]
+  //   Triangle 2: positions[3], positions[4], positions[5]
+  //   ...
+  void (*draw_solid_triangles)(io_vec3_t* positions, io_uint32_t num_positions,
+                               io_vec4_t color, io_bool_t always_in_front);
 };
 
 //----------------------------------------------------------------------------//
