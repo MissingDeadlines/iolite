@@ -30,6 +30,7 @@
 #include "imgui.h"
 #include "glm.hpp"
 #include "gtc/quaternion.hpp"
+#include "gtx/norm.hpp"
 
 // API
 #define IO_USER_VEC2_TYPE glm::vec2
@@ -46,71 +47,135 @@
 
 // Interfaces we use
 //----------------------------------------------------------------------------//
-const io_api_manager_i* io_api_manager;
-const io_logging_i* io_logging;
-const io_base_i* io_base;
-const io_entity_i* io_entity;
-const io_ui_i* io_ui;
-const io_input_system_i* io_input_system;
-const io_component_node_i* io_component_node;
-const io_component_voxel_shape_i* io_component_voxel_shape;
-const io_editor_i* io_editor;
-const io_custom_components_i* io_custom_components;
-const io_resource_palette_i* io_resource_palette;
+static const io_api_manager_i* io_api_manager;
+static const io_logging_i* io_logging;
+static const io_base_i* io_base;
+static const io_entity_i* io_entity;
+static const io_ui_i* io_ui;
+static const io_input_system_i* io_input_system;
+static const io_component_node_i* io_component_node;
+static const io_component_voxel_shape_i* io_component_voxel_shape;
+static const io_editor_i* io_editor;
+static const io_custom_components_i* io_custom_components;
+static const io_resource_palette_i* io_resource_palette;
+static const io_debug_geometry_i* io_debug_geometry;
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
-io_user_task_i io_user_task = {};
-io_user_editor_i io_user_editor = {};
-io_user_debug_view_i io_user_debug_view = {};
+static io_user_task_i io_user_task = {};
+static io_user_editor_i io_user_editor = {};
+static io_user_debug_view_i io_user_debug_view = {};
 
 // Globals
 //----------------------------------------------------------------------------//
-io_handle16_t test_component_mgr = {};
+static io_handle16_t boid_component_mgr = {};
+
+// Boid component example
+//----------------------------------------------------------------------------//
+static glm::vec3* comp_boid_position = nullptr;
+static glm::vec3* comp_boid_prev_position = nullptr;
+static glm::vec3* comp_boid_velocity = nullptr;
+static io_fixed_step_accumulator fixed_accum;
 
 //----------------------------------------------------------------------------//
-glm::quat* comp_accessor_orient = nullptr;
+static void simulate_boids()
+{
+  const io_uint32_t num_boids =
+      io_custom_components->get_num_active_components(boid_component_mgr);
+
+  // Need at least two boids
+  if (num_boids <= 1)
+    return;
+
+  for (io_uint32_t i = 0u; i < num_boids; ++i)
+  {
+    glm::vec3& vel = comp_boid_velocity[i];
+
+    // Compute center of mass and average velocity
+    glm::vec3 center_of_mass = glm::vec3(0.0f);
+    glm::vec3 avg_velocity = glm::vec3(0.0f);
+    for (io_uint32_t j = 0u; j < num_boids; ++j)
+    {
+      if (i == j)
+        continue;
+
+      center_of_mass += comp_boid_position[j];
+      avg_velocity += comp_boid_velocity[j];
+    }
+    center_of_mass /= num_boids - 1u;
+    avg_velocity /= num_boids - 1u;
+
+    // Rule 1: Move towards center of mass
+    vel +=
+        (center_of_mass - comp_boid_position[i]) * fixed_accum.delta_t * 0.1f;
+
+    // Rule 2: Keep a distance
+    for (io_uint32_t j = 0u; j < num_boids; ++j)
+    {
+      if (i == j)
+        continue;
+
+      if (glm::length2(comp_boid_position[j] - comp_boid_position[i]) < 1.0f)
+      {
+        vel -= (comp_boid_position[j] - comp_boid_position[i]) *
+               fixed_accum.delta_t * 0.1f;
+      }
+    }
+
+    // Finally update our position
+    comp_boid_prev_position[i] = comp_boid_position[i];
+    comp_boid_position[i] += vel * fixed_accum.delta_t;
+  }
+}
 
 //----------------------------------------------------------------------------//
-std::vector<io_ref_t> nodes;
-std::vector<io_vec3_t> initial_positions;
-std::vector<io_float32_t> rand_offsets;
+static void draw_boids()
+{
+  const io_uint32_t num_boids =
+      io_custom_components->get_num_active_components(boid_component_mgr);
+
+  for (io_uint32_t i = 0u; i < num_boids; ++i)
+  {
+    // Calculate interpolated position for rendering
+    const glm::vec3 pos =
+        glm::mix(comp_boid_prev_position[i], comp_boid_position[i],
+                 fixed_accum.interpolator);
+
+    io_debug_geometry->draw_sphere(
+        io_cvt(pos), 0.1f, io_cvt(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f)), false);
+  }
+}
 
 //----------------------------------------------------------------------------//
-void on_build_plugin_window()
+static void on_build_plugin_menu()
 {
   // Add a new menu item to the menu
   if (ImGui::MenuItem("Spawn Voxel Cubes"))
   {
-    constexpr io_uint32_t numNodes = 2000u;
-
-    // Pre-allocate memory
-    nodes.resize(numNodes);
-    initial_positions.resize(numNodes);
-    rand_offsets.resize(numNodes);
+    constexpr io_uint32_t numNodes = 500u;
 
     // Create a new palette and set a single blueish color
-    auto palette = io_resource_palette->base.create("my_palette");
+    const io_ref_t palette = io_resource_palette->base.create("my_palette");
     io_resource_palette->set_color(palette, 1u, {0.5f, 0.5f, 1.0f, 1.0f});
     io_resource_palette->set_material_parameters(palette, 1u,
                                                  {1.0f, 0.0f, 0.0f, 0.0f});
     io_resource_palette->base.commit_changes(palette);
 
-    // Spawn 2k voxel cubes
+    // Spawn voxel cubes
     for (uint32_t i = 0u; i < numNodes; ++i)
     {
       // Create a new node (and entity)
-      auto node = io_component_node->create("cube");
+      const io_ref_t node = io_component_node->create("cube");
 
       // Generate and set a random position for our cube
-      const auto initial_position = io_cvt(glm::ballRand(60.0f));
+      const io_vec3_t initial_position = io_cvt(glm::ballRand(10.0f));
       io_component_node->set_position(node, initial_position);
       io_component_node->update_transforms(node);
 
       // Create a new voxel shape component and attach it to the entity of our
       // node
-      auto entity = io_component_node->base.get_entity(node);
-      auto shape = io_component_voxel_shape->base.create(entity);
+      const io_ref_t entity = io_component_node->base.get_entity(node);
+      const io_ref_t shape = io_component_voxel_shape->base.create(entity);
 
       // Set our shape to a cube voxel asset
       io_component_voxel_shape->base.set_property(
@@ -119,70 +184,71 @@ void on_build_plugin_window()
       io_component_voxel_shape->base.set_property(
           shape, "PaletteName", io_base->variant_from_string("my_palette"));
       io_component_voxel_shape->base.commit_changes(shape);
+    }
+  }
 
-      // Store metadata so we can access it later on
-      initial_positions[i] = initial_position;
-      nodes[i] = node;
-      rand_offsets[i] = glm::linearRand(0.0f, 1.0f) * glm::two_pi<float>();
+  // Add a new menu item to the menu
+  if (ImGui::MenuItem("Spawn Boids"))
+  {
+    constexpr io_uint32_t numBoids = 2000u;
+
+    // Spawn boids
+    for (uint32_t i = 0u; i < numBoids; ++i)
+    {
+      // Create a new node (and entity)
+      const io_ref_t node = io_component_node->create("boid");
+      const io_ref_t entity = io_component_node->base.get_entity(node);
+
+      const io_ref_t boid = io_custom_components->create_custom_component(
+          boid_component_mgr, entity);
+      const io_uint32_t boid_idx =
+          io_custom_components->make_index(boid_component_mgr, boid);
+
+      // Assign random position
+      comp_boid_position[boid_idx] = comp_boid_prev_position[boid_idx] =
+          glm::ballRand(10.0f);
     }
   }
 }
 
 //----------------------------------------------------------------------------//
-void on_editor_tick(float delta_t)
+static void on_editor_tick(io_float32_t delta_t)
 {
-  static float time_passed = 0.0f;
-  time_passed += delta_t;
-
-  // Apply some random movement to our spawned cubes
-  for (io_uint32_t i = 0u; i < nodes.size(); ++i)
-  {
-    const glm::vec3 offset = glm::vec3(
-        0.0f, glm::sin(time_passed * glm::two_pi<float>() + rand_offsets[i]),
-        glm::cos(time_passed * glm::two_pi<float>() + rand_offsets[i]));
-    io_component_node->set_position(
-        nodes[i], io_cvt(io_cvt(initial_positions[i]) + offset));
-  }
-  // Efficiently update all transforms in a batch
-  io_component_node->update_transforms_jobified(nodes.data(), nodes.size());
-
-  // Update the orientation of all our custom components
-  const uint32_t numComps =
-      io_custom_components->get_num_active_components(test_component_mgr);
-  for (uint32_t i = 0u; i < numComps; ++i)
-    comp_accessor_orient[i] =
-        glm::quat(glm::vec3(0.0f, time_passed * glm::two_pi<float>(), 0.0f));
-}
-
-//----------------------------------------------------------------------------//
-void on_build_debug_view(float delta_t)
-{
-  ImGui::Text("Hello from by debug view!");
-}
-
-//----------------------------------------------------------------------------//
-void on_tick(float delta_t)
-{
-  static float time_passed = 0.0f;
-  time_passed += delta_t;
-
   if (ImGui::Begin("Plugin Window"))
   {
     ImGui::Text("Hello from your C++ plugin!");
   }
   ImGui::End();
 
+  // Draw the boids
+  draw_boids();
+}
+
+//----------------------------------------------------------------------------//
+static void on_build_debug_view(io_float32_t delta_t)
+{
+  ImGui::Text("Hello from by debug view!");
+}
+
+//----------------------------------------------------------------------------//
+static void on_tick(io_float32_t delta_t)
+{
   // Draw some text
   io_ui->draw_text("Hello from your C++ plugin!", io_cvt(glm::vec2(0.5f)),
                    io_cvt(glm::vec2(0.0f)), io_cvt(glm::vec4(1.0f)),
                    io_ui_text_alignment_center_vertical_and_horizontal);
 
-  // Draw rotating logo
-  io_ui->push_rotation(time_passed * glm::two_pi<float>());
-  io_ui->draw_image("splash", io_cvt(glm::vec2(0.5f)),
-                    io_cvt(glm::vec2(0.5f, -1.0f)), io_cvt(glm::vec4(1.0f)),
-                    io_cvt(glm::vec2(0.5f)));
-  io_ui->pop_rotation();
+  // Add frame delta time to our accumulator
+  io_accumulator_add(delta_t, &fixed_accum);
+
+  // Simulate our boids using a fixed step of 30 Hz
+  while (io_accumulator_step(&fixed_accum))
+  {
+    simulate_boids();
+  }
+
+  // Draw the boids
+  draw_boids();
 }
 
 //----------------------------------------------------------------------------//
@@ -218,19 +284,30 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
   io_resource_palette =
       (const io_resource_palette_i*)io_api_manager->find_first(
           IO_RESOURCE_PALETTE_API_NAME);
+  io_debug_geometry = (const io_debug_geometry_i*)io_api_manager->find_first(
+      IO_DEBUG_GEOMETRY_API_NAME);
 
-  // Create a custom component
-  test_component_mgr = io_custom_components->request_manager();
+  // Create our boid custom component
+  boid_component_mgr = io_custom_components->request_manager();
   {
     io_custom_components->register_property(
-        test_component_mgr, "Orientation",
-        io_base->variant_from_quat(io_cvt(glm::quat(1.0f, 0.0f, 0.0f, 0.0f))),
-        (void**)&comp_accessor_orient, io_property_flags_runtime_only);
+        boid_component_mgr, "Position",
+        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        (void**)&comp_boid_position, 0);
     io_custom_components->register_property(
-        test_component_mgr, "String", io_base->variant_from_string("Hello!"),
-        nullptr, 0u);
+        boid_component_mgr, "PrevPosition",
+        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        (void**)&comp_boid_prev_position, 0);
+    io_custom_components->register_property(
+        boid_component_mgr, "Velocity",
+        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        (void**)&comp_boid_velocity, 0);
   }
-  io_custom_components->init_manager(test_component_mgr, "MyCustomComponent");
+  io_custom_components->init_manager(boid_component_mgr, "Boid");
+
+  // Initialize the fixed time step accumulator. Use a slow tick
+  // interval to showcase the interpolation of the visuals
+  io_init(5.0f, &fixed_accum);
 
   // Set up and register our task API
   io_user_task = {};
@@ -239,7 +316,7 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
 
   // Set up and register our editor API
   io_user_editor = {};
-  io_user_editor.on_build_plugin_menu = on_build_plugin_window;
+  io_user_editor.on_build_plugin_menu = on_build_plugin_menu;
   io_user_editor.on_tick = on_editor_tick;
   io_api_manager->register_api(IO_USER_EDITOR_API_NAME, &io_user_editor);
 
@@ -268,7 +345,7 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
 IO_API_EXPORT void IO_API_CALL unload_plugin()
 {
   // Release our custom component manager
-  io_custom_components->release_and_destroy_manager(test_component_mgr);
+  io_custom_components->release_and_destroy_manager(boid_component_mgr);
 
   // Release our user interfaces
   io_api_manager->unregister_api(&io_user_task);
