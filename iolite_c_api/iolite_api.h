@@ -1064,6 +1064,8 @@ struct io_custom_components_i
   // Returns the number of active components.
   io_uint32_t (*get_num_active_components)(io_handle16_t manager);
 
+  // Gets the entity the given component is attached to.
+  io_ref_t (*get_entity)(io_handle16_t manager, io_ref_t component);
   // Gets the component for the given entity (if any).
   io_ref_t (*get_component_for_entity)(io_handle16_t manager, io_ref_t entity);
   // Returns true if the provided component is alive.
@@ -1449,7 +1451,7 @@ typedef struct
 
   // Returns true if the given component is alive.
   io_bool_t (*is_alive)(io_ref_t component);
-  // Returns the entity the given component is attached to.
+  // Gets the entity the given component is attached to.
   io_ref_t (*get_entity)(io_ref_t component);
 
   // Sets the property of the given component to the provided value.
