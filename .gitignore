@@ -13,10 +13,12 @@ iolite_samples/settings.json
 
 iolite_c_api/sample_plugins/build
 iolite_c_api/sample_plugins/.cache
+iolite_c_api/sample_plugins/*.so
 iolite_c_api/sample_plugins/*.dll
 iolite_c_api/sample_plugins/*.pdb
 iolite_lua_plugin/build
 iolite_lua_plugin/.cache
+iolite_lua_plugin/*.so
 iolite_lua_plugin/*.dll
 iolite_lua_plugin/*.pdb
 
