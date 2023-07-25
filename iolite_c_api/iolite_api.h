@@ -119,6 +119,9 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 //----------------------------------------------------------------------------//
 
 //----------------------------------------------------------------------------//
+#define IO_TRUE 1
+#define IO_FALSE 0
+//----------------------------------------------------------------------------//
 #ifndef __cplusplus
 //----------------------------------------------------------------------------//
 typedef unsigned char io_bool_t;
@@ -551,8 +554,69 @@ typedef struct
 } io_property_desc_t;
 
 //----------------------------------------------------------------------------//
-// Global helper functions
+// Global helper functions and types
 //----------------------------------------------------------------------------//
+
+// Fixed time step accumulator.
+//
+// Example usage:
+//
+//  // Do this once to initialize the accumulator
+//  static io_fixed_step_accumulator accum;
+//  io_init(60.0f, &accum);
+//
+//  // Do this every frame
+//  io_accumulator_add(delta_t, &accum);
+//
+//  while (io_accumulator_step(&accum))
+//    pos += vel * accum.delta_t;
+typedef struct
+{
+  io_float32_t update_frequency_in_hz; // The fixed update frequency in Hz
+                                       // (steps per second).
+  io_float32_t delta_t;                // The delta time (in seconds).
+  io_float32_t
+      interpolator; // The interpolation factor that needs to be applied to,
+                    // e.g., smoothen the visual representation.
+  io_float32_t accumulator; // The accumulated time.
+
+} io_fixed_step_accumulator;
+
+// Initializes the provided accumulator. Call this function once when creating a
+// new accumulator.
+//----------------------------------------------------------------------------//
+inline void io_init(io_float32_t update_frequency_in_hz,
+                    io_fixed_step_accumulator* accumulator)
+{
+  accumulator->update_frequency_in_hz = update_frequency_in_hz;
+  accumulator->delta_t = 1.0f / accumulator->update_frequency_in_hz;
+  accumulator->accumulator = 0.0f;
+  accumulator->interpolator = 0.0f;
+}
+
+// Call this function once per frame for each accumulator providing the variable
+// frame delta time.
+//----------------------------------------------------------------------------//
+inline void io_accumulator_add(io_float32_t delta_t,
+                               io_fixed_step_accumulator* accumulator)
+{
+  accumulator->accumulator += delta_t;
+}
+
+// Returns true if another fixed step should be executed.
+//----------------------------------------------------------------------------//
+inline io_bool_t io_accumulator_step(io_fixed_step_accumulator* accumulator)
+{
+  io_bool_t stepped = IO_FALSE;
+  if (accumulator->accumulator >= accumulator->delta_t)
+  {
+    accumulator->accumulator -= accumulator->delta_t;
+    stepped = IO_TRUE;
+  }
+
+  accumulator->interpolator = accumulator->accumulator / accumulator->delta_t;
+  return stepped;
+}
 
 // Returns the minimum of x and y
 //----------------------------------------------------------------------------//
