@@ -1079,10 +1079,10 @@ void script_init_state(sol::state& s)
     // @summary Pushes a new scaling factor on the stack which is used to scale the font by.
     // @param s number The factor to apply to size of the font.
     // clang-format on
-    s["UI"]["push_font_scale"] = io_ui->push_font_scale;
+    s["UI"]["push_font_scale"] = io_ui->push_font_size;
     // @function pop_font_scale
     // @summary Pops the scaling factor from the top of the stack.
-    s["UI"]["pop_font_scale"] = io_ui->pop_font_scale;
+    s["UI"]["pop_font_scale"] = io_ui->pop_font_size;
   };
 
   s["Random"] = s.create_table();

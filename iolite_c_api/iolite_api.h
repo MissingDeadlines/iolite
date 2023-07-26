@@ -334,6 +334,7 @@ inline IO_USER_IVEC4_TYPE io_cvt(io_ivec4_t v) { return {v.x, v.y, v.z, v.w}; }
 // Loosely typed enums and flags
 //----------------------------------------------------------------------------//
 
+// Flags for configuring properties for custom components
 enum io_property_flags_
 {
   io_property_flags_runtime_only =
@@ -342,22 +343,76 @@ enum io_property_flags_
 };
 typedef io_uint8_t io_property_flags;
 
-// Text alignment. Used when drawing text
+// Vertical text alignment
 //----------------------------------------------------------------------------//
-enum io_ui_text_alignment_
+enum io_ui_text_align_vertical_
 {
-  io_ui_text_alignment_none,
-
-  io_ui_text_alignment_center_vertical_and_horizontal, // Center text vertically
-                                                       // and horizontally
-  io_ui_text_alignment_center_vertical_and_align_right, // Center text
-                                                        // vertically and align
-                                                        // right horizontally
-  io_ui_text_alignment_center_vertical_and_align_left // Center text vertically
-                                                      // and align left
-                                                      // horizontally
+  io_ui_text_align_vertical_top,    // Position text at top
+  io_ui_text_align_vertical_center, // Position text at vertical center
+  io_ui_text_align_vertical_bottom  // Position text at bottom
 };
-typedef io_uint32_t io_ui_text_alignment;
+typedef io_uint32_t io_ui_text_align_vertical;
+
+// Horizontal text alignment
+//----------------------------------------------------------------------------//
+enum io_ui_text_align_horizontal_
+{
+  io_ui_text_align_horizontal_left,   // Position text left
+  io_ui_text_align_horizontal_center, // Position text at horizontal center
+  io_ui_text_align_horizontal_right   // Position text right
+};
+typedef io_uint32_t io_ui_text_align_horizontal;
+
+// Various presets for anchors
+//----------------------------------------------------------------------------//
+enum io_ui_anchor_preset_
+{
+  io_ui_anchor_preset_full_rect,     // A full rectangle
+  io_ui_anchor_preset_top_left,      // Anchor at top left
+  io_ui_anchor_preset_top_right,     // Anchor at top right
+  io_ui_anchor_preset_bottom_right,  // Anchor at bottom right
+  io_ui_anchor_preset_bottom_left,   // Anchor at bottom left
+  io_ui_anchor_preset_center_left,   // Anchor at the left center
+  io_ui_anchor_preset_center_top,    // Anchor at the top center
+  io_ui_anchor_preset_center_right,  // Anchor at the right center
+  io_ui_anchor_preset_center_bottom, // Anchor at the bottom center
+  io_ui_anchor_preset_center,        // Anchor at the center
+
+  io_ui_anchor_preset_num
+};
+typedef io_uint32_t io_ui_anchor_preset;
+
+//----------------------------------------------------------------------------//
+enum io_ui_aspect_mode_
+{
+  io_ui_aspect_mode_keep // Keep the aspect ratio (using letter and pillar
+                         // boxing)
+};
+typedef io_uint32_t io_ui_aspect_mode;
+
+//----------------------------------------------------------------------------//
+enum io_ui_text_flag_
+{
+  io_ui_text_flag_wrap = 0x01u // Wrap text
+};
+typedef io_uint32_t io_ui_text_flag;
+
+//----------------------------------------------------------------------------//
+enum io_ui_style_var_
+{
+  io_ui_style_var_text_color,         // Color for text (vec4)
+  io_ui_style_var_text_outline_color, // Color for text outlines (vec4)
+  io_ui_style_var_text_outline, // The width (in px) of the text outline (float)
+                                // Set to > 0 to add outlines to text
+  io_ui_style_var_rect_rounding, // Value in [0, 1] that defines the rounding
+                                 // radius. Set to > 0 to draw rectangles with
+                                 // rounded corners (float)
+  io_ui_style_var_draw_outline,  // Draw outlines with the given width (in px)
+                                 // instead of filled shapes
+  io_ui_style_var_alpha // Global alpha value applied to all draw operations
+                        // (float)
+};
+typedef io_uint32_t io_ui_style_var;
 
 // Flags used to configure the radius damage applied to the world
 //----------------------------------------------------------------------------//
@@ -735,6 +790,20 @@ typedef struct
   const io_uint32_t* update_intervals; // The update intervals of each of the
                                        // script components.
 } io_user_script_batch;
+
+// Defines an anchor for UI transformations
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  float anchor, offset;
+} io_ui_anchor;
+
+// Defines a set of anchor offsets for UI transformations
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  float left, right, top, bottom;
+} io_ui_anchor_offsets;
 
 //----------------------------------------------------------------------------//
 // Event data types
@@ -1178,22 +1247,65 @@ struct io_settings_i
 //----------------------------------------------------------------------------//
 struct io_ui_i
 {
-  // Draws the given text string to the screen.
-  void (*draw_text)(const char* text, io_vec2_t pos, io_vec2_t extent,
-                    io_vec4_t color, io_ui_text_alignment alignment);
-  // Draws the given image to the screen.
-  void (*draw_image)(const char* name, io_vec2_t pos, io_vec2_t extent,
-                     io_vec4_t tint, io_vec2_t pivot);
+  // Draws a rectangle.
+  void (*draw_rect)(io_vec4_t color);
+  // Draws a circle.
+  void (*draw_circle)(io_vec4_t color);
+  // Draws a n-sided polygon.
+  void (*draw_ngon)(io_vec4_t color, io_uint32_t num_sides);
 
-  // Pushes the given font scaling factor to the stack.
-  void (*push_font_scale)(io_float32_t scale);
-  // Pops the last font scaling factor from the stack.
-  void (*pop_font_scale)();
+  // Draws the given image.
+  void (*draw_image)(const char* name, io_vec4_t tint);
+  // Gets the size of the given image (in px).
+  io_vec2_t (*get_image_size)(const char* name);
 
-  // Pushes the given rotation (in radians).
-  void (*push_rotation)(io_float32_t rotation);
-  // Pops the last rotation from the stack.
-  void (*pop_rotation)();
+  // Draws the given text.
+  void (*draw_text)(const char* text,
+                    io_ui_text_align_horizontal align_horizontal,
+                    io_ui_text_align_vertical align_vertical,
+                    io_ui_text_flag flags);
+
+  // Pushes the transform defined by the anchors and rotation (in rad).
+  void (*push_transform)(io_ui_anchor left, io_ui_anchor right,
+                         io_ui_anchor top, io_ui_anchor bottom,
+                         io_float32_t rotation);
+  // Pushes the transform defined by the anchor preset, offsets, and rotation
+  // (in rad).
+  void (*push_transform_preset)(io_ui_anchor_preset preset,
+                                io_ui_anchor_offsets offsets,
+                                io_float32_t rotation);
+  // Pops the last transform from the stack and sets it.
+  void (*pop_transform)();
+
+  // Calculates the scale and offset for the given base size and according
+  // to the aspect mode.
+  void (*push_scale_offset_for_base_size)(io_vec2_t base_size,
+                                          io_ui_aspect_mode aspect_mode);
+  // Pushes the current scale and offset to the stack and activates the given
+  // parameters.
+  void (*push_scale_offset)(io_float32_t scale, io_vec2_t offset);
+  // Pops the last scale and offset from the stack and sets it.
+  void (*pop_scale_offset)();
+
+  // Pushes the current style variation float value to the stack and sets the
+  // given one.
+  void (*push_style_var_float)(io_ui_style_var var, io_float32_t value);
+  // Pushes the current style variation vec4 value to the stack and sets the
+  // given one.
+  void (*push_style_var_vec4)(io_ui_style_var var, io_vec4_t value);
+  void (*pop_style_var)();
+
+  // Clips the children of the current transform.
+  void (*clip_children)();
+
+  // Pushes the current font size to the stack and sets the given one.
+  void (*push_font_size)(io_float32_t size);
+  // Pops the last font size from the stack and sets it.
+  void (*pop_font_size)();
+
+  // Returns true if the given position (in px) intersects the current
+  // transform.
+  io_bool_t (*intersects)(io_vec2_t position);
 };
 
 //----------------------------------------------------------------------------//
