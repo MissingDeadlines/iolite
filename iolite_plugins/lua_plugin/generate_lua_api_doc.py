@@ -153,7 +153,7 @@ for cat in api:
 
 json_output = json.dumps({"version": "0.2.0", "api": api}, indent=2)
 
-with open("../../iolite-website/components/docs_lua_data.jsx", "w") as f:
+with open("../../../iolite-website/components/docs_lua_data.jsx", "w") as f:
     api_string = '''export const luaApi = 
 {}
   '''.format(json_output)

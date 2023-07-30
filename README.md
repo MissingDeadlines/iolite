@@ -10,17 +10,17 @@ A modern, portable game engine with an embedded editor. Completely scriptable in
 
 This repository houses all public resources, like...
 
-- [C/C++ API](https://github.com/MissingDeadlines/iolite/tree/main/iolite_c_api)  
+- [C/C++ API](iolite_c_api)  
 Write native plugins in C or C++ or any other language that supports C bindings.
-- [Lua plugin](https://github.com/MissingDeadlines/iolite/tree/main/iolite_lua_plugin)  
-Completely decoupled from the engine core and implemented using the native API. Customize it to your liking or use it as a template for rolling your own backend.
-- [Samples](https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples)  
+- [Factory Plugins](iolite_plugins)  
+IOLITE's open factory plugins, including the heightmap-based terrain generator and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
+- [Samples](iolite_samples)  
 Kickstart your journey with IOLITE.
 - [Issue tracker](https://github.com/MissingDeadlines/iolite/issues)  
 Report bugs or request new features.
-- [Auxiliary Python scripts](https://github.com/MissingDeadlines/iolite/tree/main/python_scripts)  
+- [Auxiliary Python scripts](python_scripts)  
 Generate packages for your IOLITE projects and more.
-- [Various other resources](https://github.com/MissingDeadlines/iolite/tree/main/various)  
+- [Various other resources](various)  
 Contains additional resources like the display LUTs for color grading in DaVinci Resolve
 
 
@@ -60,6 +60,10 @@ IOLITE PRO offers the option to disable the splash screen shown during startup.
 Like the free version, IOLITE PRO is shipped without any DRM. Every downloaded build is yours forever to keep.
 
 You can find more details on the PRO version on our [website](https://iolite-engine.com/subscribe).
+
+## Third-Party Plugins
+
+If you've developed a custom plugin for IOLITE, make sure to send us a message, and we'll add a link in this section.
 
 ## Engine Resources
 
