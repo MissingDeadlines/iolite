@@ -25,147 +25,142 @@
 namespace math_helper
 {
 //----------------------------------------------------------------------------//
-template <typename T>
-inline auto lerp(const T& p_X, const T& p_Y, float p_A) -> T
+template <typename T> inline auto lerp(const T& x, const T& y, float a) -> T
 {
-  return io_cvt(glm::mix(io_cvt(p_X), io_cvt(p_Y), p_A));
+  return io_cvt(glm::mix(io_cvt(x), io_cvt(y), a));
 }
 
 //----------------------------------------------------------------------------//
-template <>
-inline auto lerp(const float& p_X, const float& p_Y, float p_A) -> float
+template <> inline auto lerp(const float& x, const float& y, float a) -> float
 {
-  return glm::mix(p_X, p_Y, p_A);
+  return glm::mix(x, y, a);
 }
 
 //----------------------------------------------------------------------------//
-template <typename T>
-inline auto slerp(const T& p_X, const T& p_Y, float p_A) -> T
+template <typename T> inline auto slerp(const T& x, const T& y, float a) -> T
 {
-  return io_cvt(glm::slerp(io_cvt(p_X), io_cvt(p_Y), p_A));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T>
-inline auto vec_get_component(const T& p_Vec, io_uint32_t p_Idx) -> float
-{
-  return io_cvt(p_Vec)[p_Idx];
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_mul(const T& p_L, const T& p_R) -> T
-{
-  return io_cvt(io_cvt(p_L) * io_cvt(p_R));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_scale(float p_S, const T& p_Vec) -> T
-{
-  return io_cvt(p_S * io_cvt(p_Vec));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_div(const T& p_X, const T& p_Y) -> T
-{
-  return io_cvt(io_cvt(p_X) / io_cvt(p_Y));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_add(const T& p_X, const T& p_Y) -> T
-{
-  return io_cvt(io_cvt(p_X) + io_cvt(p_Y));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_sub(const T& p_X, const T& p_Y) -> T
-{
-  return io_cvt(io_cvt(p_X) - io_cvt(p_Y));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_normalize(const T& p_X) -> T
-{
-  return io_cvt(glm::normalize(io_cvt(p_X)));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_length(const T& p_X) -> float
-{
-  return glm::length(io_cvt(p_X));
-}
-
-//----------------------------------------------------------------------------//
-template <typename T> inline auto vec_length2(const T& p_X) -> float
-{
-  return glm::length2(io_cvt(p_X));
+  return io_cvt(glm::slerp(io_cvt(x), io_cvt(y), a));
 }
 
 //----------------------------------------------------------------------------//
 template <typename T>
-inline auto vec_distance(const T& p_X, const T& p_Y) -> float
+inline auto vec_get_component(const T& vec, io_uint32_t idx) -> float
 {
-  return glm::distance(io_cvt(p_X), io_cvt(p_Y));
+  return io_cvt(vec)[idx];
 }
 
 //----------------------------------------------------------------------------//
-template <typename T>
-inline auto vec_distance2(const T& p_X, const T& p_Y) -> float
+template <typename T> inline auto vec_mul(const T& l, const T& r) -> T
 {
-  return glm::distance2(io_cvt(p_X), io_cvt(p_Y));
+  return io_cvt(io_cvt(l) * io_cvt(r));
 }
 
 //----------------------------------------------------------------------------//
-template <typename T> inline auto vec_cross(const T& p_X, const T& p_Y) -> T
+template <typename T> inline auto vec_scale(float s, const T& vec) -> T
 {
-  return io_cvt(glm::cross(io_cvt(p_X), io_cvt(p_Y)));
+  return io_cvt(s * io_cvt(vec));
 }
 
 //----------------------------------------------------------------------------//
-template <typename T> inline auto vec_dot(const T& p_X, const T& p_Y) -> float
+template <typename T> inline auto vec_div(const T& x, const T& y) -> T
 {
-  return glm::dot(io_cvt(p_X), io_cvt(p_Y));
+  return io_cvt(io_cvt(x) / io_cvt(y));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_rotate(const io_quat_t& p_Quat, io_vec3_t& p_Vec)
+template <typename T> inline auto vec_add(const T& x, const T& y) -> T
 {
-  return io_cvt(io_cvt(p_Quat) * io_cvt(p_Vec));
+  return io_cvt(io_cvt(x) + io_cvt(y));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_inverse(const io_quat_t& p_Quat)
+template <typename T> inline auto vec_sub(const T& x, const T& y) -> T
 {
-  return io_cvt(glm::inverse(io_cvt(p_Quat)));
+  return io_cvt(io_cvt(x) - io_cvt(y));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_look_at(const io_vec3_t& p_Dir, io_vec3_t& p_Up)
+template <typename T> inline auto vec_normalize(const T& x) -> T
 {
-  return io_cvt(glm::quatLookAt(io_cvt(p_Dir), io_cvt(p_Up)));
+  return io_cvt(glm::normalize(io_cvt(x)));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_from_angle_axis(float p_Angle, io_vec3_t& p_Axis)
+template <typename T> inline auto vec_length(const T& x) -> float
 {
-  return io_cvt(glm::angleAxis(p_Angle, io_cvt(p_Axis)));
+  return glm::length(io_cvt(x));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_to_euler_angles(const io_quat_t& p_Quat)
+template <typename T> inline auto vec_length2(const T& x) -> float
 {
-  return io_cvt(glm::eulerAngles(io_cvt(p_Quat)));
+  return glm::length2(io_cvt(x));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_from_euler_angles(const io_vec3_t& p_Euler)
+template <typename T> inline auto vec_distance(const T& x, const T& y) -> float
 {
-  return io_cvt(glm::quat(io_cvt(p_Euler)));
+  return glm::distance(io_cvt(x), io_cvt(y));
 }
 
 //----------------------------------------------------------------------------//
-inline auto quat_rotation(const io_vec3_t& p_X, io_vec3_t& p_Y)
+template <typename T> inline auto vec_distance2(const T& x, const T& y) -> float
 {
-  return io_cvt(glm::rotation(io_cvt(p_X), io_cvt(p_Y)));
+  return glm::distance2(io_cvt(x), io_cvt(y));
+}
+
+//----------------------------------------------------------------------------//
+template <typename T> inline auto vec_cross(const T& x, const T& y) -> T
+{
+  return io_cvt(glm::cross(io_cvt(x), io_cvt(y)));
+}
+
+//----------------------------------------------------------------------------//
+template <typename T> inline auto vec_dot(const T& x, const T& y) -> float
+{
+  return glm::dot(io_cvt(x), io_cvt(y));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_rotate(const io_quat_t& quat, const io_vec3_t& vec)
+{
+  return io_cvt(io_cvt(quat) * io_cvt(vec));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_inverse(const io_quat_t& quat)
+{
+  return io_cvt(glm::inverse(io_cvt(quat)));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_look_at(const io_vec3_t& dir, io_vec3_t& up)
+{
+  return io_cvt(glm::quatLookAt(io_cvt(dir), io_cvt(up)));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_from_angle_axis(float angle, io_vec3_t& axis)
+{
+  return io_cvt(glm::angleAxis(angle, io_cvt(axis)));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_to_euler_angles(const io_quat_t& quat)
+{
+  return io_cvt(glm::eulerAngles(io_cvt(quat)));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_from_euler_angles(const io_vec3_t& euler)
+{
+  return io_cvt(glm::quat(io_cvt(euler)));
+}
+
+//----------------------------------------------------------------------------//
+inline auto quat_rotation(const io_vec3_t& x, io_vec3_t& y)
+{
+  return io_cvt(glm::rotation(io_cvt(x), io_cvt(y)));
 }
 
 //----------------------------------------------------------------------------//
@@ -179,19 +174,19 @@ inline auto calc_random_number_fast(io_uint64_t& seed)
 }
 
 //----------------------------------------------------------------------------//
-inline auto calc_random_float_min_max_fast(float p_Min, float p_Max,
-                                           io_uint64_t& p_Seed) -> float
+inline auto calc_random_float_min_max_fast(float min, float max,
+                                           io_uint64_t& seed) -> float
 {
-  return uint32_t(calc_random_number_fast(p_Seed)) /
+  return uint32_t(calc_random_number_fast(seed)) /
              static_cast<float>(std::numeric_limits<uint32_t>::max()) *
-             (p_Max - p_Min) +
-         p_Min;
+             (max - min) +
+         min;
 }
 
 //----------------------------------------------------------------------------//
-inline auto calc_random_float_fast(io_uint64_t& p_Seed) -> float
+inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 {
-  return calc_random_float_min_max_fast(0.0f, 1.0f, p_Seed);
+  return calc_random_float_min_max_fast(0.0f, 1.0f, seed);
 }
 
 } // namespace math_helper
@@ -517,24 +512,24 @@ void script_init_state(sol::state& s)
   // @member step_height number The maximum step height an agent can take.
   // @member cell_size number The size of the cells used for the voxelization.
   // clang-format on
-  s.new_usertype<io_pathfinding_path_settings>(
+  s.new_usertype<io_pathfinding_path_settings_t>(
       "PathSettings", sol::no_constructor, "capsule_radius",
-      &io_pathfinding_path_settings::capsule_radius, "capsule_half_height",
-      &io_pathfinding_path_settings::capsule_half_height, "step_height",
-      &io_pathfinding_path_settings::step_height, "cell_size",
-      &io_pathfinding_path_settings::cell_size);
+      &io_pathfinding_path_settings_t::capsule_radius, "capsule_half_height",
+      &io_pathfinding_path_settings_t::capsule_half_height, "step_height",
+      &io_pathfinding_path_settings_t::step_height, "cell_size",
+      &io_pathfinding_path_settings_t::cell_size);
 
   // TODO
-  s.new_usertype<lua_physics_contact_event>(
+  s.new_usertype<lua_physics_contact_event_t>(
       "PhysicsContactEvent", sol::no_constructor, "type",
-      &lua_physics_contact_event::type, "data",
-      &lua_physics_contact_event::data);
-  s.new_usertype<lua_physics_contact_event::event_data>(
+      &lua_physics_contact_event_t::type, "data",
+      &lua_physics_contact_event_t::data);
+  s.new_usertype<lua_physics_contact_event_t::event_data_t>(
       "PhysicsContactEventData", sol::no_constructor, "entity0",
-      &lua_physics_contact_event::event_data::entity0, "entity1",
-      &lua_physics_contact_event::event_data::entity1, "pos",
-      &lua_physics_contact_event::event_data::pos, "impulse",
-      &lua_physics_contact_event::event_data::impulse);
+      &lua_physics_contact_event_t::event_data_t::entity0, "entity1",
+      &lua_physics_contact_event_t::event_data_t::entity1, "pos",
+      &lua_physics_contact_event_t::event_data_t::pos, "impulse",
+      &lua_physics_contact_event_t::event_data_t::impulse);
 
   // @namespace Ref
   // @category Ref Functions to interact with refs.
@@ -746,29 +741,29 @@ void script_init_state(sol::state& s)
     // @summary Calculates the largest integer number to greater than x.
     // @param x number The input value.
     // @return number value The largest integer value not greater than x.
-    s["Math"]["floor"] = [](float p_X) { return glm::floor(p_X); };
+    s["Math"]["floor"] = [](float x) { return glm::floor(x); };
 
     // @function ceil
     // @summary Calculates the smallest integer number not less than x.
     // @param x number The input value.
     // @return number value The smallest integer value not less than x.
-    s["Math"]["ceil"] = [](float p_X) { return glm::ceil(p_X); };
+    s["Math"]["ceil"] = [](float x) { return glm::ceil(x); };
 
     // @function round
     // @summary Calculates the nearest integer value to x, rounding halfway cases away from zero.
     // @param x number The input value.
     // @return number value The rounded value.
-    s["Math"]["round"] = [](float p_X) { return glm::round(p_X); };
+    s["Math"]["round"] = [](float x) { return glm::round(x); };
     // @function fract
     // @summary Returns the fractional part of x, calculated as x - floor(x).
     // @param x number The input value.
     // @return number value The fractional part of x.
-    s["Math"]["fract"] = [](float p_X) { return glm::fract(p_X); };
+    s["Math"]["fract"] = [](float x) { return glm::fract(x); };
     // @function trunc
     // @summary Calculates a value equal to the nearest integer to x whose absolute value is not larger than the absolute value of x. 
     // @param x number The input value.
     // @return number value The truncated value.
-    s["Math"]["trunc"] = [](float p_X) { return glm::trunc(p_X); };
+    s["Math"]["trunc"] = [](float x) { return glm::trunc(x); };
 
     // @category Math_Trigonometry Trigonometric math functions.
 
@@ -1048,6 +1043,7 @@ void script_init_state(sol::state& s)
     s["Log"]["log_error"] = io_logging->log_error;
   };
 
+  // TODO:
   s["UI"] = s.create_table();
   s["UI"]["load"] = [&s]() {
     // @namespace UI
@@ -1063,7 +1059,8 @@ void script_init_state(sol::state& s)
     // @param tint Vec4 Tint applied to the image.
     // @param pivot Vec2 The pivot of the image to draw.
     // clang-format on
-    s["UI"]["draw_image"] = io_ui->draw_image;
+    s["UI"]["draw_image"] = [](const char* name, io_vec2_t pos, io_vec2_t ext,
+                               io_vec4_t tint, io_vec2_t pivot) {};
     // clang-format off
     // @function draw_text
     // @summary Draws the given text to the screen.
@@ -1073,16 +1070,17 @@ void script_init_state(sol::state& s)
     // @param tint Vec4 Tint applied to the text.
     // @param alignment number 0: Center vertically and horizontally, 1: Center vertically and align left, 2: Center vertically and align right.
     // clang-format on
-    s["UI"]["draw_text"] = io_ui->draw_text;
+    s["UI"]["draw_text"] = [](const char* name, io_vec2_t pos, io_vec2_t ext,
+                              io_vec4_t tint, io_uint32_t align) {};
     // clang-format off
     // @function push_font_scale
     // @summary Pushes a new scaling factor on the stack which is used to scale the font by.
     // @param s number The factor to apply to size of the font.
     // clang-format on
-    s["UI"]["push_font_scale"] = io_ui->push_font_size;
+    s["UI"]["push_font_scale"] = [](float scale) {};
     // @function pop_font_scale
     // @summary Pops the scaling factor from the top of the stack.
-    s["UI"]["pop_font_scale"] = io_ui->pop_font_size;
+    s["UI"]["pop_font_scale"] = []() {};
   };
 
   s["Random"] = s.create_table();
@@ -1167,10 +1165,10 @@ void script_init_state(sol::state& s)
     // @param name string The name of the entities to search for.
     // @return table value Table containing the entities with the given name.
     s["Entity"]["find_entities_with_name"] = [](const char* name) {
-      uint32_t numEntities;
-      io_entity->find_entities_with_name(name, nullptr, &numEntities);
-      std::vector<io_ref_t> entities(numEntities); 
-      io_entity->find_entities_with_name(name, entities.data(), &numEntities);
+      uint32_t num_entities;
+      io_entity->find_entities_with_name(name, nullptr, &num_entities);
+      std::vector<io_ref_t> entities(num_entities); 
+      io_entity->find_entities_with_name(name, entities.data(), &num_entities);
 
       return entities;
     };
@@ -1508,6 +1506,12 @@ void script_init_state(sol::state& s)
   s["Terrain"]["load"] = [&s]() {
     // clang-format off
 
+    if (!io_plugin_terrain)
+    {
+      io_logging->log_warning("Terrain plugin is not available.");
+      return;
+    }
+
     // @namespace Terrain
     // @category Terrain Functions to interact with the terrain generator.
     // @copy_category Interface
@@ -1519,7 +1523,7 @@ void script_init_state(sol::state& s)
     // @param max_height number The maximum height of the terrain in world coordinates.
     // @param voxel_size number The size of a single voxel.
     // @return Ref value The root node of the terrain.
-    s["Terrain"]["generate_from_image"] = io_terrain->generate_from_image;
+    s["Terrain"]["generate_from_image"] = io_plugin_terrain->generate_from_image;
     // @function generate_from_data
     // @summary Generates a new heightmap-based terrain from the table.
     // @param data table The heightmap data as a table made up of pixels (see Terrain.Pixel)
@@ -1530,11 +1534,11 @@ void script_init_state(sol::state& s)
     // @return Ref value The root node of the terrain.
     s["Terrain"]["generate_from_data"] = [](const sol::table& heightmap, io_uint32_t size, const char* palette_name, io_float32_t max_height, io_float32_t voxel_size)
     {
-      std::vector<io_terrain_heightmap_pixel> data(heightmap.size());
+      std::vector<io_plugin_terrain_heightmap_pixel> data(heightmap.size());
       for (uint32_t i=0u; i<heightmap.size(); ++i)
         data[i] = heightmap[1u + i];
 
-      io_terrain->generate_from_data(data.data(), size, palette_name, max_height, voxel_size);
+      return io_plugin_terrain->generate_from_data(data.data(), size, palette_name, max_height, voxel_size);
     };
 
     // @function HeightmapPixel
@@ -1543,7 +1547,7 @@ void script_init_state(sol::state& s)
     // @param grass_height number The grass height in [0.0, 1.0].
     // @param palette_index number The palette index.
     // @return HeightmapPixel value The new heightmap pixel.
-    s["Terrain"]["HeightmapPixel"] = io_terrain_create_heightmap_pixel;
+    s["Terrain"]["HeightmapPixel"] = io_plugin_terrain_create_heightmap_pixel;
 
     // clang-format on
   };
@@ -1760,7 +1764,7 @@ void script_init_state(sol::state& s)
     // @summary Creates and initializes the settings for calculating a path to the default values.
     // @return PathSettings value The path settings.
     s["Pathfinding"]["PathSettings"] = []() { 
-      io_pathfinding_path_settings settings; 
+      io_pathfinding_path_settings_t settings; 
       io_pathfinding_init_path_settings(&settings);
       return settings;
     };
@@ -1835,11 +1839,11 @@ void script_init_state(sol::state& s)
     // @param tag string The tag to search for.
     // @return table value Table containing all entities with the given tag.
     s["Tag"]["find_entities_with_tag"] = [](const char* tag) {
-      uint32_t numEntities;
-      io_component_tag->find_entities_with_tag(tag, nullptr, &numEntities);
-      std::vector<io_ref_t> entities(numEntities);
+      uint32_t num_entities;
+      io_component_tag->find_entities_with_tag(tag, nullptr, &num_entities);
+      std::vector<io_ref_t> entities(num_entities);
       io_component_tag->find_entities_with_tag(tag, entities.data(),
-                                               &numEntities);
+                                               &num_entities);
 
       return entities;
     };

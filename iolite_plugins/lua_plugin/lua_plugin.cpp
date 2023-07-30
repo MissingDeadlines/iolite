@@ -242,7 +242,7 @@ void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
 static void on_init_script(const char* script_name, io_ref_t entity,
                            io_uint32_t update_interval, void** user_data)
 {
-  sol::state** state = (sol::state**)user_data;
+  auto** state = (sol::state**)user_data;
 
   void* mem = io_base->mem_allocate(sizeof(sol::state));
   *state = new (mem) sol::state();
@@ -261,7 +261,7 @@ static void on_init_script(const char* script_name, io_ref_t entity,
 //----------------------------------------------------------------------------//
 static void on_destroy_script(io_ref_t entity, void** user_data)
 {
-  sol::state** s = (sol::state**)user_data;
+  auto** s = (sol::state**)user_data;
 
   internal::script_deactivate(**s, entity);
 
@@ -274,14 +274,14 @@ static void on_destroy_script(io_ref_t entity, void** user_data)
 }
 
 //----------------------------------------------------------------------------//
-static void on_activate_scripts(const io_user_script_batch* scripts,
+static void on_activate_scripts(const io_user_script_batch_t* scripts,
                                 io_uint32_t scripts_length)
 {
   internal::scripts_active = true;
 
   for (uint32_t i = 0u; i < scripts_length; ++i)
   {
-    sol::state* state = (sol::state*)scripts->user_datas[i];
+    auto* state = (sol::state*)scripts->user_datas[i];
     internal::script_activate(*state, scripts->entities[i],
                               scripts->update_intervals[i]);
   }
@@ -290,12 +290,12 @@ static void on_activate_scripts(const io_user_script_batch* scripts,
 }
 
 //----------------------------------------------------------------------------//
-static void on_deactivate_scripts(const io_user_script_batch* scripts,
+static void on_deactivate_scripts(const io_user_script_batch_t* scripts,
                                   io_uint32_t scripts_length)
 {
   for (uint32_t i = 0u; i < scripts_length; ++i)
   {
-    sol::state* state = (sol::state*)scripts->user_datas[i];
+    auto* state = (sol::state*)scripts->user_datas[i];
     internal::script_deactivate(*state, scripts->entities[i]);
   }
 
@@ -305,12 +305,12 @@ static void on_deactivate_scripts(const io_user_script_batch* scripts,
 
 //----------------------------------------------------------------------------//
 static void on_tick_scripts(io_float32_t delta_t,
-                            const io_user_script_batch* scripts,
+                            const io_user_script_batch_t* scripts,
                             io_uint32_t scripts_length)
 {
   for (uint32_t i = 0u; i < scripts_length; ++i)
   {
-    sol::state* state = (sol::state*)scripts->user_datas[i];
+    auto* state = (sol::state*)scripts->user_datas[i];
     internal::script_tick(*state, delta_t, scripts->entities[i]);
     // TODO
     internal::script_tick_async(*state, delta_t, scripts->entities[i]);
@@ -339,16 +339,16 @@ static void on_script_changed(const char* filename)
 }
 
 //----------------------------------------------------------------------------//
-static void on_physics_events(const io_events_header* begin,
-                              const io_events_header* end)
+static void on_physics_events(const io_events_header_t* begin,
+                              const io_events_header_t* end)
 {
   if (!internal::scripts_active)
     return;
 
-  std::vector<lua_physics_contact_event> lua_events;
+  std::vector<lua_physics_contact_event_t> lua_events;
   lua_events.reserve(64u);
 
-  const io_events_header* event = begin;
+  const io_events_header_t* event = begin;
   const io_name_t contact_event_type = io_to_name("physics_contact");
 
   // Collect events
@@ -356,8 +356,8 @@ static void on_physics_events(const io_events_header* begin,
   {
     if (event->type.hash == contact_event_type.hash)
     {
-      io_events_data_physics_contact* contact =
-          (io_events_data_physics_contact*)io_events_get_data(event);
+      auto* contact =
+          (io_events_data_physics_contact_t*)io_events_get_data(event);
 
       lua_events.push_back({"physics_contact",
                             {contact->entity0, contact->entity1, contact->pos,
@@ -387,12 +387,9 @@ IO_API_EXPORT io_uint32_t IO_API_CALL get_api_version()
 }
 
 //----------------------------------------------------------------------------//
-#ifdef IO_LUA_PLUGIN_ID
+#ifdef IO_PLUGIN_ID
 //----------------------------------------------------------------------------//
-IO_API_EXPORT io_uint64_t IO_API_CALL get_plugin_id()
-{
-  return IO_LUA_PLUGIN_ID;
-}
+IO_API_EXPORT io_uint64_t IO_API_CALL get_plugin_id() { return IO_PLUGIN_ID; }
 //----------------------------------------------------------------------------//
 #endif
 //----------------------------------------------------------------------------//
@@ -400,9 +397,9 @@ IO_API_EXPORT io_uint64_t IO_API_CALL get_plugin_id()
 //----------------------------------------------------------------------------//
 IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
 {
-  io_api_manager = (io_api_manager_i*)api_manager;
+  io_api_manager = (const io_api_manager_i*)api_manager;
 
-  // Retrieve required interfaces
+  // Core intefaces
   io_logging =
       (const io_logging_i*)io_api_manager->find_first(IO_LOGGING_API_NAME);
   io_base = (const io_base_i*)io_api_manager->find_first(IO_BASE_API_NAME);
@@ -421,8 +418,6 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_sound = (const io_sound_i*)io_api_manager->find_first(IO_SOUND_API_NAME);
   io_input_system = (const io_input_system_i*)io_api_manager->find_first(
       IO_INPUT_SYSTEM_API_NAME);
-  io_terrain =
-      (const io_terrain_i*)io_api_manager->find_first(IO_TERRAIN_API_NAME);
   io_physics =
       (const io_physics_i*)io_api_manager->find_first(IO_PHYSICS_API_NAME);
   io_debug_geometry = (const io_debug_geometry_i*)io_api_manager->find_first(
@@ -430,6 +425,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_pathfinding = (const io_pathfinding_i*)io_api_manager->find_first(
       IO_PATHFINDING_API_NAME);
 
+  // Component interfaces
   io_component_custom_data =
       (const io_component_custom_data_i*)io_api_manager->find_first(
           IO_COMPONENT_CUSTOM_DATA_API_NAME);
@@ -463,6 +459,10 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_component_particle =
       (const io_component_particle_i*)io_api_manager->find_first(
           IO_COMPONENT_PARTICLE_API_NAME);
+
+  // Factory plugin intefaces
+  io_plugin_terrain = (const io_plugin_terrain_i*)io_api_manager->find_first(
+      IO_PLUGIN_TERRAIN_API_NAME);
 
   // Set up the functions we provide
   io_user_script = {};

@@ -80,7 +80,7 @@ static io_handle16_t boid_component_mgr = {};
 static glm::vec3* comp_boid_position = nullptr;
 static glm::vec3* comp_boid_prev_position = nullptr;
 static glm::vec3* comp_boid_velocity = nullptr;
-static io_fixed_step_accumulator fixed_accum;
+static io_fixed_step_accumulator_t fixed_accum;
 
 //----------------------------------------------------------------------------//
 static void simulate_boids()
@@ -157,7 +157,7 @@ static void on_build_plugin_menu()
   // Add a new menu item to the menu
   if (ImGui::MenuItem("Spawn Voxel Cubes"))
   {
-    constexpr io_uint32_t numNodes = 500u;
+    constexpr io_uint32_t num_nodes = 500u;
 
     // Create a new palette and set a single blueish color
     const io_ref_t palette = io_resource_palette->base.create("my_palette");
@@ -167,7 +167,7 @@ static void on_build_plugin_menu()
     io_resource_palette->base.commit_changes(palette);
 
     // Spawn voxel cubes
-    for (uint32_t i = 0u; i < numNodes; ++i)
+    for (uint32_t i = 0u; i < num_nodes; ++i)
     {
       // Create a new node (and entity)
       const io_ref_t node = io_component_node->create("cube");
@@ -195,10 +195,10 @@ static void on_build_plugin_menu()
   // Add a new menu item to the menu
   if (ImGui::MenuItem("Spawn Boids"))
   {
-    constexpr io_uint32_t numBoids = 2000u;
+    constexpr io_uint32_t num_boids = 2000u;
 
     // Spawn boids
-    for (uint32_t i = 0u; i < numBoids; ++i)
+    for (uint32_t i = 0u; i < num_boids; ++i)
     {
       // Create a new node (and entity)
       const io_ref_t node = io_component_node->create("boid");
@@ -222,31 +222,31 @@ static void on_build_plugin_menu()
 }
 
 //----------------------------------------------------------------------------//
-static bool draw_ui_sample_main_menu_button(const char* text,
-                                            io_float32_t& offset)
+static auto draw_ui_sample_main_menu_button(const char* text,
+                                            io_float32_t& offset) -> bool
 {
-  constexpr float buttonHeight = 50.0f;
+  constexpr float button_height = 50.0f;
   constexpr float spacing = 10.0f;
 
   bool clicked = false;
 
   io_ui->push_transform({0.0f, 0.0f}, {1.0f, 0.0f}, {0.0f, offset},
-                        {0.0f, offset + buttonHeight}, 0.0f);
+                        {0.0f, offset + button_height}, 0.0f);
   {
     // Draw button background
     {
-      constexpr io_vec4_t colorDefault = {0.1f, 0.1f, 0.1f, 0.5f};
-      constexpr io_vec4_t colorHovered = {0.25f, 0.25f, 0.25f, 0.5f};
-      constexpr io_vec4_t colorPressed = {0.5f, 0.5f, 0.5f, 0.5f};
+      constexpr io_vec4_t color_default = {0.1f, 0.1f, 0.1f, 0.5f};
+      constexpr io_vec4_t color_hovered = {0.25f, 0.25f, 0.25f, 0.5f};
+      constexpr io_vec4_t color_pressed = {0.5f, 0.5f, 0.5f, 0.5f};
 
-      io_vec4_t color = colorDefault;
+      io_vec4_t color = color_default;
 
       if (io_ui->intersects(io_input_system->get_mouse_pos()))
       {
-        color = colorHovered;
+        color = color_hovered;
         if (io_input_system->get_key_state(io_input_key_mouse_left, 0) ==
             io_input_key_state_pressed)
-          color = colorPressed;
+          color = color_pressed;
         else if (io_input_system->get_key_state(io_input_key_mouse_left, 0) ==
                  io_input_key_state_clicked)
           clicked = true;
@@ -272,7 +272,7 @@ static bool draw_ui_sample_main_menu_button(const char* text,
   }
   io_ui->pop_transform();
 
-  offset += spacing + buttonHeight;
+  offset += spacing + button_height;
 
   return clicked;
 }
@@ -294,17 +294,17 @@ static void draw_ui_sample_main_menu(io_float32_t delta_t)
       io_ui->push_transform({0.0f, 0.0f}, {1.0f, 0.0f}, {0.0f, 0.0f},
                             {0.0f, 100.0f}, 0.0f);
       {
-        io_vec2_t splashSize = io_ui->get_image_size("splash");
-        const float aspect = splashSize.y / splashSize.x;
-        splashSize.x = 200.0f;
-        splashSize.y = splashSize.x * aspect;
+        io_vec2_t splash_size = io_ui->get_image_size("splash");
+        const float aspect = splash_size.y / splash_size.x;
+        splash_size.x = 200.0f;
+        splash_size.y = splash_size.x * aspect;
 
         // Draw logo
-        io_ui->push_transform_preset(io_ui_anchor_preset_center,
-                                     {-splashSize.x * 0.5f, splashSize.x * 0.5f,
-                                      -splashSize.y * 0.5f,
-                                      splashSize.y * 0.5f},
-                                     0.0f);
+        io_ui->push_transform_preset(
+            io_ui_anchor_preset_center,
+            {-splash_size.x * 0.5f, splash_size.x * 0.5f, -splash_size.y * 0.5f,
+             splash_size.y * 0.5f},
+            0.0f);
         {
           io_ui->draw_image("splash", {1.0f, 1.0f, 1.0f, 1.0f});
         }
@@ -322,14 +322,15 @@ static void draw_ui_sample_main_menu(io_float32_t delta_t)
       offset += 25.0f;
 
       // Draw circle and rotating pentagon inside
-      constexpr float circleRadius = 15.0f;
+      constexpr float circle_radius = 15.0f;
       io_ui->push_transform_preset(io_ui_anchor_preset_center_top,
                                    {0.0f, 0.0f, offset, offset},
                                    ui_sample_time_accum * 2.0f);
       {
         io_ui->push_transform_preset(
             io_ui_anchor_preset_center,
-            {-circleRadius, circleRadius, -circleRadius, circleRadius}, 0.0f);
+            {-circle_radius, circle_radius, -circle_radius, circle_radius},
+            0.0f);
         {
           io_ui->push_style_var_float(io_ui_style_var_draw_outline, 1.0f);
           io_ui->draw_circle({0.6f, 0.6f, 0.6f, 1.0f});
@@ -519,7 +520,7 @@ IO_API_EXPORT io_uint32_t IO_API_CALL get_api_version()
 //----------------------------------------------------------------------------//
 IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
 {
-  io_api_manager = (io_api_manager_i*)api_manager;
+  io_api_manager = (const io_api_manager_i*)api_manager;
 
   // Retrieve API interfaces
   io_logging =

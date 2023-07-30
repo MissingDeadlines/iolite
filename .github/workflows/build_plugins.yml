@@ -1,4 +1,4 @@
-name: build_lua_plugin
+name: build_plugins
 on: [push]
 jobs:
   build:
@@ -13,12 +13,12 @@ jobs:
           submodules: true
       - name : "Build plugins"
         run: |
-          cd iolite_lua_plugin
+          cd iolite_plugins
           cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
           cmake --build build --config Release
       - name : "Archive plugins"
         uses: actions/upload-artifact@v3
         with:
-          name: lua_plugin
+          name: plugins
           path: |
-            iolite_lua_plugin/IoliteLuaPlugin.*
+            iolite_plugins/Iolite*Plugin.*

@@ -4,10 +4,12 @@ project(IOLITE_API_SAMPLES)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
+set(CMAKE_C_STANDARD 90)
 
 include_directories(../ dependencies/imgui dependencies/glm/glm)
 
 add_library(IoliteSamplePluginC SHARED sample_plugin.c)
+
 add_library(IoliteSamplePluginCPP SHARED
   sample_plugin.cpp
   dependencies/imgui/imgui.cpp

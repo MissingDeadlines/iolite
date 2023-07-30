@@ -5,10 +5,9 @@ iolite_samples/imgui.ini
 iolite_samples/keybindings_editor.json
 iolite_samples/keybindings_global.json
 iolite_samples/property_metadata.json
-iolite_samples/Iolite_Pro_RelWithDebInfo
-iolite_samples/Iolite_Pro_RelWithDebInfo.exe
-iolite_samples/IoliteLuaPlugin.so
-iolite_samples/IoliteLuaPlugin.dll
+iolite_samples/*.exe
+iolite_samples/*.so
+iolite_samples/*.dll
 iolite_samples/settings.json
 
 iolite_c_api/sample_plugins/build
@@ -16,10 +15,10 @@ iolite_c_api/sample_plugins/.cache
 iolite_c_api/sample_plugins/*.so
 iolite_c_api/sample_plugins/*.dll
 iolite_c_api/sample_plugins/*.pdb
-iolite_lua_plugin/build
-iolite_lua_plugin/.cache
-iolite_lua_plugin/*.so
-iolite_lua_plugin/*.dll
-iolite_lua_plugin/*.pdb
+iolite_plugins/build
+iolite_plugins/.cache
+iolite_plugins/*.so
+iolite_plugins/*.dll
+iolite_plugins/*.pdb
 
 hohenzollern_castle_and_kingdom.vox

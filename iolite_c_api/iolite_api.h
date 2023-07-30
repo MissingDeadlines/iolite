@@ -680,13 +680,13 @@ typedef struct
                     // e.g., smoothen the visual representation.
   io_float32_t accumulator; // The accumulated time.
 
-} io_fixed_step_accumulator;
+} io_fixed_step_accumulator_t;
 
 // Initializes the provided accumulator. Call this function once when creating a
 // new accumulator.
 //----------------------------------------------------------------------------//
 inline void
-io_init_fixed_step_accumulator(io_fixed_step_accumulator* accumulator,
+io_init_fixed_step_accumulator(io_fixed_step_accumulator_t* accumulator,
                                io_float32_t update_frequency_in_hz)
 {
   accumulator->update_frequency_in_hz = update_frequency_in_hz;
@@ -699,14 +699,14 @@ io_init_fixed_step_accumulator(io_fixed_step_accumulator* accumulator,
 // frame delta time.
 //----------------------------------------------------------------------------//
 inline void io_accumulator_add(io_float32_t delta_t,
-                               io_fixed_step_accumulator* accumulator)
+                               io_fixed_step_accumulator_t* accumulator)
 {
   accumulator->accumulator += delta_t;
 }
 
 // Returns true if another fixed step should be executed.
 //----------------------------------------------------------------------------//
-inline io_bool_t io_accumulator_step(io_fixed_step_accumulator* accumulator)
+inline io_bool_t io_accumulator_step(io_fixed_step_accumulator_t* accumulator)
 {
   io_bool_t stepped = IO_FALSE;
   if (accumulator->accumulator >= accumulator->delta_t)
@@ -786,7 +786,7 @@ typedef struct
                             // calculating the path.
   io_uint32_t
       num_max_steps; // The maximum number of iterations to compute per frame.
-} io_pathfinding_path_settings;
+} io_pathfinding_path_settings_t;
 
 // Physics overlap result data
 //----------------------------------------------------------------------------//
@@ -795,7 +795,7 @@ typedef struct
   io_bool_t hit; // True if an overlap was detected.
 
   io_ref_t entity; // The first entity that is overlapping.
-} io_physics_overlap_result;
+} io_physics_overlap_result_t;
 
 // Physics raycast result data
 //----------------------------------------------------------------------------//
@@ -808,14 +808,7 @@ typedef struct
   io_vec3_t normal;      // The normal at the hit position.
 
   io_ref_t entity; // The entity that was hit.
-} io_physics_raycast_result;
-
-// A single pixel of a heightmap
-//----------------------------------------------------------------------------//
-typedef struct
-{
-  io_uint32_t internal;
-} io_terrain_heightmap_pixel;
+} io_physics_raycast_result_t;
 
 // Header for a single event
 //----------------------------------------------------------------------------//
@@ -824,7 +817,7 @@ typedef struct
   io_name_t type; // The type of the event.
   io_uint32_t
       data_size_in_bytes; // The size of the data blob attached to this event.
-} io_events_header;
+} io_events_header_t;
 
 // SOA style batch of script data
 //----------------------------------------------------------------------------//
@@ -835,21 +828,29 @@ typedef struct
   const io_ref_t* entities; // The entities of each of the script components.
   const io_uint32_t* update_intervals; // The update intervals of each of the
                                        // script components.
-} io_user_script_batch;
+} io_user_script_batch_t;
 
 // Defines an anchor for UI transformations
 //----------------------------------------------------------------------------//
 typedef struct
 {
   float anchor, offset;
-} io_ui_anchor;
+} io_ui_anchor_t;
 
 // Defines a set of anchor offsets for UI transformations
 //----------------------------------------------------------------------------//
 typedef struct
 {
   float left, right, top, bottom;
-} io_ui_anchor_offsets;
+} io_ui_anchor_offsets_t;
+
+// Defines a recntagle.
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_vec2_t pos;
+  io_vec2_t extent;
+} io_ui_rect_t;
 
 //----------------------------------------------------------------------------//
 // Event data types
@@ -863,7 +864,7 @@ typedef struct
 {
   io_ref_t entity0, entity1; // The entities participating in the contact.
   io_vec3_t pos, impulse;    // Position and impulse of the contact.
-} io_events_data_physics_contact;
+} io_events_data_physics_contact_t;
 
 //----------------------------------------------------------------------------//
 // Interface function decls. and implementations
@@ -871,7 +872,7 @@ typedef struct
 
 //----------------------------------------------------------------------------//
 inline void
-io_pathfinding_init_path_settings(io_pathfinding_path_settings* settings)
+io_pathfinding_init_path_settings(io_pathfinding_path_settings_t* settings)
 {
   settings->find_walkable_cell_range = 8u;
   settings->capsule_radius = 0.2f;
@@ -882,34 +883,21 @@ io_pathfinding_init_path_settings(io_pathfinding_path_settings* settings)
 }
 
 //----------------------------------------------------------------------------//
-inline io_terrain_heightmap_pixel io_terrain_create_heightmap_pixel(
-    io_float32_t height, io_float32_t grass_height, io_uint8_t palette_index)
-{
-  const io_uint32_t v_height = io_min(height * 255.0f, 255u);
-  const io_uint32_t v_grass_height = io_min(grass_height * 255.0f, 255u);
-  const io_uint32_t v_palette_index = palette_index;
-
-  io_terrain_heightmap_pixel p;
-  p.internal = v_height | (v_grass_height << 8u) | (palette_index << 16u);
-
-  return p;
-}
-
-//----------------------------------------------------------------------------//
-inline const void* io_events_get_data(const io_events_header* current)
+inline const void* io_events_get_data(const io_events_header_t* current)
 {
   if (current->data_size_in_bytes > 0u)
-    return (io_uint8_t*)current + sizeof(io_events_header);
+    return (io_uint8_t*)current + sizeof(io_events_header_t);
   return 0;
 }
 
 //----------------------------------------------------------------------------//
-inline const io_events_header*
-io_events_get_next(const io_events_header* current, const io_events_header* end)
+inline const io_events_header_t*
+io_events_get_next(const io_events_header_t* current,
+                   const io_events_header_t* end)
 {
-  const io_events_header* next =
-      (io_events_header*)((io_uint8_t*)current + sizeof(io_events_header) +
-                          current->data_size_in_bytes);
+  const io_events_header_t* next =
+      (io_events_header_t*)((io_uint8_t*)current + sizeof(io_events_header_t) +
+                            current->data_size_in_bytes);
   return next;
 }
 
@@ -980,8 +968,8 @@ struct io_user_editor_i
 struct io_user_events_i
 {
   // Called when physics related events are ready to be processed.
-  void (*on_physics_events)(const io_events_header* begin,
-                            const io_events_header* end);
+  void (*on_physics_events)(const io_events_header_t* begin,
+                            const io_events_header_t* end);
 };
 
 //----------------------------------------------------------------------------//
@@ -999,13 +987,13 @@ struct io_user_script_i
   void (*on_destroy_script)(io_ref_t entity, void** user_data);
   // Called when the given scripts should be ticked.
   void (*on_tick_scripts)(io_float32_t delta_t,
-                          const io_user_script_batch* scripts,
+                          const io_user_script_batch_t* scripts,
                           io_uint32_t scripts_length);
   // Called when the given scripts should be activated.
-  void (*on_activate_scripts)(const io_user_script_batch* scripts,
+  void (*on_activate_scripts)(const io_user_script_batch_t* scripts,
                               io_uint32_t scripts_length);
   // Called when the given scripts should be deactivated.
-  void (*on_deactivate_scripts)(const io_user_script_batch* scripts,
+  void (*on_deactivate_scripts)(const io_user_script_batch_t* scripts,
                                 io_uint32_t scripts_length);
 };
 
@@ -1126,6 +1114,16 @@ struct io_base_i
   io_variant_t (*variant_from_uvec3)(io_uvec3_t value);
   // Gets the value of the variant as a uvec3.
   io_uvec3_t (*variant_get_uvec3)(io_variant_t variant);
+
+  // Creates a new variant from a 8-bit uvec3.
+  io_variant_t (*variant_from_u8vec3)(io_u8vec3_t value);
+  // Gets the value of the variant as a 8-bit uvec3.
+  io_u8vec3_t (*variant_get_u8vec3)(io_variant_t variant);
+
+  // Creates a new variant from a 16-bit uvec3.
+  io_variant_t (*variant_from_u16vec3)(io_u16vec3_t value);
+  // Gets the value of the variant as a 16-bit uvec3.
+  io_u16vec3_t (*variant_get_u16vec3)(io_variant_t variant);
 
   // Creates a new variant from a uvec4.
   io_variant_t (*variant_from_uvec4)(io_uvec4_t value);
@@ -1319,15 +1317,22 @@ struct io_ui_i
                     io_ui_text_align_horizontal align_horizontal,
                     io_ui_text_align_vertical align_vertical,
                     io_ui_text_flag flags);
+  // Calculates the bounding rectangle for the given text and settings.
+  io_ui_rect_t (*calc_text_bounds)(const char* text,
+                                   io_ui_text_align_horizontal align_horizontal,
+                                   io_ui_text_align_vertical align_vertical,
+                                   io_ui_text_flag flags);
+  // Returns the bounding rectangle for the last text that has been drawn.
+  io_ui_rect_t (*get_last_text_bounds)();
 
   // Pushes the transform defined by the anchors and rotation (in rad).
-  void (*push_transform)(io_ui_anchor left, io_ui_anchor right,
-                         io_ui_anchor top, io_ui_anchor bottom,
+  void (*push_transform)(io_ui_anchor_t left, io_ui_anchor_t right,
+                         io_ui_anchor_t top, io_ui_anchor_t bottom,
                          io_float32_t rotation);
   // Pushes the transform defined by the anchor preset, offsets, and rotation
   // (in rad).
   void (*push_transform_preset)(io_ui_anchor_preset preset,
-                                io_ui_anchor_offsets offsets,
+                                io_ui_anchor_offsets_t offsets,
                                 io_float32_t rotation);
   // Pops the last transform from the stack and sets it.
   void (*pop_transform)();
@@ -1460,24 +1465,6 @@ struct io_input_system_i
 };
 
 //----------------------------------------------------------------------------//
-#define IO_TERRAIN_API_NAME "io_terrain_i"
-//----------------------------------------------------------------------------//
-
-// Provides access to the terrain subsystem
-//----------------------------------------------------------------------------//
-struct io_terrain_i
-{
-  // Generates heightmap based terrain from the provided data.
-  void (*generate_from_data)(const io_terrain_heightmap_pixel* heightmap,
-                             io_uint32_t size, const char* palette_name,
-                             io_float32_t max_height, io_float32_t voxel_size);
-  // Generate heightmap based terrain from the provided image.
-  void (*generate_from_image)(const char* heightmap_filename,
-                              const char* palette_name, io_float32_t max_height,
-                              io_float32_t voxel_size);
-};
-
-//----------------------------------------------------------------------------//
 #define IO_PHYSICS_API_NAME "io_physics_i"
 //----------------------------------------------------------------------------//
 
@@ -1491,16 +1478,17 @@ struct io_physics_i
   io_vec3_t (*get_gravity)();
 
   // Performs a sphere overlap test.
-  io_physics_overlap_result (*overlap_sphere)(io_vec3_t position,
-                                              io_float32_t radius);
+  io_physics_overlap_result_t (*overlap_sphere)(io_vec3_t position,
+                                                io_float32_t radius);
   // Performs a sphere sweep test in the given direction.
-  io_physics_raycast_result (*sweep_sphere)(io_vec3_t position,
-                                            io_float32_t radius,
-                                            io_vec3_t direction,
-                                            io_float32_t distance);
+  io_physics_raycast_result_t (*sweep_sphere)(io_vec3_t position,
+                                              io_float32_t radius,
+                                              io_vec3_t direction,
+                                              io_float32_t distance);
   // Performs a raycast.
-  io_physics_raycast_result (*raycast)(io_vec3_t position, io_vec3_t direction,
-                                       io_float32_t distance);
+  io_physics_raycast_result_t (*raycast)(io_vec3_t position,
+                                         io_vec3_t direction,
+                                         io_float32_t distance);
 };
 
 //----------------------------------------------------------------------------//
@@ -1573,7 +1561,7 @@ struct io_pathfinding_i
 {
   // Starts finding a path from "start" to "end".
   io_handle16_t (*find_path)(io_vec3_t start, io_vec3_t end,
-                             const io_pathfinding_path_settings* settings);
+                             const io_pathfinding_path_settings_t* settings);
 
   // Returns true if the given path handle is valid.
   io_bool_t (*is_valid)(io_handle16_t path_handle);

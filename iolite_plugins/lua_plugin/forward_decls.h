@@ -48,6 +48,7 @@
 #define IO_USER_UVEC4_TYPE glm::uvec4
 #define IO_API_IMPLEMENTATION
 #include "iolite_api.h"
+#include "terrain_plugin_api.h"
 
 // Globals
 //----------------------------------------------------------------------------//
@@ -68,7 +69,7 @@ static const io_world_i* io_world;
 static const io_particle_system_i* io_particle_system;
 static const io_sound_i* io_sound;
 static const io_input_system_i* io_input_system;
-static const io_terrain_i* io_terrain;
+static const io_plugin_terrain_i* io_plugin_terrain;
 static const io_physics_i* io_physics;
 static const io_debug_geometry_i* io_debug_geometry;
 static const io_pathfinding_i* io_pathfinding;
@@ -89,10 +90,10 @@ static const io_component_particle_i* io_component_particle;
 
 // Custom data types
 //----------------------------------------------------------------------------//
-struct lua_physics_contact_event
+struct lua_physics_contact_event_t
 {
   const char* type;
-  struct event_data
+  struct event_data_t
   {
     io_ref_t entity0, entity1;
     io_vec3_t pos, impulse;

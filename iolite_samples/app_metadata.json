@@ -19,6 +19,10 @@
   "version_string": "development",
   "plugins": [
     [
+      "terrain_plugin",
+      "IoliteTerrainPlugin"
+    ],
+    [
       "lua_plugin",
       "IoliteLuaPlugin"
     ]
