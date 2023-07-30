@@ -566,7 +566,7 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
 
   // Initialize the fixed time step accumulator. Use a slow tick
   // interval to showcase the interpolation of the visuals
-  io_init(5.0f, &fixed_accum);
+  io_init_fixed_step_accumulator(&fixed_accum, 5.0f);
 
   // Set up and register our task API
   io_user_task = {};

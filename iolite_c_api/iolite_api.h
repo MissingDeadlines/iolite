@@ -608,9 +608,53 @@ typedef struct
   io_property_flags flags;
 } io_property_desc_t;
 
+// Callback function for scheduler tasks
+//----------------------------------------------------------------------------//
+typedef void (*io_scheduler_callback_t)(io_uvec2_t range, io_uint32_t thread_id,
+                                        io_uint32_t sub_task_index, void* task);
+
+// Scheduler tasks provide the possibility to (evenly) spread workloads to a set
+// of worker threads provided by the internal task scheduler.
+//   Example:
+//     If you provide a task with the number of workloads set to 16 and there
+//     are 4 available hardware threads, the workload gets divided into 4
+//     sub-tasks with a range in [0, 4]
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  // The number of workloads this task should handle
+  io_uint32_t num_workloads;
+
+  // The minimum amount of sub-tasks to spawn per worker thread
+  io_uint32_t min_sub_tasks_per_worker;
+  // The target of sub-tasks that should be created per worker thread
+  io_uint32_t target_sub_tasks_per_worker;
+
+  // The number of currently active sub-tasks. Initialize to zero
+  io_uint64_t running_sub_task_count;
+
+  // Callback function called for each of the internal sub-tasks.
+  io_scheduler_callback_t callback;
+} io_scheduler_task_t;
+
 //----------------------------------------------------------------------------//
 // Global helper functions and types
 //----------------------------------------------------------------------------//
+
+// Initializes a task with the given callback for the given amount of tasks
+//----------------------------------------------------------------------------//
+inline void io_init_scheduler_task(io_scheduler_task_t* task,
+                                   io_uint32_t num_tasks,
+                                   io_scheduler_callback_t callback)
+{
+  // Defaults
+  task->target_sub_tasks_per_worker = 4u;
+  task->min_sub_tasks_per_worker = 0u;
+  task->running_sub_task_count = 0u;
+
+  task->num_workloads = num_tasks;
+  task->callback = callback;
+}
 
 // Fixed time step accumulator.
 //
@@ -625,6 +669,7 @@ typedef struct
 //
 //  while (io_accumulator_step(&accum))
 //    pos += vel * accum.delta_t;
+//----------------------------------------------------------------------------//
 typedef struct
 {
   io_float32_t update_frequency_in_hz; // The fixed update frequency in Hz
@@ -640,8 +685,9 @@ typedef struct
 // Initializes the provided accumulator. Call this function once when creating a
 // new accumulator.
 //----------------------------------------------------------------------------//
-inline void io_init(io_float32_t update_frequency_in_hz,
-                    io_fixed_step_accumulator* accumulator)
+inline void
+io_init_fixed_step_accumulator(io_fixed_step_accumulator* accumulator,
+                               io_float32_t update_frequency_in_hz)
 {
   accumulator->update_frequency_in_hz = update_frequency_in_hz;
   accumulator->delta_t = 1.0f / accumulator->update_frequency_in_hz;
@@ -1105,6 +1151,15 @@ struct io_base_i
                                 io_uint32_t alignment_in_bytes);
   // Frees the provided memory area.
   void (*mem_free)(void* ptr);
+
+  // Task scheduler
+
+  // Enqueues and kicks the given task
+  void (*scheduler_enqueue_task)(io_scheduler_task_t* task);
+  // Waits till the given task is completed
+  void (*scheduler_wait_for_task)(const io_scheduler_task_t* task);
+  // Returns true if the given task is completed
+  io_bool_t (*scheduler_is_task_completed)(const io_scheduler_task_t* task);
 };
 
 //----------------------------------------------------------------------------//
