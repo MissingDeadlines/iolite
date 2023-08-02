@@ -10,7 +10,7 @@ To get started, there is a small selection of sample plugins available in the `s
 
 Building the sample plugins requires a C/C++ compiler and a recent version of CMake.
 
-The plugins can be built on any supported platform by running the `build_plugins.sh` shell script or by manually executing the following commands on the command line:
+The plugins can be built on any supported platform by either running `build_plugins.sh/bat` or by manually executing the following commands on the command line:
 
 ```bash
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
