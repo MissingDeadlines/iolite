@@ -92,17 +92,6 @@ Sample showcases a procedurally generated maze and the usage of the pathfinding 
 
 ![Screenshot of the Pathfinding Sample](../media/samples/sample_pathfinding.jpg?raw=true)
 
-## Tree Generator (sample_tree_generator)
-
-Showcases the procedural generation of trees.
-
-### References
-
-- Transport-Oriented Growth and Procedural Trees  
-<https://nickmcd.me/2020/10/19/transport-oriented-growth-and-procedural-trees/>
-
-![Screenshot of the Tree Generator Sample](../media/samples/sample_tree_generator.jpg?raw=true)
-
 ## Heightmap (sample_heightmap)
 
 Shows the procedural generation of a heightmap-based terrain directly from Lua.
