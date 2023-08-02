@@ -10,6 +10,8 @@ iolite_samples/*.so
 iolite_samples/*.dll
 iolite_samples/settings.json
 
+media/**/*.png
+
 iolite_c_api/sample_plugins/build
 iolite_c_api/sample_plugins/.cache
 iolite_c_api/sample_plugins/*.so

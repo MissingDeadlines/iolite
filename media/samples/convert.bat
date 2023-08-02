@@ -1,0 +1,1 @@
+magick mogrify -format jpg *.png
