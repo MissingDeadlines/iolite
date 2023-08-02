@@ -925,6 +925,11 @@ io_events_get_next(const io_events_header_t* current,
 //----------------------------------------------------------------------------//
 struct io_user_task_i
 {
+  // Called once when the game mode becomes active.
+  void (*on_activate)();
+  // Called once when the game mode becomes inactive.
+  void (*on_deactivate)();
+
   // Called every frame when the game mode is active.
   void (*on_tick)(io_float32_t delta_t);
 };
@@ -954,6 +959,11 @@ struct io_user_editor_i
   // Called when building the "Plugin" menu in the editor's menu bar. Extend the
   // menu here using ImGui::MenuItem() etc.
   void (*on_build_plugin_menu)();
+
+  // Called once when the editor becomes active.
+  void (*on_activate)();
+  // Called once when the editor becomes inactive.
+  void (*on_deactivate)();
 
   // Called every frame when the editor is active.
   void (*on_tick)(io_float32_t delta_t);
