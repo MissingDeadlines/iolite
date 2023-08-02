@@ -1601,6 +1601,14 @@ struct io_filesystem_i
                                           io_uint8_t* buffer,
                                           io_uint32_t* buffer_length);
 
+  // User data access
+
+  // Creates or retrieves either the user directory or a subdirectory in the
+  // user directory. "Subdirectory" is optional and can be NULL.
+  void (*create_or_retrieve_user_directory)(const char* subdirectory,
+                                            char* buffer,
+                                            io_uint32_t* buffer_length);
+
   // Filesystem watches
 
   // Watches the given directory and calls "callback" when a file changes.
