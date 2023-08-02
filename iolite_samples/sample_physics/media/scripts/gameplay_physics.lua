@@ -245,17 +245,20 @@ function OnActivate(entity)
   PlayerVelocity = Vec3(0.0)
 end
 
+function DrawHUD()
+  UI.push_style_var_float(2, 2.0);
+  UI.push_transform(UIAnchor(1.0, -25.0), UIAnchor(1.0, -25.0), UIAnchor(1.0, -25.0), UIAnchor(1.0, -25.0), 0.0);
+  UI.draw_text(
+    string.format("Grenade Radius: %s\nMax Hardness: %i", GrenadeLabels[GrenadeSetting + 1], GrenadeMaxHardness), 2, 2, 0);
+  UI.pop_transform();
+  UI.pop_style_var();
+end
+
 --- Called every frame.
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
-  -- Draw the logo
-  UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
-
-  -- Draw HUD
-  UI.draw_text(string.format("Grenade Radius: %s", GrenadeLabels[GrenadeSetting + 1]), Vec2(0.99, 0.97),
-    Vec2(0.0, 0.0), Vec4(1.0), 2)
-  UI.draw_text(string.format("Max Hardness: %i", GrenadeMaxHardness), Vec2(0.99, 0.93), Vec2(0.0, 0.0), Vec4(1.0), 2)
+  DrawHUD();
 
   -- Spawn a grenade
   if Input.get_key_state(Key.kMouseLeft, 0) == KeyState.kPressed then

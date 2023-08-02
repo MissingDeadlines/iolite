@@ -60,7 +60,13 @@ function DrawCursor()
     cursor = "cursor_grab"
   end
 
-  UI.draw_image(cursor, Input.get_mouse_pos_viewport(), Vec2(-1.0, 0.025), Vec4(1.0), Vec2(0.0, 0.0))
+  local mouse_pos = Input.get_mouse_pos()
+  local cursor_size = UI.get_image_size(cursor)
+
+  UI.push_transform(UIAnchor(0.0, mouse_pos.x), UIAnchor(0.0, mouse_pos.x + cursor_size.x), UIAnchor(0.0, mouse_pos.y),
+    UIAnchor(0.0, mouse_pos.y + cursor_size.y), 0)
+  UI.draw_image(cursor, Vec4(1.0))
+  UI.pop_transform()
 end
 
 function CalcGrabPos(origin, dir, height)
@@ -174,9 +180,14 @@ function UpdateHints(delta_t)
 
     hint.alpha = Math.clamp(hint.alpha, 0.0, 1.0)
 
-    UI.push_font_scale(0.75)
-    UI.draw_text(hint.hint, Vec2(0.5, 0.75), Vec2(0.0), Vec4(1.0, 1.0, 1.0, Ease(hint.alpha)), 1)
-    UI.pop_font_scale()
+    UI.push_transform(UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), UIAnchor(0.75, 0.0),
+      UIAnchor(0.75, 0.0), 0)
+    UI.push_font_size(20.0)
+    UI.push_style_var_vec4(0, Vec4(1.0, 1.0, 1.0, Ease(hint.alpha)))
+    UI.draw_text(hint.hint, 1, 1, 0)
+    UI.pop_style_var()
+    UI.pop_font_size()
+    UI.pop_transform()
 
     if hint.alpha <= 0.0 then
       table.remove(Hints, 1)
@@ -185,12 +196,15 @@ function UpdateHints(delta_t)
 end
 
 function DrawInteractorTitle(name)
-  local pos = Input.get_mouse_pos_viewport()
-  pos = Math.vec_add(pos, Vec2(0.02, 0.0))
+  local interactor_pos = Input.get_mouse_pos()
+  interactor_pos = Math.vec_add(interactor_pos, Vec2(30.0, 0.0))
 
-  UI.push_font_scale(0.75)
-  UI.draw_text(name, pos, Vec2(0.0), Vec4(1.0), 0)
-  UI.pop_font_scale()
+  UI.push_transform(UIAnchor(0.0, interactor_pos.x), UIAnchor(0.0, interactor_pos.x), UIAnchor(0.0, interactor_pos.y),
+    UIAnchor(0.0, interactor_pos.y), 0)
+  UI.push_font_size(20.0)
+  UI.draw_text(name, 0, 1, 0)
+  UI.pop_font_size()
+  UI.pop_transform()
 end
 
 function LeftClicked()

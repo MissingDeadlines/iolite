@@ -20,8 +20,6 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 -- SOFTWARE.
 
-UI.load()
-
 ---Called once when the script component becomes active.
 ---@param entity Ref The ref of the entity the script component is attached to.
 function OnActivate(entity)
@@ -31,8 +29,6 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
-  -- Draw the logo
-  UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
 end
 
 --- Called at the frequency of the update interval specified in the component.

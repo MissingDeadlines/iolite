@@ -24,6 +24,7 @@ import re
 import json
 
 api = []
+api_version = "unknown"
 
 with open("script_init_state.inl", "r") as f:
     src = f.readlines()
@@ -37,6 +38,7 @@ with open("script_init_state.inl", "r") as f:
     for l in src:
         print(l)
 
+        version = re.search("// @version (.*)", l)
         namespace = re.search("// @namespace (.*)", l)
         category = re.search("// @category ([\w_]*) (.*)", l)
         function = re.search("// @function (.*)", l)
@@ -49,7 +51,9 @@ with open("script_init_state.inl", "r") as f:
         hidden = re.search("// @hidden", l)
         copy_category = re.search("// @copy_category (\w*)", l)
 
-        if namespace:
+        if version:
+            api_version = version.group(1)
+        elif namespace:
             # Update the current namespace
             current_namespace = namespace.group(1)
         elif category:
@@ -151,7 +155,7 @@ for cat in api:
     if "types" in cat:
         cat["types"] = sorted(cat["types"], key=lambda x: x["name"])
 
-json_output = json.dumps({"version": "0.2.0", "api": api}, indent=2)
+json_output = json.dumps({"version": api_version, "api": api}, indent=2)
 
 with open("../../../iolite-website/components/docs_lua_data.jsx", "w") as f:
     api_string = '''export const luaApi = 

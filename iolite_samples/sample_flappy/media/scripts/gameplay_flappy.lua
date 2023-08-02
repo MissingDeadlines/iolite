@@ -40,6 +40,14 @@ PipeDistance = 3.0
 PipeSpacing = 1.5
 PipeMaxRandomOffset = 1.5
 
+function DrawText(text)
+  UI.push_style_var_float(2, 2.0)
+  UI.push_transform(UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), 0.0)
+  UI.draw_text(text, 1, 1, 0)
+  UI.pop_transform()
+  UI.pop_style_var()
+end
+
 function GetBird()
   local bird = Entity.find_first_entity_with_name("bird")
   local bird_shape = VoxelShape.get_component_for_entity(bird)
@@ -119,7 +127,7 @@ function UpdateCamera()
 end
 
 function UpdateStateGame()
-  UI.draw_text(string.format("%03i", Score), Vec2(0.5, 0.75), Vec2(0.0, 0.0), Vec4(1.0), 1)
+  DrawText(string.format("%03i", Score))
 
   -- Push the bird upwards on flap
   local _, bird_shape, bird_node = GetBird()
@@ -144,7 +152,7 @@ function UpdateStateGame()
 end
 
 function UpdateStateStart()
-  UI.draw_text("FLAP TO START!", Vec2(0.5, 0.75), Vec2(0.0, 0.0), Vec4(1.0), 1)
+  DrawText("FLAP TO START")
 
   -- Keep the bird in position
   local _, bird_shape, bird_node = GetBird()
@@ -166,9 +174,7 @@ end
 function UpdateStateEnd(delta_t)
   local high_score = Variant.get_uint(CustomData.get(HighScore, 0))
 
-  UI.draw_text("GAME OVER!", Vec2(0.5, 0.5), Vec2(0.0, 0.0), Vec4(1.0), 1)
-  UI.draw_text(string.format("SCORE: %03i | HIGH SCORE: %03i", Score, high_score), Vec2(0.5, 0.6), Vec2(0.0, 0.0),
-    Vec4(1.0), 1)
+  DrawText(string.format("GAME OVER!\nSCORE: %03i | HIGH SCORE: %03i", Score, high_score))
 
   -- Restart the game after some time
   TimePassed = TimePassed + delta_t
@@ -224,11 +230,6 @@ end
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
-  UI.push_font_scale(1.5)
-
-  -- Draw splash image
-  UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
-
   PositionPipes()
 
   if State == "Start" then
@@ -242,8 +243,6 @@ function Tick(entity, delta_t)
   end
 
   UpdateCamera()
-
-  UI.pop_font_scale()
 end
 
 --- Called at the frequency of the update interval specified in the component.

@@ -75,12 +75,16 @@ function OnActivate(entity)
   end)
 end
 
+function DrawText(text)
+  UI.push_transform(UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), UIAnchor(0.5, 0.0), 0.0)
+  UI.draw_text(text, 1, 1, 0)
+  UI.pop_transform()
+end
+
 --- Called every frame.
 ---@param entity Ref The ref of the entity the script component is attached to.
 ---@param delta_t number The time (in seconds) passed since the last call to this function.
 function Tick(entity, delta_t)
-  UI.draw_image("splash", Vec2(0.99, 0.01), Vec2(0.2, -1.0), Vec4(1.0), Vec2(1.0, 0.0))
-
   -- Process the result when our async. worker has finished
   if not TerrainNode and Heightmap then
     -- Requires: The heightmap as a table, the width/height (has to be square),
@@ -88,7 +92,7 @@ function Tick(entity, delta_t)
     -- height in voxels, and the scale (size of a single voxel)
     TerrainNode = Terrain.generate_from_data(Heightmap, Size, "terrain", 256.0, 0.1)
   elseif not TerrainNode then
-    UI.draw_text(string.format("Generating terrain... %.2f %%", Progress), Vec2(0.5), Vec2(0.0), Vec4(1.0), 1)
+    DrawText(string.format("Generating terrain... %.2f %%", Progress))
   end
 end
 

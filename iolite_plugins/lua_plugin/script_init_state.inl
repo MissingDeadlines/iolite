@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// @version 0.3.0
+
 #include "forward_decls.h"
 
 namespace math_helper
@@ -519,17 +521,76 @@ void script_init_state(sol::state& s)
       &io_pathfinding_path_settings_t::step_height, "cell_size",
       &io_pathfinding_path_settings_t::cell_size);
 
-  // TODO
+  // clang-format off
+  // @type PhysicsContactEvent
+  // @summary Physics event fired when contacts between two shapes are detected.
+  // @member type string The type name.
+  // @member data PhysicsContactEventData The data of the contact event.
+  // clang-format on
   s.new_usertype<lua_physics_contact_event_t>(
       "PhysicsContactEvent", sol::no_constructor, "type",
       &lua_physics_contact_event_t::type, "data",
       &lua_physics_contact_event_t::data);
+  // clang-format off
+  // @type PhysicsContactEventData
+  // @summary The data for a single physics contact event.
+  // @member entity0 Ref The first entity in contact.
+  // @member entity1 Ref The second entity in contact.
+  // @member pos Vec3 The position of the contact.
+  // @member impulse Vec3 The impulse of the contact.
+  // clang-format on
   s.new_usertype<lua_physics_contact_event_t::event_data_t>(
       "PhysicsContactEventData", sol::no_constructor, "entity0",
       &lua_physics_contact_event_t::event_data_t::entity0, "entity1",
       &lua_physics_contact_event_t::event_data_t::entity1, "pos",
       &lua_physics_contact_event_t::event_data_t::pos, "impulse",
       &lua_physics_contact_event_t::event_data_t::impulse);
+
+  // clang-format off
+  // @type UIAnchor
+  // @summary Defines an anchor used for creating (rectangle) transforms in the UI system.
+  // clang-format on
+  s.new_usertype<io_ui_anchor_t>("UIAnchor", sol::no_constructor);
+  // clang-format off
+  // @type UIAnchorOffsets
+  // @summary Defines a set of anchor offsets used for creating (rectangle) transforms in the UI system.
+  // clang-format on
+  s.new_usertype<io_ui_anchor_offsets_t>("UIAnchorOffsets",
+                                         sol::no_constructor);
+
+  // @type UIRect
+  // @summary A rectangle defined by a position and extent.
+  // @member pos Vec2
+  // @member extent Vec2
+  s.new_usertype<io_ui_rect_t>("UIRect", sol::no_constructor, "pos",
+                               &io_ui_rect_t::pos, "extent",
+                               &io_ui_rect_t::extent);
+
+  // clang-format off
+  // @function UIAnchor
+  // @summary Initializes a new UI anchor.
+  // @param anchor number The position in [0, 1] relative to the parent transform.
+  // @param offset number The absolute offset (in px).
+  // @return UIAnchor value The new anchor.
+  // clang-format on
+  s["UIAnchor"] = [](io_float32_t anchor,
+                     io_float32_t offset) -> io_ui_anchor_t {
+    return {anchor, offset};
+  };
+  // clang-format off
+  // @function UIAnchorOffsets
+  // @summary Initializes a new set of UI anchor offsets.
+  // @param left number Absolute offset (in px) to the left anchor.
+  // @param right number Absolute offset (in px) to the right anchor.
+  // @param top number Absolute offset (in px) to the top anchor.
+  // @param bottom number Absolute offset (in px) to the bottom anchor.
+  // @return UIAnchor value The new set of anchor offsets.
+  // clang-format on
+  s["UIAnchorOffsets"] = [](io_float32_t left, io_float32_t right,
+                            io_float32_t top,
+                            io_float32_t bottom) -> io_ui_anchor_offsets_t {
+    return {left, right, top, bottom};
+  };
 
   // @namespace Ref
   // @category Ref Functions to interact with refs.
@@ -1051,36 +1112,196 @@ void script_init_state(sol::state& s)
     // @copy_category Interface
 
     // clang-format off
-    // @function draw_image
-    // @summary Draws an image to the screen.
-    // @param name string The name of the image to draw.
-    // @param pos Vec2 The position of the image to draw.
-    // @param extent Vec2 The extent of the image to draw. Set a single component of the vector to a negative value to automatically derive the width/height matching the aspect ratio of the image.
-    // @param tint Vec4 Tint applied to the image.
-    // @param pivot Vec2 The pivot of the image to draw.
+    // @function draw_rect
+    // @summary Draws a rectangle.
+    // @param color Vec4 The color of the rectangle.
     // clang-format on
-    s["UI"]["draw_image"] = [](const char* name, io_vec2_t pos, io_vec2_t ext,
-                               io_vec4_t tint, io_vec2_t pivot) {};
+    s["UI"]["draw_rect"] = [](io_vec4_t color) { io_ui->draw_rect(color); };
+    // clang-format off
+    // @function draw_direct
+    // @summary Draws a circle.
+    // @param color Vec4 The color of the circle.
+    // clang-format on
+    s["UI"]["draw_circle"] = [](io_vec4_t color) { io_ui->draw_circle(color); };
+    // clang-format off
+    // @function draw_ngon
+    // @summary Draws a n-sided polygon.
+    // @param color Vec4 The color of the n-sided polygon.
+    // @param num_sides number The number of sided.
+    // clang-format on
+    s["UI"]["draw_ngon"] = [](io_vec4_t color, io_uint32_t num_sides) {
+      io_ui->draw_ngon(color, num_sides);
+    };
+
+    // clang-format off
+    // @function draw_image
+    // @summary Draws the image with the given name.
+    // @param name string The name of the image to draw.
+    // @param tint Vec4 The tint of the image.
+    // clang-format on
+    s["UI"]["draw_image"] = [](const char* name, io_vec4_t tint) {
+      io_ui->draw_image(name, tint);
+    };
+    // clang-format off
+    // @function get_image_size
+    // @summary Gets the size of the image (in px).
+    // @param name string The name of the image.
+    // @return Vec2 value The size of the image (in px).
+    // clang-format on
+    s["UI"]["get_image_size"] = [](const char* name) {
+      return io_ui->get_image_size(name);
+    };
+
     // clang-format off
     // @function draw_text
-    // @summary Draws the given text to the screen.
-    // @param s string The string to draw.
-    // @param pos Vec2 The position of the text to draw.
-    // @param extent Vec2 The extent of the area the text is aligned to.
-    // @param tint Vec4 Tint applied to the text.
-    // @param alignment number 0: Center vertically and horizontally, 1: Center vertically and align left, 2: Center vertically and align right.
+    // @summary Draws the text with the given options. 
+    // @param text string The text to draw.
+    // @param align_horizontal number The horizontal alignment.
+    // @param align_vertical number The vertical alignment.
+    // @param flags number The text flags.
     // clang-format on
-    s["UI"]["draw_text"] = [](const char* name, io_vec2_t pos, io_vec2_t ext,
-                              io_vec4_t tint, io_uint32_t align) {};
+    s["UI"]["draw_text"] =
+        [](const char* text, io_ui_text_align_horizontal align_horizontal,
+           io_ui_text_align_vertical align_vertical, io_ui_text_flag flags) {
+          io_ui->draw_text(text, align_horizontal, align_vertical, flags);
+        };
     // clang-format off
-    // @function push_font_scale
-    // @summary Pushes a new scaling factor on the stack which is used to scale the font by.
-    // @param s number The factor to apply to size of the font.
+    // @function calc_text_bounds
+    // @summary Calculates the bounds for the given text and options.
+    // @param text string The text to compute the bounds for.
+    // @param align_horizontal number The horizontal alignment.
+    // @param align_vertical number The vertical alignment.
+    // @param flags number The text flags.
+    // @return Vec2 value The bounds for the text.
     // clang-format on
-    s["UI"]["push_font_scale"] = [](float scale) {};
-    // @function pop_font_scale
-    // @summary Pops the scaling factor from the top of the stack.
-    s["UI"]["pop_font_scale"] = []() {};
+    s["UI"]["calc_text_bounds"] =
+        [](const char* text, io_ui_text_align_horizontal align_horizontal,
+           io_ui_text_align_vertical align_vertical, io_ui_text_flag flags) {
+          return io_ui->calc_text_bounds(text, align_horizontal, align_vertical,
+                                         flags);
+        };
+    // clang-format off
+    // @function get_last_text_bounds
+    // @summary Returns the bounds of the text that was drawn last.
+    // @return Vec2 value The bounds for the text.
+    // clang-format on
+    s["UI"]["get_last_text_bounds"] = []() {
+      return io_ui->get_last_text_bounds();
+    };
+
+    // clang-format off
+    // @function push_transform
+    // @summary Pushes the previous transform to the stack and activates the given one.
+    // @param left UIAnchor Left anchor.
+    // @param right UIAnchor Right anchor.
+    // @param top UIAnchor Top anchor.
+    // @param bottom UIAnchor Bottom anchor.
+    // @param rotation number The rotation to apply.
+    // clang-format on
+    s["UI"]["push_transform"] = [](io_ui_anchor_t left, io_ui_anchor_t right,
+                                   io_ui_anchor_t top, io_ui_anchor_t bottom,
+                                   io_float32_t rotation) {
+      io_ui->push_transform(left, right, top, bottom, rotation);
+    };
+
+    // clang-format off
+    // @function push_transform_preset
+    // @summary Pushes the previous transform to the stack and activates the given one.
+    // @param preset number The transform preset to use.
+    // @param offsets UIAnchorOffsets The offsets for each of the anchors.
+    // @param rotation number The rotation to apply.
+    // clang-format on
+    s["UI"]["push_transform_preset"] = [](io_ui_anchor_preset preset,
+                                          io_ui_anchor_offsets_t offsets,
+                                          io_float32_t rotation) {
+      io_ui->push_transform_preset(preset, offsets, rotation);
+    };
+    // clang-format off
+    // @function pop_transform
+    // @summary Pops the last transform off the stack and activates it.
+    // clang-format on
+    s["UI"]["pop_transform"] = []() { return io_ui->pop_transform(); };
+
+    // clang-format off
+    // @function push_scale_offset_for_base_size
+    // @summary Calculates the scale and offset for the given base size and according to the aspect mode.
+    // @param base_size Vec2 The base size.
+    // @param aspect_mode number The aspect mode to use.
+    // clang-format on
+    s["UI"]["push_scale_offset_for_base_size"] =
+        [](io_vec2_t base_size, io_ui_aspect_mode aspect_mode) {
+          io_ui->push_scale_offset_for_base_size(base_size, aspect_mode);
+        };
+
+    // clang-format off
+    // @function push_scale_offset
+    // @summary Pushes the scale and offset to the stack and activates the given parameters.
+    // @param scale number The uniform scaling factor.
+    // @param offset Vec2 The offset.
+    // clang-format on
+    s["UI"]["push_scale_offset"] = [](io_float32_t scale, io_vec2_t offset) {
+      io_ui->push_scale_offset(scale, offset);
+    };
+
+    // clang-format off
+    // @function pop_scale_offset
+    // @summary Pops the last scale and offset from the stack and activates it.
+    // clang-format on
+    s["UI"]["pop_scale_offset"] = []() { io_ui->pop_scale_offset(); };
+
+    // clang-format off
+    // @function push_style_var_float
+    // @summary Pushes the current style variation float value to the stack and sets the given one.
+    // @param var number The style variation.
+    // @param value number The value to set.
+    // clang-format on
+    s["UI"]["push_style_var_float"] = [](io_ui_style_var var,
+                                         io_float32_t value) {
+      io_ui->push_style_var_float(var, value);
+    };
+    // clang-format off
+    // @function push_style_var_vec4
+    // @summary Pushes the current style variation Vec4 value to the stack and sets the given one.
+    // @param var number The style variation.
+    // @param value Vec4 The value to set.
+    // clang-format on
+    s["UI"]["push_style_var_vec4"] = [](io_ui_style_var var, io_vec4_t value) {
+      io_ui->push_style_var_vec4(var, value);
+    };
+    // clang-format off
+    // @function pop_style_var
+    // @summary Pops the last style variation from the stack and activates it.
+    // clang-format on
+    s["UI"]["pop_style_var"] = []() { io_ui->pop_style_var(); };
+
+    // clang-format off
+    // @function clip_children
+    // @summary Clips the children of the current transform
+    // clang-format on
+    s["UI"]["clip_children"] = []() { io_ui->clip_children(); };
+
+    // clang-format off
+    // @function push_font_size
+    // @summary Pushes the current font size to the stack and sets the given one.
+    // @param size number The font size (in px).
+    // clang-format on
+    s["UI"]["push_font_size"] = [](io_float32_t size) {
+      io_ui->push_font_size(size);
+    };
+
+    // clang-format off
+    // @function pop_font_size
+    // @summary Pops the last font size from the stack and activates it.
+    // clang-format on
+    s["UI"]["pop_font_size"] = []() { io_ui->pop_font_size(); };
+
+    // clang-format off
+    // @function intersects
+    // @summary Returns true if the given position (in px) intersects the current transform.
+    // clang-format on
+    s["UI"]["intersects"] = [](io_vec2_t position) {
+      return io_ui->intersects(position);
+    };
   };
 
   s["Random"] = s.create_table();
