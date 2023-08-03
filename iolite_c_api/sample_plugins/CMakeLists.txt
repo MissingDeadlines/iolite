@@ -7,6 +7,7 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_C_STANDARD 90)
 
 include_directories(../ dependencies/imgui dependencies/glm/glm)
+add_definitions("-D_CRT_SECURE_NO_WARNINGS")
 
 add_library(IoliteSamplePluginC SHARED sample_plugin.c)
 
