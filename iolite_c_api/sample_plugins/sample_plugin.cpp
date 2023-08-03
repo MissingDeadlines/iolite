@@ -495,7 +495,7 @@ static void on_editor_tick(io_float32_t delta_t)
 //----------------------------------------------------------------------------//
 static void on_build_debug_view(io_float32_t delta_t)
 {
-  ImGui::Text("Hello from by debug view!");
+  ImGui::Text("Hello from your plugin debug view!");
 }
 
 //----------------------------------------------------------------------------//
