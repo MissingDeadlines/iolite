@@ -970,6 +970,22 @@ struct io_user_editor_i
 };
 
 //----------------------------------------------------------------------------//
+#define IO_USER_DENOISER_API_NAME "io_user_denoiser_i"
+//----------------------------------------------------------------------------//
+
+// Interface for providing denoisers applied when exporting path-traced renders
+//----------------------------------------------------------------------------//
+struct io_user_denoiser_i
+{
+  // Requests the name of the denoiser.
+  const char* (*get_name)();
+
+  // Request to denoise the input data and write the result to output.
+  void (*denoise)(io_uint32_t width, io_uint32_t height, const io_vec4_t* input,
+                  io_vec4_t* output);
+};
+
+//----------------------------------------------------------------------------//
 #define IO_USER_EVENTS_API_NAME "io_user_events_i"
 //----------------------------------------------------------------------------//
 
@@ -1028,7 +1044,7 @@ struct io_api_manager_i
   // Finds the first API interface for the given name.
   const void* (*find_first)(const char* name);
   // Returns the next API interface for the given type. NULL if none is found.
-  const void* (*get_next)(void* interface);
+  const void* (*get_next)(const void* interface);
 };
 
 //----------------------------------------------------------------------------//

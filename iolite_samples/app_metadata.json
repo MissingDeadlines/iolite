@@ -19,12 +19,16 @@
   "version_string": "development",
   "plugins": [
     [
-      "terrain_plugin",
+      "terrain",
       "IoliteTerrainPlugin"
     ],
     [
-      "lua_plugin",
+      "lua",
       "IoliteLuaPlugin"
+    ],
+    [
+      "denoiser_oidn",
+      "IoliteDenoiserOIDNPlugin"
     ]
   ]
 }
