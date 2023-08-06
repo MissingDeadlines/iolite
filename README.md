@@ -2,7 +2,7 @@
 
 ![IOLITE Logo](https://media.missing-deadlines.com/iolite/images/iolite_logo2.png)
 
-A modern, portable game engine with an embedded editor. Completely scriptable in Lua. Free for personal and commercial use. More details, as well as current builds, can be found on the project's website:
+A highly flexible, voxel-powered game engine with an embedded editor. Create games using Lua, the native C/C++ API, and assets authored in voxel editors like MagicaVoxel or Avoyd.
 
 <https://iolite-engine.com>
 
