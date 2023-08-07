@@ -22,8 +22,8 @@
 
 #include "iolite_api.h"
 
-#ifndef INCLUDE_IO_TERRAIN_PLUGIN_API
-#define INCLUDE_IO_TERRAIN_PLUGIN_API
+#ifndef INCLUDE_IO_PLUGIN_TERRAIN_API
+#define INCLUDE_IO_PLUGIN_TERRAIN_API
 
 // A single pixel of a heightmap
 //----------------------------------------------------------------------------//

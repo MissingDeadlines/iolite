@@ -49,6 +49,7 @@
 #define IO_API_IMPLEMENTATION
 #include "iolite_api.h"
 #include "terrain_plugin_api.h"
+#include "lua_plugin_api.h"
 
 // Globals
 //----------------------------------------------------------------------------//

@@ -2448,4 +2448,18 @@ void script_init_state(sol::state& s)
 
     // clang-format on
   };
+
+  // Call into plugins and let them init. the state
+  auto lua_callback_interface =
+      (const io_plugin_lua_user_callack_i*)io_api_manager->find_first(
+          IO_PLUGIN_LUA_USER_CALLBACK_API_NAME);
+  while (lua_callback_interface)
+  {
+    if (lua_callback_interface->on_init_lua_state)
+      lua_callback_interface->on_init_lua_state(&s);
+
+    lua_callback_interface =
+        (const io_plugin_lua_user_callack_i*)io_api_manager->get_next(
+            lua_callback_interface);
+  }
 }
