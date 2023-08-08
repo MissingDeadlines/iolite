@@ -8,14 +8,6 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if(IO_PLUGIN_ID)
-  add_definitions("-DIO_PLUGIN_ID=${IO_PLUGIN_ID}")
-else()
-  remove_definitions(-DIO_PLUGIN_ID)
-endif()
-
-unset(IO_PLUGIN_ID CACHE)
-
 if(WIN32)
   find_library(LUA_JIT_LIBRARIES NAMES lua51 PATHS "dependencies/lua/lib")
 elseif(UNIX)

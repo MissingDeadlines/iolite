@@ -16,19 +16,5 @@
   "initial_world": "sample_physics",
   "active_data_source": "sample_physics",
   "initial_game_state": "Editing",
-  "version_string": "development",
-  "plugins": [
-    [
-      "terrain",
-      "IoliteTerrainPlugin"
-    ],
-    [
-      "lua",
-      "IoliteLuaPlugin"
-    ],
-    [
-      "denoiser_oidn",
-      "IoliteDenoiserOIDNPlugin"
-    ]
-  ]
+  "version_string": "development"
 }
