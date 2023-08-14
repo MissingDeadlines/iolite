@@ -22,8 +22,12 @@
 
 // @version 0.3.0
 
-#include "forward_decls.h"
+#include "lua_plugin.h"
 
+namespace internal
+{
+
+//----------------------------------------------------------------------------//
 namespace math_helper
 {
 //----------------------------------------------------------------------------//
@@ -2463,3 +2467,4 @@ void script_init_state(sol::state& s)
             lua_callback_interface);
   }
 }
+} // namespace internal

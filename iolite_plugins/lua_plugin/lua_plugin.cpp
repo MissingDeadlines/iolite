@@ -20,7 +20,50 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "forward_decls.h"
+#define STB_SPRINTF_IMPLEMENTATION
+#include "lua_plugin.h"
+
+// Globals
+//----------------------------------------------------------------------------//
+char string_buffer[string_buffer_length];
+
+// Interfaces we use
+//----------------------------------------------------------------------------//
+const io_api_manager_i* io_api_manager = {};
+const io_logging_i* io_logging = {};
+const io_base_i* io_base = {};
+const io_entity_i* io_entity = {};
+const io_ui_i* io_ui = {};
+const io_filesystem_i* io_filesystem = {};
+const io_settings_i* io_settings = {};
+const io_save_data_i* io_save_data = {};
+const io_world_i* io_world = {};
+const io_particle_system_i* io_particle_system = {};
+const io_sound_i* io_sound = {};
+const io_input_system_i* io_input_system = {};
+const io_plugin_terrain_i* io_plugin_terrain = {};
+const io_physics_i* io_physics = {};
+const io_debug_geometry_i* io_debug_geometry = {};
+const io_pathfinding_i* io_pathfinding = {};
+
+const io_component_node_i* io_component_node = {};
+const io_component_custom_data_i* io_component_custom_data = {};
+const io_component_tag_i* io_component_tag = {};
+const io_component_flipbook_animation_i* io_component_flipbook_animation = {};
+const io_component_post_effect_volume_i* io_component_post_effect_volume = {};
+const io_component_camera_i* io_component_camera = {};
+const io_component_script_i* io_component_script = {};
+const io_component_voxel_shape_i* io_component_voxel_shape = {};
+const io_component_light_i* io_component_light = {};
+const io_component_character_controller_i* io_component_character_controller =
+    {};
+const io_component_camera_controller_i* io_component_camera_controller = {};
+const io_component_particle_i* io_component_particle = {};
+
+// Interfaces we provide
+//----------------------------------------------------------------------------//
+io_user_script_i io_user_script = {};
+io_user_events_i io_user_events = {};
 
 // Macros
 //----------------------------------------------------------------------------//
@@ -67,6 +110,10 @@ static void unregister_script_instance(sol::state* state)
 //----------------------------------------------------------------------------//
 namespace internal
 {
+//----------------------------------------------------------------------------//
+static std::vector<std::string> queued_world_loads;
+static std::vector<io_ref_t> queued_nodes_to_destroy;
+
 //----------------------------------------------------------------------------//
 static bool scripts_active = false;
 
@@ -232,9 +279,6 @@ void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
 
   state["__TimeSinceLastUpdate"] = time_since_last_update;
 }
-
-//----------------------------------------------------------------------------//
-#include "script_init_state.inl"
 
 } // namespace internal
 

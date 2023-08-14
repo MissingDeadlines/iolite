@@ -26,7 +26,7 @@ import json
 api = []
 api_version = "unknown"
 
-with open("script_init_state.inl", "r") as f:
+with open("init_state.cpp", "r") as f:
     src = f.readlines()
 
     current_namespace = "Global"

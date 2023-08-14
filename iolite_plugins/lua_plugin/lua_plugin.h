@@ -34,8 +34,6 @@
 #include "gtx/norm.hpp"
 #include "gtc/noise.hpp"
 #include "sol/sol.hpp"
-
-#define STB_SPRINTF_IMPLEMENTATION
 #include "stb_sprintf.h"
 
 // API
@@ -54,40 +52,40 @@
 // Globals
 //----------------------------------------------------------------------------//
 constexpr uint32_t string_buffer_length = 1024u;
-static char string_buffer[string_buffer_length];
+extern char string_buffer[string_buffer_length];
 
 // Interfaces we use
 //----------------------------------------------------------------------------//
-static const io_api_manager_i* io_api_manager;
-static const io_logging_i* io_logging;
-static const io_base_i* io_base;
-static const io_entity_i* io_entity;
-static const io_ui_i* io_ui;
-static const io_filesystem_i* io_filesystem;
-static const io_settings_i* io_settings;
-static const io_save_data_i* io_save_data;
-static const io_world_i* io_world;
-static const io_particle_system_i* io_particle_system;
-static const io_sound_i* io_sound;
-static const io_input_system_i* io_input_system;
-static const io_plugin_terrain_i* io_plugin_terrain;
-static const io_physics_i* io_physics;
-static const io_debug_geometry_i* io_debug_geometry;
-static const io_pathfinding_i* io_pathfinding;
+extern const io_api_manager_i* io_api_manager;
+extern const io_logging_i* io_logging;
+extern const io_base_i* io_base;
+extern const io_entity_i* io_entity;
+extern const io_ui_i* io_ui;
+extern const io_filesystem_i* io_filesystem;
+extern const io_settings_i* io_settings;
+extern const io_save_data_i* io_save_data;
+extern const io_world_i* io_world;
+extern const io_particle_system_i* io_particle_system;
+extern const io_sound_i* io_sound;
+extern const io_input_system_i* io_input_system;
+extern const io_plugin_terrain_i* io_plugin_terrain;
+extern const io_physics_i* io_physics;
+extern const io_debug_geometry_i* io_debug_geometry;
+extern const io_pathfinding_i* io_pathfinding;
 
-static const io_component_node_i* io_component_node;
-static const io_component_custom_data_i* io_component_custom_data;
-static const io_component_tag_i* io_component_tag;
-static const io_component_flipbook_animation_i* io_component_flipbook_animation;
-static const io_component_post_effect_volume_i* io_component_post_effect_volume;
-static const io_component_camera_i* io_component_camera;
-static const io_component_script_i* io_component_script;
-static const io_component_voxel_shape_i* io_component_voxel_shape;
-static const io_component_light_i* io_component_light;
-static const io_component_character_controller_i*
+extern const io_component_node_i* io_component_node;
+extern const io_component_custom_data_i* io_component_custom_data;
+extern const io_component_tag_i* io_component_tag;
+extern const io_component_flipbook_animation_i* io_component_flipbook_animation;
+extern const io_component_post_effect_volume_i* io_component_post_effect_volume;
+extern const io_component_camera_i* io_component_camera;
+extern const io_component_script_i* io_component_script;
+extern const io_component_voxel_shape_i* io_component_voxel_shape;
+extern const io_component_light_i* io_component_light;
+extern const io_component_character_controller_i*
     io_component_character_controller;
-static const io_component_camera_controller_i* io_component_camera_controller;
-static const io_component_particle_i* io_component_particle;
+extern const io_component_camera_controller_i* io_component_camera_controller;
+extern const io_component_particle_i* io_component_particle;
 
 // Custom data types
 //----------------------------------------------------------------------------//
@@ -103,46 +101,41 @@ struct lua_physics_contact_event_t
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
-static io_user_script_i io_user_script = {};
-static io_user_events_i io_user_events = {};
+extern io_user_script_i io_user_script;
+extern io_user_events_i io_user_events;
 
 //----------------------------------------------------------------------------//
 namespace internal
 {
 
 //----------------------------------------------------------------------------//
-static std::vector<std::string> queued_world_loads;
-static std::vector<io_ref_t> queued_nodes_to_destroy;
+void queue_load_world(const char* world_name);
 
 //----------------------------------------------------------------------------//
-static void queue_load_world(const char* world_name);
+void queue_destroy_node(io_ref_t node);
 
 //----------------------------------------------------------------------------//
-static void queue_destroy_node(io_ref_t node);
-
-//----------------------------------------------------------------------------//
-static auto load_script(sol::state& state, const char* filepath)
+auto load_script(sol::state& state, const char* filepath)
     -> sol::protected_function;
 
 //----------------------------------------------------------------------------//
-static void execute_script(sol::state& state, const char* directory_path,
-                           const char* script_name);
+void execute_script(sol::state& state, const char* directory_path,
+                    const char* script_name);
 
 //----------------------------------------------------------------------------//
-static void script_activate(sol::state& state, io_ref_t entity,
-                            uint32_t update_interval);
+void script_activate(sol::state& state, io_ref_t entity,
+                     uint32_t update_interval);
 
 //----------------------------------------------------------------------------//
-static void script_deactivate(sol::state& state, io_ref_t entity);
+void script_deactivate(sol::state& state, io_ref_t entity);
 
 //----------------------------------------------------------------------------//
-static void script_tick(sol::state& state, io_float32_t delta_t,
-                        io_ref_t entity);
+void script_tick(sol::state& state, io_float32_t delta_t, io_ref_t entity);
 
 //----------------------------------------------------------------------------//
-static void script_update(sol::state& state, io_float32_t delta_t,
-                          io_ref_t entity, uint32_t update_interval);
+void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
+                   uint32_t update_interval);
 
 //----------------------------------------------------------------------------//
-static void script_init_state(sol::state& s);
+void script_init_state(sol::state& s);
 } // namespace internal

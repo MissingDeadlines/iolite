@@ -18,6 +18,7 @@ include_directories(../iolite_c_api/sample_plugins/dependencies/glm/glm ../iolit
 
 add_library(IoliteLuaPlugin SHARED
   lua_plugin/lua_plugin.cpp
+  lua_plugin/init_state.cpp
 )
 list(APPEND PLUGINS IoliteLuaPlugin)
 add_library(IoliteTerrainPlugin SHARED
