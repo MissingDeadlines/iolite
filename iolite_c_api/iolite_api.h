@@ -810,6 +810,18 @@ typedef struct
   io_ref_t entity; // The entity that was hit.
 } io_physics_raycast_result_t;
 
+// Voxel shape raycast result data
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_float32_t distance; // The distance to the hit.
+
+  io_vec3_t normal; // The normal of the hit.
+
+  io_ref_t shape;    // The shape hit.
+  io_u8vec3_t coord; // The coordinate of the voxel within the shape we've hit.
+} io_component_voxel_shape_raycast_result_t;
+
 // Header for a single event
 //----------------------------------------------------------------------------//
 typedef struct
@@ -1512,8 +1524,7 @@ struct io_physics_i
                                               io_vec3_t direction,
                                               io_float32_t distance);
   // Performs a raycast.
-  io_physics_raycast_result_t (*raycast)(io_vec3_t position,
-                                         io_vec3_t direction,
+  io_physics_raycast_result_t (*raycast)(io_vec3_t origin, io_vec3_t direction,
                                          io_float32_t distance);
 };
 
@@ -1555,6 +1566,14 @@ struct io_debug_geometry_i
   //   ...
   void (*draw_solid_triangles)(io_vec3_t* positions, io_uint32_t num_positions,
                                io_vec4_t color, io_bool_t always_in_front);
+
+  // Sorting
+
+  // The following draw operations will be sorted back to front relative to the
+  // camera position.
+  void (*sort_begin)();
+  // Executes the sort of the preceding draw operations.
+  void (*sort_end)();
 };
 
 //----------------------------------------------------------------------------//
@@ -1787,23 +1806,28 @@ struct io_component_node_i
 
   // Transform the given world space position to the local space of the node.
   io_vec3_t (*to_local_space)(io_ref_t node, io_vec3_t pos);
+  // Transform the given world space direction to the local space of the node.
+  io_vec3_t (*to_local_space_direction)(io_ref_t node, io_vec3_t dir);
+  // Transform the given world space ray direction to the local space of the
+  // node.
+  io_vec3_t (*to_local_space_ray_direction)(io_ref_t node, io_vec3_t ray_dir);
   // Transform the given local space position to world space.
   io_vec3_t (*to_world_space)(io_ref_t node, io_vec3_t pos);
   // Transform the given local space direction to world space.
   io_vec3_t (*to_world_space_direction)(io_ref_t node, io_vec3_t dir);
+  // Transform the given local space ray direction to world space.
+  io_vec3_t (*to_world_space_ray_direction)(io_ref_t node, io_vec3_t ray_dir);
 
   // Collects all nodes in the hierarchy (depth first ordering).
-  void (*collect_nodes_depth_first)(io_ref_t p_RootNode, io_ref_t* nodes,
+  void (*collect_nodes_depth_first)(io_ref_t root_node, io_ref_t* nodes,
                                     io_uint32_t* nodes_length);
   // Collects all nodes in the hierarchy (breadth first ordering).
-  void (*collect_nodes_breadth_first)(io_ref_t p_RootNode, io_ref_t* nodes,
+  void (*collect_nodes_breadth_first)(io_ref_t root_node, io_ref_t* nodes,
                                       io_uint32_t* nodes_length);
 
-  // Updates the transforms of this node and all its child nodes.
+  // Updates the transforms of the node hieararchy.
   void (*update_transforms)(io_ref_t node);
-  // Splits the given set of nodes according to their depth in the hierarchy and
-  // updates their transforms in a jobified fashion using the internal task
-  // scheduler.
+  // Updates the transforms of the node hierarchy in parallel (if possible).
   void (*update_transforms_jobified)(const io_ref_t* node,
                                      io_uint32_t nodes_length);
 };
@@ -1923,27 +1947,39 @@ struct io_component_voxel_shape_i
   // Base interface functions.
   io_component_base_i base;
 
+  // Conversion helpers
+
+  // Transforms the given world space position to voxel space.
+  io_vec3_t (*to_voxel_space)(io_ref_t shape, io_vec3_t position);
+  // Transforms the given world space position to a coordinate in voxel space.
+  io_ivec3_t (*to_voxel_coord)(io_ref_t shape, io_vec3_t position);
+  // Transforms the given voxel space position to world space.
+  io_vec3_t (*to_world_space)(io_ref_t shape, io_vec3_t position);
+
   // Voxel data related functions
 
   // Sets the given voxel to the palette index (and clamps pos to the dimensions
   // of the shape).
-  void (*set)(io_ref_t shape, io_uvec3_t pos, io_uint8_t palette_index);
+  void (*set)(io_ref_t shape, io_u8vec3_t coord, io_uint8_t palette_index);
   // Sets the given voxel to the palette index (**without clamping** pos to the
   // dimensions of the shape).
-  void (*set_unsafe)(io_ref_t shape, io_uvec3_t pos, io_uint8_t palette_index);
+  void (*set_unsafe)(io_ref_t shape, io_u8vec3_t coord,
+                     io_uint8_t palette_index);
 
   // Sets the fracture mask for the given voxel.
-  void (*set_fracture_mask)(io_ref_t shape, io_uvec3_t pos, io_bool_t fracture);
+  void (*set_fracture_mask)(io_ref_t shape, io_u8vec3_t coord,
+                            io_bool_t fracture);
 
-  // Sets the volume defined by min and max to the provided palette index.
-  void (*fill)(io_ref_t shape, io_uvec3_t min, io_uvec3_t max,
+  // Sets the volume defined by the min and max coordinate to the provided
+  // palette index.
+  void (*fill)(io_ref_t shape, io_u8vec3_t coord_min, io_u8vec3_t coord_max,
                io_uint8_t palette_index);
 
   // Gets the palette index for the given voxel coordinate.
-  io_uint8_t (*get)(io_ref_t shape, io_uvec3_t pos);
+  io_uint8_t (*get)(io_ref_t shape, io_u8vec3_t coord);
 
   // Gets the dimensions of the voxel shape.
-  io_uvec3_t (*get_dim)(io_ref_t shape);
+  io_u16vec3_t (*get_dim)(io_ref_t shape);
 
   // Gets the underyling voxel data.
   // Directly retrieving the data is the most efficient solution for modifying
@@ -1956,6 +1992,32 @@ struct io_component_voxel_shape_i
   // change to the underlying voxel data to commit the changes and make them
   // visible.
   void (*voxelize)(io_ref_t shape);
+
+  // Voxel shape queries
+
+  // Performs a raycast against the given shape. The result is optional and can
+  // be *NULL*.
+  io_bool_t (*raycast)(io_ref_t shape, io_vec3_t origin, io_vec3_t direction,
+                       io_float32_t distance,
+                       io_component_voxel_shape_raycast_result_t* result);
+  // Performs a raycast against the bounds of the given shape. The result is
+  // optional and can be *NULL*.
+  io_bool_t (*raycast_bounds)(
+      io_ref_t shape, io_vec3_t origin, io_vec3_t direction,
+      io_float32_t distance, io_bool_t flip_winding,
+      io_component_voxel_shape_raycast_result_t* result);
+  // Performs a raycast again all shapes in the world. *All parameters* beside
+  // the origin, direction, and distance are *optional*.
+  io_bool_t (*raycast_global)(io_vec3_t origin, io_vec3_t direction,
+                              io_float32_t distance,
+                              io_component_voxel_shape_raycast_result_t* result,
+                              const io_ref_t* shapes_to_ignore,
+                              io_uint32_t shapes_to_ignore_length);
+  // Performs a sphere overlap test against all shapes in the world and returns
+  // all candidates.
+  void (*overlap_sphere_global)(io_vec3_t position, io_float32_t radius,
+                                io_ref_t* overlapping_shapes,
+                                io_uint32_t* overlapping_shapes_length);
 
   // Physics related functions
 
