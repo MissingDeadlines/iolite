@@ -295,6 +295,24 @@ inline IO_USER_UVEC3_TYPE io_cvt(io_uvec3_t v) { return {v.x, v.y, v.z}; }
 //----------------------------------------------------------------------------//
 
 //----------------------------------------------------------------------------//
+#ifdef IO_USER_U8VEC3_TYPE
+//----------------------------------------------------------------------------//
+inline io_u8vec3_t io_cvt(IO_USER_U8VEC3_TYPE v) { return {v.x, v.y, v.z}; }
+inline IO_USER_U8VEC3_TYPE io_cvt(io_u8vec3_t v) { return {v.x, v.y, v.z}; }
+//----------------------------------------------------------------------------//
+#endif // IO_USER_U8VEC3_TYPE
+//----------------------------------------------------------------------------//
+
+//----------------------------------------------------------------------------//
+#ifdef IO_USER_U16VEC3_TYPE
+//----------------------------------------------------------------------------//
+inline io_u16vec3_t io_cvt(IO_USER_U16VEC3_TYPE v) { return {v.x, v.y, v.z}; }
+inline IO_USER_U16VEC3_TYPE io_cvt(io_u16vec3_t v) { return {v.x, v.y, v.z}; }
+//----------------------------------------------------------------------------//
+#endif // IO_USER_U16VEC3_TYPE
+//----------------------------------------------------------------------------//
+
+//----------------------------------------------------------------------------//
 #ifdef IO_USER_UVEC4_TYPE
 //----------------------------------------------------------------------------//
 inline io_uvec4_t io_cvt(IO_USER_UVEC4_TYPE v) { return {v.x, v.y, v.z, v.w}; }
@@ -333,6 +351,33 @@ inline IO_USER_IVEC4_TYPE io_cvt(io_ivec4_t v) { return {v.x, v.y, v.z, v.w}; }
 //----------------------------------------------------------------------------//
 // Loosely typed enums and flags
 //----------------------------------------------------------------------------//
+
+// Flags defining the faces of a box
+//----------------------------------------------------------------------------//
+enum io_box_face_flags_
+{
+  io_box_face_flags_front = 0x01u,
+  io_box_face_flags_back = 0x02u,
+  io_box_face_flags_top = 0x04u,
+  io_box_face_flags_bottom = 0x08u,
+  io_box_face_flags_left = 0x10u,
+  io_box_face_flags_right = 0x20u,
+
+  io_box_face_flags_all = 0x7Fu
+};
+typedef io_uint8_t io_box_face_flags;
+
+// Indices for the faces of a box matching the flags above
+//----------------------------------------------------------------------------//
+enum io_box_face_index_
+{
+  io_box_face_index_front,
+  io_box_face_index_back,
+  io_box_face_index_top,
+  io_box_face_index_bottom,
+  io_box_face_index_left,
+  io_box_face_index_right
+};
 
 // Flags for configuring properties for custom components
 enum io_property_flags_
@@ -816,10 +861,12 @@ typedef struct
 {
   io_float32_t distance; // The distance to the hit.
 
-  io_vec3_t normal; // The normal of the hit.
+  io_vec3_t normal;       // The normal of the hit (in world space).
+  io_vec3_t normal_local; // The normal of the hit (in local/voxel space).
 
   io_ref_t shape;    // The shape hit.
-  io_u8vec3_t coord; // The coordinate of the voxel within the shape we've hit.
+  io_u8vec3_t coord; // The local coordinate of the voxel in the shape
+                     // we've hit.
 } io_component_voxel_shape_raycast_result_t;
 
 // Header for a single event
@@ -979,6 +1026,23 @@ struct io_user_editor_i
 
   // Called every frame when the editor is active.
   void (*on_tick)(io_float32_t delta_t);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_USER_EDITOR_TOOL_API_NAME "io_user_editor_tool_i"
+//----------------------------------------------------------------------------//
+
+// Interface for implementing custom editor tools
+//----------------------------------------------------------------------------//
+struct io_user_editor_tool_i
+{
+  // Called when the tool is active and should be updated.
+  void (*on_tick)(io_float32_t delta_t);
+
+  // Return the icon for displaying the tool in the editor.
+  const char* (*get_icon)();
+  // Return the tooltip shown when hovering the tool.
+  const char* (*get_tooltip)();
 };
 
 //----------------------------------------------------------------------------//
@@ -1541,9 +1605,20 @@ struct io_debug_geometry_i
   // Draws a line.
   void (*draw_line)(io_vec3_t start, io_vec3_t end, io_vec4_t color,
                     io_bool_t always_in_front);
+
   // Draws a sphere.
   void (*draw_sphere)(io_vec3_t center, io_float32_t radius, io_vec4_t color,
                       io_bool_t always_in_front);
+
+  // Draws a box.
+  void (*draw_box)(io_vec3_t center, io_quat_t orientation, io_vec3_t extent,
+                   io_vec4_t color, io_bool_t always_in_front,
+                   io_box_face_flags face_flags);
+  // Draws a solid box.
+  void (*draw_solid_box)(io_vec3_t center, io_quat_t orientation,
+                         io_vec3_t extent, io_vec4_t color,
+                         io_bool_t always_in_front,
+                         io_box_face_flags face_flags);
 
   // Batched draw functions
 
@@ -1567,13 +1642,9 @@ struct io_debug_geometry_i
   void (*draw_solid_triangles)(io_vec3_t* positions, io_uint32_t num_positions,
                                io_vec4_t color, io_bool_t always_in_front);
 
-  // Sorting
-
-  // The following draw operations will be sorted back to front relative to the
-  // camera position.
-  void (*sort_begin)();
-  // Executes the sort of the preceding draw operations.
-  void (*sort_end)();
+  // Enables software backface culling between the begin/end calls.
+  void (*backface_culling_begin)();
+  void (*backface_culling_end)();
 };
 
 //----------------------------------------------------------------------------//
@@ -1942,13 +2013,19 @@ struct io_component_voxel_shape_i
   // Base interface functions.
   io_component_base_i base;
 
+  // Various
+
+  // Retrieves the current palette in use for this shape (if any).
+  io_ref_t (*get_palette)(io_ref_t shape);
+
   // Conversion helpers
 
-  // Transforms the given world space position to voxel space.
-  io_vec3_t (*to_voxel_space)(io_ref_t shape, io_vec3_t position);
-  // Transforms the given world space position to a coordinate in voxel space.
-  io_ivec3_t (*to_voxel_coord)(io_ref_t shape, io_vec3_t position);
-  // Transforms the given voxel space position to world space.
+  // Transforms the given world space position to local/voxel space.
+  io_vec3_t (*to_local_space)(io_ref_t shape, io_vec3_t position);
+  // Transforms the given world space position to a coordinate in local/voxel
+  // space.
+  io_ivec3_t (*to_local_coord)(io_ref_t shape, io_vec3_t position);
+  // Transforms the given local/voxel space position to world space.
   io_vec3_t (*to_world_space)(io_ref_t shape, io_vec3_t position);
 
   // Voxel data related functions

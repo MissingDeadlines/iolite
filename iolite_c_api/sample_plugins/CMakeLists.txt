@@ -23,7 +23,6 @@ add_library(IoliteSamplePluginCPP SHARED
   dependencies/imgui/imgui_widgets.cpp
   dependencies/imgui/imgui_tables.cpp
   dependencies/imgui/imgui_draw.cpp
-  dependencies/imgui/imgui_demo.cpp
 )
 add_library(IoliteMinimalPlugin SHARED minimal_plugin.cpp)
 
