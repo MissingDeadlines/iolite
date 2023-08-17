@@ -1975,6 +1975,9 @@ struct io_component_voxel_shape_i
   void (*fill)(io_ref_t shape, io_u8vec3_t coord_min, io_u8vec3_t coord_max,
                io_uint8_t palette_index);
 
+  // Shrinks the given shape so it utilizes the least amount of space.
+  void (*compact)(io_ref_t shape);
+
   // Gets the palette index for the given voxel coordinate.
   io_uint8_t (*get)(io_ref_t shape, io_u8vec3_t coord);
 
