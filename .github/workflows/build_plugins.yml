@@ -21,4 +21,5 @@ jobs:
         with:
           name: plugins
           path: |
-            iolite_plugins/Iolite*Plugin.*
+            iolite_plugins/*.so
+            iolite_plugins/*.dll

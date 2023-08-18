@@ -21,6 +21,5 @@ jobs:
         with:
           name: sample_plugins
           path: |
-            iolite_c_api/sample_plugins/IoliteSamplePluginC.*
-            iolite_c_api/sample_plugins/IoliteSamplePluginCPP.*
-            iolite_c_api/sample_plugins/IoliteMinimalPlugin.*
+            iolite_plugins/*.so
+            iolite_plugins/*.dll

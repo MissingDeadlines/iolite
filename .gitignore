@@ -23,4 +23,8 @@ iolite_plugins/*.so
 iolite_plugins/*.dll
 iolite_plugins/*.pdb
 
+!iolite_plugins/OpenImageDenoise.*
+!iolite_plugins/tbb12.*
+!iolite_plugins/lua51.*
+
 hohenzollern_castle_and_kingdom.vox
