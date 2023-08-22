@@ -1808,15 +1808,10 @@ struct io_component_node_i
   io_vec3_t (*to_local_space)(io_ref_t node, io_vec3_t pos);
   // Transform the given world space direction to the local space of the node.
   io_vec3_t (*to_local_space_direction)(io_ref_t node, io_vec3_t dir);
-  // Transform the given world space ray direction to the local space of the
-  // node.
-  io_vec3_t (*to_local_space_ray_direction)(io_ref_t node, io_vec3_t ray_dir);
   // Transform the given local space position to world space.
   io_vec3_t (*to_world_space)(io_ref_t node, io_vec3_t pos);
   // Transform the given local space direction to world space.
   io_vec3_t (*to_world_space_direction)(io_ref_t node, io_vec3_t dir);
-  // Transform the given local space ray direction to world space.
-  io_vec3_t (*to_world_space_ray_direction)(io_ref_t node, io_vec3_t ray_dir);
 
   // Collects all nodes in the hierarchy (depth first ordering).
   void (*collect_nodes_depth_first)(io_ref_t root_node, io_ref_t* nodes,
