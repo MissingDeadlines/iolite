@@ -158,73 +158,169 @@ typedef double io_float64_t;
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_float32_t x, y;
+  union
+  {
+    struct
+    {
+      io_float32_t x, y;
+    };
+    struct
+    {
+      io_float32_t r, g;
+    };
+    io_float32_t data[2u];
+  };
 } io_vec2_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_float32_t x, y, z;
+  union
+  {
+    struct
+    {
+      io_float32_t x, y, z;
+    };
+    struct
+    {
+      io_float32_t r, g, b;
+    };
+    io_float32_t data[3u];
+  };
 } io_vec3_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_float32_t x, y, z, w;
+  union
+  {
+    struct
+    {
+      io_float32_t x, y, z, w;
+    };
+    struct
+    {
+      io_float32_t r, g, b, a;
+    };
+    io_float32_t data[4u];
+  };
 } io_vec4_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_float32_t w, x, y, z;
+  union
+  {
+    struct
+    {
+      io_float32_t w, x, y, z;
+    };
+    io_float32_t data[4u];
+  };
 } io_quat_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_int32_t x, y;
+  union
+  {
+    struct
+    {
+      io_int32_t x, y;
+    };
+    io_int32_t data[2u];
+  };
 } io_ivec2_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_int32_t x, y, z;
+  union
+  {
+    struct
+    {
+      io_int32_t x, y, z;
+    };
+    io_int32_t data[3u];
+  };
 } io_ivec3_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_int32_t x, y, z, w;
+  union
+  {
+    struct
+    {
+      io_int32_t x, y, z, w;
+    };
+    io_int32_t data[4u];
+  };
 } io_ivec4_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint32_t x, y;
+  union
+  {
+    struct
+    {
+      io_uint32_t x, y;
+    };
+    io_uint32_t data[2u];
+  };
 } io_uvec2_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint32_t x, y, z;
+  union
+  {
+    struct
+    {
+      io_uint32_t x, y, z;
+    };
+    io_uint32_t data[3u];
+  };
 } io_uvec3_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint8_t x, y, z;
+  union
+  {
+    struct
+    {
+      io_uint8_t x, y, z;
+    };
+    io_uint8_t data[3u];
+  };
 } io_u8vec3_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint16_t x, y, z;
+  union
+  {
+    struct
+    {
+      io_uint16_t x, y, z;
+    };
+    io_uint16_t data[3u];
+  };
 } io_u16vec3_t;
 
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint32_t x, y, z, w;
+  union
+  {
+    struct
+    {
+      io_uint32_t x, y, z, w;
+    };
+    io_uint32_t data[4u];
+  };
 } io_uvec4_t;
 
 //----------------------------------------------------------------------------//
@@ -982,7 +1078,7 @@ io_events_get_next(const io_events_header_t* current,
 
 // Interface for extending the game mode
 //----------------------------------------------------------------------------//
-struct io_user_task_i
+struct io_user_task_i // NOLINT
 {
   // Called once when the game mode becomes active.
   void (*on_activate)();
@@ -1000,7 +1096,7 @@ struct io_user_task_i
 // Interface for providing custom debug views via Dear ImGui. Debug views can by
 // cycled through via the F1 key by default in the editor and the game mode
 //----------------------------------------------------------------------------//
-struct io_user_debug_view_i
+struct io_user_debug_view_i // NOLINT
 {
   // Called when the debug view should be filled using Dear ImGui calls. Called
   // in the context of the current debug view window.
@@ -1013,7 +1109,7 @@ struct io_user_debug_view_i
 
 // Interface for extending the editor
 //----------------------------------------------------------------------------//
-struct io_user_editor_i
+struct io_user_editor_i // NOLINT
 {
   // Called when building the "Plugin" menu in the editor's menu bar. Extend the
   // menu here using ImGui::MenuItem() etc.
@@ -1034,7 +1130,7 @@ struct io_user_editor_i
 
 // Interface for implementing custom editor tools
 //----------------------------------------------------------------------------//
-struct io_user_editor_tool_i
+struct io_user_editor_tool_i // NOLINT
 {
   // Called when the tool is active and should be updated.
   void (*on_tick)(io_float32_t delta_t);
@@ -1051,7 +1147,7 @@ struct io_user_editor_tool_i
 
 // Interface for providing denoisers applied when exporting path-traced renders
 //----------------------------------------------------------------------------//
-struct io_user_denoiser_i
+struct io_user_denoiser_i // NOLINT
 {
   // Requests the name of the denoiser.
   const char* (*get_name)();
@@ -1067,7 +1163,7 @@ struct io_user_denoiser_i
 
 // Interface for subscribing to events from subsystems
 //----------------------------------------------------------------------------//
-struct io_user_events_i
+struct io_user_events_i // NOLINT
 {
   // Called when physics related events are ready to be processed.
   void (*on_physics_events)(const io_events_header_t* begin,
@@ -1080,7 +1176,7 @@ struct io_user_events_i
 
 // Interface for implementing custom scripting backends
 //----------------------------------------------------------------------------//
-struct io_user_script_i
+struct io_user_script_i // NOLINT
 {
   // Called when a script component is initialized.
   void (*on_init_script)(const char* script_name, io_ref_t entity,
@@ -1109,7 +1205,7 @@ struct io_user_script_i
 
 // The central interface for registering and retrieving API interfaces
 //----------------------------------------------------------------------------//
-struct io_api_manager_i
+struct io_api_manager_i // NOLINT
 {
   // Registers a new API interface for the given name. Multiple interfaces for
   // the same name are allowed.
@@ -1130,7 +1226,7 @@ struct io_api_manager_i
 // Collection of global functions which are not tied to a certain
 // subsystem
 //----------------------------------------------------------------------------//
-struct io_base_i
+struct io_base_i // NOLINT
 {
   // Refs
 
@@ -1268,7 +1364,7 @@ struct io_base_i
 
 // Provides access to the logging subsystem
 //----------------------------------------------------------------------------//
-struct io_logging_i
+struct io_logging_i // NOLINT
 {
   // Logs the given message as information.
   void (*log_info)(const char* msg);
@@ -1284,7 +1380,7 @@ struct io_logging_i
 
 // Provides access to the editor.
 //----------------------------------------------------------------------------//
-struct io_editor_i
+struct io_editor_i // NOLINT
 {
   // Selects the provided node.
   void (*select_node)(io_ref_t node);
@@ -1301,7 +1397,7 @@ struct io_editor_i
 
 // Interface for managing custom components
 //----------------------------------------------------------------------------//
-struct io_custom_components_i
+struct io_custom_components_i // NOLINT
 {
   // Registering and configuring custom components
 
@@ -1371,7 +1467,7 @@ struct io_custom_components_i
 
 // Provides access to the settings subsystem
 //----------------------------------------------------------------------------//
-struct io_settings_i
+struct io_settings_i // NOLINT
 {
   // Sets the given boolean setting.
   void (*set_bool)(const char* name, io_bool_t value);
@@ -1400,7 +1496,7 @@ struct io_settings_i
 
 // Provides access to the UI subsystem
 //----------------------------------------------------------------------------//
-struct io_ui_i
+struct io_ui_i // NOLINT
 {
   // Draws a rectangle.
   void (*draw_rect)(io_vec4_t color);
@@ -1476,7 +1572,7 @@ struct io_ui_i
 
 // Provides access to the world subsystem
 //----------------------------------------------------------------------------//
-struct io_world_i
+struct io_world_i // NOLINT
 {
   // Gets the root node of the world.
   io_ref_t (*get_root_node)();
@@ -1517,7 +1613,7 @@ struct io_world_i
 
 // Provides access to the save data subsystem
 //----------------------------------------------------------------------------//
-struct io_save_data_i
+struct io_save_data_i // NOLINT
 {
   // Saves the provided node hierarchy to the user data directory.
   void (*save_to_user_data)(const char* filename, io_ref_t node);
@@ -1531,7 +1627,7 @@ struct io_save_data_i
 
 // Provides access to the particle subsystem
 //----------------------------------------------------------------------------//
-struct io_particle_system_i
+struct io_particle_system_i // NOLINT
 {
   // Spawns a particle emitter for the given effect.
   io_handle16_t (*spawn_particle_emitter)(const char* effect_name,
@@ -1548,7 +1644,7 @@ struct io_particle_system_i
 
 // Provides access to the input subsystem
 //----------------------------------------------------------------------------//
-struct io_input_system_i
+struct io_input_system_i // NOLINT
 {
   // Gets the state of the given key.
   io_input_key_state (*get_key_state)(io_input_key key, io_uint8_t player_id);
@@ -1572,7 +1668,7 @@ struct io_input_system_i
 
 // Provides access to the physics subsystem
 //----------------------------------------------------------------------------//
-struct io_physics_i
+struct io_physics_i // NOLINT
 {
   // Sets the global gravity.
   void (*set_gravity)(io_vec3_t gravity);
@@ -1598,7 +1694,7 @@ struct io_physics_i
 
 // Provides access to the debug geometry subsystem
 //----------------------------------------------------------------------------//
-struct io_debug_geometry_i
+struct io_debug_geometry_i // NOLINT
 {
   // Simple draw functions
 
@@ -1653,7 +1749,7 @@ struct io_debug_geometry_i
 
 // Provides access to the sound subsystem
 //----------------------------------------------------------------------------//
-struct io_sound_i
+struct io_sound_i // NOLINT
 {
   // Plays the sound effect with the given name.
   io_handle64_t (*play_sound_effect)(const char* effect_name);
@@ -1673,7 +1769,7 @@ struct io_sound_i
 
 // Provides access to the pathfinding subsystem
 //----------------------------------------------------------------------------//
-struct io_pathfinding_i
+struct io_pathfinding_i // NOLINT
 {
   // Starts finding a path from "start" to "end".
   io_handle16_t (*find_path)(io_vec3_t start, io_vec3_t end,
@@ -1707,7 +1803,7 @@ struct io_pathfinding_i
 
 // Provides various filesystem related functions
 //----------------------------------------------------------------------------//
-struct io_filesystem_i
+struct io_filesystem_i // NOLINT
 {
   // Accessing files in data sources
 
@@ -1745,7 +1841,7 @@ struct io_filesystem_i
 
 // Provides access to entities
 //----------------------------------------------------------------------------//
-struct io_entity_i
+struct io_entity_i // NOLINT
 {
   // Gets the type id for entities.
   io_uint32_t (*get_type_id)();
@@ -1822,7 +1918,7 @@ typedef struct
 
 // Provides access to node components
 //----------------------------------------------------------------------------//
-struct io_component_node_i
+struct io_component_node_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1904,7 +2000,7 @@ struct io_component_node_i
 
 // Provides access to custom data components
 //----------------------------------------------------------------------------//
-struct io_component_custom_data_i
+struct io_component_custom_data_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1925,7 +2021,7 @@ struct io_component_custom_data_i
 
 // Provides access to tag components
 //----------------------------------------------------------------------------//
-struct io_component_tag_i
+struct io_component_tag_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1942,7 +2038,7 @@ struct io_component_tag_i
 
 // Provides access to flipbook animation components
 //----------------------------------------------------------------------------//
-struct io_component_flipbook_animation_i
+struct io_component_flipbook_animation_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1960,7 +2056,7 @@ struct io_component_flipbook_animation_i
 
 // Provides access to post effect volume components
 //----------------------------------------------------------------------------//
-struct io_component_post_effect_volume_i
+struct io_component_post_effect_volume_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1972,7 +2068,7 @@ struct io_component_post_effect_volume_i
 
 // Provides access to camera components
 //----------------------------------------------------------------------------//
-struct io_component_camera_i
+struct io_component_camera_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1984,7 +2080,7 @@ struct io_component_camera_i
 
 // Provides access to script components
 //----------------------------------------------------------------------------//
-struct io_component_script_i
+struct io_component_script_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -1996,7 +2092,7 @@ struct io_component_script_i
 
 // Provides access to light components
 //----------------------------------------------------------------------------//
-struct io_component_light_i
+struct io_component_light_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -2008,7 +2104,7 @@ struct io_component_light_i
 
 // Provides access to voxel shape components
 //----------------------------------------------------------------------------//
-struct io_component_voxel_shape_i
+struct io_component_voxel_shape_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -2126,7 +2222,7 @@ struct io_component_voxel_shape_i
 
 // Provides access to character controller components
 //----------------------------------------------------------------------------//
-struct io_component_character_controller_i
+struct io_component_character_controller_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -2148,7 +2244,7 @@ struct io_component_character_controller_i
 
 // Provides access to camera controller components
 //----------------------------------------------------------------------------//
-struct io_component_camera_controller_i
+struct io_component_camera_controller_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -2167,7 +2263,7 @@ struct io_component_camera_controller_i
 
 // Provides access to particle components
 //----------------------------------------------------------------------------//
-struct io_component_particle_i
+struct io_component_particle_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
@@ -2232,7 +2328,7 @@ typedef struct
 
 // Provides access to palette resources.
 //----------------------------------------------------------------------------//
-struct io_resource_palette_i
+struct io_resource_palette_i // NOLINT
 {
   // Base interface functions.
   io_resource_base_i base;
