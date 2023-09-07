@@ -63,6 +63,7 @@ static const io_debug_geometry_i* io_debug_geometry = nullptr;
 // Sample variables
 //----------------------------------------------------------------------------//
 static bool ui_sample_show = false;
+static bool imgui_sample_show = false;
 static float ui_sample_time_accum = 0.0f;
 
 // Interfaces we provide
@@ -217,6 +218,7 @@ static void on_build_plugin_menu()
 
   ImGui::Separator();
 
+  ImGui::Checkbox("Show Sample ImGui Window", &imgui_sample_show);
   if (ImGui::Checkbox("Show UI Sample", &ui_sample_show))
     ui_sample_time_accum = 0.0f;
 }
@@ -478,11 +480,14 @@ static void draw_ui_sample(io_float32_t delta_t)
 //----------------------------------------------------------------------------//
 static void on_editor_tick(io_float32_t delta_t)
 {
-  if (ImGui::Begin("Plugin Window"))
+  if (imgui_sample_show)
   {
-    ImGui::Text("Hello from your C++ plugin!");
+    if (ImGui::Begin("Plugin Window", &imgui_sample_show))
+    {
+      ImGui::Text("Hello from your C++ plugin!");
+    }
+    ImGui::End();
   }
-  ImGui::End();
 
   // Draw the boids
   draw_boids();
