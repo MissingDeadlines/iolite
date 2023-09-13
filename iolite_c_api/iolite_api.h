@@ -1935,6 +1935,11 @@ struct io_component_node_i // NOLINT
   // Retrieves the prev. sibling node (if any).
   io_ref_t (*get_prev_sibling)(io_ref_t node);
 
+  // Sets the hidden state of the node.
+  void (*set_hidden)(io_ref_t node, io_bool_t hidden);
+  // Returns true if the node is hidden, false otherwise.
+  io_bool_t (*is_hidden)(io_ref_t node);
+
   // Sets the position for the given node.
   void (*set_position)(io_ref_t node, io_vec3_t pos);
   // Gets the position of the given node.
