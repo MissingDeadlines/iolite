@@ -1587,6 +1587,9 @@ struct io_world_i // NOLINT
   // Spawns the prefab with the given name.
   io_ref_t (*spawn_prefab)(const char* name);
 
+  // Retrieves the currently active camera.
+  io_ref_t (*get_active_camera)();
+
   // Gets the current time factor.
   io_float32_t (*get_current_time_factor)();
   // Pushes the current time factor to the stack and applies the given one.
