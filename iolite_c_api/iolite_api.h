@@ -59,7 +59,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 // IOLITE API version
 //----------------------------------------------------------------------------//
 
-// The major, minor, and bugfix parts of the IOLITE API version
+// The major, minor, and bug fix parts of the IOLITE API version
 //----------------------------------------------------------------------------//
 #define IO_API_VERSION_MAJOR 0
 #define IO_API_VERSION_MINOR 4
@@ -71,7 +71,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
   ((IO_API_VERSION_MAJOR << 24) + (IO_API_VERSION_MINOR << 16) +               \
    (IO_API_VERSION_BUGFIX << 8) + 0)
 
-// Helpers for retrieving the major, minor, and bugfix part from the version
+// Helpers for retrieving the major, minor, and bug fix part from the version
 // number
 //----------------------------------------------------------------------------//
 #define IO_API_VERSION_GET_MAJOR(_version) ((_version >> 24) & 0xFFu)
@@ -893,7 +893,7 @@ inline io_uint32_t io_hash(const char* data)
 }
 
 // Converts the given string to a name.
-//   Please note that the the given string is not being internalized when using
+//   Please note that the given string is not being internalized when using
 //   this function, hence it won't be possible to request the string for this
 //   name. Please use the name related functions provided by the "io_base_t"
 //   interface to ensure string internalization
@@ -999,7 +999,7 @@ typedef struct
   float left, right, top, bottom;
 } io_ui_anchor_offsets_t;
 
-// Defines a recntagle.
+// Defines a rectangle.
 //----------------------------------------------------------------------------//
 typedef struct
 {
@@ -1022,7 +1022,7 @@ typedef struct
 } io_events_data_physics_contact_t;
 
 //----------------------------------------------------------------------------//
-// Interface function decls. and implementations
+// Interface function declarations and implementations
 //----------------------------------------------------------------------------//
 
 //----------------------------------------------------------------------------//
@@ -1093,7 +1093,7 @@ struct io_user_task_i // NOLINT
 #define IO_USER_DEBUG_VIEW_API_NAME "io_user_debug_view_i"
 //----------------------------------------------------------------------------//
 
-// Interface for providing custom debug views via Dear ImGui. Debug views can by
+// Interface for providing custom debug views via Dear ImGui. Debug views can be
 // cycled through via the F1 key by default in the editor and the game mode
 //----------------------------------------------------------------------------//
 struct io_user_debug_view_i // NOLINT
@@ -1210,7 +1210,7 @@ struct io_api_manager_i // NOLINT
   // Registers a new API interface for the given name. Multiple interfaces for
   // the same name are allowed.
   void (*register_api)(const char* name, const void* interface);
-  // Unregisters the given API inteface.
+  // Unregisters the given API interface.
   void (*unregister_api)(const void* interface);
 
   // Finds the first API interface for the given name.
@@ -1234,9 +1234,9 @@ struct io_base_i // NOLINT
   io_ref_t (*ref_invalid)();
   // Returns true if this ref is valid.
   io_bool_t (*ref_is_valid)(io_ref_t ref);
-  // Returns the type id for the provided ref.
+  // Returns the type ID for the provided ref.
   io_uint32_t (*ref_get_type_id)(io_ref_t ref);
-  // Returns the id for the given ref.
+  // Returns the ID for the given ref.
   io_uint32_t (*ref_get_id)(io_ref_t ref);
 
   // Names
@@ -1258,9 +1258,9 @@ struct io_base_i // NOLINT
   // Gets the value of the variant as a signed integer.
   io_int32_t (*variant_get_int)(io_variant_t variant);
 
-  // Creates a new variant from a unsigned integer value.
+  // Creates a new variant from an unsigned integer value.
   io_variant_t (*variant_from_uint)(io_uint32_t value);
-  // Gets the value of the variant as a unsigned integer.
+  // Gets the value of the variant as an unsigned integer.
   io_uint32_t (*variant_get_uint)(io_variant_t variant);
 
   // Creates a new variant from a string.
@@ -1283,39 +1283,39 @@ struct io_base_i // NOLINT
   // Gets the value of the variant as a vec4.
   io_vec4_t (*variant_get_vec4)(io_variant_t variant);
 
-  // Creates a new variant from a quat.
+  // Creates a new variant from a quaternion.
   io_variant_t (*variant_from_quat)(io_quat_t value);
-  // Gets the value of the variant as a quat.
+  // Gets the value of the variant as a quaternion.
   io_quat_t (*variant_get_quat)(io_variant_t variant);
 
-  // Creates a new variant from a ivec2.
+  // Creates a new variant from an ivec2.
   io_variant_t (*variant_from_ivec2)(io_ivec2_t value);
-  // Gets the value of the variant as a ivec2.
+  // Gets the value of the variant as an ivec2.
   io_ivec2_t (*variant_get_ivec2)(io_variant_t variant);
 
-  // Creates a new variant from a ivec3.
+  // Creates a new variant from an ivec3.
   io_variant_t (*variant_from_ivec3)(io_ivec3_t value);
-  // Gets the value of the variant as a ivec3.
+  // Gets the value of the variant as an ivec3.
   io_ivec3_t (*variant_get_ivec3)(io_variant_t variant);
 
-  // Creates a new variant from a ivec4.
+  // Creates a new variant from an ivec4.
   io_variant_t (*variant_from_ivec4)(io_ivec4_t value);
-  // Gets the value of the variant as a ivec4.
+  // Gets the value of the variant as an ivec4.
   io_ivec4_t (*variant_get_ivec4)(io_variant_t variant);
 
-  // Creates a new variant from a uvec2.
+  // Creates a new variant from an uvec2.
   io_variant_t (*variant_from_uvec2)(io_uvec2_t value);
-  // Gets the value of the variant as a uvec2.
+  // Gets the value of the variant as an uvec2.
   io_uvec2_t (*variant_get_uvec2)(io_variant_t variant);
 
-  // Creates a new variant from a uvec3.
+  // Creates a new variant from an uvec3.
   io_variant_t (*variant_from_uvec3)(io_uvec3_t value);
-  // Gets the value of the variant as a uvec3.
+  // Gets the value of the variant as an uvec3.
   io_uvec3_t (*variant_get_uvec3)(io_variant_t variant);
 
-  // Creates a new variant from a 8-bit uvec3.
+  // Creates a new variant from an 8-bit uvec3.
   io_variant_t (*variant_from_u8vec3)(io_u8vec3_t value);
-  // Gets the value of the variant as a 8-bit uvec3.
+  // Gets the value of the variant as an 8-bit uvec3.
   io_u8vec3_t (*variant_get_u8vec3)(io_variant_t variant);
 
   // Creates a new variant from a 16-bit uvec3.
@@ -1323,9 +1323,9 @@ struct io_base_i // NOLINT
   // Gets the value of the variant as a 16-bit uvec3.
   io_u16vec3_t (*variant_get_u16vec3)(io_variant_t variant);
 
-  // Creates a new variant from a uvec4.
+  // Creates a new variant from an uvec4.
   io_variant_t (*variant_from_uvec4)(io_uvec4_t value);
-  // Gets the value of the variant as a uvec4.
+  // Gets the value of the variant as an uvec4.
   io_uvec4_t (*variant_get_uvec4)(io_variant_t variant);
 
   // Dear ImGui
@@ -1337,7 +1337,7 @@ struct io_base_i // NOLINT
   // ImGui::SetAllocatorFunctions().
   void (*imgui_get_allocator_functions)(void** alloc_func, void** free_func);
 
-  // Memory management. Provides a TLSF-backed, threadsafe allocator which
+  // Memory management. Provides a TLSF-backed, thread safe allocator which
   // features allocation tracking.
 
   // Allocates a memory area with the given size.
@@ -1413,7 +1413,7 @@ struct io_custom_components_i // NOLINT
   //     "default_value" variant.
   //   - The "accessor" parameter is optional (set to NULL if not needed) and
   //     can point to a *pointer* of the property's type. The accessor needs to
-  //     be available while the managar is registered and gets dynamically
+  //     be available while the manager is registered and gets dynamically
   //     updated in case the property memory changes (when the manager runs over
   //     its capacity). Alternatively, the property memory can be queried using
   //     the "get_property_memory" function.
@@ -1426,7 +1426,7 @@ struct io_custom_components_i // NOLINT
   //   Call this *once* after all properties have been registered.
   void (*init_manager)(io_handle16_t manager, const char* type);
 
-  // Returns the type id for this type of component.
+  // Returns the type ID for this type of component.
   io_uint32_t (*get_type_id)(io_handle16_t manager);
 
   // Functions to interact with components and their properties
@@ -1457,7 +1457,7 @@ struct io_custom_components_i // NOLINT
 
   // Converts the given index to a ref.
   io_ref_t (*make_ref)(io_handle16_t manager, io_uint32_t component_index);
-  // Convers the given ref to an index.
+  // Converts the given ref to an index.
   io_uint32_t (*make_index)(io_handle16_t manager, io_ref_t component);
 };
 
@@ -1741,7 +1741,7 @@ struct io_debug_geometry_i // NOLINT
   void (*draw_solid_triangles)(io_vec3_t* positions, io_uint32_t num_positions,
                                io_vec4_t color, io_bool_t always_in_front);
 
-  // Enables software backface culling between the begin/end calls.
+  // Enables software back face culling between the begin/end calls.
   void (*backface_culling_begin)();
   void (*backface_culling_end)();
 };
@@ -1804,7 +1804,7 @@ struct io_pathfinding_i // NOLINT
 #define IO_FILESYSTEM_API_NAME "io_filesystem_i"
 //----------------------------------------------------------------------------//
 
-// Provides various filesystem related functions
+// Provides various file system related functions
 //----------------------------------------------------------------------------//
 struct io_filesystem_i // NOLINT
 {
@@ -1824,7 +1824,7 @@ struct io_filesystem_i // NOLINT
                                             char* buffer,
                                             io_uint32_t* buffer_length);
 
-  // Filesystem watches
+  // File system watches
 
   // Watches the given directory and calls "callback" when a file changes.
   void (*watch_directory)(const char* directory_path,
@@ -1846,7 +1846,7 @@ struct io_filesystem_i // NOLINT
 //----------------------------------------------------------------------------//
 struct io_entity_i // NOLINT
 {
-  // Gets the type id for entities.
+  // Gets the type ID for entities.
   io_uint32_t (*get_type_id)();
   // Returns true if the given entity is alive.
   io_bool_t (*is_alive)(io_ref_t entity);
@@ -1870,7 +1870,7 @@ struct io_entity_i // NOLINT
 //   *Not all functions are provided by all components*
 typedef struct
 {
-  // Returns the type id for this type of component.
+  // Returns the type ID for this type of component.
   io_uint32_t (*get_type_id)();
 
   // Creates a new component and attaches it to the provided parent entity.
@@ -1935,7 +1935,7 @@ struct io_component_node_i // NOLINT
   io_ref_t (*get_parent)(io_ref_t node);
   // Retrieves the next sibling node (if any).
   io_ref_t (*get_next_sibling)(io_ref_t node);
-  // Retrieves the prev. sibling node (if any).
+  // Retrieves the previous sibling node (if any).
   io_ref_t (*get_prev_sibling)(io_ref_t node);
 
   // Sets the hidden state of the node.
@@ -1995,7 +1995,7 @@ struct io_component_node_i // NOLINT
   void (*collect_nodes_breadth_first)(io_ref_t root_node, io_ref_t* nodes,
                                       io_uint32_t* nodes_length);
 
-  // Updates the transforms of the node hieararchy.
+  // Updates the transforms of the node hierarchy.
   void (*update_transforms)(io_ref_t node);
   // Updates the transforms of the node hierarchy in parallel (if possible).
   void (*update_transforms_jobified)(const io_ref_t* node,
@@ -2044,16 +2044,16 @@ struct io_component_tag_i // NOLINT
   "io_component_flipbook_animation_i"
 //----------------------------------------------------------------------------//
 
-// Provides access to flipbook animation components
+// Provides access to flip book animation components
 //----------------------------------------------------------------------------//
 struct io_component_flipbook_animation_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;
 
-  // Starts playing the provided flipbook animation.
+  // Starts playing the provided flip book animation.
   void (*play)(io_ref_t flipbook_animation);
-  // Stops playing the provided flipbook animation.
+  // Stops playing the provided flip book animation.
   void (*stop)(io_ref_t flipbook_animation);
 };
 
@@ -2134,11 +2134,11 @@ struct io_component_voxel_shape_i // NOLINT
 
   // Voxel data related functions
 
-  // Sets the given voxel to the palette index (and clamps pos to the dimensions
-  // of the shape).
-  void (*set)(io_ref_t shape, io_u8vec3_t coord, io_uint8_t palette_index);
-  // Sets the given voxel to the palette index (**without clamping** pos to the
+  // Sets the given voxel to the palette index (and clamps coordinate to the
   // dimensions of the shape).
+  void (*set)(io_ref_t shape, io_u8vec3_t coord, io_uint8_t palette_index);
+  // Sets the given voxel to the palette index (**without clamping** the
+  // coordinate to the dimensions of the shape).
   void (*set_unsafe)(io_ref_t shape, io_u8vec3_t coord,
                      io_uint8_t palette_index);
 
@@ -2151,7 +2151,7 @@ struct io_component_voxel_shape_i // NOLINT
   void (*fill)(io_ref_t shape, io_u8vec3_t coord_min, io_u8vec3_t coord_max,
                io_uint8_t palette_index);
 
-  // Shrinks the given shape so it utilizes the least amount of space.
+  // Shrinks the given shape, so it utilizes the least amount of space.
   void (*compact)(io_ref_t shape);
 
   // Gets the palette index for the given voxel coordinate.
@@ -2160,9 +2160,9 @@ struct io_component_voxel_shape_i // NOLINT
   // Gets the dimensions of the voxel shape.
   io_u16vec3_t (*get_dim)(io_ref_t shape);
 
-  // Gets the underyling voxel data.
+  // Gets the underlying voxel data.
   // Directly retrieving the data is the most efficient solution for modifying
-  // and reading back large chunks of voxels. The data is layed out in memory as
+  // and reading back large chunks of voxels. The data is laid out in memory as
   // follows:
   //   idx = x + y * dim.x + z * dim.x * dim.y
   io_uint8_t* (*get_voxel_data)(io_ref_t shape);
@@ -2171,6 +2171,9 @@ struct io_component_voxel_shape_i // NOLINT
   // change to the underlying voxel data to commit the changes and make them
   // visible.
   void (*voxelize)(io_ref_t shape);
+  // Returns true if one (or multiple) voxelization requests for the given shape
+  // are pending.
+  io_bool_t (*is_voxelization_pending)(io_ref_t shape);
 
   // Voxel shape queries
 
@@ -2259,9 +2262,9 @@ struct io_component_camera_controller_i // NOLINT
 
   // Sets the node to target for the given controller.
   void (*set_target_node)(io_ref_t controller, io_ref_t node);
-  // Sets the euler angles to target for the given controller.
+  // Sets the Euler angles to target for the given controller.
   void (*set_target_euler_angles)(io_ref_t controller, io_vec3_t euler_angles);
-  // Gets the euler angles to target for the given controller.
+  // Gets the Euler angles to target for the given controller.
   io_vec3_t (*get_target_euler_angles)(io_ref_t controller);
 };
 
@@ -2284,10 +2287,10 @@ struct io_component_particle_i // NOLINT
 //----------------------------------------------------------------------------//
 
 // Base interface all resources provide.
-//   *Not all functions are provided by all resoures*
+//   *Not all functions are provided by all resources*
 typedef struct
 {
-  // Returns the type id for this type of resource.
+  // Returns the type ID for this type of resource.
   io_uint32_t (*get_type_id)();
 
   // Creates a new resource with the given name.
@@ -2349,7 +2352,7 @@ struct io_resource_palette_i // NOLINT
 
   // Material parameters:
   //   x: Roughness  [0, 1]
-  //   y: Metalmask  [0, 1]
+  //   y: Metal mask  [0, 1]
   //   z: Hardness   [0, 255]
   //   w: Emissive   [0, FLT_MAX]
 
