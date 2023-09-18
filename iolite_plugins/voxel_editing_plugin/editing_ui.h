@@ -245,10 +245,6 @@ void show_editing_toolbar()
                           tb_button_size, current_tool_params.tool,
                           editing_tools::tool_extrude);
       show_tooltip("Extrude: Extrude connected regions.");
-      SAME_LINE_GROUP();
-      toggle_button_group(ICON_FA_LEAF "###tool_grass", tb_button_size,
-                          current_tool_params.tool, editing_tools::tool_grass);
-      show_tooltip("Grass: Grass tool. Behaves similar to the extrude tool.");
 
       SAME_LINE_RESET();
       SAME_LINE_GROUP();
@@ -273,6 +269,18 @@ void show_editing_toolbar()
                           tb_button_size, current_tool_params.tool,
                           editing_tools::tool_move);
       show_tooltip("Move: Move the current selection of voxels.");
+
+      ImGui::Text("Procedural Tools");
+      {
+        ImGui::Spacing();
+
+        SAME_LINE_RESET();
+        SAME_LINE_GROUP();
+        toggle_button_group(ICON_FA_LEAF "###tool_grass", tb_button_size,
+                            current_tool_params.tool,
+                            editing_tools::tool_grass);
+        show_tooltip("Grass: Grass tool. Behaves similar to the extrude tool.");
+      }
 
       if (current_tool_params.tool == editing_tools::tool_modify ||
           current_tool_params.tool == editing_tools::tool_extrude ||
