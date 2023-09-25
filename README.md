@@ -1,10 +1,13 @@
 # IOLITE - Voxel Game Engine
 
+
 ![IOLITE Logo](https://media.missing-deadlines.com/iolite/images/iolite_logo2.png)
 
 A highly flexible, voxel-powered game engine with an embedded editor. Create games using Lua, the native C/C++ API, and assets authored in voxel editors like MagicaVoxel or Avoyd.
 
 <https://iolite-engine.com>
+
+[![Documentation Status](https://readthedocs.org/projects/iolite-voxel-game-engine/badge/?version=latest)](https://docs.iolite-engine.com/en/latest/?badge=latest)
 
 ![Screenshot of IOLITE v0.4 which is currently in beta. The forest sample scene has been created solely using the editor and the new voxel editing plugin. The characters were created using MagicaVoxel and can be directly used as assets.](media/screenshot.jpg?raw=true)
 
@@ -24,7 +27,6 @@ Report bugs or request new features.
 Generate packages for your IOLITE projects and more.
 - [Resources](various)  
 Additional resources like the display lookup tables for color grading in DaVinci Resolve.
-
 
 ## Join our Community
 
@@ -69,7 +71,7 @@ If you've developed a custom plugin for IOLITE, make sure to send us a message, 
 
 ## Engine Resources
 
-- Details on how to use IOLITE are available in the [documentation](https://iolite-engine.com/docs).
+- Details on how to use IOLITE are available in the [documentation](https://docs.iolite-engine.com).
 - Changes are documented in the [changelog](https://iolite-engine.com/changelog).
 - Feature requests and bugs are maintained in the [issue tracker](https://github.com/MissingDeadlines/iolite/issues).
 - If you love IOLITE and like to support its development, take a look [here](https://iolite-engine.com/subscribe).
