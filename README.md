@@ -6,6 +6,8 @@ A highly flexible, voxel-powered game engine with an embedded editor. Create gam
 
 <https://iolite-engine.com>
 
+![Screenshot of IOLITE v0.4 which is currently in beta. The forest sample scene has been created solely using the editor and the new voxel editing plugin. The characters were created using MagicaVoxel and can be directly used as assets.](media/screenshot.jpg?raw=true)
+
 ## Overview
 
 This repository houses all public resources, like...
@@ -71,5 +73,3 @@ If you've developed a custom plugin for IOLITE, make sure to send us a message, 
 - Changes are documented in the [changelog](https://iolite-engine.com/changelog).
 - Feature requests and bugs are maintained in the [issue tracker](https://github.com/MissingDeadlines/iolite/issues).
 - If you love IOLITE and like to support its development, take a look [here](https://iolite-engine.com/subscribe).
-
-![Example scene rendered in IOLITE](media/screenshot.jpg?raw=true)
