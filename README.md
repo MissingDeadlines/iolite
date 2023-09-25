@@ -14,16 +14,16 @@ This repository houses all public resources, like...
 
 - [C/C++ API](iolite_c_api)  
 Write native plugins in C or C++ or any other language that supports C bindings.
-- [Factory Plugins](iolite_plugins)  
-IOLITE's open factory plugins, including the heightmap-based terrain generator and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
-- [Samples](iolite_samples)  
-Kickstart your journey with IOLITE.
+- [Open Source Plugins](iolite_plugins)  
+Open source plugins, including the voxel editor, a terrain generator, and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
+- [Lua Samples](lua_samples)  
+Kick-start your journey with IOLITE.
 - [Issue tracker](https://github.com/MissingDeadlines/iolite/issues)  
 Report bugs or request new features.
 - [Auxiliary Python scripts](python_scripts)  
 Generate packages for your IOLITE projects and more.
-- [Various other resources](various)  
-Contains additional resources like the display LUTs for color grading in DaVinci Resolve
+- [Resources](various)  
+Additional resources like the display lookup tables for color grading in DaVinci Resolve.
 
 
 ## Join our Community
