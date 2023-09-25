@@ -1,5 +1,5 @@
-Guides and Tutorials
-====================
+👀 Guides and Tutorials
+========================
 
 This section contains a collection of short guides and tutorials for IOLITE. Please note that all guides assume that the default data source is available, and you've got the default world loaded.
 

@@ -1,4 +1,10 @@
 ⌨️ API Documentation
 =====================
 
-.. warning:: This section is currently being updated and will be available again soon.
+This section provides detailed reference guides for the different APIs provided by IOLITE.
+
+.. toctree::
+  :hidden:
+  
+  /api/lua
+  /api/c

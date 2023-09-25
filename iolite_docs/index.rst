@@ -7,7 +7,7 @@ The real-time voxel game engine powered by path tracing. Create the game of your
    
 .. note::
   You can download the latest version of IOLITE via the landing page of our `website <https://iolite-engine.com>`_.
-.. warning:: This documentation is currently being overhauled and is considered heavily work in progress.
+.. warning:: This documentation is being overhauled and is considered a serious work in progress.
    
 Feature Overview
 ----------------
@@ -39,11 +39,27 @@ Feature Overview
   :hidden:
   
   engine
+
+.. toctree::
+  :hidden:
+  
+  editor
+   
+
+.. toctree::
+  :hidden:
+  
+  guides
    
 .. toctree::
   :hidden:
   
   scripting
+
+.. toctree::
+  :hidden:
+  
+  plugins
 
 .. toctree::
   :hidden:
