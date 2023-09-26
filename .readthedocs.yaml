@@ -3,6 +3,9 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
+  jobs:
+    pre_build:
+      - cd iolite_docs && python3 generate_lua_api_doc.py
 sphinx:
    configuration: iolite_docs/conf.py
 

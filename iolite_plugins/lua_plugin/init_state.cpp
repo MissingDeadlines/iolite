@@ -20,8 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// @version 0.3.0
-
 #include "lua_plugin.h"
 
 namespace internal
@@ -749,7 +747,7 @@ void script_init_state(sol::state& s)
     // @function pow
     // @summary Calculates x raised to the power y.
     // @param x number The base.
-    // @param x number The exponent.
+    // @param y number The exponent.
     // @return number value The result of x raised to power y.
     s["Math"]["pow"] = powf;
 

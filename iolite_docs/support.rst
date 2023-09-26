@@ -1,7 +1,12 @@
-🚀 Support the Development
+🚀 Support the development
 ===========================
 
-If you like to support the development of IOLITE, please consider `subscribing to IOLITE PRO <https://iolite-engine.com/subscribe>`_. In addition to all the features of the free version, IOLITE PRO supports the following:
+If you would like to support the development of IOLITE, please consider `subscribing to IOLITE PRO <https://iolite-engine.com/subscribe>`_. In addition to all the features of the free version, the PRO version supports the following:
+
+.. _pro features:
+
+Features of IOLITE PRO
+----------------------
 
 - | **Native C/C++ API**
   | Write highly modular plugins in C, C++, or in any other language that supports C bindings.

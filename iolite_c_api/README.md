@@ -2,7 +2,7 @@
 
 IOLITE's C API allows you to write native engine and editor plugins. The API itself is documented in the `iolite_api.h` header file.
 
-IOLITE's API header file is completely self-contained and dependency-free. Compiling a plugin DLL should *just work* given any C or C++ compiler on any supported platform. More details can be found in the [official documentation](https://iolite-engine.com/docs).
+IOLITE's API header file is completely self-contained and dependency-free. Compiling a plugin DLL should *just work* given any C or C++ compiler on any supported platform. More details can be found in the [official documentation](https://docs.iolite-engine.com).
 
 To get started, there is a small selection of sample plugins available in the `sample_plugins` folder. For a more advanced example, you can also check out the Lua plugin available in the root directory of this repository.
 
@@ -49,13 +49,15 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 }
 ```
 
-To load the plugin, don't forget to add the following member to the `app_metadata.json` file of your project:
+To load the plugin, don't forget to add the following member to the `plugins.json` file in the root directory of the application:
 
 ```json
-"plugins": [
-  [
-    "a_descriptive_name_for_my_plugin",
-    "PluginFilenameWithoutExtension"
-  ]
+[
+  {
+    // A descriptive name for your plugin
+    "name": "my_plugin",
+    // The filename *without* the extension
+    "filename": "MyPlugin"
+  }
 ]
 ```

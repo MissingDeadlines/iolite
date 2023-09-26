@@ -11,6 +11,8 @@ iolite_samples/*.dll
 iolite_samples/settings.json
 
 iolite_docs/_build
+iolite_docs/api/lua_generated.rst
+iolite_docs/api/lua.json
 
 media/**/*.png
 

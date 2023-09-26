@@ -1,4 +1,4 @@
-⌨️ API Documentation
+⌨️ API documentation
 =====================
 
 This section provides detailed reference guides for the different APIs provided by IOLITE.

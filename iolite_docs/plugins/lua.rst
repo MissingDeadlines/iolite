@@ -5,28 +5,30 @@ IOLITE uses Lua to provide its scripting functionality. Lua is an excellent lang
 
 If you have not worked with Lua before, make sure to check out the following resources to learn the language:
 
-- | **Programming in Lua (First Edition)**
-  | https://www.lua.org/pil/contents.html
-- | **The Lua 5.1 Reference Manual**
-  | https://www.lua.org/manual/5.1/
+Programming in Lua (First Edition)
+   https://www.lua.org/pil/contents.html
+The Lua 5.1 Reference Manual
+   https://www.lua.org/manual/5.1/
 
-This section serves as an introduction to the Lua scripting API.
+.. note:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`lua api` documentation to quickly locate the functionality you are looking for.
 
-Lua Runtime and Libraries
+Lua runtime and libraries
 -------------------------
 
-IOLITE uses `LuaJIT-2.1.0-beta3` for maximum performance, which provides the language features of `Lua 5.1`. The following standard Lua libraries are available: `base`, `coroutine`, `string`, and `table`.
+IOLITE uses ``LuaJIT-2.1.0-beta3`` for maximum performance, which supports the language features of Lua 5.1. The following standard Lua libraries are available:
+
+- base, coroutine, string, and table
 
 Check out the following resources if you're interested in the features and implications induced by using the LuaJIT runtime:
 
-- | **LuaJIT Homepage**
-  | https://luajit.org
-- | **LuaJIT Overview**
-  | https://luajit.org/luajit.html
-- | **LuaJIT Benchmarks**
-  | https://luajit.org/performance_x86.html
+LuaJIT Homepage
+   https://luajit.org
+LuaJIT Overview
+   https://luajit.org/luajit.html
+LuaJIT Benchmarks
+   https://luajit.org/performance_x86.html
 
-The Basic Structure of Scripts
+The basic structure of scripts
 ------------------------------
 
 When using scripts, IOLITE expects you to provide a particular set of callback functions with the correct naming and parameters, which it can call in different scenarios.
@@ -114,39 +116,39 @@ Use this function to optimize scripts that need to do some complex and costly ca
 
 .. warning:: It's only safe to do some basic calculations here and to modify the internal state of the current script. Accessing entities and components via the scripting API will most certainly lead to crashes or very hard to reproduce bugs. **Use with absolute caution!**
 
-Loading API Interfaces
+Loading API interfaces
 ----------------------
 
 IOLITE provides a lot of different API interfaces for all the available subsystems. To ensure that scripts have a minimal footprint, you have to explicitly state which interfaces you want to use at the beginning of your script.
 
-As an example, if you want to work with nodes and print some text to the log/console, you'll have to load the `Log` and `Node` interface tables like this:
+As an example, if you want to work with nodes and print some text to the log/console, you'll have to load the ``Log`` and ``Node`` interface tables like this:
 
 .. code-block:: lua
 
   Node.load()
   Log.load()
 
-In this example, the calls to `load()` populate the functions provided by the interfaces `Node` and `Log` via the according global tables.
+In this example, the calls to ``load()`` populate the functions provided by the interfaces ``Node`` and ``Log`` via the according global tables.
 
-Please note that not loading the API interfaces will lead to errors stating that the requested function is `nil` or unavailable.
+Please note that not loading the API interfaces will lead to errors stating that the requested function is unavailable.
 
-Hot Reloading and Error Logging
+Hot reloading and error logging
 -------------------------------
 
-Scripts are hot-reloaded on every change you make. Potential errors and your log calls end up in IOLITE's console and log file. To toggle the console, press `F2`.
+Scripts are hot-reloaded on every change you make. Potential errors and your log calls end up in IOLITE's console and log file. To toggle the console, press ``[F2]``.
 
 If executing the script throws an error, go ahead and adjust the faulty line of code, save the file, and directly check back in IOLITE if the error is gone. It's as easy as that.
 
-Date Structures and Refs
+Date structures and refs
 ------------------------
 
 When interacting with IOLITE via the scripting interface, you'll encounter three different types of data structures:
 
-**PODs (Plain Old Data)**
+PODs (Plain Old Data)
    Vectors provided by the math interface, etc.
-**Refs**
+Refs
    Used to reference entities, components, and resources on engine-side
-**Handles**
+Handles
    Like refs, but specific to certain subsystems, like, e.g., the particle or sound system
 
 Refs, compared to handles, are agnostic of the underlying subsystems. A ref can reference any component, entity, or resource, providing interfaces for checking the underlying type and whether the referenced resource is still alive.
@@ -178,7 +180,7 @@ Now we're dealing with a ref of unknown origin, and we want to make sure it is (
     -- Do something with the position...
   end
 
-Error Handling and Scripts
+Error handling and scripts
 --------------------------
 
 IOLITE strives for a good mixture of error handling and performance.
@@ -187,3 +189,8 @@ While a lot of user errors won't make the engine crash, like, e.g., passing the 
 
 - Using the ref on an entity, component, or resource which is no longer alive. Make sure to only interact with alive resources using the ``is_alive`` function of the corresponding interface table
 - Using an invalid ref to execute functions. Ensure you're always using valid refs using ``Ref.is_valid(ref_in_requestion)``
+  
+Going further
+-------------
+
+Our GitHub repository houses a couple of `Lua-based samples <https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples>`_ which serve as an excellent reference and starting point. Otherwise, header over to the :ref:`lua api` documentation to quickly locate the functionality you are looking for.

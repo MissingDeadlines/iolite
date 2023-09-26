@@ -1,10 +1,13 @@
-👀 Guides and Tutorials
+👀 Guides and tutorials
 ========================
 
 This section contains a collection of short guides and tutorials for IOLITE. Please note that all guides assume that the default data source is available, and you've got the default world loaded.
 
-Writing a Hello World Script
-----------------------------
+Lua Scripting
+-------------
+
+Writing your first hello world script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This short tutorial serves as a step-by-step guide to writing your first Lua script in IOLITE.
 
@@ -33,10 +36,13 @@ After that, continue with the following steps:
 
 Keep IOLITE open and modify the strings passed to the log functions. Every time you save the script, it triggers a hot reload. Notice how the global log call gets executed while the call in `OnActivate` is not. This call can be, e.g., triggered by switching back and forth between the game mode and the editor; the editor can be activated using `F3`.
 
-Loading a Flipbook Animation from MagicaVoxel
----------------------------------------------
+General
+-------
 
-In this tutorial we're going to load a flipbook animation authored in MagicaVoxel.
+Importing a flipbook animation from MagicaVoxel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this tutorial, we will load a flipbook animation authored in MagicaVoxel.
 
 1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source, like, e.g., `default/media/voxels`. For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
 2. Create a voxel shape for your asset by dragging it from the *Prefab Browser* to the viewport
@@ -47,16 +53,18 @@ In this tutorial we're going to load a flipbook animation authored in MagicaVoxe
 
 If everything works out, your animation should be playing. The following video shows the depicted steps:
 
-Writing Plugins Using the Native C/C++ API
+.. _writing plugins:
+
+Writing plugins using the native C/C++ API
 ------------------------------------------
 
 IOLITE's C/C++ API offers the possibility to create highly modular engine and editor plugins in C, C++, or any other language that supports C bindings.
 
 .. warning:: The API documentation is provided via the header file itself.
-.. warning:: Native plugins are a feature of IOLITE PRO. You're free to evaluate plugins in the free version, but loading non-default plugins will add a watermark to the editor and game.
+.. warning:: Native plugins are a feature of IOLITE PRO. You're free to evaluate plugins in the free version, but loading non-default plugins will add a watermark to the editor and game.   
 
-Writing a Simple Plugin
------------------------
+Writing a simple plugin
+^^^^^^^^^^^^^^^^^^^^^^^
 
 To write your first plugin, head over to our `public GitHub repository <(https://github.com/MissingDeadlines/iolite/tree/main/iolite_c_api>`__ and download the latest version of the API header file.
 
@@ -92,20 +100,22 @@ All a plugin has to do is provide the following three functions, as shown in the
     // Clean up here
   }
 
-After compiling your plugin, create/modify the ``plugins.json`` file:
+After compiling your plugin, create/modify the ``plugins.json`` file in the root directory of the application:
 
 .. code-block:: json
 
   [
     {
+      // A descriptive name for your plugin
       "name": "my_plugin",
+      // The filename *without* the extension
       "filename": "MyPlugin"
     }
   ]
 
-If everything worked out okay, you can fire up IOLITE and check the results via the console log output (``F2`` opens up the console) or the ``[Plugin Manager]`` available via the `[Plugins]` menu in the menu bar.
+If everything worked out okay, you can fire up IOLITE and check the results via the console log output (``[F2]`` opens up the console) or the ``[Plugin Manager]`` available via the ``[Plugins]`` menu in the menu bar.
 
-Writing a Custom Scripting Backend
-----------------------------------
+Writing a custom scripting backend
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 IOLITE's Lua integration is provided via a native plugin using the C API and the full implementation is available via our `public GitHub repository <https://github.com/MissingDeadlines/iolite/tree/main/iolite_lua_plugin>`_. If you're planning to roll your own custom scripting backend, the Lua implementation can serve as a great starting point.
