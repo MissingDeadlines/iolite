@@ -1,12 +1,12 @@
 👀 Guides and tutorials
 ========================
 
-This section contains a collection of short guides and tutorials for IOLITE. Please note that all guides assume that the default data source is available, and you've got the default world loaded.
+This section contains a collection of short guides and tutorials for IOLITE. All guides assume the default data source is available and you've loaded the default world.
 
 Lua Scripting
 -------------
 
-Writing your first hello world script
+Writing your first Hello World script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This short tutorial serves as a step-by-step guide to writing your first Lua script in IOLITE.
@@ -118,4 +118,4 @@ If everything worked out okay, you can fire up IOLITE and check the results via 
 Writing a custom scripting backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-IOLITE's Lua integration is provided via a native plugin using the C API and the full implementation is available via our `public GitHub repository <https://github.com/MissingDeadlines/iolite/tree/main/iolite_lua_plugin>`_. If you're planning to roll your own custom scripting backend, the Lua implementation can serve as a great starting point.
+IOLITE's Lua integration is provided via a native plugin using the C API, and the full implementation is available via our `public GitHub repository <https://github.com/MissingDeadlines/iolite/tree/main/iolite_lua_plugin>`_. The Lua implementation can be a great starting point if you plan to roll your own custom scripting backend.

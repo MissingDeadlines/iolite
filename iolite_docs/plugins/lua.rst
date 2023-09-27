@@ -33,9 +33,9 @@ The basic structure of scripts
 
 When using scripts, IOLITE expects you to provide a particular set of callback functions with the correct naming and parameters, which it can call in different scenarios.
 
-> Please note that you do not need to provide all callback functions, even not providing any callback function is fine. IOLITE checks for the availability of each upfront.
+.. note:: Please note that you do not need to provide all callback functions, even not providing any callback function is fine. IOLITE checks for the availability of each upfront.
 
-The `minimal.lua` script available in the `default` data source contains stubs for all the available callback functions and can serve as a template for creating new scripts.
+The ``minimal.lua`` script available in the ``default`` data source contains stubs for all the available callback functions and can serve as a template for creating new scripts.
 
 Let's have a closer look at each of the available callback functions.
 
@@ -55,7 +55,7 @@ This function is called once when the script becomes active. This can either be 
 
 Called precisely once during a script's lifetime.
 
-This is the counterpart to `onActivate` and is called once when the script becomes active, either by unloading a world or by destroying a script component during runtime. Use this to tear down additional resources created by your script.
+This is the counterpart to ``onActivate`` and is called once when the script becomes active, either by unloading a world or by destroying a script component during runtime. Use this to tear down additional resources created by your script.
 
 .. code-block:: lua
 
@@ -66,7 +66,7 @@ Called precisely once during each rendered frame.
 
 Use this function for functionality that has a visual effect, like updating the final position of a character or a projectile, for example. It's also the right spot to react to the user's input as quickly as possible.
 
-In general, it's wise to keep the workload in this function to a minimum and, e.g., implement actual gameplay and AI logic in the `OnUpdate` callback function at a much lower frequency. The results computed at the lower frequency can then be interpolated in this function to achieve visually pleasing results.
+In general, it's wise to keep the workload in this function to a minimum and, e.g., implement actual gameplay and AI logic in the ``OnUpdate`` callback function at a lower frequency. The results computed at the lower frequency can then be interpolated in this function to achieve visually pleasing results.
 
 .. code-block:: lua
 
@@ -77,7 +77,7 @@ Called exactly once at the interval specified in the script component.
 
 Use this callback for implementing logic that has no imminent visual effect. This is the perfect spot for implementing AI and gameplay logic.
 
-.. warning:: Don't use this function for reacting on input or for updating data that has a visual effect!
+.. important:: Don't use this function for reacting on input or for updating data that has a visual effect!
 
 .. code-block:: lua
 
@@ -103,7 +103,7 @@ All the different types of available events are described in a later section. Bu
         end
       end
 
-Last but not least, a variation of the `Tick` callback function:
+Last but not least, a variation of the ``Tick`` callback function:
 
 .. code-block:: lua
 
@@ -114,7 +114,7 @@ Called precisely once during each rendered frame but executed asynchronously til
 
 Use this function to optimize scripts that need to do some complex and costly calculations. Check out the heightmap sample in our `GitHub repository <https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples>`_, which uses this functionality. 
 
-.. warning:: It's only safe to do some basic calculations here and to modify the internal state of the current script. Accessing entities and components via the scripting API will most certainly lead to crashes or very hard to reproduce bugs. **Use with absolute caution!**
+.. important:: It's only safe to do some basic calculations here and to modify the internal state of the current script. Accessing entities and components via the scripting API will most certainly lead to crashes or very hard to reproduce bugs. **Use with absolute caution!**
 
 Loading API interfaces
 ----------------------

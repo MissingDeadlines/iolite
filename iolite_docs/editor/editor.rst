@@ -12,7 +12,7 @@ When launching IOLITE in its default configuration, the application starts in th
 
 To switch to the main game state in the editor, click on ``[Game Mode]`` in the menubar of the editor. When clicking this button, IOLITE stores a snapshot of the current world, switches the active camera from the ``editing_camera`` to the ``game_camera``, and activate the main game state. By pressing ``[F3]`` while the main game state is active, the main game state gets deactivated, the previous state of the world gets restored, and the editor becomes active again.
 
-Working with entitiy and components
+Working with entities and components
 ------------------------------------
 
 As teased in the introduction of the documentation, entities and components form the basis for creating games with IOLITE. This section covers some basics, like, e.g., creating and removing entities in the editor, how to clone entities, and how entities can be decorated with components. 
@@ -169,9 +169,4 @@ To voxelize a mesh, export a mesh from your favorite 3D authoring software, like
 Exporting path-traced renders
 -----------------------------
 
-To export your path-traced renders, head over to the ``[Render]`` menu in the menu bar and select one of the following options:
-
-``[Export Render]``
-   Exports the path-traced render without additional processing in the EXR file format.
-``[Export and Denoise Render]``
-   Exports the path-tracer render, denoises the result using Intel's Open Image Denoise (OIDN) and stores it using the EXR file format.
+To export your path-traced renders, head over to the ``[Render]`` menu in the menu bar and select ``[Export Render]``. With the PRO version, you also have the option to enable *raw color output*, which turns off the display transform, and to select lossless *EXR* file format.

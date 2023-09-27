@@ -11,6 +11,8 @@ All plugins are available as pre-compiled bundles for all supported platforms vi
   :hidden:
   
   plugins/lua
+  
+.. _plugin_voxel_editing:
 
 🧊 Voxel Editing
 -----------------

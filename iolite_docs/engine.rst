@@ -1,7 +1,7 @@
 ⚙️ Engine documentation
 =======================
 
-This documentation serves as the reference guide for working with IOLITE.
+This section covers some of the fundamentals of the engine core, beginning by introducing the underlying design concepts. In addition, it presents the many subsystems and components which aid the game creation process.
 
 .. toctree::
   :hidden:

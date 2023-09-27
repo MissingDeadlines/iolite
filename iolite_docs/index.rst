@@ -1,7 +1,7 @@
 .. toctree::
   :hidden:
   
-  introduction
+  intro
 
 .. toctree::
   :hidden:
