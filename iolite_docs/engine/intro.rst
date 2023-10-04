@@ -15,10 +15,14 @@ When working with IOLITE, there is no differentiation between the *game* and *th
 
 When launching IOLITE for the first time, the editor is automatically activated after the startup. Whether the application should launch into the editor or directly into the game mode (also referred to as the main game state) can be configured. Accordingly, all you have to do when shipping your game is to make the game mode the default, as depicted in the section :ref:`app_metadata`.
 
+.. _ecs:
+
 Entity Component System
 -----------------------
 
-The ECS (Entity Component System) is your primary tool for creating games with IOLITE. Entities are functionless objects that can be decorated with components to assign them one or multiple purposes. For example, an entity with a node component can be positioned in three-dimensional space. Adding a character controller component unlocks the ability to interact with the physics environment, and adding a voxel shape component creates a visual representation for your character.
+The ECS (Entity Component System) is your primary tool for creating games with IOLITE.
+
+Entities are functionless objects that can be decorated with components to assign them one or multiple purposes. For example, an entity with a node component can be positioned in three-dimensional space. Adding a character controller component unlocks the ability to interact with the physics environment, and adding a voxel shape component creates a visual representation for your character.
 
 IOLITE's ECS comes with a very flexible *property system*, which allows, on the one hand, storing data with your components, which can then be accessed programmatically, either via the scripting backend or the native API. On the other hand, it allows configuring your components in the editor. The following image shows the property editor for a selected entity in the editor, making it possible to inspect and modify properties of multiple components attached to a single entity:
 
@@ -100,7 +104,7 @@ The app metadata data file is a JSON file with the following content:
       ],
 
       "initial_world": "default",
-      "initial_game_state": "Editing",
+      "initial_game_state": "Editing"
   }
 
 The app metadata allows you to adjust basic properties like your application's name and your organization. In addition, it is also in charge of defining the data sources that should be used to source files from. Data sources are loaded in the given order, and data provided by data sources listed first is prioritized.

@@ -16,12 +16,12 @@
 .. toctree::
   :hidden:
   
-  engine
+  engine/index
 
 .. toctree::
   :hidden:
   
-  editor
+  editor/index
    
 
 .. toctree::
@@ -44,5 +44,3 @@ IOLITE 0.4 documentation
 ========================
    
 Welcome to the documentation of IOLITE, the voxel-powered game engine. If you're new here, we recommend directly heading to the :ref:`introduction section <intro>`.
-   
-.. warning:: This documentation is being overhauled and is considered a serious work in progress.

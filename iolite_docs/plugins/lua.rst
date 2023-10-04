@@ -10,7 +10,7 @@ Programming in Lua (First Edition)
 The Lua 5.1 Reference Manual
    https://www.lua.org/manual/5.1/
 
-.. note:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`lua api` documentation to quickly locate the functionality you are looking for.
+  .. note:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`api_lua` documentation to quickly locate the functionality you are looking for.
 
 Lua runtime and libraries
 -------------------------
@@ -33,11 +33,14 @@ The basic structure of scripts
 
 When using scripts, IOLITE expects you to provide a particular set of callback functions with the correct naming and parameters, which it can call in different scenarios.
 
-.. note:: Please note that you do not need to provide all callback functions, even not providing any callback function is fine. IOLITE checks for the availability of each upfront.
+.. important:: Please note that you do not need to provide all callback functions, even not providing any callback function is fine. IOLITE checks for the availability of each upfront.
 
 The ``minimal.lua`` script available in the ``default`` data source contains stubs for all the available callback functions and can serve as a template for creating new scripts.
 
 Let's have a closer look at each of the available callback functions.
+
+Available callback functions
+----------------------------
 
 .. code-block:: lua
 
@@ -46,7 +49,7 @@ Let's have a closer look at each of the available callback functions.
 
 Called precisely once during a script's lifetime.
 
-This function is called once when the script becomes active. This can either be when a world is loaded or if, e.g., an entity with an attached script component gets spawned. Here you can set up additional resources and variables for your script.
+This function is called once when the script becomes active. Scripts become active when, e.g., a world is loaded or if an entity with an attached script component gets spawned. This is the right place to set up additional resources and variables for your script.
 
 .. code-block:: lua
 
@@ -62,7 +65,7 @@ This is the counterpart to ``onActivate`` and is called once when the script bec
   function Tick(entity, delta_t)
   end
 
-Called precisely once during each rendered frame.
+Called precisely once each rendered frame.
 
 Use this function for functionality that has a visual effect, like updating the final position of a character or a projectile, for example. It's also the right spot to react to the user's input as quickly as possible.
 
@@ -193,4 +196,4 @@ While a lot of user errors won't make the engine crash, like, e.g., passing the 
 Going further
 -------------
 
-Our GitHub repository houses a couple of `Lua-based samples <https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples>`_ which serve as an excellent reference and starting point. Otherwise, header over to the :ref:`lua api` documentation to quickly locate the functionality you are looking for.
+Our GitHub repository houses a couple of `Lua-based samples <https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples>`_ which serve as an excellent reference and starting point. Otherwise, header over to the :ref:`api_lua` documentation to quickly locate the functionality you are looking for.

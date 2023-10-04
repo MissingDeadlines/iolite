@@ -6,6 +6,6 @@ This documentation serves as the reference guide for working with IOLITE's edito
 .. toctree::
   :hidden:
   
-  editor/editor
+  editor
 
 

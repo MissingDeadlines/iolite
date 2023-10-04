@@ -1,4 +1,4 @@
-.. _lua api:
+.. _api_lua:
 
 Lua API
 =======

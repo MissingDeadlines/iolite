@@ -1,5 +1,5 @@
-Components
-==========
+Component overview
+==================
 
 This section serves as a glossary for all the available core components.
 
@@ -37,11 +37,11 @@ Kill planes can be used to automatically destroy voxel shapes which drop below t
 
 To ensure that the whole shape is below the plane before it is destroyed, the shape's bounding sphere is used. The logic is implemented as follows:
 
-.. code-block:: lua
+.. code-block:: c
 
-  if shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y then
-    -- Despawn voxel shape
-  end
+  if (shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y) {
+    despawn_voxel_shape();
+  }
 
 Light
 -----

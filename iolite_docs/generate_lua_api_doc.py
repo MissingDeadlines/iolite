@@ -35,19 +35,19 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
     cats_to_copy = []
 
     for l in src:
-        #print(l)
+        # print(l)
 
         namespace = re.search("// @namespace (.*)", l)
-        category = re.search("// @category ([\w_]*) (.*)", l)
+        category = re.search("// @category ([\\w_]*) (.*)", l)
         function = re.search("// @function (.*)", l)
         summary = re.search("// @summary (.*)", l)
-        param = re.search("// @param (\w*) ([\w|]*) (.*)", l)
-        ret = re.search("// @return ([\w|]*) (\w*) (.*)", l)
+        param = re.search("// @param (\\w*) ([\\w|]*) (.*)", l)
+        ret = re.search("// @return ([\\w|]*) (\\w*) (.*)", l)
         type = re.search("// @type (.*)", l)
-        member = re.search("// @member ([\w|]*) (\w*) (.*)", l)
-        member_simple = re.search("// @member ([\w|]*) (\w*)", l)
+        member = re.search("// @member ([\\w|]*) (\\w*) (.*)", l)
+        member_simple = re.search("// @member ([\\w|]*) (\\w*)", l)
         hidden = re.search("// @hidden", l)
-        copy_category = re.search("// @copy_category (\w*)", l)
+        copy_category = re.search("// @copy_category (\\w*)", l)
 
         if namespace:
             # Update the current namespace
@@ -159,31 +159,35 @@ with open("api/lua.json", "w") as f:
 
 # Generate the actual API documentation
 with open("api/lua_generated.rst", "w") as f:
-  for cat in api:
-    f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
-    if "functions" in cat:
-      for function in cat["functions"]:
+    for cat in api:
+        f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
+        if "functions" in cat:
+            for function in cat["functions"]:
 
-        arg_string = ', '.join(x["name"] for x in function["args"])
-        arg_list = ""
-        return_list = ""
+                arg_string = ', '.join(x["name"] for x in function["args"])
+                arg_list = ""
+                return_list = ""
 
-        if len(function["args"]) > 0:
-          arg_list = '''   :params:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["args"]))
-        if len(function["returns"]) > 0:
-          return_list = '''   :returns:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["returns"]))
-        
-        prefix = ""
-        if cat["prefix"] != "Global":
-          prefix = cat["prefix"] + "."
+                if len(function["args"]) > 0:
+                    arg_list = '''   :params:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(
+                        ":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["args"]))
+                if len(function["returns"]) > 0:
+                    return_list = '''   :returns:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(
+                        ":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["returns"]))
 
-        s = '''.. function:: {}{}({})\n\n{}\n\n{}\n\n   {}\n\n'''.format(prefix, function["name"], arg_string, arg_list, return_list, function["description"])
-        f.write(s)
-    
-    if "types" in cat:
-      for type in cat["types"]:
+                prefix = ""
+                if cat["prefix"] != "Global":
+                    prefix = cat["prefix"] + "."
 
-        member_list = '\n'.join('''   :var {}: {}\n'''.format(x["name"], x["type"]) for x in type["members"])
-        s = '''.. class:: {}\n\n{}\n\n   {}\n\n'''.format(type["name"], member_list, type["description"])
-        f.write(s)
-    
+                s = '''.. function:: {}{}({})\n\n{}\n\n{}\n\n   {}\n\n'''.format(
+                    prefix, function["name"], arg_string, arg_list, return_list, function["description"])
+                f.write(s)
+
+        if "types" in cat:
+            for type in cat["types"]:
+
+                member_list = '\n'.join('''   :var {}: {}\n'''.format(
+                    x["name"], x["type"]) for x in type["members"])
+                s = '''.. class:: {}\n\n{}\n\n   {}\n\n'''.format(
+                    type["name"], member_list, type["description"])
+                f.write(s)

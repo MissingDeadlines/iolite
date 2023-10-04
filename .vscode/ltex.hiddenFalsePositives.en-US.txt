@@ -1,2 +1,13 @@
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q../_static/images/forest_world.jpg\\E$"}
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q../_static/images/property_editor.jpg\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qshow_splash_screen \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to disable the splash screen shown during startup.\r\ndisable_pro_features \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to disable all features of IOLITE PRO.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qapplication_name\r\nThe name of your application.\r\norganization_name\r\nThe name of your organization (if any).\r\nversion_string\r\nVersion string following the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q scheme.\r\ndata_sources\r\nThe data sources used for your project.\\E$"}
+{"rule":"HE_VERB_AGR","sentence":"^\\Qapplication_name\r\nThe name of your application.\r\norganization_name\r\nThe name of your organization (if any).\r\nversion_string\r\nVersion string following the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q scheme.\r\ndata_sources\r\nThe data sources used for your project.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\"data_sources\": [\r\n\"default\"\r\n],\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q{\r\n\"application_name\": \"IOLITE\",\r\n\"organization_name\": \"Missing Deadlines\",\r\n\"version_string\": \"0.2.0\",\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\"initial_world\": \"default\",\r\n\"initial_game_state\": \"Editing\",\r\n}\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q\"initial_world\": \"default\",\r\n\"initial_game_state\": \"Editing\"\r\n}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qjson\\E$"}
+{"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q../_static/images/cow_voxel_shape.jpg\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Qif (shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y) {\r\ndespawn_voxel_shape();\r\n}\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qif (shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y) {\r\ndespawn_voxel_shape();\r\n}\\E$"}

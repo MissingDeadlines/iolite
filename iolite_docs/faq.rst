@@ -70,10 +70,10 @@ Help, IOLITE crashes during startup!
 
 Many checks are in place to ensure you end up with a meaningful error message in any possible failure case. If you encounter a startup crash, the chances are high that your GPU driver is outdated. Please use the most recent drivers from NVIDIA or AMD:
 
-- | **Drivers for NVIDIA GPUs**
-  | https://www.nvidia.com/download/index.aspx
-- | **Drivers for AMD GPUs**
-  | https://www.amd.com/en/support
+**Drivers for NVIDIA GPUs**
+   https://www.nvidia.com/download/index.aspx
+**Drivers for AMD GPUs**
+   https://www.amd.com/en/support
 
 Using the latest proprietary driver is your best bet when using Linux. Please ensure that your GPU driver is working correctly before trying to launch IOLITE.
 
