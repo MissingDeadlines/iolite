@@ -233,7 +233,11 @@ IOLITE's exposes some of its resources for editing and inspection via so-called 
 Palette Inspector
 -----------------
 
-.. warning:: Coming soon.
+.. image:: /_static/images/palette_inspector.jpg
+   
+The palette inspector can be used to create, inspect and modify palettes. Besides the palettes you have created manually, either via the editor or code, it also shows all the palettes that have been sourced from your voxel assets.
+
+The general functionality of palettes is described in detail in :ref:`palettes`.
 
 .. _post_effect_inspector:
 

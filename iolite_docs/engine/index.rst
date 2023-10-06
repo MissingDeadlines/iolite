@@ -7,5 +7,8 @@ This section covers some fundamentals of the engine core, beginning by introduci
   :hidden:
   
   intro
+  voxel_shapes
+  palettes
+  best_practices
   components
   subsystems/index

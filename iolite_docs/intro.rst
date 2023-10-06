@@ -5,7 +5,7 @@
 
 IOLITE is a real-time voxel game engine powered by path tracing. Create the game of your dreams in highly detailed and dynamic worlds using the embedded editor and C/C++ or Lua.
 
-.. image:: _static/images/screenshot_1.jpg
+.. image:: /_static/images/screenshot_1.jpg
 .. note:: You can download the latest version of IOLITE via the landing page of our `website <https://iolite-engine.com>`_.
    
 Feature Overview

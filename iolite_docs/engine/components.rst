@@ -1,4 +1,4 @@
-Component overview
+Component glossary
 ==================
 
 This section serves as a glossary for all the available core components.
@@ -84,6 +84,8 @@ Text
 ----
 
 Use this component to render text at different positions in the world. Also serves as a great tools for adding notes in the world in the editor.
+
+.. _component_voxel_shape:
 
 Voxel Shape
 -----------
