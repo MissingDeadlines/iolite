@@ -1021,6 +1021,24 @@ typedef struct
   io_vec3_t pos, impulse;    // Position and impulse of the contact.
 } io_events_data_physics_contact_t;
 
+// Voxel shape fracture event data
+// Event type name: "shape_fractured"
+// Reported by callback: "on_shape_events"
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_ref_t base, chunk; // The base and the chunk shape
+} io_events_data_shape_fractured_t;
+
+// Voxel shape voxelization completed event data
+// Event type name: "shape_voxelization_completed"
+// Reported by callback: "on_shape_events"
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_ref_t shape; // The shape that has been voxelized
+} io_events_data_shape_voxelization_completed_t;
+
 //----------------------------------------------------------------------------//
 // Interface function declarations and implementations
 //----------------------------------------------------------------------------//
@@ -1168,6 +1186,9 @@ struct io_user_events_i // NOLINT
   // Called when physics related events are ready to be processed.
   void (*on_physics_events)(const io_events_header_t* begin,
                             const io_events_header_t* end);
+  // Called when voxel shape related events are ready to be processed.
+  void (*on_shape_events)(const io_events_header_t* begin,
+                          const io_events_header_t* end);
 };
 
 //----------------------------------------------------------------------------//
