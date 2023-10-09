@@ -8,11 +8,14 @@
       {
         "type": "Node",
         "properties": {
+          "flags": {
+            "value": 0
+          },
           "localPos": {
             "values": [
-              -1.7839311361312866,
-              0.5,
-              -0.778111457824707
+              8.531316757202148,
+              3.1999990940093994,
+              -1.832930564880371
             ]
           },
           "localOrient": {
@@ -38,11 +41,21 @@
           "voxelShapeName": {
             "value": "cube_spectrum"
           },
+          "paletteName": {
+            "value": ""
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
           "voxelShapeFlags": {
             "value": 4
           },
           "rigidBodyFlags": {
-            "value": 0
+            "value": 128
           },
           "pivot": {
             "values": [
@@ -50,9 +63,6 @@
               4.0,
               4.0
             ]
-          },
-          "glassTransparency": {
-            "value": 0.5
           },
           "linearDamping": {
             "value": 0.10000000149011612
@@ -62,6 +72,15 @@
           },
           "density": {
             "value": 1.0
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
           }
         }
       }

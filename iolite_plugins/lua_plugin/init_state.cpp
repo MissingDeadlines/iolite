@@ -434,6 +434,78 @@ void script_init_state(sol::state& s)
         return {x, y, z};
       });
 
+  // @type U16Vec3
+  // @summary A vector storing three unsigned integer components.
+  // @member x number
+  // @member y number
+  // @member z number
+  s.new_usertype<io_u16vec3_t>("U16Vec3", sol::no_constructor, "x",
+                               &io_u16vec3_t::x, "y", &io_u16vec3_t::y, "z",
+                               &io_u16vec3_t::z);
+
+  // @function U16Vec3
+  // @summary Initializes a new U16Vec3.
+  // @param x number The scalar value to set the components to.
+  // @return U16Vec3 value The new vector.
+
+  // @function U16Vec3
+  // @summary Initializes a new U16Vec3.
+  // @param vec U16Vec3 The vector to copy from.
+  // @return U16Vec3 value The new vector.
+
+  // @function U16Vec3
+  // @summary Initializes a new U16Vec3.
+  // @param x number First component.
+  // @param y number Second component.
+  // @param z number Third component.
+  // @return U16Vec3 value The new vector.
+  s["U16Vec3"] = sol::overload(
+      [](io_uint16_t s) -> io_u16vec3_t {
+        return {s, s, s};
+      },
+      [](const io_u16vec3_t& v) -> io_u16vec3_t {
+        return {v.x, v.y, v.z};
+      },
+      [](io_uint16_t x, io_uint16_t y, io_uint16_t z) -> io_u16vec3_t {
+        return {x, y, z};
+      });
+
+  // @type U8Vec3
+  // @summary A vector storing three unsigned integer components.
+  // @member x number
+  // @member y number
+  // @member z number
+  s.new_usertype<io_u8vec3_t>("U8Vec3", sol::no_constructor, "x",
+                              &io_u8vec3_t::x, "y", &io_u8vec3_t::y, "z",
+                              &io_u8vec3_t::z);
+
+  // @function U8Vec3
+  // @summary Initializes a new U8Vec3.
+  // @param x number The scalar value to set the components to.
+  // @return U8Vec3 value The new vector.
+
+  // @function U8Vec3
+  // @summary Initializes a new U8Vec3.
+  // @param vec U8Vec3 The vector to copy from.
+  // @return U8Vec3 value The new vector.
+
+  // @function U8Vec3
+  // @summary Initializes a new U8Vec3.
+  // @param x number First component.
+  // @param y number Second component.
+  // @param z number Third component.
+  // @return U8Vec3 value The new vector.
+  s["U8Vec3"] = sol::overload(
+      [](io_uint8_t s) -> io_u8vec3_t {
+        return {s, s, s};
+      },
+      [](const io_u8vec3_t& v) -> io_u8vec3_t {
+        return {v.x, v.y, v.z};
+      },
+      [](io_uint8_t x, io_uint8_t y, io_uint8_t z) -> io_u8vec3_t {
+        return {x, y, z};
+      });
+
   // @type Vec4
   // @summary A vector storing four floating point components.
   // @member x number
@@ -2156,33 +2228,34 @@ void script_init_state(sol::state& s)
     // @function set
     // @summary Sets the voxel to the given palette index.
     // @param component Ref The voxel shape component.
-    // @param coord UVec3 The coordinate of the voxel.
+    // @param coord U8Vec3 The coordinate of the voxel.
     // @param palette_index number The palette index to set.
     s["VoxelShape"]["set"] = io_component_voxel_shape->set;
     // @function set_unsafe
     // @summary Sets the voxel to the given palette index (without boundary checks).
     // @param component Ref The voxel shape component.
-    // @param coord UVec3 The coordinate of the voxel.
+    // @param coord U8Vec3 The coordinate of the voxel.
     // @param palette_index number The palette index to set.
     s["VoxelShape"]["set_unsafe"] = io_component_voxel_shape->set_unsafe;
     // @function get
     // @summary Gets the palette index for a voxel.
     // @param component Ref The voxel shape component.
-    // @param coord UVec3 The coordinate of the voxel.
+    // @param coord U8Vec3 The coordinate of the voxel.
     // @return number value The palette index of the given voxel.
     s["VoxelShape"]["get"] = io_component_voxel_shape->get;
     // @function fill
     // @summary Fills all voxels in the range defined by min and max.
     // @param component Ref The voxel shape component.
-    // @param min UVec3 The coordinate of the voxel.
-    // @param max UVec3 The coordinate of the voxel.
+    // @param min U8Vec3 The min voxel coorindate of the area.
+    // @param max U8Vec3 The max voxel coordinate of the area.
     // @param palette_index number The palette index to set.
     s["VoxelShape"]["fill"] = io_component_voxel_shape->fill;
     // @function get_dim
     // @summary Gets the dimensions of the shape in voxels.
     // @param component Ref The voxel shape component.
-    // @return UVec3 value The dimensions of the shape in voxels.
+    // @return U16Vec3 value The dimensions of the shape in voxels.
     s["VoxelShape"]["get_dim"] = io_component_voxel_shape->get_dim;
+
     // @function voxelize
     // @summary Queues this shape for voxelization
     // @param component Ref The voxel shape component.

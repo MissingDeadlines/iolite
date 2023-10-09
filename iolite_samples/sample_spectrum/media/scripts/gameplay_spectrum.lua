@@ -44,7 +44,7 @@ function UpdateSpectrum(spectrum, delta_t)
 
     -- Fill/color voxels along the height according to the amplitude
     for y = 1, 10 do
-      local pos = UVec3((x - 1) * 2 + 1, y - 1, 0)
+      local pos = U8Vec3((x - 1) * 2 + 1, y - 1, 0)
 
       local color = 0
       if y <= height then
@@ -126,7 +126,7 @@ function Tick(entity, delta_t)
       if cube.has_color and not (next_col == cube.col) then
         cube.col = next_col
 
-        VoxelShape.fill(shape, UVec3(1, 0, 1), UVec3(8, 9, 8), cube.col)
+        VoxelShape.fill(shape, U8Vec3(1, 0, 1), U8Vec3(8, 9, 8), cube.col)
         VoxelShape.voxelize(shape)
       end
 
