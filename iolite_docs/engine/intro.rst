@@ -108,7 +108,7 @@ initial_game_state
 
 These additional settings are available in the PRO version of IOLITE:
 
-show_splash_screen [PRO]
+show_splash_screen (PRO only)
    Set to ``false`` to disable the splash screen shown during startup.
-disable_pro_features [PRO]
+disable_pro_features (PRO only)
    Set to ``false`` to disable all features of IOLITE PRO.

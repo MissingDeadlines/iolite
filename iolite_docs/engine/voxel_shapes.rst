@@ -18,4 +18,4 @@ The following screenshot shows a single voxel shape which represents a cow chara
 
 Since shapes are relatively limited in space, large worlds must be built using compounds of shapes. For procedurally generated terrain, shapes can be used for rendering the world in chunks. This approach is utilized in many games, like, e.g. Minecraft. Depending on the style, characters can be built using more minor compounds of shapes. So, a single shape can be used for the head, one for the torso, and so on. Splitting characters into multiple pieces also allows you to animate the parts of the character separately.
 
-Splitting shapes also has the upside that it allows you to reduce the amount of wasted space to a minimum, which can influence the overall performance and memory usage. The following section discusses some best practices for using voxel shapes in IOLITE.
+Splitting shapes also has the upside that it allows you to reduce the amount of wasted space to a minimum, which can influence the overall performance and memory usage. This and more is explained in detail in the section :ref:`best_practices`.
