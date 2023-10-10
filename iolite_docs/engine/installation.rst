@@ -8,6 +8,8 @@ Installing portable builds
 
 Installing IOLITE is trivial. Simply download a release from the `landing page <https://iolite-engine.com>`_ or, if you have subscribed to IOLITE PRO, from the `subscriber area <https://iolite-engine.com/subscribers>`_ and unzip it. Finally, launch the IOLITE executable. That's it. 🙂 
 
+If you encounter an issue when running IOLITE, please consult the section :ref:`faq`. If you are unable to solve the issue, please follow the steps depicted in :ref:`reporting_issues`.
+
 Installing Flatpak builds
 -------------------------
 
@@ -36,4 +38,4 @@ Beta releases are released in between main releases for PRO subscribers. Please 
 .. important:: Beta releases are released more frequently and contain the latest features, but they can be a little less stable.
 
 - Please switch to the ``develop`` branch in our public GitHub repository and search for a tag matching the version of IOLITE you are using
-- Please ensure that you are using a matching version of the open source plugins. Due to potential API changes, there are separate plugin releases available for the beta versions of IOLITE
+- Please ensure that you are using a matching version of the open-source plugins. Due to potential API changes, there are separate plugin releases available for the beta versions of IOLITE

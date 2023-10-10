@@ -24,7 +24,7 @@ The engine core utilizes the concepts of game states to provide different isolat
 There are two of them available:
 
 - While pausing some underlying subsystems like, e.g., the physics simulation and scripts, the *editing game state* houses IOLITE's editor.
-- In contrast, the *main game state* ticks all gameplay-related subsystems and provides no editing functionality. This is state that is active when you want to test or ship your game.
+- In contrast, the *main game state* ticks all gameplay-related subsystems and provides no editing functionality. This is the state that is active when you want to test or, later on, ship your game.
 
 .. important::
 

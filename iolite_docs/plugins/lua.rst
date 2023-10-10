@@ -1,3 +1,5 @@
+.. _plugin_lua:
+
 🌝 Lua Scripting
 =================
 
@@ -10,7 +12,7 @@ Programming in Lua (First Edition)
 The Lua 5.1 Reference Manual
    https://www.lua.org/manual/5.1/
 
-  .. note:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`api_lua` documentation to quickly locate the functionality you are looking for.
+.. important:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`api_lua` documentation to quickly locate the functionality you are looking for.
 
 Lua runtime and libraries
 -------------------------

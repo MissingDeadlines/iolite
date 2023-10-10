@@ -17,8 +17,8 @@ This repository houses all public resources, like...
 
 - [C/C++ API](iolite_c_api)  
 Write native plugins in C or C++ or any other language that supports C bindings.
-- [Open Source Plugins](iolite_plugins)  
-Open source plugins, including the voxel editor, a terrain generator, and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
+- [Open-Source Plugins](iolite_plugins)  
+Open-source plugins, including the voxel editor, a terrain generator, and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
 - [Lua Samples](lua_samples)  
 Kick-start your journey with IOLITE.
 - [Issue tracker](https://github.com/MissingDeadlines/iolite/issues)  

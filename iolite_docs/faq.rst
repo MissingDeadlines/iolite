@@ -1,9 +1,13 @@
+.. _faq:
+
 ⁉️ Frequently asked questions
 =============================
 
 Here's a collection of frequently asked questions. Make sure to go through each one if you're encountering an issue. Chances are high that it is already known and documented here.
 
-.. note:: If you do not find the answer you are looking for, head to our `Discord community <https://discord.com/invite/SZjfhw7z75>`_ and raise the question there.
+.. _Discord community: https://discord.com/invite/SZjfhw7z75
+
+.. note:: If you do not find the answer you are looking for, head to our `Discord community`_ and raise the question there.
    
 What can I do with IOLITE? What is its license? Is it open-source software?
 ---------------------------------------------------------------------------
@@ -110,4 +114,13 @@ Deleting this directory can be used to reset IOLITE to its defaults.
 I would love to try writing a native plugin using the C/C++ API. Do I need IOLITE PRO?
 ----------------------------------------------------------------------------------------
 
-The API header file is publicly available via our `public GitHub repository <https://github.com/MissingDeadlines/iolite>`_. In addition, the free version can also load native plugins, so it's possible to evaluate this feature before deciding to subscribe. Loading non-factory plugins in the free version will trigger a small watermark.
+The API header file is publicly available via our `public GitHub repository <https://github.com/MissingDeadlines/iolite>`_. In addition, the free version can also load native plugins, so it's possible to evaluate this feature before deciding to subscribe. Loading non-factory plugins in the free version will trigger a watermark.
+
+.. _reporting_issues:
+
+I've encountered an issue that is not referenced in this FAQ. What should I do?
+-------------------------------------------------------------------------------
+
+.. _issue tracker: https://github.com/MissingDeadlines/iolite/issues
+
+Bugs and feature requests can be submitted via our `issue tracker`_. You should also consider joining our `Discord community`_ and raising it there. See you there! 👋
