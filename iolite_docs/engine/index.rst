@@ -10,6 +10,12 @@ This section covers some fundamentals of IOLITE's engine core, beginning by depi
   intro
   voxel_shapes
   palettes
-  best_practices
   components
-  subsystems/index
+
+  subsystems/physics
+  subsystems/particles
+  subsystems/post_processing
+  subsystems/sound
+  subsystems/ui
+
+  best_practices

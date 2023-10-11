@@ -63,4 +63,4 @@ The plugins can be built on any supported platform by either running `build_plug
 .. code-block:: bash
 
   $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-  $ cmake --build build --config Releas
+  $ cmake --build build --config Release

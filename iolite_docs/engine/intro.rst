@@ -45,6 +45,8 @@ A world is defined by its name, a single root node, and the hierarchy of nodes a
 
 Multiple worlds store the levels for your game, while another single world can house the scripts and logic for your menu screen. 
 
+.. _data_sources:
+
 Data sources and the app metadata file
 ======================================
 

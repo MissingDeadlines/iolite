@@ -1,3 +1,5 @@
+.. _api_c:
+
 Native C API
 ============
 

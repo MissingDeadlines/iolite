@@ -14,20 +14,21 @@ author = 'Missing Deadlines (Benjamin Wrensch)'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-  'sphinx_rtd_theme',
+    'sphinx_rtd_theme',
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'api/lua_generated.rst']
+exclude_patterns = ['_build', 'Thumbs.db',
+                    '.DS_Store', 'api/lua_generated.rst']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-  'logo_only': True, 
-  "display_version": False,
-  "collapse_navigation": False,
+    'logo_only': True,
+    "display_version": False,
+    "collapse_navigation": False,
 }
-html_logo = 'https://media.missing-deadlines.com/iolite/images/iolite_logo2.png'
+html_logo = '_static/images/logo.png'
 html_static_path = ['_static']

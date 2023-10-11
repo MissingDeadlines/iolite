@@ -65,6 +65,8 @@ Post Effect Volume
 
 Post effect volumes are used to add post effects to certain areas within the world. They are applied hierarchically based on their priority.
 
+.. _sound_component:
+
 Sound 
 -----
 
@@ -83,7 +85,7 @@ Can be used to add tags to entities. Entities can then be looked up based on the
 Text
 ----
 
-Use this component to render text at different positions in the world. Also serves as a great tools for adding notes in the world in the editor.
+Use this component to render text at different positions in the world. It's also useful for adding notes in the editor.
 
 .. _component_voxel_shape:
 
