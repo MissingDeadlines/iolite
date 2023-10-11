@@ -467,15 +467,17 @@ typedef io_uint8_t io_box_face_flags;
 //----------------------------------------------------------------------------//
 enum io_box_face_index_
 {
-  io_box_face_index_front,
-  io_box_face_index_back,
-  io_box_face_index_top,
-  io_box_face_index_bottom,
-  io_box_face_index_left,
-  io_box_face_index_right
+  io_box_face_index_front,  // Z + 1
+  io_box_face_index_back,   // Z - 1
+  io_box_face_index_top,    // Y + 1
+  io_box_face_index_bottom, // Y - 1
+  io_box_face_index_left,   // X - 1
+  io_box_face_index_right   // X + 1
 };
+typedef io_uint8_t io_box_face_index;
 
 // Flags for configuring properties for custom components
+//----------------------------------------------------------------------------//
 enum io_property_flags_
 {
   io_property_flags_runtime_only =
@@ -2163,9 +2165,15 @@ struct io_component_voxel_shape_i // NOLINT
   void (*set_unsafe)(io_ref_t shape, io_u8vec3_t coord,
                      io_uint8_t palette_index);
 
-  // Sets the fracture mask for the given voxel.
-  void (*set_fracture_mask)(io_ref_t shape, io_u8vec3_t coord,
-                            io_bool_t fracture);
+  // Marks the given voxel as fractured. Requires "support structures" to
+  // be enabled for the shape.
+  void (*fracture)(io_ref_t shape, io_u8vec3_t coord);
+  // Disconnects the given face of the voxel. Requires "support structures" to
+  // be enabled for the shape.
+  void (*disconnect)(io_ref_t shape, io_u8vec3_t coord, io_box_face_index face);
+  // Returns true if the face of the given voxel is connected to another voxel.
+  io_bool_t (*is_connected)(io_ref_t shape, io_u8vec3_t coord,
+                            io_box_face_index face);
 
   // Sets the volume defined by the min and max coordinate to the provided
   // palette index.
