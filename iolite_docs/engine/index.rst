@@ -11,7 +11,10 @@ This section covers some fundamentals of IOLITE's engine core, beginning by depi
   voxel_shapes
   palettes
   components
+   
+  rendering_overview
 
+  subsystems/lighting_and_gi
   subsystems/physics
   subsystems/particles
   subsystems/post_processing

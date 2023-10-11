@@ -46,7 +46,7 @@ To ensure that the whole shape is below the plane before it is destroyed, the sh
 Light
 -----
 
-Use this component to add lights to the scene.
+Use this component to add lights to the scene. More details can be found in the chapter :ref:`lighting_and_gi`.
 
 Mesh 
 ----

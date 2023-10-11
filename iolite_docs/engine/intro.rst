@@ -107,6 +107,8 @@ initial_world (String)
    The initial world to load after startup.
 initial_game_state (String)
    The initial game state to activate after startup. It can be either ``Editing`` for the editor or ``Main`` to start the application in game mode directly.
+disable_telemetry (Boolean)
+   Set this to ``true`` to disable the collection of anonymous telemetry data.
 
 These additional settings are available in the PRO version of IOLITE:
 

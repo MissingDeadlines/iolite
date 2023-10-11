@@ -3,15 +3,15 @@ Installing IOLITE
 
 This section guides you through IOLITE's simple installation process.
 
-Installing portable builds
---------------------------
+Installing portable builds (Windows and Linux)
+----------------------------------------------
 
 Installing IOLITE is trivial. Simply download a release from the `landing page <https://iolite-engine.com>`_ or, if you have subscribed to IOLITE PRO, from the `subscriber area <https://iolite-engine.com/subscribers>`_ and unzip it. Finally, launch the IOLITE executable. That's it. 🙂 
 
 If you encounter an issue when running IOLITE, please consult the section :ref:`faq`. If you are unable to solve the issue, please follow the steps depicted in :ref:`reporting_issues`.
 
-Installing Flatpak builds
--------------------------
+Installing Flatpak builds (Linux)
+---------------------------------
 
 In addition to the pre-packaged builds, IOLITE is available via our Flatpak repository. Flatpak builds provide automatic updates and also work on more uncommon Linux distributions. To add our repository as a remote, install IOLITE, and launch it, please perform the following steps:
 
