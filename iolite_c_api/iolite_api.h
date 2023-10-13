@@ -1657,11 +1657,24 @@ struct io_particle_system_i // NOLINT
 {
   // Spawns a particle emitter for the given effect.
   io_handle16_t (*spawn_particle_emitter)(const char* effect_name,
-                                          io_vec3_t pos,
+                                          io_vec3_t position,
                                           io_float32_t lifetime_in_seconds,
                                           io_bool_t adjust_spawn_rate);
+  // Despawns the given emitter.
+  void (*despawn_particle_emitter)(io_handle16_t emitter);
+
+  // Attaches the given emitter to the given node. Pass an invalid ref to detach
+  // it.
+  void (*attach_to_node)(io_handle16_t emitter, io_ref_t node);
+
   // Sets the spawn rate for the given emitter.
   void (*set_spawn_rate)(io_handle16_t emitter, io_float32_t spawn_rate);
+  // Sets the position for the given emitter.
+  void (*set_position)(io_handle16_t emitter, io_vec3_t position);
+  // Sets the scale for the given emitter.
+  void (*set_scale)(io_handle16_t emitter, float scale);
+  // Sets the scale for the given emitter.
+  void (*set_emission_direction)(io_handle16_t emitter, io_vec3_t direction);
 };
 
 //----------------------------------------------------------------------------//
