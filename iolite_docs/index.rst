@@ -16,6 +16,11 @@
 .. toctree::
   :hidden:
   
+  getting_started
+
+.. toctree::
+  :hidden:
+  
   engine/index
 
 .. toctree::
@@ -23,12 +28,6 @@
   
   editor/index
    
-
-.. toctree::
-  :hidden:
-  
-  guides
-
 .. toctree::
   :hidden:
   
