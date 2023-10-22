@@ -799,7 +799,7 @@ inline void io_init_scheduler_task(io_scheduler_task_t* task,
   task->callback = callback;
 }
 
-// Fixed time step accumulator.
+// Fixed time step accumulator
 //
 // Example usage:
 //
@@ -862,7 +862,7 @@ inline io_bool_t io_accumulator_step(io_fixed_step_accumulator_t* accumulator)
   return stepped;
 }
 
-// Returns the minimum of x and y
+// Returns the minimum of x and y.
 //----------------------------------------------------------------------------//
 inline io_uint32_t io_min(io_uint32_t x, io_uint32_t y)
 {
@@ -871,7 +871,7 @@ inline io_uint32_t io_min(io_uint32_t x, io_uint32_t y)
   return y;
 }
 
-// Returns the maximum of x and y
+// Returns the maximum of x and y.
 //----------------------------------------------------------------------------//
 inline io_uint32_t io_max(io_uint32_t x, io_uint32_t y)
 {
@@ -898,7 +898,7 @@ inline io_uint32_t io_hash(const char* data)
 //   Please note that the given string is not being internalized when using
 //   this function, hence it won't be possible to request the string for this
 //   name. Please use the name related functions provided by the "io_base_t"
-//   interface to ensure string internalization
+//   interface to ensure string internalization.
 //----------------------------------------------------------------------------//
 inline io_name_t io_to_name(const char* string)
 {
@@ -911,7 +911,7 @@ inline io_name_t io_to_name(const char* string)
 // Interface types and typedefs
 //----------------------------------------------------------------------------//
 
-// Called when a change to a file was detected
+// Called when a change to a file was detected.
 //----------------------------------------------------------------------------//
 typedef void (*io_filesystem_on_file_changed_function)(const char* filename);
 
@@ -1014,8 +1014,8 @@ typedef struct
 //----------------------------------------------------------------------------//
 
 // Physics contact event data
-// Event type name: "physics_contact"
-// Reported by callback: "on_physics_events"
+//   Event type name:       "physics_contact"
+//   Reported by callback:  "on_physics_events"
 //----------------------------------------------------------------------------//
 typedef struct
 {
@@ -1024,8 +1024,8 @@ typedef struct
 } io_events_data_physics_contact_t;
 
 // Voxel shape fracture event data
-// Event type name: "shape_fractured"
-// Reported by callback: "on_shape_events"
+//   Event type name:       "shape_fractured"
+//   Reported by callback:  "on_shape_events"
 //----------------------------------------------------------------------------//
 typedef struct
 {
@@ -1033,8 +1033,8 @@ typedef struct
 } io_events_data_shape_fractured_t;
 
 // Voxel shape voxelization completed event data
-// Event type name: "shape_voxelization_completed"
-// Reported by callback: "on_shape_events"
+//   Event type name:       "shape_voxelization_completed"
+//   Reported by callback:  "on_shape_events"
 //----------------------------------------------------------------------------//
 typedef struct
 {
@@ -1113,8 +1113,9 @@ struct io_user_task_i // NOLINT
 #define IO_USER_DEBUG_VIEW_API_NAME "io_user_debug_view_i"
 //----------------------------------------------------------------------------//
 
-// Interface for providing custom debug views via Dear ImGui. Debug views can be
-// cycled through via the F1 key by default in the editor and the game mode
+// Interface for providing custom debug views via Dear ImGui
+//   Debug views can be cycled through via the F1 key by default in the editor
+//   and the game mode
 //----------------------------------------------------------------------------//
 struct io_user_debug_view_i // NOLINT
 {
@@ -1360,7 +1361,7 @@ struct io_base_i // NOLINT
   // ImGui::SetAllocatorFunctions().
   void (*imgui_get_allocator_functions)(void** alloc_func, void** free_func);
 
-  // Memory management. Provides a TLSF-backed, thread safe allocator which
+  // Memory management. Provides a TLSF-backed, thread-safe allocator which
   // features allocation tracking.
 
   // Allocates a memory area with the given size.
@@ -1401,7 +1402,7 @@ struct io_logging_i // NOLINT
 #define IO_EDITOR_API_NAME "io_editor_i"
 //----------------------------------------------------------------------------//
 
-// Provides access to the editor.
+// Provides access to the editor
 //----------------------------------------------------------------------------//
 struct io_editor_i // NOLINT
 {
@@ -1728,6 +1729,30 @@ struct io_physics_i // NOLINT
 };
 
 //----------------------------------------------------------------------------//
+#define IO_PHYSX_API_NAME "io_physx_i"
+//----------------------------------------------------------------------------//
+
+// Provides direct access to the internal low-level PhysX data structures
+//    Use this if you want to directly utilize PhysX in your plugin to add
+//    custom behavior and functionality
+//----------------------------------------------------------------------------//
+struct io_physx_i // NOLINT
+{
+  // Returns the ptr to the global physx::PxPhysics instance.
+  void* (*get_px_physics)();
+  // Returns the ptr to the global physx::PxScene instance.
+  void* (*get_px_scene)();
+
+  // Returns the ptr to the physx::PxRigidActor instance for the given shape.
+  // Please note the following:
+  //     1. The actor can be *NULL* for shapes with pending voxelization or
+  //     disabled collision.
+  //     2. The actor is replaced after the voxelization for a shape finishes
+  //     and the previous one becomes *invalid*.
+  void* (*get_px_rigid_actor_for_shape)(io_ref_t shape);
+};
+
+//----------------------------------------------------------------------------//
 #define IO_DEBUG_GEOMETRY_API_NAME "io_debug_geometry_i"
 //----------------------------------------------------------------------------//
 
@@ -1794,6 +1819,7 @@ struct io_sound_i // NOLINT
   io_handle64_t (*play_sound_effect)(const char* effect_name);
   // Stops the given sound effect.
   void (*stop_sound_effect)(io_handle64_t effect_handle);
+
   // Sets the position of the given sound effect.
   void (*set_position)(io_handle64_t effect_handle, io_vec3_t position);
 
@@ -1899,11 +1925,9 @@ struct io_entity_i // NOLINT
                                   io_uint32_t* entities_length);
 };
 
-// Shared component interface
-//----------------------------------------------------------------------------//
-
-// Base interface all components provide.
+// Base interface all components provide
 //   *Not all functions are provided by all components*
+//----------------------------------------------------------------------------//
 typedef struct
 {
   // Returns the type ID for this type of component.
@@ -2325,11 +2349,9 @@ struct io_component_particle_i // NOLINT
   io_handle16_t (*get_emitter_handle)(io_ref_t particle);
 };
 
-// Shared resource interface
-//----------------------------------------------------------------------------//
-
-// Base interface all resources provide.
+// Base interface all resources provide
 //   *Not all functions are provided by all resources*
+//----------------------------------------------------------------------------//
 typedef struct
 {
   // Returns the type ID for this type of resource.
@@ -2379,7 +2401,7 @@ typedef struct
 #define IO_RESOURCE_PALETTE_API_NAME "io_resource_palette_i"
 //----------------------------------------------------------------------------//
 
-// Provides access to palette resources.
+// Provides access to palette resources
 //----------------------------------------------------------------------------//
 struct io_resource_palette_i // NOLINT
 {
