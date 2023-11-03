@@ -151,7 +151,7 @@ inline static void srand(io_u8vec3_t coord)
 }
 
 //----------------------------------------------------------------------------//
-inline static auto rand(uint64_t& seed) -> uint64_t
+inline static auto rand(uint64_t& seed = rng_seed) -> uint64_t
 {
   seed ^= seed << 13;
   seed ^= seed >> 7;
@@ -160,7 +160,8 @@ inline static auto rand(uint64_t& seed) -> uint64_t
 }
 
 //----------------------------------------------------------------------------//
-inline static auto rand_float(float min, float max, uint64_t& seed) -> float
+inline static auto rand_float(float min, float max, uint64_t& seed = rng_seed)
+    -> float
 {
   return uint32_t(rand(seed)) /
              static_cast<float>(std::numeric_limits<uint32_t>::max()) *
@@ -177,7 +178,7 @@ struct palette_range_t
   inline auto get_palette_index() const -> int32_t
   {
     const int32_t range = index_end - index_start + 1;
-    return index_start + common::rand(rng_seed) % range;
+    return index_start + common::rand() % range;
   }
 };
 

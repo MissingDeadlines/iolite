@@ -332,6 +332,11 @@ void show_editing_toolbar()
                               editing_tools::tool_shape_box);
           show_tooltip("Box shape.");
 
+          ImGui::SetNextItemWidth(-1.0f);
+          ImGui::SliderFloat("###shape_density", &current_tool_params.density,
+                             0.0f, 1.0f);
+          show_tooltip("The density of the shape.");
+
           ImGui::PushItemWidth(tb_button_size.x * 3.0f +
                                ImGui::GetStyle().ItemInnerSpacing.x * 4.0f);
 

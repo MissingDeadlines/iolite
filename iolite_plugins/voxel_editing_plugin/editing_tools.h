@@ -85,6 +85,7 @@ struct tool_parameters_t
 {
   io_ivec3_t extent_box{1, 1, 1};
   int32_t extent_sphere{1};
+  float density{1.0f};
   tool_t tool{tool_modify};
   placement_mode_t placement_mode{placement_mode_attach};
   tool_shape_t tool_shape{tool_shape_voxel_box};
@@ -201,6 +202,9 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
   {
     common::srand(result.coord);
 
+    // Easier to tweak
+    const float density2 = params.density * params.density;
+
     if (params.tool_shape == tool_shape_voxel_box)
     {
       const auto offset = io_ivec3_t{
@@ -212,6 +216,10 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
         for (uint32_t y = 0u; y < params.extent_box.y; ++y)
           for (uint32_t x = 0u; x < params.extent_box.x; ++x)
           {
+            const float r = common::rand_float(0.0f, 1.0f);
+            if (density2 < r)
+              continue;
+
             uint8_t value = params.palette_range.get_palette_index() + 1u;
             if (params.placement_mode == placement_mode_erase)
               value = 0u;
@@ -231,6 +239,10 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
         for (uint32_t y = 0u; y < extent; ++y)
           for (uint32_t x = 0u; x < extent; ++x)
           {
+            const float r = common::rand_float(0.0f, 1.0f);
+            if (density2 < r)
+              continue;
+
             const auto coord = glm::vec3{x - radius + 0.5f, y - radius + 0.5f,
                                          z - radius + 0.5f} /
                                radius;
@@ -564,8 +576,8 @@ static void handle_tool_grass(io_ref_t shape, tool_parameters_t& params)
           uint8_t x, y, z, palette_index;
           sparse_volume_t::unpack(entry.data, x, y, z, &palette_index);
 
-          const float r = common::rand_float(0.0f, 1.0f, rng_seed);
-          const float h = common::rand_float(0.0f, 1.0f, rng_seed);
+          const float r = common::rand_float(0.0f, 1.0f);
+          const float h = common::rand_float(0.0f, 1.0f);
 
           if (params.face_palette_fill)
             palette_index = params.palette_range.get_palette_index() + 1;
