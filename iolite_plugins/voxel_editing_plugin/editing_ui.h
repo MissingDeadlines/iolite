@@ -27,6 +27,7 @@
 #include "undo_redo.h"
 #include "editing.h"
 #include "editing_tools.h"
+#include "editing_generators.h"
 
 namespace editing_ui
 {
@@ -280,6 +281,14 @@ void show_editing_toolbar()
                             current_tool_params.tool,
                             editing_tools::tool_grass);
         show_tooltip("Grass: Grass tool. Behaves similar to the extrude tool.");
+
+        static bool tree_generator_visible = false;
+        SAME_LINE_GROUP();
+        if (ImGui::Button(ICON_FA_TREE "###tree_generator", tb_button_size))
+          tree_generator_visible = !tree_generator_visible;
+        show_tooltip("Tree Generator: Quickly generate trees.");
+
+        editing_generators::tree_generator::show_ui(tree_generator_visible);
       }
 
       if (current_tool_params.tool == editing_tools::tool_modify ||
