@@ -58,8 +58,8 @@ function SpawnPrefab(name, distance, force, torque)
   Node.set_world_position(node, spawn_pos)
   Node.update_transforms(node)
 
-  VoxelShape.apply_force(shape, Math.vec_scale(force, dir))
-  VoxelShape.apply_torque(shape, Vec3(torque, torque, 0.0))
+  VoxelShape.add_force(shape, Math.vec_scale(force, dir))
+  VoxelShape.add_torque(shape, Vec3(torque, torque, 0.0))
 end
 
 -- Helper function for grabbing voxel shapes in the scene
@@ -83,7 +83,7 @@ function GrabVoxelShape(delta_t)
 
   -- Search for a new shape if we have not found one yet
   if not GrabShape then
-    local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0)
+    local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0, -1)
 
     if Ref.is_valid(hit_entity) then
       GrabShape = VoxelShape.get_component_for_entity(hit_entity)
@@ -121,7 +121,7 @@ function GrabVoxelShape(delta_t)
     local force = Math.vec_scale(Math.min(dist_to_grab_pos, scale_dist) * force_factor, to_grab_pos)
 
     -- Finally apply the force
-    VoxelShape.apply_force_at_local_position(GrabShape, force, GrabPosLS)
+    VoxelShape.add_force_at_local_position(GrabShape, force, GrabPosLS)
   end
 end
 
@@ -327,8 +327,8 @@ function OnEvent(entity, events)
 
       if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
         -- Apply damage
-        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], 1, GrenadeMaxHardness)
-        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, 2, GrenadeMaxHardness)
+        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], -1, 1, GrenadeMaxHardness)
+        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, -1, 2, GrenadeMaxHardness)
         ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
 
         local explosion_sound = Sound.play_sound_effect("sp_explosion")

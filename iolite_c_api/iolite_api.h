@@ -1623,7 +1623,8 @@ struct io_world_i // NOLINT
 
   // Applies radius damage with the given parameters at the given position.
   void (*radius_damage)(io_vec3_t pos, io_float32_t radius,
-                        io_world_radius_damage_flags flags, float max_hardness);
+                        io_world_radius_damage_flags flags,
+                        io_uint32_t group_mask, float max_hardness);
 
   // Calculates a ray from the current camera position to the position of the
   // mouse.
@@ -1716,15 +1717,18 @@ struct io_physics_i // NOLINT
 
   // Performs a sphere overlap test.
   io_physics_overlap_result_t (*overlap_sphere)(io_vec3_t position,
-                                                io_float32_t radius);
+                                                io_float32_t radius,
+                                                io_uint32_t group_mask);
   // Performs a sphere sweep test in the given direction.
   io_physics_raycast_result_t (*sweep_sphere)(io_vec3_t position,
                                               io_float32_t radius,
                                               io_vec3_t direction,
-                                              io_float32_t distance);
+                                              io_float32_t distance,
+                                              io_uint32_t group_mask);
   // Performs a raycast.
   io_physics_raycast_result_t (*raycast)(io_vec3_t origin, io_vec3_t direction,
-                                         io_float32_t distance);
+                                         io_float32_t distance,
+                                         io_uint32_t group_mask);
 };
 
 //----------------------------------------------------------------------------//
@@ -2256,29 +2260,30 @@ struct io_component_voxel_shape_i // NOLINT
   // Performs a raycast again all shapes in the world. *All parameters* beside
   // the origin, direction, and distance are *optional*.
   io_bool_t (*raycast_global)(io_vec3_t origin, io_vec3_t direction,
-                              io_float32_t distance,
+                              io_float32_t distance, io_uint32_t group_mask,
                               io_component_voxel_shape_raycast_result_t* result,
                               const io_ref_t* shapes_to_ignore,
                               io_uint32_t shapes_to_ignore_length);
   // Performs a sphere overlap test against all shapes in the world and returns
   // all candidates.
   void (*overlap_sphere_global)(io_vec3_t position, io_float32_t radius,
+                                io_uint32_t group_mask,
                                 io_ref_t* overlapping_shapes,
                                 io_uint32_t* overlapping_shapes_length);
 
   // Physics related functions
 
   // Applies the given force vector at the center of mass.
-  void (*apply_force)(io_ref_t shape, io_vec3_t force);
+  void (*add_force)(io_ref_t shape, io_vec3_t force);
   // Applies the given torque vector at the center of mass.
-  void (*apply_torque)(io_ref_t shape, io_vec3_t torque);
+  void (*add_torque)(io_ref_t shape, io_vec3_t torque);
 
   // Applies the given force vector at the given world position.
-  void (*apply_force_at_world_position)(io_ref_t shape, io_vec3_t force,
-                                        io_vec3_t position);
+  void (*add_force_at_world_position)(io_ref_t shape, io_vec3_t force,
+                                      io_vec3_t position);
   // Applies the given force vector at the given world position.
-  void (*apply_force_at_local_position)(io_ref_t shape, io_vec3_t force,
-                                        io_vec3_t position);
+  void (*add_force_at_local_position)(io_ref_t shape, io_vec3_t force,
+                                      io_vec3_t position);
 
   // Sets the linear velocity of this shape.
   void (*set_linear_velocity)(io_ref_t shape, io_vec3_t velocity);

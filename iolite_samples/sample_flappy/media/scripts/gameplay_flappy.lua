@@ -94,7 +94,7 @@ end
 function KillBird(pos)
   -- Apply radius damage, spawn particles, play sound, and end game
   ParticleSystem.spawn_particle_emitter("flappy_explosion", pos, 0.1, true)
-  World.radius_damage(pos, 0.5, 2, 0)
+  World.radius_damage(pos, 0.5, -1, 2, 0)
   State = "End"
   TimePassed = 0.0
   Sound.play_sound_effect("flappy_die")
@@ -132,7 +132,7 @@ function UpdateStateGame()
   -- Push the bird upwards on flap
   local _, bird_shape, bird_node = GetBird()
   if GetFlap() then
-    VoxelShape.apply_force(bird_shape, Vec3(0.0, 200.0, 0.0))
+    VoxelShape.add_force(bird_shape, Vec3(0.0, 200.0, 0.0))
   end
 
   local bird_pos = Node.get_world_position(bird_node)
@@ -165,7 +165,7 @@ function UpdateStateStart()
     -- Get the bird moving. Without damping, it will continue
     -- moving in this direction indefinitely
     local _, bird_shape = GetBird()
-    VoxelShape.apply_force(bird_shape, Vec3(-100.0, 0.0, 0.0))
+    VoxelShape.add_force(bird_shape, Vec3(-100.0, 0.0, 0.0))
 
     State = "Game"
   end

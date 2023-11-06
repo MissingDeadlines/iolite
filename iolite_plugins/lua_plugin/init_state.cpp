@@ -1802,7 +1802,8 @@ void script_init_state(sol::state& s)
     // @summary Applies damage to all voxel shapes in the given radius in the world.
     // @param position Vec3 The position.
     // @param radius number The radius.
-    // @param flags number The flags to use. Bit 1: Shade voxels around the impact area, Bit 2: Apply as fracturing.
+    // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
+    // @param flags number The flags to use. Bit 1: Shade voxels around the impact area. Bit 2: Fracture (instead of removing damaged voxels).
     // @param max_hardness number Limits which voxels this damage operation can affect based on the hardness material parameter.
     s["World"]["radius_damage"] = io_world->radius_damage;
 
@@ -2173,10 +2174,11 @@ void script_init_state(sol::state& s)
     // @summary Performs a sphere overlap test against the physics geometry.
     // @param position Vec3 The position of the sphere in world coordinates.
     // @param radius number The radius of the sphere.
+    // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
     // @return boolean hit True if a blocking hit is detected.
     // @return Ref hit_entity The blocking entity. Invalid ref if no hit was detected.
-    s["Physics"]["overlap_sphere"] = [](io_vec3_t pos, io_float32_t radius) {
-      auto result = io_physics->overlap_sphere(pos, radius);
+    s["Physics"]["overlap_sphere"] = [](io_vec3_t pos, io_float32_t radius, io_uint32_t group_mask) {
+      auto result = io_physics->overlap_sphere(pos, radius, group_mask);
       return std::make_tuple(result.hit, result.entity);
     };
     // @function sweep_sphere
@@ -2185,13 +2187,14 @@ void script_init_state(sol::state& s)
     // @param radius number The radius of the sphere.
     // @param direction Vec3 The direction to perform the sweep test in.
     // @param distance number The distance to sweep.
+    // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
     // @return boolean hit True if a blocking hit is detected.
     // @return number hit_distance The distance to the hit.
     // @return Vec3 hit_position The position of the hit.
     // @return Vec3 hit_normal The normal of the hit.
     // @return Ref hit_entity The blocking entity. Invalid ref if no hit was detected.
-    s["Physics"]["sweep_sphere"] = [](io_vec3_t pos, io_float32_t radius, io_vec3_t dir, io_float32_t dist) {
-      auto result = io_physics->sweep_sphere(pos, radius, dir, dist);
+    s["Physics"]["sweep_sphere"] = [](io_vec3_t pos, io_float32_t radius, io_vec3_t dir, io_float32_t dist, io_uint32_t group_mask) {
+      auto result = io_physics->sweep_sphere(pos, radius, dir, dist, group_mask);
       return std::make_tuple(result.hit, result.distance, result.position, result.normal, result.entity);
     };
     // @function raycast
@@ -2199,13 +2202,14 @@ void script_init_state(sol::state& s)
     // @param ray_origin Vec3 The origin of the ray in world coordinates.
     // @param ray_direction Vec3 The direction of ray.
     // @param ray_distance number The maximum distance the ray should travel.
+    // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
     // @return boolean hit True if a blocking hit is detected.
     // @return number hit_distance The distance to the hit.
     // @return Vec3 hit_position The position of the hit.
     // @return Vec3 hit_normal The normal of the hit.
     // @return Ref hit_entity The blocking entity. Invalid ref if no hit was detected.
-    s["Physics"]["raycast"] = [](io_vec3_t pos, io_vec3_t dir, io_float32_t dist) {
-      auto result = io_physics->raycast(pos, dir, dist);
+    s["Physics"]["raycast"] = [](io_vec3_t pos, io_vec3_t dir, io_float32_t dist, io_uint32_t group_mask) {
+      auto result = io_physics->raycast(pos, dir, dist, group_mask);
       return std::make_tuple(result.hit, result.distance, result.position, result.normal, result.entity);
     };
 
@@ -2553,30 +2557,30 @@ void script_init_state(sol::state& s)
     // @param component Ref The voxel shape component.
     s["VoxelShape"]["voxelize"] = io_component_voxel_shape->voxelize;
 
-    // @function apply_force_at_world_position
+    // @function add_force_at_world_position
     // @summary Applies a force at the given world position.
     // @param component Ref The voxel shape component.
     // @param force Vec3 The force vector to apply.
     // @param position Vec3 The position to apply the force at (world coordinates).
-    s["VoxelShape"]["apply_force_at_world_position"] =
-        io_component_voxel_shape->apply_force_at_world_position;
-    // @function apply_force_at_local_position
+    s["VoxelShape"]["add_force_at_world_position"] =
+        io_component_voxel_shape->add_force_at_world_position;
+    // @function add_force_at_local_position
     // @summary Applies a force at the given local position.
     // @param component Ref The voxel shape component.
     // @param force Vec3 The force vector to apply.
     // @param position Vec3 The position to apply the force at (local coordinates).
-    s["VoxelShape"]["apply_force_at_local_position"] =
-        io_component_voxel_shape->apply_force_at_local_position;
-    // @function apply_force
+    s["VoxelShape"]["add_force_at_local_position"] =
+        io_component_voxel_shape->add_force_at_local_position;
+    // @function add_force
     // @summary Applies a force at the center of mass.
     // @param component Ref The voxel shape component.
     // @param force Vec3 The force vector to apply.
-    s["VoxelShape"]["apply_force"] = io_component_voxel_shape->apply_force;
-    // @function apply_torque
+    s["VoxelShape"]["add_force"] = io_component_voxel_shape->add_force;
+    // @function add_torque
     // @summary Applies a torque at the center of mass.
     // @param component Ref The voxel shape component.
     // @param torque Vec3 The torque vector to apply.
-    s["VoxelShape"]["apply_torque"] = io_component_voxel_shape->apply_torque;
+    s["VoxelShape"]["add_torque"] = io_component_voxel_shape->add_torque;
 
     // @function get_linear_velocity
     // @summary Gets the linear velocity of the shape.
