@@ -243,6 +243,19 @@ void script_tick(sol::state& state, io_float32_t delta_t, io_ref_t entity)
                         state["__ScriptName"].get<const char*>());
 }
 
+//----------------------------------------------------------------------------//
+void script_tick_physics(sol::state& state, io_float32_t delta_t,
+                         io_ref_t entity)
+{
+  if (!scripts_active || !state["__ScriptIsActive"].get<bool>())
+    return;
+
+  sol::protected_function tick = state["TickPhysics"];
+  if (tick.valid())
+    SOL_VALIDATE_RESULT(tick(entity, delta_t),
+                        state["__ScriptName"].get<const char*>());
+}
+
 // TODO
 //----------------------------------------------------------------------------//
 void script_tick_async(sol::state& state, io_float32_t delta_t, io_ref_t entity)
@@ -360,6 +373,20 @@ static void on_tick_scripts(io_float32_t delta_t,
     internal::script_tick_async(*state, delta_t, scripts->entities[i]);
     internal::script_update(*state, delta_t, scripts->entities[i],
                             scripts->update_intervals[i]);
+  }
+
+  internal::execute_queued_actions();
+}
+
+//----------------------------------------------------------------------------//
+static void on_tick_scripts_physics(io_float32_t delta_t,
+                                    const io_user_script_batch_t* scripts,
+                                    io_uint32_t scripts_length)
+{
+  for (uint32_t i = 0u; i < scripts_length; ++i)
+  {
+    auto* state = (sol::state*)scripts->user_datas[i];
+    internal::script_tick_physics(*state, delta_t, scripts->entities[i]);
   }
 
   internal::execute_queued_actions();
@@ -508,6 +535,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
     io_user_script.on_init_script = on_init_script;
     io_user_script.on_destroy_script = on_destroy_script;
     io_user_script.on_tick_scripts = on_tick_scripts;
+    io_user_script.on_tick_scripts_physics = on_tick_scripts_physics;
   }
   io_api_manager->register_api(IO_USER_SCRIPT_API_NAME, &io_user_script);
 

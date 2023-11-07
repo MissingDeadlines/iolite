@@ -1106,6 +1106,10 @@ struct io_user_task_i // NOLINT
 
   // Called every frame when the game mode is active.
   void (*on_tick)(io_float32_t delta_t);
+  // Called zero or multiple times when the game mode is active.
+  //   Please note that the physics scene is advanced at a fixed rate, so the
+  //   provided delta time is *constant*.
+  void (*on_tick_physics)(io_float32_t delta_t);
 };
 
 //----------------------------------------------------------------------------//
@@ -1210,6 +1214,13 @@ struct io_user_script_i // NOLINT
   void (*on_tick_scripts)(io_float32_t delta_t,
                           const io_user_script_batch_t* scripts,
                           io_uint32_t scripts_length);
+  // Called when the given scripts should be ticked (zero or multiple times per
+  // frame).
+  //   Please note that the physics scene is advanced at a fixed rate, so the
+  //   provided delta time is *constant*.
+  void (*on_tick_scripts_physics)(io_float32_t delta_t,
+                                  const io_user_script_batch_t* scripts,
+                                  io_uint32_t scripts_length);
   // Called when the given scripts should be activated.
   void (*on_activate_scripts)(const io_user_script_batch_t* scripts,
                               io_uint32_t scripts_length);
