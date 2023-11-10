@@ -89,6 +89,9 @@ extern const io_component_character_controller_i*
     io_component_character_controller;
 extern const io_component_camera_controller_i* io_component_camera_controller;
 extern const io_component_particle_i* io_component_particle;
+extern const io_component_vehicle_i* io_component_vehicle;
+extern const io_component_vehicle_wheel_i* io_component_vehicle_wheel;
+extern const io_component_joint_i* io_component_joint;
 
 // Custom data types
 //----------------------------------------------------------------------------//

@@ -59,6 +59,9 @@ const io_component_character_controller_i* io_component_character_controller =
     {};
 const io_component_camera_controller_i* io_component_camera_controller = {};
 const io_component_particle_i* io_component_particle = {};
+const io_component_vehicle_i* io_component_vehicle = {};
+const io_component_vehicle_wheel_i* io_component_vehicle_wheel = {};
+const io_component_joint_i* io_component_joint = {};
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
@@ -522,6 +525,14 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_component_particle =
       (const io_component_particle_i*)io_api_manager->find_first(
           IO_COMPONENT_PARTICLE_API_NAME);
+  io_component_vehicle =
+      (const io_component_vehicle_i*)io_api_manager->find_first(
+          IO_COMPONENT_VEHICLE_API_NAME);
+  io_component_vehicle_wheel =
+      (const io_component_vehicle_wheel_i*)io_api_manager->find_first(
+          IO_COMPONENT_VEHICLE_WHEEL_API_NAME);
+  io_component_joint = (const io_component_joint_i*)io_api_manager->find_first(
+      IO_COMPONENT_JOINT_API_NAME);
 
   // Factory plugin intefaces
   io_plugin_terrain = (const io_plugin_terrain_i*)io_api_manager->find_first(

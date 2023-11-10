@@ -2849,6 +2849,61 @@ void script_init_state(sol::state& s)
 
   };
 
+  s["Vehicle"] = s.create_table();
+  s["Vehicle"]["load"] = [&s]() {
+
+    SHARED_COMPONENT_INTERFACE_IMPL(s["Vehicle"], io_component_vehicle);
+
+    // @namespace Vehicle
+    // @category Vehicle_Component Functions to interact with vehicles.
+    // @copy_category Interface
+
+  };
+
+  s["VehicleWheel"] = s.create_table();
+  s["VehicleWheel"]["load"] = [&s]() {
+
+    SHARED_COMPONENT_INTERFACE_IMPL(s["VehicleWheel"], io_component_vehicle_wheel);
+
+    // @namespace VehicleWheel
+    // @category Vehicle_Wheel_Component Functions to interact with vehicle wheels.
+    // @copy_category Interface
+
+    // @function set_steering_angle
+    // @summary Sets the steering angle.
+    // @param component Ref The wheel in question.
+    // @param steering_angle number The steering angle in radians.
+    s["VehicleWheel"]["set_steering_angle"] = io_component_vehicle_wheel->set_steering_angle;
+    // @function get_steering_angle
+    // @summary Returns the steering angle.
+    // @param component Ref The wheel in question.
+    // @return number value The steering angle in radians.
+    s["VehicleWheel"]["get_steering_angle"] = io_component_vehicle_wheel->get_steering_angle;
+
+    // @function set_torque
+    // @summary Sets the torque.
+    // @param component Ref The wheel in question.
+    // @param torque number The torque (as revolutions per second).
+    s["VehicleWheel"]["set_torque"] = io_component_vehicle_wheel->set_torque;
+    // @function get_torque
+    // @summary Returns the torque.
+    // @param component Ref The wheel in question.
+    // @return number value The torque (as revolutions per second).
+    s["VehicleWheel"]["get_torque"] = io_component_vehicle_wheel->get_torque;
+
+  };
+
+  s["Joint"] = s.create_table();
+  s["Joint"]["load"] = [&s]() {
+
+    SHARED_COMPONENT_INTERFACE_IMPL(s["Joint"], io_component_joint);
+
+    // @namespace Joint
+    // @category Joint_Component Functions to interact with vehicles.
+    // @copy_category Interface
+
+  };
+
   s["CameraController"] = s.create_table();
   s["CameraController"]["load"] = [&s]() {
 

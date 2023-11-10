@@ -2308,6 +2308,52 @@ struct io_component_voxel_shape_i // NOLINT
 };
 
 //----------------------------------------------------------------------------//
+#define IO_COMPONENT_VEHICLE_API_NAME "io_component_vehicle_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to vehicle components
+//----------------------------------------------------------------------------//
+struct io_component_vehicle_i // NOLINT
+{
+  // Base interface functions.
+  io_component_base_i base;
+};
+
+//----------------------------------------------------------------------------//
+#define IO_COMPONENT_VEHICLE_WHEEL_API_NAME "io_component_vehicle_wheel_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to vehicle wheel components
+//----------------------------------------------------------------------------//
+struct io_component_vehicle_wheel_i // NOLINT
+{
+  // Base interface functions.
+  io_component_base_i base;
+
+  // Sets the torque (revolutions per second).
+  void (*set_torque)(io_ref_t vehicle_wheel, float torque);
+  // Gets the torque (revolutions per second).
+  float (*get_torque)(io_ref_t vehicle_wheel);
+
+  // Sets the steering angle (in radians).
+  void (*set_steering_angle)(io_ref_t vehicle_wheel, float steering_angle);
+  // Gets the steering angle (in radians).
+  float (*get_steering_angle)(io_ref_t vehicle_wheel);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_COMPONENT_JOINT_API_NAME "io_component_joint_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to joint components
+//----------------------------------------------------------------------------//
+struct io_component_joint_i // NOLINT
+{
+  // Base interface functions.
+  io_component_base_i base;
+};
+
+//----------------------------------------------------------------------------//
 #define IO_COMPONENT_CHARACTER_CONTROLLER_API_NAME                             \
   "io_component_character_controller_i"
 //----------------------------------------------------------------------------//
