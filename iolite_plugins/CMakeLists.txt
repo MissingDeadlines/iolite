@@ -28,6 +28,10 @@ list(APPEND PLUGINS IoliteLuaPlugin)
 target_compile_definitions(IoliteLuaPlugin PUBLIC SOL_LUAJIT=1 SOL_ALL_SAFETIES_ON=1)
 target_link_libraries(IoliteLuaPlugin ${LUA_JIT_LIBRARIES})
 
+if(MSVC)
+  target_compile_options(IoliteLuaPlugin PUBLIC "/bigobj")
+endif()
+
 # Terrain plugin
 add_library(IoliteTerrainPlugin SHARED
   terrain_plugin/terrain_plugin.cpp
