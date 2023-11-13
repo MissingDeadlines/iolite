@@ -10,26 +10,6 @@ Installing IOLITE is trivial. Simply download a release from the `landing page <
 
 If you encounter an issue when running IOLITE, please consult the section :ref:`faq`. If you are unable to solve the issue, please follow the steps depicted in :ref:`reporting_issues`.
 
-Installing Flatpak builds (Linux)
----------------------------------
-
-In addition to the pre-packaged builds, IOLITE is available via our Flatpak repository. Flatpak builds provide automatic updates and also work on more uncommon Linux distributions. To add our repository as a remote, install IOLITE, and launch it, please perform the following steps:
-
-.. code-block:: bash
-
-  $ flatpak --user --no-gpg-verify remote-add md https://media.missing-deadlines.com/iolite/flatpak
-  $ flatpak --user install md com.missing_deadlines.IOLITE
-  $ flatpak run com.missing_deadlines.IOLITE
-  $ # All data is stored in ~/.var/app/com.missing_deadlines.IOLITE/data/
-  
-Installing also adds a shortcut to IOLITE to your favorite launcher. After that, you can update IOLITE like any other Flatpak application:
-
-.. code-block:: bash
-
-  $ flatpak --user update com.missing_deadlines.IOLITE
-
-In contrast to the portable builds, the Flatpak builds are also shipped with all the latest samples from the GitHub repository.
-
 Beta releases (PRO only)
 ------------------------
 
