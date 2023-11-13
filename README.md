@@ -9,7 +9,7 @@ A highly flexible, voxel-powered game engine with an embedded editor. Create gam
 
 [![Documentation Status](https://readthedocs.org/projects/iolite-voxel-game-engine/badge/?version=latest)](https://docs.iolite-engine.com/en/latest/?badge=latest)
 
-![Screenshot of IOLITE v0.4 which is currently in beta. The forest sample scene has been created solely using the editor and the new voxel editing plugin. The characters were created using MagicaVoxel and can be directly used as assets.](media/screenshot.jpg?raw=true)
+![The forest sample scene has been created solely using the editor and the new voxel editing plugin. The characters were created using MagicaVoxel and can be directly used as assets.](media/screenshot.jpg?raw=true)
 
 ## Overview
 
@@ -36,17 +36,6 @@ Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the 
 
 - Download the [latest Windows build](https://iolite-engine.com/api/download_windows)
 - Download the [latest Linux build](https://iolite-engine.com/api/download_linux) (tested on Ubuntu 22.04 LTS and the latest SteamOS)
-
-If you'd like to receive automatic updates, or if you're using another Linux distribution, give our Flatpak builds a try:
-
-```shell
-$ flatpak --user --no-gpg-verify remote-add md https://media.missing-deadlines.com/iolite/flatpak
-$ flatpak --user install md com.missing_deadlines.IOLITE
-$ flatpak run com.missing_deadlines.IOLITE
-$ # All data is stored in ~/.var/app/com.missing_deadlines.IOLITE/data/
-```
-
-Flatpak builds come with all samples from this repository preinstalled.
 
 ## Support this project with IOLITE PRO
 
