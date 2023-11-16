@@ -29,6 +29,14 @@
 #include <chrono>
 
 //----------------------------------------------------------------------------//
+enum remove_mode_
+{
+  remove_mode_solid,
+  remove_mode_non_solid,
+};
+using remove_mode_t = uint8_t;
+
+//----------------------------------------------------------------------------//
 template <bool UseMortonEncoding = false> struct sparse_occupancy_mask_t
 {
   struct mask_t
@@ -185,7 +193,7 @@ struct sparse_volume_t
     }
   }
 
-  void remove_non_solid_voxels(io_ref_t shape)
+  template <remove_mode_t Mode> void remove_voxels(io_ref_t shape)
   {
     const auto data = io_component_voxel_shape->get_voxel_data(shape);
     const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -203,8 +211,17 @@ struct sparse_volume_t
 
       const uint32_t index =
           coord.x + coord.y * dim.x + coord.z * dim.x * dim.y;
-      if (data[index] == 0u)
-        continue;
+
+      if constexpr (Mode == remove_mode_non_solid)
+      {
+        if (data[index] == 0u)
+          continue;
+      }
+      else if constexpr (Mode == remove_mode_solid)
+      {
+        if (data[index] != 0u)
+          continue;
+      }
 
       updated_volume.set(coord, palette_index, dim);
     }

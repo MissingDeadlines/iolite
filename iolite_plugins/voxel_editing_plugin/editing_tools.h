@@ -342,7 +342,9 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
       params.placement_mode == placement_mode_paint ||
       params.placement_mode == placement_mode_erase;
   if (solid_voxels_only)
-    voxels.remove_non_solid_voxels(shape);
+    voxels.remove_voxels<remove_mode_non_solid>(shape);
+  else
+    voxels.remove_voxels<remove_mode_solid>(shape);
 
   // Apply mirroring (if any)
   mirror(shape, params, voxels);
@@ -588,7 +590,7 @@ static void handle_tool_extrude(io_ref_t shape, tool_parameters_t& params,
     {
       voxels_extruded =
           voxels_extruded.prepare_fill(shape, params.palette_range);
-      voxels_extruded.remove_non_solid_voxels(shape);
+      voxels_extruded.remove_voxels<remove_mode_non_solid>(shape);
     }
 
     if (!is_left_mouse_buttom_pressed())
@@ -939,7 +941,10 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
   mirror(shape, params, voxels);
 
   if (solid_voxels_only)
-    voxels.remove_non_solid_voxels(shape);
+    voxels.remove_voxels<remove_mode_non_solid>(shape);
+  else
+    voxels.remove_voxels<remove_mode_solid>(shape);
+
   if (is_selection)
     voxels.update_from_shape(shape);
 
