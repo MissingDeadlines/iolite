@@ -278,7 +278,7 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
 
             const uint8_t value =
                 params.placement_mode != placement_mode_erase
-                    ? (params.palette_range.get_palette_index() + 1u)
+                    ? (params.palette_range.get_random_palette_index() + 1u)
                     : 0u;
             voxels.set(offset.x + x, offset.y + y, offset.z + z, value, dim);
           }
@@ -327,7 +327,7 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
               continue;
 
             uint8_t palette_index =
-                params.palette_range.get_palette_index() + 1u;
+                params.palette_range.get_random_palette_index() + 1u;
             if (params.placement_mode == placement_mode_erase)
               palette_index = 0u;
 
@@ -657,7 +657,7 @@ static void handle_tool_grass(io_ref_t shape, tool_parameters_t& params)
           const float h = common::rand_float(0.0f, 1.0f);
 
           if (params.face_palette_fill)
-            palette_index = params.palette_range.get_palette_index() + 1;
+            palette_index = params.palette_range.get_random_palette_index() + 1;
 
           if (r > params.tool_grass_density)
             continue;
@@ -826,7 +826,8 @@ static void handle_tool_eyedropper(io_ref_t shape, tool_parameters_t& params)
       uint8_t x, y, z, palette_index;
       sparse_volume_t::unpack(voxels.entries.front().data, x, y, z,
                               &palette_index);
-      params.palette_range = {palette_index - 1, palette_index - 1};
+      params.palette_range = {io_uint8_t(palette_index - 1u),
+                              io_uint8_t(palette_index - 1u)};
     }
   }
 
@@ -916,7 +917,7 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
         {
           const uint8_t palette_index =
               (!should_erase && !is_selection)
-                  ? params.palette_range.get_palette_index() + 1u
+                  ? params.palette_range.get_random_palette_index() + 1u
                   : 0u;
           voxels.set(x, y, z, palette_index, dim);
         }

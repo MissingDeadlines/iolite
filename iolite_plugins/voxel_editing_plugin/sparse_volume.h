@@ -416,7 +416,7 @@ struct sparse_volume_t
 
       const uint32_t index =
           coord.x + coord.y * dim.x + coord.z * dim.x * dim.y;
-      const auto palette_index = range.get_palette_index() + 1u;
+      const auto palette_index = range.get_random_palette_index() + 1u;
 
       if (data[index] != palette_index || force_identical_voxels)
         change.set(coord, palette_index, dim);

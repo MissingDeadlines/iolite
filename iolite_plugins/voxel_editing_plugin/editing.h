@@ -54,7 +54,7 @@ static void global_full(io_ref_t shape, const palette_range_t& range)
     {
       for (uint32_t x = 0u; x < dim.x; ++x)
       {
-        const auto value = (uint8_t)range.get_palette_index() + 1u;
+        const auto value = range.get_random_palette_index() + 1u;
         if (*write_ptr != value)
         {
           change.set(x, y, z, *write_ptr, dim);
@@ -83,7 +83,7 @@ static void global_fill(io_ref_t shape, const palette_range_t& range)
     {
       for (uint32_t x = 0u; x < dim.x; ++x)
       {
-        const auto value = (uint8_t)range.get_palette_index() + 1u;
+        const auto value = range.get_random_palette_index() + 1u;
         if (*write_ptr != 0u && *write_ptr != value)
         {
           change.set(x, y, z, *write_ptr, dim);
@@ -112,7 +112,7 @@ static void global_invert(io_ref_t shape, const palette_range_t& range)
     {
       for (uint32_t x = 0u; x < dim.x; ++x)
       {
-        const auto value = (uint8_t)range.get_palette_index() + 1u;
+        const auto value = range.get_random_palette_index() + 1u;
         if (*write_ptr != 0u)
         {
           change.set(x, y, z, *write_ptr, dim);
@@ -131,7 +131,7 @@ static void global_invert(io_ref_t shape, const palette_range_t& range)
 }
 
 //----------------------------------------------------------------------------//
-static void global_erase(io_ref_t shape) { global_full(shape, {-1, -1}); };
+static void global_erase(io_ref_t shape) { global_full(shape, {255u}); };
 
 //----------------------------------------------------------------------------//
 template <bool_op_t op>

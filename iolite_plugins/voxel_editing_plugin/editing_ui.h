@@ -48,7 +48,7 @@ void show_palette_index_picker(io_ref_t palette, palette_range_t& range,
   }
 
   const auto current_color =
-      io_resource_palette->get_color(palette, range.index_start);
+      io_resource_palette->get_color(palette, range.get_first_palette_index());
 
   bool should_scroll = false;
   if (ImGui::ColorButton("###color", to_imgui(current_color), 0, button_size))
@@ -67,7 +67,7 @@ void show_palette_index_picker(io_ref_t palette, palette_range_t& range,
       if (i % 4u != 0u)
         ImGui::SameLine();
 
-      const bool is_current = i >= range.index_start && i <= range.index_end;
+      const bool is_current = range.has_palette_index(i);
       if (is_current)
       {
         // Highlight picked color
@@ -86,13 +86,9 @@ void show_palette_index_picker(io_ref_t palette, palette_range_t& range,
       if (ImGui::ColorButton("###button", to_imgui(color)))
       {
         if (!ImGui::GetIO().KeyShift)
-          range.index_start = range.index_end = i;
+          range = {(uint8_t)i};
         else
-          range.index_end = i;
-
-        // Ensure start <= end
-        if (range.index_start > range.index_end)
-          std::swap(range.index_start, range.index_end);
+          range.add_or_remove_palette_index(i);
       }
 
       if (is_current)
@@ -205,8 +201,8 @@ void show_editing_toolbar()
       show_palette_index_picker(palette, current_tool_params.palette_range,
                                 tb_button_size);
       show_tooltip(
-          "The color or color range for the editing operations. Press "
-          "[SHIFT] while picking a color to select a range of colors.");
+          "The color or color selection for the editing operations. Press "
+          "[SHIFT] to add or remove colors to/from the selection.");
       ImGui::EndDisabled();
     }
 

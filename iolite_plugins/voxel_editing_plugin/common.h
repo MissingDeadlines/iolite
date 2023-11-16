@@ -173,13 +173,59 @@ inline static auto rand_float(float min, float max, uint64_t& seed = rng_seed)
 //----------------------------------------------------------------------------//
 struct palette_range_t
 {
-  int32_t index_start{0}, index_end{0};
-
-  inline auto get_palette_index() const -> int32_t
+  inline palette_range_t() { palette_indices.emplace_back(0u); }
+  inline palette_range_t(io_uint8_t palette_index)
   {
-    const int32_t range = index_end - index_start + 1;
-    return index_start + common::rand() % range;
+    palette_indices.emplace_back(palette_index);
   }
+  inline palette_range_t(io_uint8_t palette_index_start,
+                         io_uint8_t palette_index_end)
+  {
+    for (io_uint8_t idx = palette_index_start; idx <= palette_index_end; ++idx)
+      palette_indices.emplace_back(idx);
+  }
+
+  inline auto add_or_remove_palette_index(io_uint8_t palette_index)
+  {
+    // Remove if the index exists
+    for (auto it = palette_indices.begin(); it != palette_indices.end(); ++it)
+    {
+      if (*it == palette_index)
+      {
+        // Always keep at least one index
+        if (palette_indices.size() > 1u)
+          palette_indices.erase(it);
+
+        return;
+      }
+    }
+
+    // Insert otherwise
+    palette_indices.emplace_back(palette_index);
+  }
+
+  inline auto has_palette_index(uint8_t palette_index) const -> bool
+  {
+    for (auto idx : palette_indices)
+    {
+      if (idx == palette_index)
+        return true;
+    }
+
+    return false;
+  }
+
+  inline auto get_first_palette_index() const -> io_uint8_t
+  {
+    return palette_indices.front();
+  }
+
+  inline auto get_random_palette_index() const -> io_uint8_t
+  {
+    return palette_indices[common::rand() % palette_indices.size()];
+  }
+
+  std::vector<io_uint8_t> palette_indices;
 };
 
 //----------------------------------------------------------------------------//
