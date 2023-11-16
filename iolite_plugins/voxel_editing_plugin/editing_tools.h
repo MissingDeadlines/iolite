@@ -83,12 +83,12 @@ using face_type_t = int32_t;
 //----------------------------------------------------------------------------//
 struct tool_parameters_t
 {
-  io_ivec3_t extent_box{1, 1, 1};
-  int32_t extent_sphere{1};
+  int32_t extent{1};
   float density{1.0f};
   tool_t tool{tool_modify};
   placement_mode_t placement_mode{placement_mode_attach};
   tool_shape_t tool_shape{tool_shape_voxel_box};
+  bool tool_shape_is_3d{true};
 
   region_neighborhood_t region_neighborhood{region_neighborhood_6};
   region_type_t region_type{region_type_region};
@@ -207,45 +207,122 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
 
     if (params.tool_shape == tool_shape_voxel_box)
     {
-      const auto offset = io_ivec3_t{
-          (int32_t)glm::ceil(result.coord.x - params.extent_box.x * 0.5f),
-          (int32_t)glm::ceil(result.coord.y - params.extent_box.y * 0.5f),
-          (int32_t)glm::ceil(result.coord.z - params.extent_box.z * 0.5f)};
+      auto offset = io_ivec3_t{result.coord.x, result.coord.y, result.coord.z};
+      auto extent = io_ivec3_t{params.extent, params.extent, params.extent};
 
-      for (uint32_t z = 0u; z < params.extent_box.z; ++z)
-        for (uint32_t y = 0u; y < params.extent_box.y; ++y)
-          for (uint32_t x = 0u; x < params.extent_box.x; ++x)
+      if (!params.tool_shape_is_3d)
+      {
+        if (glm::abs(result.normal.x) > 1e-6f)
+        {
+          extent.x = 1;
+
+          offset.y -= glm::floor(extent.y * 0.5f);
+          offset.z -= glm::floor(extent.z * 0.5f);
+        }
+        else if (glm::abs(result.normal.y) > 1e-6f)
+        {
+          extent.y = 1;
+
+          offset.x -= glm::floor(extent.x * 0.5f);
+          offset.z -= glm::floor(extent.z * 0.5f);
+        }
+        else if (glm::abs(result.normal.z) > 1e-6f)
+        {
+          extent.z = 1;
+
+          offset.x -= glm::floor(extent.x * 0.5f);
+          offset.y -= glm::floor(extent.y * 0.5f);
+        }
+      }
+      else
+      {
+        const bool invert_shift =
+            params.placement_mode == placement_mode_attach;
+
+        if (glm::abs(result.normal.x) > 1e-6f)
+        {
+          float shift = glm::step(0.0f, result.normal.x);
+          shift = invert_shift ? (1.0f - shift) : shift;
+
+          offset.x -= shift * (extent.x - 1);
+          offset.y -= glm::floor(extent.y * 0.5f);
+          offset.z -= glm::floor(extent.z * 0.5f);
+        }
+        else if (glm::abs(result.normal.y) > 1e-6f)
+        {
+          float shift = glm::step(0.0f, result.normal.y);
+          shift = invert_shift ? (1.0f - shift) : shift;
+
+          offset.x -= glm::floor(extent.x * 0.5f);
+          offset.y -= shift * (extent.y - 1);
+          offset.z -= glm::floor(extent.z * 0.5f);
+        }
+        else if (glm::abs(result.normal.z) > 1e-6f)
+        {
+          float shift = glm::step(0.0f, result.normal.z);
+          shift = invert_shift ? (1.0f - shift) : shift;
+
+          offset.x -= glm::floor(extent.x * 0.5f);
+          offset.y -= glm::floor(extent.y * 0.5f);
+          offset.z -= shift * (extent.z - 1);
+        }
+      }
+
+      for (int32_t z = 0u; z < extent.z; ++z)
+        for (int32_t y = 0u; y < extent.y; ++y)
+          for (int32_t x = 0u; x < extent.x; ++x)
           {
             const float r = common::rand_float(0.0f, 1.0f);
             if (density2 < r)
               continue;
 
-            uint8_t value = params.palette_range.get_palette_index() + 1u;
-            if (params.placement_mode == placement_mode_erase)
-              value = 0u;
+            const uint8_t value =
+                params.placement_mode != placement_mode_erase
+                    ? (params.palette_range.get_palette_index() + 1u)
+                    : 0u;
             voxels.set(offset.x + x, offset.y + y, offset.z + z, value, dim);
           }
     }
     else if (params.tool_shape == tool_shape_voxel_sphere)
     {
-      const auto extent = params.extent_sphere;
-      const auto radius = extent * 0.5f;
-      const auto offset =
-          io_ivec3_t{(int32_t)glm::ceil(result.coord.x - radius),
-                     (int32_t)glm::ceil(result.coord.y - radius),
-                     (int32_t)glm::ceil(result.coord.z - radius)};
+      auto extent = io_ivec3_t{params.extent, params.extent, params.extent};
+      const auto radius = params.extent * 0.5f;
+      auto offset = io_ivec3_t{(int32_t)glm::ceil(result.coord.x - radius),
+                               (int32_t)glm::ceil(result.coord.y - radius),
+                               (int32_t)glm::ceil(result.coord.z - radius)};
 
-      for (uint32_t z = 0u; z < extent; ++z)
-        for (uint32_t y = 0u; y < extent; ++y)
-          for (uint32_t x = 0u; x < extent; ++x)
+      if (!params.tool_shape_is_3d)
+      {
+        if (glm::abs(result.normal.x) > 1e-6f)
+        {
+          extent.x = 1;
+          offset.x = result.coord.x;
+        }
+        else if (glm::abs(result.normal.y) > 1e-6f)
+        {
+          extent.y = 1;
+          offset.y = result.coord.y;
+        }
+        else if (glm::abs(result.normal.z) > 1e-6f)
+        {
+          extent.z = 1;
+          offset.z = result.coord.z;
+        }
+      }
+
+      const glm::vec3 radius_final = {extent.x * 0.5f, extent.y * 0.5f,
+                                      extent.z * 0.5f};
+
+      for (uint32_t z = 0u; z < extent.z; ++z)
+        for (uint32_t y = 0u; y < extent.y; ++y)
+          for (uint32_t x = 0u; x < extent.x; ++x)
           {
             const float r = common::rand_float(0.0f, 1.0f);
             if (density2 < r)
               continue;
 
-            const auto coord = glm::vec3{x - radius + 0.5f, y - radius + 0.5f,
-                                         z - radius + 0.5f} /
-                               radius;
+            const auto coord =
+                (glm::vec3(x, y, z) - radius_final + 0.5f) / radius;
             if (glm::length(coord) >= 1.0f)
               continue;
 

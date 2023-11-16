@@ -340,20 +340,15 @@ void show_editing_toolbar()
           ImGui::PushItemWidth(tb_button_size.x * 3.0f +
                                ImGui::GetStyle().ItemInnerSpacing.x * 4.0f);
 
-          if (current_tool_params.tool_shape ==
-              editing_tools::tool_shape_voxel_box)
-          {
-            ImGui::DragInt3("###extent_box", &current_tool_params.extent_box.x,
-                            1.0f, 1, 32);
-            show_tooltip("The extent of the box (in voxels).");
-          }
-          else if (current_tool_params.tool_shape ==
-                   editing_tools::tool_shape_voxel_sphere)
-          {
-            ImGui::DragInt("###extent_sphere",
-                           &current_tool_params.extent_sphere, 1.0f, 1, 32);
-            show_tooltip("The extent of the sphere (in voxels).");
-          }
+          toggle_button("3D", tb_button_size,
+                        current_tool_params.tool_shape_is_3d);
+          show_tooltip("Whether to use a 2D or 3D shape.");
+
+          ImGui::SameLine();
+
+          ImGui::SetNextItemWidth(-1.0f);
+          ImGui::DragInt("###extent", &current_tool_params.extent, 1.0f, 1, 32);
+          show_tooltip("The extent of the shape (in voxels).");
 
           ImGui::PopItemWidth();
         }
