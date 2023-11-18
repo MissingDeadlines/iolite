@@ -43,6 +43,9 @@
 #define IO_USER_QUAT_TYPE glm::quat
 #define IO_USER_UVEC2_TYPE glm::uvec2
 #define IO_USER_UVEC3_TYPE glm::uvec3
+#define IO_USER_U8VEC3_TYPE glm::u8vec3
+#define IO_USER_U16VEC3_TYPE glm::u16vec3
+#define IO_USER_IVEC3_TYPE glm::ivec3
 #define IO_USER_UVEC4_TYPE glm::uvec4
 #define IO_API_IMPLEMENTATION
 #include "iolite_api.h"

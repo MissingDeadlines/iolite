@@ -16,10 +16,13 @@ jobs:
           cd iolite_plugins
           cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
           cmake --build build --config Release
+          python update_build_metadata.py ${{ secrets.IOLITE_PLUGIN_SALT }}
       - name : "Archive plugins"
         uses: actions/upload-artifact@v3
         with:
           name: plugins
           path: |
             iolite_plugins/linux/*.so
+            iolite_plugins/linux/*.json
             iolite_plugins/windows/*.dll
+            iolite_plugins/windows/*.json

@@ -2250,6 +2250,39 @@ void script_init_state(sol::state& s)
     // @param max U8Vec3 The max voxel coordinate of the area.
     // @param palette_index number The palette index to set.
     s["VoxelShape"]["fill"] = io_component_voxel_shape->fill;
+    // @function copy
+    // @summary Copies the given source shape into the target shape.
+    // @param target Ref The target voxel shape component.
+    // @param source Ref The source voxel shape component.
+    // clang-format on
+    s["VoxelShape"]["copy"] = [](io_ref_t target, io_ref_t source) {
+      const auto target_dim = io_cvt(io_component_voxel_shape->get_dim(target));
+      const auto source_dim = io_cvt(io_component_voxel_shape->get_dim(source));
+
+      const auto target_data = io_component_voxel_shape->get_voxel_data(target);
+      const auto source_data = io_component_voxel_shape->get_voxel_data(source);
+
+      const auto copy_dim = glm::min(target_dim, source_dim);
+
+      for (uint32_t z = 0u; z < copy_dim.z; ++z)
+      {
+        const uint32_t szo = z * source_dim.x * source_dim.y;
+        const uint32_t tzo = z * target_dim.x * target_dim.y;
+
+        for (uint32_t y = 0u; y < copy_dim.y; ++y)
+        {
+          const uint32_t syo = y * source_dim.x;
+          const uint32_t tyo = y * target_dim.x;
+          const uint32_t syzo = syo + szo;
+          const uint32_t tyzo = tyo + tzo;
+
+          for (uint32_t x = 0u; x < copy_dim.x; ++x)
+            target_data[x + tyzo] = source_data[x + syzo];
+        }
+      }
+    };
+    // clang-format off
+
     // @function get_dim
     // @summary Gets the dimensions of the shape in voxels.
     // @param component Ref The voxel shape component.
