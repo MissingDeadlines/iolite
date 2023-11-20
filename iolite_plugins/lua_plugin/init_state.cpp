@@ -250,7 +250,7 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 void script_init_state(sol::state& s)
 {
   s.open_libraries(sol::lib::base, sol::lib::coroutine, sol::lib::string,
-                   sol::lib::table);
+                   sol::lib::table, sol::lib::bit32);
 
   s["__ScriptIsActive"] = false;
 
