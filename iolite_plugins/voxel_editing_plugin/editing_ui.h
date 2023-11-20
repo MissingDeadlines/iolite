@@ -71,7 +71,8 @@ void show_palette_index_picker(io_ref_t palette, palette_range_t& range,
       if (is_current)
       {
         // Highlight picked color
-        ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_Border,
+                              ImGui::GetColorU32(ImGuiCol_ButtonHovered));
         ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 1.0f);
 
         // Scroll to current once when the popup got opened
@@ -127,15 +128,13 @@ inline static void toggle_button(const char* label, ImVec2 size, bool& state)
 //----------------------------------------------------------------------------//
 inline static void show_tooltip(const char* tooltip)
 {
-  if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayShort |
-                           ImGuiHoveredFlags_AllowWhenDisabled))
+  if (ImGui::BeginItemTooltip())
   {
-    ImGui::SetNextWindowSize(ImVec2(150, -1));
-    if (ImGui::BeginTooltip())
-    {
-      ImGui::TextWrapped("%s", tooltip);
-      ImGui::EndTooltip();
-    }
+    ImGui::PushTextWrapPos(150.0f);
+    ImGui::Text("%s", tooltip);
+    ImGui::PopTextWrapPos();
+
+    ImGui::EndTooltip();
   }
 }
 
