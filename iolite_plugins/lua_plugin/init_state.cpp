@@ -206,6 +206,27 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 // @param ref Ref The ref of the component.
 // @return number value The type ID of the component.
 
+// @function create
+// @summary Creates a new component and attaches it to the provided parent entity.
+// @param parent_entity Ref The parent entity.
+
+// @function destroy
+// @summary Destroys the provided component.
+// @param component Ref The component to destroy.
+
+// @function commit_changes
+// @summary Commits all changes to the properties of the provided component.
+// @param component Ref The component to update.
+
+// @function get_num_active_components
+// @summary Returns the total number of active components of this type.
+// @return number value Total total number of active components of this type.
+
+// @function get_component_for_entity
+// @summary Returns the component for the given entity.
+// @param ref Ref The ref of the entity.
+// @return Ref value The component for the given entity.
+
 // @function is_alive
 // @summary Returns true if the referenced component is alive.
 // @param ref Ref The ref of the component.
@@ -215,15 +236,6 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 // @summary Returns the entity the component is assigned to.
 // @param ref Ref The ref of the component.
 // @return Ref value The entity the component is assigned to.
-
-// @function get_component_for_entity
-// @summary Returns the component for the given entity.
-// @param ref Ref The ref of the entity.
-// @return Ref value The component for the given entity.
-
-// @function list_properties
-// @summary Lists all properties exposed by this component interface.
-// @return table value Table containing the names and types of all the exposed properties.
 
 // @function get_property
 // @summary Returns the requested property as a variant.
@@ -236,6 +248,10 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 // @param ref Ref The ref of the component.
 // @param property_name string The name of the property to set.
 // @param value Variant The value to set.
+
+// @function list_properties
+// @summary Lists all properties exposed by this component interface.
+// @return table value Table containing the names and types of all the exposed properties.
 
 // @namespace Interface
 // @category Interface Dummy category.
@@ -2068,6 +2084,11 @@ void script_init_state(sol::state& s)
   };
 
 #define SHARED_COMPONENT_INTERFACE_IMPL(t_, i_)                                \
+  t_["get_type_id"] = i_->base.get_type_id;                                    \
+  t_["create"] = i_->base.create;                                              \
+  t_["destroy"] = i_->base.destroy;                                            \
+  t_["commit_changes"] = i_->base.commit_changes;                              \
+  t_["get_num_active_components"] = i_->base.get_num_active_components;        \
   t_["get_component_for_entity"] = i_->base.get_component_for_entity;          \
   t_["is_alive"] = i_->base.is_alive;                                          \
   t_["get_entity"] = i_->base.get_entity;                                      \
