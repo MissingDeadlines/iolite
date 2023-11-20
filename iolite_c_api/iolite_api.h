@@ -561,10 +561,7 @@ typedef io_uint32_t io_ui_style_var;
 //----------------------------------------------------------------------------//
 enum io_world_radius_damage_flags_
 {
-  io_radius_damage_flags_shade_crater =
-      0x01u, // Shade the crater around the area affected by the radius damage
-  io_radius_damage_flags_fracture =
-      0x02u // Apply radius damage as fracture damage
+  io_radius_damage_flags_fracture = 0x01u // Apply as fracture
 };
 typedef io_uint32_t io_world_radius_damage_flags;
 

@@ -1803,7 +1803,7 @@ void script_init_state(sol::state& s)
     // @param position Vec3 The position.
     // @param radius number The radius.
     // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
-    // @param flags number The flags to use. Bit 1: Shade voxels around the impact area. Bit 2: Fracture (instead of removing damaged voxels).
+    // @param flags number The flags to use.
     // @param max_hardness number Limits which voxels this damage operation can affect based on the hardness material parameter.
     s["World"]["radius_damage"] = io_world->radius_damage;
 
