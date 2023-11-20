@@ -139,23 +139,21 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
                 cats_to_copy.clear()
 
 # Sort categories, function, and types
-api = sorted(api, key=lambda x: x["name"])
+# api = sorted(api, key=lambda x: x["name"])
 
 # Delete hidden categories now
 api[:] = [x for x in api if not "hidden" in x or not x["hidden"]]
 
-for cat in api:
+# for cat in api:
 
-    if "functions" in cat:
-        cat["functions"] = sorted(cat["functions"], key=lambda x: x["name"])
-    if "types" in cat:
-        cat["types"] = sorted(cat["types"], key=lambda x: x["name"])
+#     if "functions" in cat:
+#         cat["functions"] = sorted(cat["functions"], key=lambda x: x["name"])
+#     if "types" in cat:
+#         cat["types"] = sorted(cat["types"], key=lambda x: x["name"])
 
-json_output = json.dumps({"api": api}, indent=2)
-
-# Write the API as a JSON file for inspection
+# Write out as JSON
 with open("api/lua.json", "w") as f:
-    f.write(json_output)
+    f.write(json.dumps({"api": api}, indent=2))
 
 # Generate the actual API documentation
 with open("api/lua_generated.rst", "w") as f:
