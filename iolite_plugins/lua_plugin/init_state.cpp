@@ -203,7 +203,7 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 
 // @function get_type_id
 // @summary Returns the type ID of the component.
-// @param ref Ref The ref of the component.
+// @param component Ref The component.
 // @return number value The type ID of the component.
 
 // @function create
@@ -224,28 +224,28 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 
 // @function get_component_for_entity
 // @summary Returns the component for the given entity.
-// @param ref Ref The ref of the entity.
+// @param entity Ref The entity.
 // @return Ref value The component for the given entity.
 
 // @function is_alive
 // @summary Returns true if the referenced component is alive.
-// @param ref Ref The ref of the component.
+// @param component Ref The component.
 // @return boolean value True if the component is alive.
 
 // @function get_entity
 // @summary Returns the entity the component is assigned to.
-// @param ref Ref The ref of the component.
+// @param component Ref The component.
 // @return Ref value The entity the component is assigned to.
 
 // @function get_property
 // @summary Returns the requested property as a variant.
-// @param ref Ref The ref of the component.
+// @param component Ref The component.
 // @param property_name string The name of the property to retrieve.
 // @return Variant value The property as a variant.
 
 // @function set_property
 // @summary Sets the requested property to the provided variant value.
-// @param ref Ref The ref of the component.
+// @param component Ref The component.
 // @param property_name string The name of the property to set.
 // @param value Variant The value to set.
 
@@ -2503,6 +2503,7 @@ void script_init_state(sol::state& s)
     // @namespace CharacterController
     // @category Character_Controller_Component Functions to interact with character controllers.
     // @copy_category Interface
+    // @copy_category Components
 
     // @function move
     // @summary Moves the character controller.
