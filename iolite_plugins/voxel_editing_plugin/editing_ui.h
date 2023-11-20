@@ -200,8 +200,8 @@ void show_editing_toolbar()
       show_palette_index_picker(palette, current_tool_params.palette_range,
                                 tb_button_size);
       show_tooltip(
-          "The color or color selection for the editing operations. Press "
-          "[SHIFT] to add or remove colors to/from the selection.");
+          "The color or color selection for the editing operations.\nHold "
+          "[SHIFT] to add/remove colors to/from the selection.");
       ImGui::EndDisabled();
     }
 
