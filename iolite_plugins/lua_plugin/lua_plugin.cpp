@@ -408,7 +408,7 @@ static void on_physics_events(const io_events_header_t* begin,
                              contact->impulse}});
     }
 
-    event = io_events_get_next(event, end);
+    event = io_events_get_next(event);
   }
 
   for (auto& script : script_instances)

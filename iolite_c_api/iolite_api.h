@@ -1067,8 +1067,7 @@ inline const void* io_events_get_data(const io_events_header_t* current)
 
 //----------------------------------------------------------------------------//
 inline const io_events_header_t*
-io_events_get_next(const io_events_header_t* current,
-                   const io_events_header_t* end)
+io_events_get_next(const io_events_header_t* current)
 {
   const io_events_header_t* next =
       (io_events_header_t*)((io_uint8_t*)current + sizeof(io_events_header_t) +
