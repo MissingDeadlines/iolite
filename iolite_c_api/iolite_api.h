@@ -62,7 +62,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 // The major, minor, and bug fix parts of the IOLITE API version
 //----------------------------------------------------------------------------//
 #define IO_API_VERSION_MAJOR 0
-#define IO_API_VERSION_MINOR 4
+#define IO_API_VERSION_MINOR 5
 #define IO_API_VERSION_BUGFIX 0
 
 // The version of the IOLITE API as a single number
