@@ -530,7 +530,7 @@ struct sparse_volume_t
       if (palette_index > 0u)
         color = io_resource_palette->get_color(palette, palette_index - 1u);
 
-      constexpr float inflate = 0.001f;
+      constexpr float inflate = 0.01f;
       if (!disable_solids)
       {
         io_debug_geometry->draw_solid_box(
