@@ -67,18 +67,28 @@ This is the counterpart to ``onActivate`` and is called once when the script bec
   function Tick(entity, delta_t)
   end
 
-Called precisely once each rendered frame.
+Called precisely once each rendered frame. The delta time equals the time that has passed since the last call to this function.
 
 Use this function for functionality that has a visual effect, like updating the final position of a character or a projectile, for example. It's also the right spot to react to the user's input as quickly as possible.
 
 In general, it's wise to keep the workload in this function to a minimum and, e.g., implement actual gameplay and AI logic in the ``OnUpdate`` callback function at a lower frequency. The results computed at the lower frequency can then be interpolated in this function to achieve visually pleasing results.
+
+
+.. code-block:: lua
+
+  function TickPhysics(entity, delta_t)
+  end
+
+Called zero or multiple times per frame. The delta time equals the *fixed* delta time used for stepping the physics simulation.
+
+This function is executed in lockstep with the physics simulation. Use this function to implement functionality that interacts with the physics simulation. Don't use this to modify the visual state, or you'll quickly run into visual stutter.
 
 .. code-block:: lua
 
   function Update(entity, delta_t)
   end
 
-Called exactly once at the interval specified in the script component.
+Called each time the update interval specified in the script component has passed. The delta time equals the specified update interval.
 
 Use this callback for implementing logic that has no imminent visual effect. This is the perfect spot for implementing AI and gameplay logic.
 
