@@ -1929,7 +1929,7 @@ void script_init_state(sol::state& s)
     }
     // clang-format off
 
-    // @type Axis
+    // @table Axis
     // @summary The different axes for controller input handling.
     // @member kLeftX number Left stick x-axis.
     // @member kLeftY number Left stick y-axis.
@@ -2055,7 +2055,7 @@ void script_init_state(sol::state& s)
     // @param position Vec3 The position of the sphere in world coordinates.
     // @param radius number The radius of the sphere.
     // @param direction Vec3 The direction to perform the sweep test in.
-    // @param distance float The distance to sweep.
+    // @param distance number The distance to sweep.
     // @return boolean hit True if a blocking hit is detected.
     // @return number hit_distance The distance to the hit.
     // @return Vec3 hit_position The position of the hit.
