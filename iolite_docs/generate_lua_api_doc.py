@@ -44,6 +44,7 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
         param = re.search("// @param (\\w*) ([\\w|]*) (.*)", l)
         ret = re.search("// @return ([\\w|]*) (\\w*) (.*)", l)
         type = re.search("// @type (.*)", l)
+        table = re.search("// @table (.*)", l)
         member = re.search("// @member ([\\w|]*) (\\w*) (.*)", l)
         member_simple = re.search("// @member ([\\w|]*) (\\w*)", l)
         hidden = re.search("// @hidden", l)
@@ -62,6 +63,9 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
         elif type:
             # Start a new type
             current_type = {"name": type.group(1),  "members": []}
+        elif table:
+            # Start a new type
+            current_type = {"name": table.group(1),  "members": [], "is_table": True}
         elif function:
             # Start a new function
             current_func = {"name": function.group(
@@ -167,10 +171,10 @@ with open("api/lua_generated.rst", "w") as f:
                 return_list = ""
 
                 if len(function["args"]) > 0:
-                    arg_list = '''   :params:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(a["name"], " or ".join(
+                    arg_list = '''   :params:\n{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(a["name"], " or ".join(
                         ":class:`{}`".format(t) for t in a["types"]), a["description"]) for a in function["args"]))
                 if len(function["returns"]) > 0:
-                    return_list = '''   :returns:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(r["name"], " or ".join(
+                    return_list = '''   :returns:\n{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(r["name"], " or ".join(
                         ":class:`{}`".format(t) for t in r["types"]), r["description"]) for r in function["returns"]))
 
                 prefix = ""
@@ -184,8 +188,8 @@ with open("api/lua_generated.rst", "w") as f:
         if "types" in cat:
             for type in cat["types"]:
 
-                member_list = '\n'.join('''   :var {}: {}\n'''.format(
-                    m["name"], m["type"]) for m in type["members"])
+                member_list = '\n'.join('''   :var {}: {}\n   :vartype {}: {}\n'''.format(
+                    m["name"], m["description"] if "description" in m else "", m["name"], m["type"]) for m in type["members"])
                 s = '''.. class:: {}\n\n{}\n\n   {}\n\n'''.format(
                     type["name"], member_list, type["description"])
                 f.write(s)
@@ -201,12 +205,10 @@ with open("_static/iolite_api.lua", "w") as f:
         for type in cat["types"]:
           f.write("---@class {} {}\n".format(type["name"], type["description"]))
           for member in type["members"]:
-            if not "description" in member:
-              f.write("---@field {} {}\n".format(member["name"], member["type"]))
-            else:
-              f.write("---@field {} {} {}\n".format(member["name"], member["type"], member["description"]))
+            f.write("---@field {} {} {}\n".format(member["name"], member["type"], member["description"] if "description" in member else ""))
+          if "is_table" in type:
+            f.write("{} = {{}}\n".format(type["name"]))
           f.write("\n")
-
 
     if "functions" in cat:
         for function in cat["functions"]:
@@ -218,7 +220,7 @@ with open("_static/iolite_api.lua", "w") as f:
           for arg in function["args"]:
               f.write("---@param {} {} {}\n".format(arg["name"], "|".join(t for t in arg["types"]), arg["description"]))
           for ret in function["returns"]:
-              f.write("---@return {} {} {}\n".format("|".join(t for t in arg["types"]), arg["name"], arg["description"]))
+              f.write("---@return {} {} {}\n".format("|".join(t for t in ret["types"]), ret["name"], ret["description"]))
 
           arg_string = ', '.join(a["name"] for a in function["args"])
           f.write("function {}{}({})\nend\n\n".format(prefix, function["name"], arg_string))

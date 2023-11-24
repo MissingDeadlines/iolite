@@ -1778,7 +1778,7 @@ void script_init_state(sol::state& s)
     // @namespace Global
     // @category Globals Provides various global functions and types.
 
-    // @type KeyState
+    // @table KeyState
     // @summary The different states a key can have.
     // @member kReleased number The key is released.
     // @member kPressed number The key is pressed.
@@ -1789,7 +1789,7 @@ void script_init_state(sol::state& s)
     s["KeyState"]["kPressed"] = io_input_key_state_pressed;
     s["KeyState"]["kClicked"] = io_input_key_state_clicked;
 
-    // @type Key
+    // @table Key
     // @summary The different keys available.
     // @member kUp number
     // @member kDown number
@@ -2093,8 +2093,8 @@ void script_init_state(sol::state& s)
 
     // @function draw_line
     // @summary Draws a line.
-    // @param start Vec3 Line start position.
-    // @param end Vec3 Line end position.
+    // @param start_pos Vec3 Line start position.
+    // @param end_pos Vec3 Line end position.
     // @param color Vec4 The color of the line.
     // @param always_in_front boolean Set to true to render the line in front of all the other geometry.
     s["DebugGeometry"]["draw_line"] = io_debug_geometry->draw_line;
@@ -2543,6 +2543,7 @@ void script_init_state(sol::state& s)
     // @summary Destroys the given node component.
     // @param node Ref The node to destroy.
     s["Node"]["destroy"] = [](io_ref_t node) { internal::queue_destroy_node(node); };
+
     // @function get_position
     // @summary Gets the (local) position of the node.
     // @param node Ref The node in question.
