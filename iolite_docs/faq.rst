@@ -81,7 +81,7 @@ Many checks are in place to ensure you end up with a meaningful error message in
 
 Using the latest proprietary driver is your best bet when using Linux. Please ensure that your GPU driver is working correctly before trying to launch IOLITE.
 
-If you're experiencing issues with the standalone Linux builds, it's potentially due to mismatches between the runtime libraries utilized by IOLITE and your Linux distribution. In this case, please use a build from our Flatpak repository, which ships with the correct versions of all the utilized runtime libraries. You can find details on how to set up the Flatpak builds at the top of this page.
+If you're experiencing issues with the standalone Linux builds, it's potentially due to mismatches between the runtime libraries utilized by IOLITE and your Linux distribution.
 
 How the hell do I exit the game mode again!?
 ----------------------------------------------
@@ -92,17 +92,6 @@ I only see a simple default scene; where are the samples?
 -----------------------------------------------------------
 
 Head over to our `GitHub repository <https://github.com/MissingDeadlines/iolite>`_ and place the contents of the ``iolite_samples`` directory right next to the IOLITE executable, overwriting any existing files.
-
-I've installed the latest build via Flatpak but can't find where IOLITE stores its data!
-------------------------------------------------------------------------------------------
-
-When launching IOLITE for the first time, it installs all its data in a directory named according to the current version in the following directory:
-
-.. code-block:: console
-
-  /.var/app/com.missing_deadlines.IOLITE/
-
-Deleting this directory can be used to reset IOLITE to its defaults.
 
 .. Is it possible to use Lua auto-completion with IOLITE?
   --------------------------------------------------------

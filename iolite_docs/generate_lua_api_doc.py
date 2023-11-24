@@ -155,7 +155,7 @@ api[:] = [x for x in api if not "hidden" in x or not x["hidden"]]
 with open("api/lua.json", "w") as f:
     f.write(json.dumps({"api": api}, indent=2))
 
-# Generate the actual API documentation
+# Generate API documentation
 with open("api/lua_generated.rst", "w") as f:
     for cat in api:
         f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
@@ -167,11 +167,11 @@ with open("api/lua_generated.rst", "w") as f:
                 return_list = ""
 
                 if len(function["args"]) > 0:
-                    arg_list = '''   :params:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(
-                        ":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["args"]))
+                    arg_list = '''   :params:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(a["name"], " or ".join(
+                        ":class:`{}`".format(t) for t in a["types"]), a["description"]) for a in function["args"]))
                 if len(function["returns"]) > 0:
-                    return_list = '''   :returns:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(x["name"], " or ".join(
-                        ":class:`{}`".format(t) for t in x["types"]), x["description"]) for x in function["returns"]))
+                    return_list = '''   :returns:{}'''.format('\n'.join('      - **{}** ({}) - {}'.format(r["name"], " or ".join(
+                        ":class:`{}`".format(t) for t in r["types"]), r["description"]) for r in function["returns"]))
 
                 prefix = ""
                 if cat["prefix"] != "Global":
@@ -185,7 +185,41 @@ with open("api/lua_generated.rst", "w") as f:
             for type in cat["types"]:
 
                 member_list = '\n'.join('''   :var {}: {}\n'''.format(
-                    x["name"], x["type"]) for x in type["members"])
+                    m["name"], m["type"]) for m in type["members"])
                 s = '''.. class:: {}\n\n{}\n\n   {}\n\n'''.format(
                     type["name"], member_list, type["description"])
                 f.write(s)
+
+# Generate API header file
+with open("_static/iolite_api.lua", "w") as f:
+  for cat in api:
+
+    if cat["prefix"] != "Global":
+      f.write("{} = {{}}\n\n".format(cat["prefix"]))
+
+    if "types" in cat:
+        for type in cat["types"]:
+          f.write("---@class {} {}\n".format(type["name"], type["description"]))
+          for member in type["members"]:
+            if not "description" in member:
+              f.write("---@field {} {}\n".format(member["name"], member["type"]))
+            else:
+              f.write("---@field {} {} {}\n".format(member["name"], member["type"], member["description"]))
+          f.write("\n")
+
+
+    if "functions" in cat:
+        for function in cat["functions"]:
+          prefix = ""
+          if cat["prefix"] != "Global":
+              prefix = cat["prefix"] + "."
+
+          f.write("---{}\n".format(function["description"]))
+          for arg in function["args"]:
+              f.write("---@param {} {} {}\n".format(arg["name"], "|".join(t for t in arg["types"]), arg["description"]))
+          for ret in function["returns"]:
+              f.write("---@return {} {} {}\n".format("|".join(t for t in arg["types"]), arg["name"], arg["description"]))
+
+          arg_string = ', '.join(a["name"] for a in function["args"])
+          f.write("function {}{}({})\nend\n\n".format(prefix, function["name"], arg_string))
+
