@@ -1592,21 +1592,25 @@ void script_init_state(sol::state& s)
     // @summary Gets the type id for all entities.
     // @return number value The type id for all entities.
     s["Entity"]["get_type_id"] = io_entity->get_type_id;
+
     // @function is_alive
     // @summary Returns whether the given entity is alive.
     // @param entity Ref The entity to check.
     // @return boolean value True if the given entity is alive.
     s["Entity"]["is_alive"] = io_entity->is_alive;
+
     // @function get_name
     // @summary Returns the name of the given entity.
     // @param entity Ref The entity to check.
     // @return string value The name of the given entity.
     s["Entity"]["get_name"] = io_entity->get_name;
+
     // @function find_first_entity_with_name
     // @summary Finds the first entity with the given name.
     // @param name string The name of the entity to search for.
     // @return Ref value The entity with the given name. Ref is invalid if none was found.
     s["Entity"]["find_first_entity_with_name"] = io_entity->find_first_entity_with_name;
+
     // @function find_entities_with_name
     // @summary Finds all entities with the given name and returns as table containg refs as result.
     // @param name string The name of the entities to search for.
@@ -1689,13 +1693,6 @@ void script_init_state(sol::state& s)
     // @summary Pops the last time factor from the stack and activates it.
     s["World"]["pop_time_factor"] = io_world->pop_time_factor;
 
-
-    // @function calc_mouse_ray
-    // @summary Calculates a ray that points at the current mouse position in the world.
-    // @return Vec3 origin The origin of the ray (in world coordinates).
-    // @return Vec3 direction The direction of the ray.
-    s["World"]["calc_mouse_ray"] = []() { io_vec3_t o, d; io_world->calc_mouse_ray(&o, &d); return std::make_tuple(o, d); };
-
     // @function radius_damage
     // @summary Applies damage to all voxel shapes in the given radius in the world.
     // @param position Vec3 The position.
@@ -1703,6 +1700,12 @@ void script_init_state(sol::state& s)
     // @param flags number The flags to use. Bit 1: Shade voxels around the impact area, Bit 2: Apply as fracturing.
     // @param max_hardness number Limits which voxels this damage operation can affect based on the hardness material parameter.
     s["World"]["radius_damage"] = io_world->radius_damage;
+
+    // @function calc_mouse_ray
+    // @summary Calculates a ray that points at the current mouse position in the world.
+    // @return Vec3 origin The origin of the ray (in world coordinates).
+    // @return Vec3 direction The direction of the ray.
+    s["World"]["calc_mouse_ray"] = []() { io_vec3_t o, d; io_world->calc_mouse_ray(&o, &d); return std::make_tuple(o, d); };
 
     // @function highlight_node
     // @summary Highlights the given node using an outline shader.
@@ -1730,11 +1733,41 @@ void script_init_state(sol::state& s)
     // @param adjust_spawn_rate boolean Set to true to adjust the spawn rate based on the lifetime.
     // @return Handle value The handle for the emitter.
     s["ParticleSystem"]["spawn_particle_emitter"] = io_particle_system->spawn_particle_emitter;
+
+    // @function despawn_particle_emitter
+    // @summary Despawns the given particle emitter.
+    // @param emitter Handle The emitter to despawn.
+    s["ParticleSystem"]["despawn_particle_emitter"] = io_particle_system->despawn_particle_emitter;
+
+    // @function attach_to_node
+    // @summary Attaches the given particle emitter to the provided node.
+    // @param emitter Handle The emitter to attach.
+    // @param node Ref The node to attach the emitter to.
+    s["ParticleSystem"]["attach_to_node"] = io_particle_system->attach_to_node;
+
     // @function set_spawn_rate
     // @summary Sets the spawn rate for the given emitter.
     // @param emitter Handle The emitter to adjust.
     // @param spawn_rate number The spawn rate to set.
     s["ParticleSystem"]["set_spawn_rate"] = io_particle_system->set_spawn_rate;
+
+    // @function set_position
+    // @summary Sets the position for the given emitter.
+    // @param emitter Handle The emitter to adjust.
+    // @param position Vec3 The position to set.
+    s["ParticleSystem"]["set_position"] = io_particle_system->set_position;
+
+    // @function set_scale
+    // @summary Sets the scale for the given emitter.
+    // @param emitter Handle The emitter to adjust.
+    // @param position number The scale to set.
+    s["ParticleSystem"]["set_scale"] = io_particle_system->set_scale;
+
+    // @function set_emission_direction
+    // @summary Sets the emission direction for the given emitter.
+    // @param emitter Handle The emitter to adjust.
+    // @param direction Vec3 The direction to set.
+    s["ParticleSystem"]["set_emission_direction"] = io_particle_system->set_emission_direction;
 
     // clang-format on
   };
@@ -1753,24 +1786,29 @@ void script_init_state(sol::state& s)
     // @param player number The index of the player to retrieve the state from.
     // @return number value The current state of the key (see KeyState table).
     s["Input"]["get_key_state"] = io_input_system->get_key_state;
+
     // @function get_axis_state
     // @summary Gets the current state of the given axis.
     // @param axis number The axis to retrieve the state from (see Axis table).
     // @param player number The index of the player to retrieve the state from.
     // @return number value The current state of the axis in [0.0, 1.0].
     s["Input"]["get_axis_state"] = io_input_system->get_axis_state;
+
     // @function get_mouse_pos
     // @summary Gets the current position of the mouse as pixel coordinates.
     // @return Vec2 value The position of the mouse.
     s["Input"]["get_mouse_pos"] = io_input_system->get_mouse_pos;
+
     // @function get_mouse_pos_viewport
     // @summary Gets the current position of the mouse in the viewport.
     // @return Vec2 value The position of the mouse in [0.0, 1.0].
     s["Input"]["get_mouse_pos_viewport"] = io_input_system->get_mouse_pos_viewport;
+
     // @function get_mouse_pos_relative
     // @summary Gets the delta movement of the mouse in pixels.
     // @return Vec2 value The delta movement of the mouse.
     s["Input"]["get_mouse_pos_relative"] = io_input_system->get_mouse_pos_relative;
+
     // @function request_mouse_cursor
     // @summary Request the mouse cursor to show. Has to be called every frame to keep the mouse cursor visible.
     s["Input"]["request_mouse_cursor"] = io_input_system->request_mouse_cursor;
@@ -2518,12 +2556,37 @@ void script_init_state(sol::state& s)
   s["Node"]["load"] = [&s]() {
     // clang-format off
 
-    SHARED_COMPONENT_INTERFACE_IMPL(s["Node"], io_component_node);
-
     // @namespace Node
     // @category Node_Component Functions to interact with nodes.
-    // @copy_category Interface
-    // @copy_category Components
+
+    // @function get_type_id
+    // @summary Returns the type ID of the component.
+    // @param component Ref The component.
+    // @return number value The type ID of the component.
+    s["Node"]["get_type_id"] = io_component_node->base.get_type_id;
+
+    // @function get_num_active_components
+    // @summary Returns the total number of active components of this type.
+    // @return number value Total total number of active components of this type.
+    s["Node"]["get_num_active_components"] = io_component_node->base.get_num_active_components;
+
+    // @function get_component_for_entity
+    // @summary Returns the component for the given entity.
+    // @param entity Ref The entity.
+    // @return Ref value The component for the given entity.
+    s["Node"]["get_component_for_entity"] = io_component_node->base.get_component_for_entity;
+
+    // @function is_alive
+    // @summary Returns true if the referenced component is alive.
+    // @param component Ref The component.
+    // @return boolean value True if the component is alive.
+    s["Node"]["is_alive"] = io_component_node->base.is_alive;
+
+    // @function get_entity
+    // @summary Returns the entity the component is assigned to.
+    // @param component Ref The component.
+    // @return Ref value The entity the component is assigned to.
+    s["Node"]["get_entity"] = io_component_node->base.get_entity;
 
     // @function create
     // @summary Creates a new node component with the given name and attaches it to the root node of the world.
@@ -2543,6 +2606,33 @@ void script_init_state(sol::state& s)
     // @summary Destroys the given node component.
     // @param node Ref The node to destroy.
     s["Node"]["destroy"] = [](io_ref_t node) { internal::queue_destroy_node(node); };
+
+    // @function get_parent
+    // @summary Gets the parent node (if any).
+    // @param node Ref The node in question.
+    // @return Ref value The parent of the node (if any).
+    s["Node"]["get_parent"] = io_component_node->get_parent;
+    // @function get_next_sibling
+    // @summary Gets the next sibling of the node (if any).
+    // @param node Ref The node in question.
+    // @return Ref value The next sibling of the node (if any).
+    s["Node"]["get_next_sibling"] = io_component_node->get_next_sibling;
+    // @function get_prev_sibling
+    // @summary Gets the previous sibling of the node (if any).
+    // @param node Ref The node in question.
+    // @return Ref value The previous sibling of the node (if any).
+    s["Node"]["get_prev_sibling"] = io_component_node->get_prev_sibling;
+
+    // @function set_hidden
+    // @summary Sets the hidden state of the node.
+    // @param node Ref The node in question.
+    // @param hidden boolean Pass true if the node should be hidden.
+    s["Node"]["set_hidden"] = io_component_node->set_hidden;
+    // @function is_hidden
+    // @summary Retrieves the hidden state of the node.
+    // @param node Ref The node in question.
+    // @return boolean value True if the node is hidden.
+    s["Node"]["is_hidden"] = io_component_node->is_hidden;
 
     // @function get_position
     // @summary Gets the (local) position of the node.
@@ -2604,17 +2694,19 @@ void script_init_state(sol::state& s)
     // @param node Ref The node in question.
     // @param size Vec3 The (world) size of the node.
     s["Node"]["set_world_size"] = io_component_node->set_world_size;
-    // @function update_transforms
-    // @summary Updates the transformations of the given node hierarchy.
-    // @param node Ref The root node of the hierarchy.
-    s["Node"]["update_transforms"] = io_component_node->update_transforms;
 
     // @function to_local_space
     // @summary Transforms the provided position into the local space of the given node.
     // @param node Ref The node used for the transformation.
     // @param position Vec3 The position to transform.
-    // @return Vec3 value The vector transformed into the local node space.
+    // @return Vec3 value The position transformed into the local node space.
     s["Node"]["to_local_space"] = io_component_node->to_local_space;
+    // @function to_local_space_direction
+    // @summary Transforms the provided direction into the local space of the given node.
+    // @param node Ref The node used for the transformation.
+    // @param position Vec3 The direction to transform.
+    // @return Vec3 value The direction transformed into the local node space.
+    s["Node"]["to_local_space_direction"] = io_component_node->to_local_space_direction;
     // @function to_world_space
     // @summary Transforms the provided position in the local space of the given node to world space.
     // @param node Ref The node used for the transformation.
@@ -2627,6 +2719,36 @@ void script_init_state(sol::state& s)
     // @param direction Vec3 The direction to transform.
     // @return Vec3 value The direction transformed into world space.
     s["Node"]["to_world_space_direction"] = io_component_node->to_world_space_direction;
+
+    // @function collect_nodes_depth_first
+    // @summary Collects all nodes in the hierarchy in depth first ordering starting at the provided node (including the root).
+    // @param node Ref The root node to start collecting at.
+    // @return table value Table containig all nodes in the hierarchy.
+    s["Node"]["collect_nodes_depth_first"] = [](io_ref_t root_node) {
+      uint32_t num_nodes;
+      io_component_node->collect_nodes_depth_first(root_node, nullptr, &num_nodes);
+      std::vector<io_ref_t> nodes(num_nodes);
+      io_component_node->collect_nodes_depth_first(root_node, nodes.data(),
+                                              &num_nodes);
+      return nodes;
+    };
+    // @function collect_nodes_breadth_first
+    // @summary Collects all nodes in the hierarchy in breadth first ordering starting at the provided node (including the root).
+    // @param node Ref The root node to start at.
+    // @return table value Table containig all nodes in the hierarchy.
+    s["Node"]["collect_nodes_breadth_first"] = [](io_ref_t root_node) {
+      uint32_t num_nodes;
+      io_component_node->collect_nodes_breadth_first(root_node, nullptr, &num_nodes);
+      std::vector<io_ref_t> nodes(num_nodes);
+      io_component_node->collect_nodes_breadth_first(root_node, nodes.data(),
+                                              &num_nodes);
+      return nodes;
+    };
+
+    // @function update_transforms
+    // @summary Updates the transformations of the given node hierarchy.
+    // @param node Ref The root node of the hierarchy.
+    s["Node"]["update_transforms"] = io_component_node->update_transforms;
 
     // clang-format on
   };
