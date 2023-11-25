@@ -52,15 +52,13 @@ What are the overall system requirements?
 
 **General Requirements**
 
-- **System:** Windows 10+ or Linux
-- **GPU:** Support for Vulkan 1.2 or higher
-- **CPU:** Support for the AVX2 instruction set
+- **OS:** Windows 10+ or Linux
+- **GPU:** Dedicated GPU with support for Vulkan 1.2 or higher
+- **CPU:** Recent multi-core CPU with support for the AVX2 instruction set
 
 **Optimal Performance**
 
 - **GPU:** NVIDIA GTX 1080 (or equivalent) and higher
-
-.. warning:: Please note that integrated graphics cards are not supported. Even if IOLITE starts, chances are high that the performance is far from optimal.
    
 Is IOLITE considered a finished product?
 ----------------------------------------
