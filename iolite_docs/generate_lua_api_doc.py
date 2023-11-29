@@ -34,24 +34,95 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
     current_type = None
     cats_to_copy = []
 
-    for l in src:
-        # print(l)
+    line_to_process = ""
+    next_line_to_process = ""
 
-        namespace = re.search("// @namespace (.*)", l)
-        category = re.search("// @category ([\\w_]*) (.*)", l)
-        function = re.search("// @function (.*)", l)
-        summary = re.search("// @summary (.*)", l)
-        param = re.search("// @param (\\w*) ([\\w|]*) (.*)", l)
-        ret = re.search("// @return ([\\w|]*) (\\w*) (.*)", l)
-        type = re.search("// @type (.*)", l)
-        table = re.search("// @table (.*)", l)
-        member = re.search("// @member ([\\w|]*) (\\w*) (.*)", l)
-        member_simple = re.search("// @member ([\\w|]*) (\\w*)", l)
-        hidden = re.search("// @hidden", l)
-        copy_category = re.search("// @copy_category (\\w*)", l)
+    def finalize(current_func, current_type, cats_to_copy):
+        category = None
+        for e in api:
+            if e["name"] == current_category["name"] and e["prefix"] == current_namespace:
+                category = e
+                break
+        if not category:
+            category = {
+                "name": current_category["name"], "prefix": current_namespace, "description": current_category["description"]}
+            if "hidden" in current_category:
+                category["hidden"] = current_category["hidden"]
+            api.append(category)
+
+        if current_func:
+            if not "functions" in category:
+                category["functions"] = []
+            # Append the function and reset
+            category["functions"].append(current_func)
+            current_func = None
+        elif current_type:
+            if not "types" in category:
+                category["types"] = []
+            category["types"].append(current_type)
+            current_type = None
+
+        # Append copied categories
+        for name in cats_to_copy:
+            # Find the category
+            cat_to_copy = None
+            for cat in api:
+                if cat["name"] == name:
+                    cat_to_copy = cat
+                    break
+
+            if "functions" in cat_to_copy:
+                if not "functions" in category:
+                    category["functions"] = []
+                category["functions"] += cat_to_copy["functions"]
+            if "types" in cat_to_copy:
+                if not "types" in category:
+                    category["types"] = []
+                category["types"] += cat_to_copy["types"]
+
+        cats_to_copy.clear()
+
+    for l in src:
+        command = re.search("// @", l)
+        comment = re.search("// (.*)", l)
+
+        if command:
+            if next_line_to_process != "":
+                line_to_process = next_line_to_process
+                next_line_to_process = l
+            else:
+                next_line_to_process = l
+                continue
+        elif comment:
+            if next_line_to_process != "":
+                next_line_to_process = next_line_to_process + \
+                    " " + comment.group(1)
+            continue
+        else:
+            line_to_process = next_line_to_process
+            next_line_to_process = ""
+
+        if line_to_process == "":
+            continue
+
+        line_to_process = line_to_process.replace("\n", "")
+        print(line_to_process)
+
+        namespace = re.search("// @namespace (.*)", line_to_process)
+        category = re.search("// @category ([\\w_]*) (.*)", line_to_process)
+        function = re.search("// @function (.*)", line_to_process)
+        summary = re.search("// @summary (.*)", line_to_process)
+        param = re.search("// @param (\\w*) ([\\w|]*) (.*)", line_to_process)
+        ret = re.search("// @return ([\\w|]*) (\\w*) (.*)", line_to_process)
+        type = re.search("// @type (.*)", line_to_process)
+        table = re.search("// @table (.*)", line_to_process)
+        member = re.search("// @member ([\\w|]*) (\\w*) (.*)", line_to_process)
+        member_simple = re.search(
+            "// @member ([\\w|]*) (\\w*)", line_to_process)
+        hidden = re.search("// @hidden", line_to_process)
+        copy_category = re.search("// @copy_category (\\w*)", line_to_process)
 
         if namespace:
-            # Update the current namespace
             current_namespace = namespace.group(1)
         elif category:
             current_category = {"name": " ".join(category.group(
@@ -61,13 +132,14 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
         elif hidden:
             current_category["hidden"] = True
         elif type:
-            # Start a new type
+            finalize(current_func, current_type, cats_to_copy)
             current_type = {"name": type.group(1),  "members": []}
         elif table:
-            # Start a new type
-            current_type = {"name": table.group(1),  "members": [], "is_table": True}
+            finalize(current_func, current_type, cats_to_copy)
+            current_type = {"name": table.group(
+                1),  "members": [], "is_table": True}
         elif function:
-            # Start a new function
+            finalize(current_func, current_type, cats_to_copy)
             current_func = {"name": function.group(
                 1), "args": [], "returns": []}
         elif summary:
@@ -95,52 +167,8 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
                 {"name": member_simple.group(
                     1), "type": member_simple.group(2)}
             )
-        else:
-            if current_func or current_type or len(cats_to_copy) > 0:
-                # Find a category for the function
-                category = None
-                for e in api:
-                    if e["name"] == current_category["name"] and e["prefix"] == current_namespace:
-                        category = e
-                        break
-                if not category:
-                    category = {
-                        "name": current_category["name"], "prefix": current_namespace, "description": current_category["description"]}
-                    if "hidden" in current_category:
-                        category["hidden"] = current_category["hidden"]
-                    api.append(category)
 
-                if current_func:
-                    if not "functions" in category:
-                        category["functions"] = []
-                    # Append the function and reset
-                    category["functions"].append(current_func)
-                    current_func = None
-                elif current_type:
-                    if not "types" in category:
-                        category["types"] = []
-                    category["types"].append(current_type)
-                    current_type = None
-
-                # Append copied categories
-                for name in cats_to_copy:
-                    # Find the category
-                    cat_to_copy = None
-                    for cat in api:
-                        if cat["name"] == name:
-                            cat_to_copy = cat
-                            break
-
-                    if "functions" in cat_to_copy:
-                        if not "functions" in category:
-                            category["functions"] = []
-                        category["functions"] += cat_to_copy["functions"]
-                    if "types" in cat_to_copy:
-                        if not "types" in category:
-                            category["types"] = []
-                        category["types"] += cat_to_copy["types"]
-
-                cats_to_copy.clear()
+    finalize(current_func, current_type, cats_to_copy)
 
 # Sort categories, function, and types
 # api = sorted(api, key=lambda x: x["name"])
@@ -196,32 +224,36 @@ with open("api/lua_generated.rst", "w") as f:
 
 # Generate API header file
 with open("_static/iolite_api.lua", "w") as f:
-  for cat in api:
+    for cat in api:
 
-    if cat["prefix"] != "Global":
-      f.write("{} = {{}}\n\n".format(cat["prefix"]))
+        if cat["prefix"] != "Global":
+            f.write("{} = {{}}\n\n".format(cat["prefix"]))
 
-    if "types" in cat:
-        for type in cat["types"]:
-          f.write("---@class {} {}\n".format(type["name"], type["description"]))
-          for member in type["members"]:
-            f.write("---@field {} {} {}\n".format(member["name"], member["type"], member["description"] if "description" in member else ""))
-          if "is_table" in type:
-            f.write("{} = {{}}\n".format(type["name"]))
-          f.write("\n")
+        if "types" in cat:
+            for type in cat["types"]:
+                f.write(
+                    "---@class {} {}\n".format(type["name"], type["description"]))
+                for member in type["members"]:
+                    f.write("---@field {} {} {}\n".format(
+                        member["name"], member["type"], member["description"] if "description" in member else ""))
+                if "is_table" in type:
+                    f.write("{} = {{}}\n".format(type["name"]))
+                f.write("\n")
 
-    if "functions" in cat:
-        for function in cat["functions"]:
-          prefix = ""
-          if cat["prefix"] != "Global":
-              prefix = cat["prefix"] + "."
+        if "functions" in cat:
+            for function in cat["functions"]:
+                prefix = ""
+                if cat["prefix"] != "Global":
+                    prefix = cat["prefix"] + "."
 
-          f.write("---{}\n".format(function["description"]))
-          for arg in function["args"]:
-              f.write("---@param {} {} {}\n".format(arg["name"], "|".join(t for t in arg["types"]), arg["description"]))
-          for ret in function["returns"]:
-              f.write("---@return {} {} {}\n".format("|".join(t for t in ret["types"]), ret["name"], ret["description"]))
+                f.write("---{}\n".format(function["description"]))
+                for arg in function["args"]:
+                    f.write("---@param {} {} {}\n".format(arg["name"], "|".join(
+                        t for t in arg["types"]), arg["description"]))
+                for ret in function["returns"]:
+                    f.write("---@return {} {} {}\n".format(
+                        "|".join(t for t in ret["types"]), ret["name"], ret["description"]))
 
-          arg_string = ', '.join(a["name"] for a in function["args"])
-          f.write("function {}{}({})\nend\n\n".format(prefix, function["name"], arg_string))
-
+                arg_string = ', '.join(a["name"] for a in function["args"])
+                f.write("function {}{}({})\nend\n\n".format(
+                    prefix, function["name"], arg_string))
