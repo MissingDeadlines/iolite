@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// clang-format off
+
 #include "lua_plugin.h"
 
 namespace internal
@@ -195,8 +197,6 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 
 } // namespace math_helper
 
-// clang-format off
-
 // @namespace Components
 // @category Components Dummy category.
 // @hidden
@@ -260,8 +260,6 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 // @function load
 // @summary Loads all functions and types for this scripting interface.
 
-// clang-format on
-
 //----------------------------------------------------------------------------//
 void script_init_state(sol::state& s)
 {
@@ -283,12 +281,10 @@ void script_init_state(sol::state& s)
     return s.script(code);
   };
 
-  // clang-format off
   // @function load
   // @summary Executes the script with the given name.
   // @param script_name string The name of the script to load as a module (without the file extension).
   // @return any value The result of the executed script.
-  // clang-format on
   s["Utils"]["load"] = [&s](const char* script_name) -> sol::reference {
     const std::string filepath =
         std::string("media/scripts/") + script_name + ".lua";
@@ -301,12 +297,10 @@ void script_init_state(sol::state& s)
   // Used to cache modules using the require function
   s["__MODULES"] = s.create_table();
 
-  // clang-format off
   // @function require
   // @summary Executes the script with the given name. Executed once for each script. Successive calls return the cached script result.
   // @param script_name string The name of the script to execute (without the file extension).
   // @return any value The result of the executed script.
-  // clang-format on
   s["Utils"]["require"] = [&s](const char* script_name) -> sol::reference {
     if (!s["__MODULES"][script_name].valid())
     {
@@ -377,6 +371,72 @@ void script_init_state(sol::state& s)
         return {v.x, v.y};
       },
       [](float x, float y) -> io_vec2_t {
+        return {x, y};
+      });
+
+  // @type UVec2
+  // @summary A vector storing two unsigned integer components.
+  // @member x number
+  // @member y number
+  s.new_usertype<io_uvec2_t>("UVec2", sol::no_constructor, "x", &io_uvec2_t::x,
+                             "y", &io_uvec2_t::y);
+
+  // @function UVec2
+  // @summary Initializes a new UVec2.
+  // @param x number The scalar value to set the components to.
+  // @return UVec2 value The new vector.
+
+  // @function UVec2
+  // @summary Initializes a new UVec2.
+  // @param vec UVec2 The vector to copy from.
+  // @return UVec2 value The new vector.
+
+  // @function UVec2
+  // @summary Initializes a new UVec2.
+  // @param x number First component.
+  // @param y number Second component.
+  // @return UVec2 value The new vector.
+  s["UVec2"] = sol::overload(
+      [](uint32_t s) -> io_uvec2_t {
+        return {s, s};
+      },
+      [](const io_uvec2_t& v) -> io_uvec2_t {
+        return {v.x, v.y};
+      },
+      [](uint32_t x, uint32_t y) -> io_uvec2_t {
+        return {x, y};
+      });
+
+  // @type IVec2
+  // @summary A vector storing two signed integer components.
+  // @member x number
+  // @member y number
+  s.new_usertype<io_ivec2_t>("IVec2", sol::no_constructor, "x", &io_ivec2_t::x,
+                             "y", &io_ivec2_t::y);
+
+  // @function IVec2
+  // @summary Initializes a new IVec2.
+  // @param x number The scalar value to set the components to.
+  // @return IVec2 value The new vector.
+
+  // @function IVec2
+  // @summary Initializes a new IVec2.
+  // @param vec IVec2 The vector to copy from.
+  // @return IVec2 value The new vector.
+
+  // @function IVec2
+  // @summary Initializes a new IVec2.
+  // @param x number First component.
+  // @param y number Second component.
+  // @return IVec2 value The new vector.
+  s["IVec2"] = sol::overload(
+      [](int32_t s) -> io_ivec2_t {
+        return {s, s};
+      },
+      [](const io_ivec2_t& v) -> io_ivec2_t {
+        return {v.x, v.y};
+      },
+      [](int32_t x, int32_t y) -> io_ivec2_t {
         return {x, y};
       });
 
@@ -522,6 +582,41 @@ void script_init_state(sol::state& s)
         return {x, y, z};
       });
 
+  // @type IVec3
+  // @summary A vector storing three signed integer components.
+  // @member x number
+  // @member y number
+  // @member z number
+  s.new_usertype<io_ivec3_t>("IVec3", sol::no_constructor, "x", &io_ivec3_t::x,
+                             "y", &io_ivec3_t::y, "z", &io_ivec3_t::z);
+
+  // @function IVec3
+  // @summary Initializes a new IVec3.
+  // @param x number The scalar value to set the components to.
+  // @return IVec3 value The new vector.
+
+  // @function IVec3
+  // @summary Initializes a new IVec3.
+  // @param vec IVec3 The vector to copy from.
+  // @return IVec3 value The new vector.
+
+  // @function IVec3
+  // @summary Initializes a new IVec3.
+  // @param x number First component.
+  // @param y number Second component.
+  // @param z number Third component.
+  // @return IVec3 value The new vector.
+  s["IVec3"] = sol::overload(
+      [](io_int32_t s) -> io_ivec3_t {
+        return {s, s, s};
+      },
+      [](const io_ivec3_t& v) -> io_ivec3_t {
+        return {v.x, v.y, v.z};
+      },
+      [](io_int32_t x, io_int32_t y, io_int32_t z) -> io_ivec3_t {
+        return {x, y, z};
+      });
+
   // @type Vec4
   // @summary A vector storing four floating point components.
   // @member x number
@@ -557,6 +652,82 @@ void script_init_state(sol::state& s)
         return {v.x, v.y, v.z, v.w};
       },
       [](float x, float y, float z, float w) -> io_vec4_t {
+        return {x, y, z, w};
+      });
+
+  // @type UVec4
+  // @summary A vector storing four unsigned integer components.
+  // @member x number
+  // @member y number
+  // @member z number
+  // @member w number
+  s.new_usertype<io_uvec4_t>("UVec4", sol::no_constructor, "x", &io_uvec4_t::x,
+                             "y", &io_uvec4_t::y, "z", &io_uvec4_t::z, "w",
+                             &io_uvec4_t::w);
+
+  // @function UVec4
+  // @summary Initializes a new UVec4.
+  // @param x number The scalar value to set the components to.
+  // @return UVec4 value The new vector.
+
+  // @function UVec4
+  // @summary Initializes a new UVec4.
+  // @param vec UVec4 The vector to copy from.
+  // @return UVec4 value The new vector.
+
+  // @function UVec4
+  // @summary Initializes a new UVec4.
+  // @param x number First component.
+  // @param y number Second component.
+  // @param z number Third component.
+  // @param w number Fourth component.
+  // @return UVec4 value The new vector.
+  s["UVec4"] = sol::overload(
+      [](uint32_t s) -> io_uvec4_t {
+        return {s, s, s, s};
+      },
+      [](const io_uvec4_t& v) -> io_uvec4_t {
+        return {v.x, v.y, v.z, v.w};
+      },
+      [](uint32_t x, uint32_t y, uint32_t z, uint32_t w) -> io_uvec4_t {
+        return {x, y, z, w};
+      });
+
+  // @type IVec4
+  // @summary A vector storing four signed integer components.
+  // @member x number
+  // @member y number
+  // @member z number
+  // @member w number
+  s.new_usertype<io_ivec4_t>("IVec4", sol::no_constructor, "x", &io_ivec4_t::x,
+                             "y", &io_ivec4_t::y, "z", &io_ivec4_t::z, "w",
+                             &io_ivec4_t::w);
+
+  // @function IVec4
+  // @summary Initializes a new IVec4.
+  // @param x number The scalar value to set the components to.
+  // @return IVec4 value The new vector.
+
+  // @function IVec4
+  // @summary Initializes a new IVec4.
+  // @param vec IVec4 The vector to copy from.
+  // @return IVec4 value The new vector.
+
+  // @function IVec4
+  // @summary Initializes a new IVec4.
+  // @param x number First component.
+  // @param y number Second component.
+  // @param z number Third component.
+  // @param w number Fourth component.
+  // @return IVec4 value The new vector.
+  s["IVec4"] = sol::overload(
+      [](int32_t s) -> io_ivec4_t {
+        return {s, s, s, s};
+      },
+      [](const io_ivec4_t& v) -> io_ivec4_t {
+        return {v.x, v.y, v.z, v.w};
+      },
+      [](int32_t x, int32_t y, int32_t z, int32_t w) -> io_ivec4_t {
         return {x, y, z, w};
       });
 
@@ -596,14 +767,17 @@ void script_init_state(sol::state& s)
                       return {w, x, y, z};
                     });
 
-  // clang-format off
+  // @type HeightmapPixel
+  // @summary A single pixel used for generating heightmaps.
+  s.new_usertype<io_plugin_terrain_heightmap_pixel>("HeightmapPixel",
+                                                    sol::no_constructor);
+
   // @type PathSettings
   // @summary Settings used when calculating paths via the Pathfinding related functions.
   // @member capsule_radius number The radius of the agent's capsule.
   // @member capsule_half_height number The half height of the agent's capsule.
   // @member step_height number The maximum step height an agent can take.
   // @member cell_size number The size of the cells used for the voxelization.
-  // clang-format on
   s.new_usertype<io_pathfinding_path_settings_t>(
       "PathSettings", sol::no_constructor, "capsule_radius",
       &io_pathfinding_path_settings_t::capsule_radius, "capsule_half_height",
@@ -611,24 +785,20 @@ void script_init_state(sol::state& s)
       &io_pathfinding_path_settings_t::step_height, "cell_size",
       &io_pathfinding_path_settings_t::cell_size);
 
-  // clang-format off
   // @type PhysicsContactEvent
   // @summary Physics event fired when contacts between two shapes are detected.
   // @member type string The type name.
   // @member data PhysicsContactEventData The data of the contact event.
-  // clang-format on
   s.new_usertype<lua_physics_contact_event_t>(
       "PhysicsContactEvent", sol::no_constructor, "type",
       &lua_physics_contact_event_t::type, "data",
       &lua_physics_contact_event_t::data);
-  // clang-format off
   // @type PhysicsContactEventData
   // @summary The data for a single physics contact event.
   // @member entity0 Ref The first entity in contact.
   // @member entity1 Ref The second entity in contact.
   // @member pos Vec3 The position of the contact.
   // @member impulse Vec3 The impulse of the contact.
-  // clang-format on
   s.new_usertype<lua_physics_contact_event_t::event_data_t>(
       "PhysicsContactEventData", sol::no_constructor, "entity0",
       &lua_physics_contact_event_t::event_data_t::entity0, "entity1",
@@ -636,15 +806,11 @@ void script_init_state(sol::state& s)
       &lua_physics_contact_event_t::event_data_t::pos, "impulse",
       &lua_physics_contact_event_t::event_data_t::impulse);
 
-  // clang-format off
   // @type UIAnchor
   // @summary Defines an anchor used for creating (rectangle) transforms in the UI system.
-  // clang-format on
   s.new_usertype<io_ui_anchor_t>("UIAnchor", sol::no_constructor);
-  // clang-format off
   // @type UIAnchorOffsets
   // @summary Defines a set of anchor offsets used for creating (rectangle) transforms in the UI system.
-  // clang-format on
   s.new_usertype<io_ui_anchor_offsets_t>("UIAnchorOffsets",
                                          sol::no_constructor);
 
@@ -656,18 +822,15 @@ void script_init_state(sol::state& s)
                                &io_ui_rect_t::pos, "extent",
                                &io_ui_rect_t::extent);
 
-  // clang-format off
   // @function UIAnchor
   // @summary Initializes a new UI anchor.
   // @param anchor number The position in [0, 1] relative to the parent transform.
   // @param offset number The absolute offset (in px).
   // @return UIAnchor value The new anchor.
-  // clang-format on
   s["UIAnchor"] = [](io_float32_t anchor,
                      io_float32_t offset) -> io_ui_anchor_t {
     return {anchor, offset};
   };
-  // clang-format off
   // @function UIAnchorOffsets
   // @summary Initializes a new set of UI anchor offsets.
   // @param left number Absolute offset (in px) to the left anchor.
@@ -675,7 +838,6 @@ void script_init_state(sol::state& s)
   // @param top number Absolute offset (in px) to the top anchor.
   // @param bottom number Absolute offset (in px) to the bottom anchor.
   // @return UIAnchor value The new set of anchor offsets.
-  // clang-format on
   s["UIAnchorOffsets"] = [](io_float32_t left, io_float32_t right,
                             io_float32_t top,
                             io_float32_t bottom) -> io_ui_anchor_offsets_t {
@@ -711,7 +873,6 @@ void script_init_state(sol::state& s)
   // @category Variant Functions to interact with variants.
 
   s["Variant"] = s.create_table();
-  // clang-format off
 
   // @function from_float
   // @summary Creates a new variant storing a single floating point value.
@@ -946,11 +1107,9 @@ void script_init_state(sol::state& s)
   s["Variant"]["get_uvec4"] = [](io_variant_t variant) {
     return io_base->variant_get_uvec4(variant);
   };
-  // clang-format on
 
   s["Math"] = s.create_table();
   s["Math"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Math
 
@@ -1268,7 +1427,6 @@ void script_init_state(sol::state& s)
     // @return Quat value Quaternion transforming vector to vector.y
     s["Math"]["quat_rotation"] = math_helper::quat_rotation;
 
-    // clang-format on
   };
 
   s["Settings"] = s.create_table();
@@ -1337,61 +1495,48 @@ void script_init_state(sol::state& s)
     // @category UI Functions to interact with the UI system.
     // @copy_category Interface
 
-    // clang-format off
     // @function draw_rect
     // @summary Draws a rectangle.
     // @param color Vec4 The color of the rectangle.
-    // clang-format on
     s["UI"]["draw_rect"] = [](io_vec4_t color) { io_ui->draw_rect(color); };
-    // clang-format off
     // @function draw_direct
     // @summary Draws a circle.
     // @param color Vec4 The color of the circle.
-    // clang-format on
     s["UI"]["draw_circle"] = [](io_vec4_t color) { io_ui->draw_circle(color); };
-    // clang-format off
     // @function draw_ngon
     // @summary Draws a n-sided polygon.
     // @param color Vec4 The color of the n-sided polygon.
     // @param num_sides number The number of sided.
-    // clang-format on
     s["UI"]["draw_ngon"] = [](io_vec4_t color, io_uint32_t num_sides) {
       io_ui->draw_ngon(color, num_sides);
     };
 
-    // clang-format off
     // @function draw_image
     // @summary Draws the image with the given name.
     // @param name string The name of the image to draw.
     // @param tint Vec4 The tint of the image.
-    // clang-format on
     s["UI"]["draw_image"] = [](const char* name, io_vec4_t tint) {
       io_ui->draw_image(name, tint);
     };
-    // clang-format off
     // @function get_image_size
     // @summary Gets the size of the image (in px).
     // @param name string The name of the image.
     // @return Vec2 value The size of the image (in px).
-    // clang-format on
     s["UI"]["get_image_size"] = [](const char* name) {
       return io_ui->get_image_size(name);
     };
 
-    // clang-format off
     // @function draw_text
     // @summary Draws the text with the given options. 
     // @param text string The text to draw.
     // @param align_horizontal number The horizontal alignment.
     // @param align_vertical number The vertical alignment.
     // @param flags number The text flags.
-    // clang-format on
     s["UI"]["draw_text"] =
         [](const char* text, io_ui_text_align_horizontal align_horizontal,
            io_ui_text_align_vertical align_vertical, io_ui_text_flag flags) {
           io_ui->draw_text(text, align_horizontal, align_vertical, flags);
         };
-    // clang-format off
     // @function calc_text_bounds
     // @summary Calculates the bounds for the given text and options.
     // @param text string The text to compute the bounds for.
@@ -1399,23 +1544,19 @@ void script_init_state(sol::state& s)
     // @param align_vertical number The vertical alignment.
     // @param flags number The text flags.
     // @return Vec2 value The bounds for the text.
-    // clang-format on
     s["UI"]["calc_text_bounds"] =
         [](const char* text, io_ui_text_align_horizontal align_horizontal,
            io_ui_text_align_vertical align_vertical, io_ui_text_flag flags) {
           return io_ui->calc_text_bounds(text, align_horizontal, align_vertical,
                                          flags);
         };
-    // clang-format off
     // @function get_last_text_bounds
     // @summary Returns the bounds of the text that was drawn last.
     // @return Vec2 value The bounds for the text.
-    // clang-format on
     s["UI"]["get_last_text_bounds"] = []() {
       return io_ui->get_last_text_bounds();
     };
 
-    // clang-format off
     // @function push_transform
     // @summary Pushes the previous transform to the stack and activates the given one.
     // @param left UIAnchor Left anchor.
@@ -1423,108 +1564,83 @@ void script_init_state(sol::state& s)
     // @param top UIAnchor Top anchor.
     // @param bottom UIAnchor Bottom anchor.
     // @param rotation number The rotation to apply.
-    // clang-format on
     s["UI"]["push_transform"] = [](io_ui_anchor_t left, io_ui_anchor_t right,
                                    io_ui_anchor_t top, io_ui_anchor_t bottom,
                                    io_float32_t rotation) {
       io_ui->push_transform(left, right, top, bottom, rotation);
     };
 
-    // clang-format off
     // @function push_transform_preset
     // @summary Pushes the previous transform to the stack and activates the given one.
     // @param preset number The transform preset to use.
     // @param offsets UIAnchorOffsets The offsets for each of the anchors.
     // @param rotation number The rotation to apply.
-    // clang-format on
     s["UI"]["push_transform_preset"] = [](io_ui_anchor_preset preset,
                                           io_ui_anchor_offsets_t offsets,
                                           io_float32_t rotation) {
       io_ui->push_transform_preset(preset, offsets, rotation);
     };
-    // clang-format off
     // @function pop_transform
     // @summary Pops the last transform off the stack and activates it.
-    // clang-format on
     s["UI"]["pop_transform"] = []() { return io_ui->pop_transform(); };
 
-    // clang-format off
     // @function push_scale_offset_for_base_size
     // @summary Calculates the scale and offset for the given base size and according to the aspect mode.
     // @param base_size Vec2 The base size.
     // @param aspect_mode number The aspect mode to use.
-    // clang-format on
     s["UI"]["push_scale_offset_for_base_size"] =
         [](io_vec2_t base_size, io_ui_aspect_mode aspect_mode) {
           io_ui->push_scale_offset_for_base_size(base_size, aspect_mode);
         };
 
-    // clang-format off
     // @function push_scale_offset
     // @summary Pushes the scale and offset to the stack and activates the given parameters.
     // @param scale number The uniform scaling factor.
     // @param offset Vec2 The offset.
-    // clang-format on
     s["UI"]["push_scale_offset"] = [](io_float32_t scale, io_vec2_t offset) {
       io_ui->push_scale_offset(scale, offset);
     };
 
-    // clang-format off
     // @function pop_scale_offset
     // @summary Pops the last scale and offset from the stack and activates it.
-    // clang-format on
     s["UI"]["pop_scale_offset"] = []() { io_ui->pop_scale_offset(); };
 
-    // clang-format off
     // @function push_style_var_float
     // @summary Pushes the current style variation float value to the stack and sets the given one.
     // @param var number The style variation.
     // @param value number The value to set.
-    // clang-format on
     s["UI"]["push_style_var_float"] = [](io_ui_style_var var,
                                          io_float32_t value) {
       io_ui->push_style_var_float(var, value);
     };
-    // clang-format off
     // @function push_style_var_vec4
     // @summary Pushes the current style variation Vec4 value to the stack and sets the given one.
     // @param var number The style variation.
     // @param value Vec4 The value to set.
-    // clang-format on
     s["UI"]["push_style_var_vec4"] = [](io_ui_style_var var, io_vec4_t value) {
       io_ui->push_style_var_vec4(var, value);
     };
-    // clang-format off
     // @function pop_style_var
     // @summary Pops the last style variation from the stack and activates it.
-    // clang-format on
     s["UI"]["pop_style_var"] = []() { io_ui->pop_style_var(); };
 
-    // clang-format off
     // @function clip_children
     // @summary Clips the children of the current transform
-    // clang-format on
     s["UI"]["clip_children"] = []() { io_ui->clip_children(); };
 
-    // clang-format off
     // @function push_font_size
     // @summary Pushes the current font size to the stack and sets the given one.
     // @param size number The font size (in px).
-    // clang-format on
     s["UI"]["push_font_size"] = [](io_float32_t size) {
       io_ui->push_font_size(size);
     };
 
-    // clang-format off
     // @function pop_font_size
     // @summary Pops the last font size from the stack and activates it.
-    // clang-format on
     s["UI"]["pop_font_size"] = []() { io_ui->pop_font_size(); };
 
-    // clang-format off
     // @function intersects
     // @summary Returns true if the given position (in px) intersects the current transform.
-    // clang-format on
     s["UI"]["intersects"] = [](io_vec2_t position) {
       return io_ui->intersects(position);
     };
@@ -1538,11 +1654,9 @@ void script_init_state(sol::state& s)
 
     static io_uint64_t seed = 42ull;
 
-    // clang-format off
     // @function set_seed
     // @summary Sets the seed used for the underlying random number generator (RNG).
     // @param seed number The seed to set.
-    // clang-format on
     s["Random"]["set_seed"] = [](io_uint32_t s) { seed = s; };
     // @function rand_uint
     // @summary Calculates a random (unsigned) integer value.
@@ -1550,13 +1664,11 @@ void script_init_state(sol::state& s)
     s["Random"]["rand_uint"] = []() {
       return math_helper::calc_random_number_fast(seed);
     };
-    // clang-format off
     // @function rand_uint_min_max
     // @summary Calculates a random (unsigned) integer value in the given interval.
     // @param min number The minimum random value to generate.
     // @param max number The maximum random value to generate.
     // @return number value The random value.
-    // clang-format on
     s["Random"]["rand_uint_min_max"] = [](io_uint32_t min, io_uint32_t max) {
       return math_helper::calc_random_number_fast(seed) % (max - min) + min;
     };
@@ -1568,13 +1680,11 @@ void script_init_state(sol::state& s)
       return math_helper::calc_random_float_min_max_fast(0.0f, 1.0f, seed);
     };
 
-    // clang-format off
     // @function rand_float_min_max
     // @summary Calculates a random floating point value in the given interval.
     // @param min number The minimum random value to generate.
     // @param max number The maximum random value to generate.
     // @return number value The random value.
-    // clang-format on
     s["Random"]["rand_float_min_max"] = [](io_float32_t min, io_float32_t max) {
       return math_helper::calc_random_float_min_max_fast(min, max, seed);
     };
@@ -1582,7 +1692,6 @@ void script_init_state(sol::state& s)
 
   s["Entity"] = s.create_table();
   s["Entity"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Entity
     // @category Entity Functions to interact with entities.
@@ -1624,12 +1733,10 @@ void script_init_state(sol::state& s)
       return entities;
     };
 
-    // clang-format on
   };
 
   s["SaveData"] = s.create_table();
   s["SaveData"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace SaveData
     // @category Save_Data Functions to interact with the save data system.
@@ -1646,12 +1753,10 @@ void script_init_state(sol::state& s)
     // @return Ref value The root node of the loaded hierarchy.
     s["SaveData"]["load_from_user_data"] = io_save_data->load_from_user_data;
 
-    // clang-format on
   };
 
   s["World"] = s.create_table();
   s["World"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace World
     // @category World Collection of functions that operate on a global level.
@@ -1714,12 +1819,10 @@ void script_init_state(sol::state& s)
     // @param outline boolean Set to true to only highlight using an outline.
     s["World"]["highlight_node"] = io_world->highlight_node;
 
-    // clang-format on
   };
 
   s["ParticleSystem"] = s.create_table();
   s["ParticleSystem"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace ParticleSystem
     // @category Particle_System Functions to interact with the particle system.
@@ -1769,12 +1872,10 @@ void script_init_state(sol::state& s)
     // @param direction Vec3 The direction to set.
     s["ParticleSystem"]["set_emission_direction"] = io_particle_system->set_emission_direction;
 
-    // clang-format on
   };
 
   s["Input"] = s.create_table();
   s["Input"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Input
     // @category Input Functions to interact with the input system.
@@ -1941,8 +2042,6 @@ void script_init_state(sol::state& s)
 
     s["Key"]["kAny"] = io_input_key_any;
 
-    // clang-format on
-
     // Letters
     for (uint32_t i = 0u; i < 26u; ++i)
     {
@@ -1965,7 +2064,6 @@ void script_init_state(sol::state& s)
       stbsp_snprintf(string_buffer, string_buffer_length, "kF%u", i);
       s["Key"][string_buffer] = io_input_key_f1 + i;
     }
-    // clang-format off
 
     // @table Axis
     // @summary The different axes for controller input handling.
@@ -1984,12 +2082,10 @@ void script_init_state(sol::state& s)
     s["Axis"]["kTriggerLeft"] =io_input_axis_trigger_left;
     s["Axis"]["kTriggerRight"] = io_input_axis_trigger_right;
 
-    // clang-format on
   };
 
   s["Terrain"] = s.create_table();
   s["Terrain"]["load"] = [&s]() {
-    // clang-format off
 
     if (!io_plugin_terrain)
     {
@@ -2034,12 +2130,10 @@ void script_init_state(sol::state& s)
     // @return HeightmapPixel value The new heightmap pixel.
     s["Terrain"]["HeightmapPixel"] = io_plugin_terrain_create_heightmap_pixel;
 
-    // clang-format on
   };
 
   s["Noise"] = s.create_table();
   s["Noise"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Noise
     // @category Noise Various procedural noise functions. Useful for, e.g., generating terrain, animations, etc.
@@ -2057,14 +2151,11 @@ void script_init_state(sol::state& s)
     // @return number value The noise value at the given coordinate.
     s["Noise"]["simplex"] = [](const io_vec4_t& x) { return glm::simplex(io_cvt(x)); };
 
-    // clang-format on
   };
 
   s["Physics"] = s.create_table();
   s["Physics"]["load"] = [&s]() {
-    // clang-format off
 
-    // clang-format off
     // @namespace Physics
     // @category Physics Functions to interact with the various physics subsystems.
     // @copy_category Interface
@@ -2118,12 +2209,10 @@ void script_init_state(sol::state& s)
       return std::make_tuple(result.hit, result.distance, result.position, result.normal, result.entity);
     };
 
-    // clang-format on
   };
 
   s["DebugGeometry"] = s.create_table();
   s["DebugGeometry"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace DebugGeometry
     // @category Debug_Geometry Functions to quickly draw geometry for debugging purposes.
@@ -2144,12 +2233,10 @@ void script_init_state(sol::state& s)
     // @param always_in_front boolean Set to true to render the sphere in front of all the other geometry.
     s["DebugGeometry"]["draw_sphere"] = io_debug_geometry->draw_sphere;
 
-    // clang-format on
   };
 
   s["Sound"] = s.create_table();
   s["Sound"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Sound
     // @category Sound Functions to interact with the sound system.
@@ -2185,12 +2272,10 @@ void script_init_state(sol::state& s)
       return spectrum;
     };
 
-    // clang-format on
   };
 
   s["Pathfinding"] = s.create_table();
   s["Pathfinding"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Pathfinding
     // @category Pathfinding Functions to interact with the pathfinding system.
@@ -2226,13 +2311,11 @@ void script_init_state(sol::state& s)
     // @param handle Handle The handle of the path.
     // @return Vec3 position The next position on the path.
     // @return boolean success True if a new position was retrieved.
-    // clang-format on
     s["Pathfinding"]["get_next_position_on_path"] = [](io_handle16_t handle) {
       io_vec3_t p;
       const bool result = io_pathfinding->get_next_position_on_path(handle, &p);
       return std::make_tuple(p, result);
     };
-    // clang-format off
     // @function draw_debug_geometry
     // @summary Draws the internal debug geometry for the given path.
     // @param handle Handle The handle of the path.
@@ -2254,7 +2337,6 @@ void script_init_state(sol::state& s)
       return settings;
     };
 
-    // clang-format on
   };
 
 #define SHARED_COMPONENT_INTERFACE_IMPL(t_, i_)                                \
@@ -2278,7 +2360,6 @@ void script_init_state(sol::state& s)
 
   s["CustomData"] = s.create_table();
   s["CustomData"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace CustomData
     // @category Custom_Data_Component Functions to interact with custom datas.
@@ -2310,12 +2391,10 @@ void script_init_state(sol::state& s)
     // @param index number The index of the value to remove.
     s["CustomData"]["remove"] = io_component_custom_data->remove;
 
-    // clang-format on
   };
 
   s["Tag"] = s.create_table();
   s["Tag"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["Tag"], io_component_tag);
 
@@ -2338,16 +2417,13 @@ void script_init_state(sol::state& s)
       return entities;
     };
 
-    // clang-format on
   };
 
   s["FlipbookAnimation"] = s.create_table();
   s["FlipbookAnimation"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["FlipbookAnimation"], io_component_flipbook_animation);
 
-    // clang-format off
     // @namespace FlipbookAnimation
     // @category Flipbook_Animation_Component Functions to interact with flipbook animations.
     // @copy_category Interface
@@ -2362,27 +2438,22 @@ void script_init_state(sol::state& s)
     // @param component Ref The component in question.
     s["FlipbookAnimation"]["stop"] = io_component_flipbook_animation->stop;
 
-    // clang-format on
   };
 
   s["PostEffectVolume"] = s.create_table();
   s["PostEffectVolume"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["PostEffectVolume"], io_component_post_effect_volume);
 
-    // clang-format off
     // @namespace PostEffectVolume
     // @category Post_Effect_Volume_Component Functions to interact with post effect volumes.
     // @copy_category Interface
     // @copy_category Components
 
-    // clang-format on
   };
 
   s["Camera"] = s.create_table();
   s["Camera"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["Camera"], io_component_camera);
 
@@ -2391,12 +2462,10 @@ void script_init_state(sol::state& s)
     // @copy_category Interface
     // @copy_category Components
 
-    // clang-format on
   };
 
   s["Script"] = s.create_table();
   s["Script"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["Script"], io_component_script);
 
@@ -2405,16 +2474,13 @@ void script_init_state(sol::state& s)
     // @copy_category Interface
     // @copy_category Components
 
-    // clang-format on
   };
 
   s["VoxelShape"] = s.create_table();
   s["VoxelShape"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["VoxelShape"], io_component_voxel_shape);
 
-    // clang-format off
     // @namespace VoxelShape
     // @category Voxel_Shape_Component Functions to interact with voxel shapes.
     // @copy_category Interface
@@ -2449,7 +2515,6 @@ void script_init_state(sol::state& s)
     // @summary Copies the given source shape into the target shape.
     // @param target Ref The target voxel shape component.
     // @param source Ref The source voxel shape component.
-    // clang-format on
     s["VoxelShape"]["copy"] = [](io_ref_t target, io_ref_t source) {
       const auto target_dim = io_cvt(io_component_voxel_shape->get_dim(target));
       const auto source_dim = io_cvt(io_component_voxel_shape->get_dim(source));
@@ -2476,7 +2541,6 @@ void script_init_state(sol::state& s)
         }
       }
     };
-    // clang-format off
 
     // @function get_dim
     // @summary Gets the dimensions of the shape in voxels.
@@ -2535,12 +2599,10 @@ void script_init_state(sol::state& s)
     // @param velocity Vec3 The angular velocity to set.
     s["VoxelShape"]["set_angular_velocity"] = io_component_voxel_shape->set_angular_velocity;
 
-    // clang-format on
   };
 
   s["Light"] = s.create_table();
   s["Light"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["Light"], io_component_light);
 
@@ -2549,12 +2611,10 @@ void script_init_state(sol::state& s)
     // @copy_category Interface
     // @copy_category Components
 
-    // clang-format on
   };
 
   s["Node"] = s.create_table();
   s["Node"]["load"] = [&s]() {
-    // clang-format off
 
     // @namespace Node
     // @category Node_Component Functions to interact with nodes.
@@ -2750,12 +2810,10 @@ void script_init_state(sol::state& s)
     // @param node Ref The root node of the hierarchy.
     s["Node"]["update_transforms"] = io_component_node->update_transforms;
 
-    // clang-format on
   };
 
   s["CharacterController"] = s.create_table();
   s["CharacterController"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["CharacterController"], io_component_character_controller);
 
@@ -2785,12 +2843,10 @@ void script_init_state(sol::state& s)
     // @return boolean value True if the top of the controller is colliding.
     s["CharacterController"]["is_colliding_up"] = io_component_character_controller->is_colliding_up;
 
-    // clang-format on
   };
 
   s["CameraController"] = s.create_table();
   s["CameraController"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["CameraController"], io_component_camera_controller);
 
@@ -2815,12 +2871,10 @@ void script_init_state(sol::state& s)
     // @return Vec3 value The current target euler angles in radians.
     s["CameraController"]["get_target_euler_angles"] = io_component_camera_controller->get_target_euler_angles;
 
-    // clang-format on
   };
 
   s["Particle"] = s.create_table();
   s["Particle"]["load"] = [&s]() {
-    // clang-format off
 
     SHARED_COMPONENT_INTERFACE_IMPL(s["Particle"], io_component_particle);
 
@@ -2835,7 +2889,6 @@ void script_init_state(sol::state& s)
     // @return Handle value The emitter handle of this particle.
     s["Particle"]["get_emitter_handle"] = io_component_particle->get_emitter_handle;
 
-    // clang-format on
   };
 
   // Call into plugins and let them init. the state
