@@ -2084,13 +2084,13 @@ struct io_component_custom_data_i // NOLINT
   // Base interface functions.
   io_component_base_i base;
 
-  // Gets the value for the given index.
+  // Gets the variant value for the given index.
   io_variant_t (*get)(io_ref_t custom_data, io_uint32_t index);
-  // Sets the value for the given index.
+  // Sets the variant value for the given index.
   void (*set)(io_ref_t custom_data, io_uint32_t index, io_variant_t value);
-  // Sets the value for the given index.
+  // Adds a new variant value to end of the list.
   void (*add)(io_ref_t custom_data, io_variant_t value);
-  // Removes the value at the given index.
+  // Removes the variant value at the given index.
   void (*remove)(io_ref_t custom_data, io_uint32_t index);
 };
 
@@ -2108,6 +2108,11 @@ struct io_component_tag_i // NOLINT
   // Finds all entities with the given tag.
   void (*find_entities_with_tag)(const char* tag, io_ref_t* entities,
                                  io_uint32_t* entities_length);
+
+  // Adds a new tag with the given name.
+  void (*add)(io_ref_t tag, const char* tag_name);
+  // Removes the tag with the given name (if it exists).
+  void (*remove)(io_ref_t tag, const char* tag_name);
 };
 
 //----------------------------------------------------------------------------//

@@ -2417,9 +2417,19 @@ void script_init_state(sol::state& s)
       std::vector<io_ref_t> entities(num_entities);
       io_component_tag->find_entities_with_tag(tag, entities.data(),
                                                &num_entities);
-
       return entities;
     };
+
+    // @function add
+    // @summary Adds the tag with the given name.
+    // @param tag Ref The component to add the new tag to.
+    // @param tag_name string The name of the tag to add.
+    s["Tag"]["add"] = io_component_tag->add;
+    // @function remove
+    // @summary Removes the tag with the given name.
+    // @param tag Ref The component to remove the tag from.
+    // @param tag_name string The name of the tag to remove.
+    s["Tag"]["remove"] = io_component_tag->remove;
 
   };
 
