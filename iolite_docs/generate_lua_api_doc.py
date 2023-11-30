@@ -28,42 +28,46 @@ api = []
 with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
     src = f.readlines()
 
-    current_namespace = "Global"
-    current_category = {"name": "Global", "description": "Global namespace."}
-    current_func = None
-    current_type = None
-    cats_to_copy = []
+    class State():
+        def __init__(self):
+            self.current_namespace = "Global"
+            self.current_category = {"name": "Global",
+                                     "description": "Global namespace."}
+            self.current_func = None
+            self.current_type = None
+            self.cats_to_copy = []
+    state = State()
 
     line_to_process = ""
     next_line_to_process = ""
 
-    def finalize(current_func, current_type, cats_to_copy):
+    def finalize(state):
         category = None
         for e in api:
-            if e["name"] == current_category["name"] and e["prefix"] == current_namespace:
+            if e["name"] == state.current_category["name"] and e["prefix"] == state.current_namespace:
                 category = e
                 break
         if not category:
             category = {
-                "name": current_category["name"], "prefix": current_namespace, "description": current_category["description"]}
-            if "hidden" in current_category:
-                category["hidden"] = current_category["hidden"]
+                "name": state.current_category["name"], "prefix": state.current_namespace, "description": state.current_category["description"]}
+            if "hidden" in state.current_category:
+                category["hidden"] = state.current_category["hidden"]
             api.append(category)
 
-        if current_func:
+        if state.current_func:
             if not "functions" in category:
                 category["functions"] = []
             # Append the function and reset
-            category["functions"].append(current_func)
-            current_func = None
-        elif current_type:
+            category["functions"].append(state.current_func)
+            state.current_func = None
+        elif state.current_type:
             if not "types" in category:
                 category["types"] = []
-            category["types"].append(current_type)
-            current_type = None
+            category["types"].append(state.current_type)
+            state.current_type = None
 
         # Append copied categories
-        for name in cats_to_copy:
+        for name in state.cats_to_copy:
             # Find the category
             cat_to_copy = None
             for cat in api:
@@ -80,7 +84,7 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
                     category["types"] = []
                 category["types"] += cat_to_copy["types"]
 
-        cats_to_copy.clear()
+        state.cats_to_copy.clear()
 
     for l in src:
         command = re.search("// @", l)
@@ -123,52 +127,54 @@ with open("../iolite_plugins/lua_plugin/init_state.cpp", "r") as f:
         copy_category = re.search("// @copy_category (\\w*)", line_to_process)
 
         if namespace:
-            current_namespace = namespace.group(1)
+            finalize(state)
+            state.current_namespace = namespace.group(1)
         elif category:
-            current_category = {"name": " ".join(category.group(
+            finalize(state)
+            state.current_category = {"name": " ".join(category.group(
                 1).split("_")), "description": category.group(2)}
         elif copy_category:
-            cats_to_copy.append(copy_category.group(1))
+            state.cats_to_copy.append(copy_category.group(1))
         elif hidden:
-            current_category["hidden"] = True
+            state.current_category["hidden"] = True
         elif type:
-            finalize(current_func, current_type, cats_to_copy)
-            current_type = {"name": type.group(1),  "members": []}
+            finalize(state)
+            state.current_type = {"name": type.group(1),  "members": []}
         elif table:
-            finalize(current_func, current_type, cats_to_copy)
-            current_type = {"name": table.group(
+            finalize(state)
+            state.current_type = {"name": table.group(
                 1),  "members": [], "is_table": True}
         elif function:
-            finalize(current_func, current_type, cats_to_copy)
-            current_func = {"name": function.group(
+            finalize(state)
+            state.current_func = {"name": function.group(
                 1), "args": [], "returns": []}
         elif summary:
-            if current_func:
-                current_func["description"] = summary.group(1)
-            elif current_type:
-                current_type["description"] = summary.group(1)
+            if state.current_func:
+                state.current_func["description"] = summary.group(1)
+            elif state.current_type:
+                state.current_type["description"] = summary.group(1)
         elif param:
-            current_func["args"].append(
+            state.current_func["args"].append(
                 {"name": param.group(1), "types": param.group(
                     2).split("|"), "description": param.group(3)}
             )
         elif ret:
-            current_func["returns"].append(
+            state.current_func["returns"].append(
                 {"name": ret.group(2), "types": ret.group(
                     1).split("|"), "description": ret.group(3)}
             )
         elif member:
-            current_type["members"].append(
+            state.current_type["members"].append(
                 {"name": member.group(1), "type": member.group(
                     2), "description": member.group(3)}
             )
         elif member_simple:
-            current_type["members"].append(
+            state.current_type["members"].append(
                 {"name": member_simple.group(
                     1), "type": member_simple.group(2)}
             )
 
-    finalize(current_func, current_type, cats_to_copy)
+    finalize(state)
 
 # Sort categories, function, and types
 # api = sorted(api, key=lambda x: x["name"])
@@ -190,7 +196,8 @@ with open("api/lua.json", "w") as f:
 # Generate API documentation
 with open("api/lua_generated.rst", "w") as f:
     for cat in api:
-        f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
+        if "functions" in cat or "types" in cat:
+            f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
         if "functions" in cat:
             for function in cat["functions"]:
 
@@ -224,10 +231,16 @@ with open("api/lua_generated.rst", "w") as f:
 
 # Generate API header file
 with open("_static/iolite_api.lua", "w") as f:
+    seen_prefixes = {}
+
     for cat in api:
 
-        if cat["prefix"] != "Global":
+        if not "types" in cat and not "functions" in cat:
+            continue
+
+        if cat["prefix"] != "Global" and not cat["prefix"] in seen_prefixes:
             f.write("{} = {{}}\n\n".format(cat["prefix"]))
+            seen_prefixes[cat["prefix"]] = True
 
         if "types" in cat:
             for type in cat["types"]:
@@ -255,5 +268,5 @@ with open("_static/iolite_api.lua", "w") as f:
                         "|".join(t for t in ret["types"]), ret["name"], ret["description"]))
 
                 arg_string = ', '.join(a["name"] for a in function["args"])
-                f.write("function {}{}({})\nend\n\n".format(
+                f.write("---@diagnostic disable-next-line:duplicate-set-field\nfunction {}{}({})\n---@diagnostic disable-next-line:missing-return\nend\n\n".format(
                     prefix, function["name"], arg_string))
