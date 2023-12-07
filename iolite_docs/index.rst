@@ -16,7 +16,7 @@
 .. toctree::
   :hidden:
   
-  getting_started
+  getting_started/index
 
 .. toctree::
   :hidden:

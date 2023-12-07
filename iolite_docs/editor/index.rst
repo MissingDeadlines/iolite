@@ -7,5 +7,3 @@ This documentation serves as the reference guide for working with IOLITE's edito
   :hidden:
   
   editor
-
-
