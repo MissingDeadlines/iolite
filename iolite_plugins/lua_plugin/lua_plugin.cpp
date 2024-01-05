@@ -39,6 +39,7 @@ const io_settings_i* io_settings = {};
 const io_save_data_i* io_save_data = {};
 const io_world_i* io_world = {};
 const io_particle_system_i* io_particle_system = {};
+const io_animation_system_i* io_animation_system = {};
 const io_sound_i* io_sound = {};
 const io_input_system_i* io_input_system = {};
 const io_plugin_terrain_i* io_plugin_terrain = {};
@@ -479,6 +480,9 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_save_data =
       (const io_save_data_i*)io_api_manager->find_first(IO_SAVE_DATA_API_NAME);
   io_world = (const io_world_i*)io_api_manager->find_first(IO_WORLD_API_NAME);
+  io_animation_system =
+      (const io_animation_system_i*)io_api_manager->find_first(
+          IO_ANIMATION_SYSTEM_API_NAME);
   io_particle_system = (const io_particle_system_i*)io_api_manager->find_first(
       IO_PARTICLE_SYSTEM_API_NAME);
   io_sound = (const io_sound_i*)io_api_manager->find_first(IO_SOUND_API_NAME);

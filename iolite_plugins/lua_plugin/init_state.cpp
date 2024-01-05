@@ -785,6 +785,28 @@ void script_init_state(sol::state& s)
       &io_pathfinding_path_settings_t::step_height, "cell_size",
       &io_pathfinding_path_settings_t::cell_size);
 
+  // @type AnimationDesc
+  // @summary Describes the animation to play via the animation system.
+  // @member animation_name string The name of the animation to play.
+  // @member play_speed number The play speed factor (defaults to 1).
+  // @member blend_weight number The blend weight (defaults to 1).
+  // @member blend_in_out_duration number The duration (in seconds) to blend in and out.
+  // @member priority number The priority. Animations with a higher priority are applied on top.
+  // @member delay number The delay (in seconds) before the animation starts playing.
+  // @member looping boolean Set to the if the animation should loop
+  // @member restore_when_finished boolean Set to the true to restore the initial node transforms when the animation is finished.
+  s.new_usertype<io_animation_system_animation_desc_t>(
+      "AnimationDesc", sol::no_constructor, "animation_name",
+      &io_animation_system_animation_desc_t::animation_name, "play_speed",
+      &io_animation_system_animation_desc_t::play_speed, "blend_weight",
+      &io_animation_system_animation_desc_t::blend_weight, "blend_in_out_duration",
+      &io_animation_system_animation_desc_t::blend_in_out_duration, "priority",
+      &io_animation_system_animation_desc_t::priority, "delay",
+      &io_animation_system_animation_desc_t::delay, "looping",
+      &io_animation_system_animation_desc_t::looping, "restore_when_finished",
+      &io_animation_system_animation_desc_t::restore_when_finished
+      );
+
   // @type PhysicsContactEvent
   // @summary Physics event fired when contacts between two shapes are detected.
   // @member type string The type name.
@@ -2333,15 +2355,92 @@ void script_init_state(sol::state& s)
     s["Pathfinding"]["draw_path"] = io_pathfinding->draw_path;
 
     // @function PathSettings
-    // @summary Creates and initializes the settings for calculating a path to the default values.
+    // @summary Creates and initializes the settings for calculating a path to its default values.
     // @return PathSettings value The path settings.
     s["Pathfinding"]["PathSettings"] = []() { 
       io_pathfinding_path_settings_t settings; 
       io_pathfinding_init_path_settings(&settings);
       return settings;
     };
+  };
+
+  s["AnimationSystem"] = s.create_table();
+  s["AnimationSystem"]["load"] = [&s]() {
+
+    // @namespace AnimationSystem
+    // @category Animation_System Functions to interact with the animation subsystem.
+    // @copy_category Interface
+
+    // @function play_animation
+    // @summary Plays the given animation on the provided node and returns the animation instance handle.
+    // @param node Ref The node to start the animation on.
+    // @param desc AnimationDesc The animation description.
+    // @return Handle value The animation instance handle.
+    s["AnimationSystem"]["play_animation"] = io_animation_system->play_animation;
+
+    // @function stop_animation
+    // @summary Stops the provided animation instance.
+    // @param instance Handle The handle of the instance to stop.
+    s["AnimationSystem"]["stop_animation"] = io_animation_system->stop_animation;
+
+    // @function stop_animations
+    // @summary Stops all animation instances running on the provided node.
+    // @param node Ref The node to stop all animation instances on.
+    s["AnimationSystem"]["stop_animations"] = io_animation_system->stop_animations;
+
+    // @function stop_all_animations
+    // @summary Stops all animation instances running on the provided node and its hierarchy.
+    // @param node Ref The node to stop all animation instances on.
+    s["AnimationSystem"]["stop_all_animations"] = io_animation_system->stop_all_animations;
+
+    // @function is_finished
+    // @summary Returns true if the animation instance is finished. PLease note that finished instances can not be resumed and any operation on a finished instances equals a NOP.
+    // @param instance Handle The handle of the instance.
+    // @return boolean value True if the animation is finished.
+    s["AnimationSystem"]["is_finished"] = io_animation_system->is_finished;
+
+    // @function blend_in_out
+    // @summary Animates the blend weight of the animation instances towards the provided target blend weight. Optionally stops the animation instance after the blending finished.
+    // @param instance Handle The handle of the instance.
+    // @param target_blend_weight number The target blend weight to animate towards.
+    // @param duration number The duration of the animation (in seconds).
+    // @param delay number The delay before the animation starts (in seconds).
+    // @param stop_animation boolean Set to true to stop the animation instance after the blend animation finished.
+    s["AnimationSystem"]["blend_in_out"] = io_animation_system->blend_in_out;
+
+    // @function get_blend_weight
+    // @summary Gets the current blend weight of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @return number value The current blend weight.
+    s["AnimationSystem"]["get_blend_weight"] = io_animation_system->get_blend_weight;
+    // @function set_blend_weight
+    // @summary Sets the blend weight of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @param play_speed number The blend weight to set.
+    s["AnimationSystem"]["set_blend_weight"] = io_animation_system->set_blend_weight;
+
+    // @function get_play_speed
+    // @summary Gets the current play speed of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @return number value The current play speed.
+    s["AnimationSystem"]["get_play_speed"] = io_animation_system->get_play_speed;
+    // @function set_play_speed
+    // @summary Sets the play speed of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @param play_speed number The play speed to set.
+    s["AnimationSystem"]["set_play_speed"] = io_animation_system->set_play_speed;
+
+    // @function AnimationDesc
+    // @summary Creates and initializes the animation description to its default values.
+    // @return AnimationDesc value The animation description.
+    s["AnimationSystem"]["AnimationDesc"] = []() { 
+      io_animation_system_animation_desc_t desc; 
+      io_animation_system_init_animation_desc(&desc);
+      return desc;
+    };
 
   };
+
 
 #define SHARED_COMPONENT_INTERFACE_IMPL(t_, i_)                                \
   t_["get_type_id"] = i_->base.get_type_id;                                    \

@@ -928,6 +928,25 @@ typedef struct
       num_max_steps; // The maximum number of iterations to compute per frame.
 } io_pathfinding_path_settings_t;
 
+// Describes the animation to play via the animation system
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  const char* animation_name; // The name of the animation to play
+
+  io_float32_t play_speed;   // The play speed factor, defaults to 1
+  io_float32_t blend_weight; // The blend weight, defaults to 1
+  io_float32_t
+      blend_in_out_duration; // The time (in seconds) to blend in *and* out
+  io_float32_t priority; // The priority. Animation with a higher priority are
+                         // applied on top
+  io_float32_t
+      delay; // The delay (in seconds) before the animation starts playing
+  io_bool_t looping;               // Set to true if the animation should loop
+  io_bool_t restore_when_finished; // Set to true to restore the initial node
+                                   // transforms when the animation is finished
+} io_animation_system_animation_desc_t;
+
 // Physics overlap result data
 //----------------------------------------------------------------------------//
 typedef struct
@@ -1052,6 +1071,22 @@ io_pathfinding_init_path_settings(io_pathfinding_path_settings_t* settings)
   settings->step_height = 0.2f;
   settings->cell_size = 0.2f;
   settings->num_max_steps = 128u;
+}
+
+//----------------------------------------------------------------------------//
+inline void io_animation_system_init_animation_desc(
+    io_animation_system_animation_desc_t* desc)
+{
+  desc->animation_name = ""; // Has to be set by the user
+
+  desc->play_speed = 1.0f;
+  desc->blend_weight = 1.0f;
+  desc->blend_in_out_duration = 0.0f;
+  desc->priority = 0.0f;
+  desc->delay = 0.0f;
+
+  desc->looping = IO_FALSE;
+  desc->restore_when_finished = IO_FALSE;
 }
 
 //----------------------------------------------------------------------------//
@@ -1708,6 +1743,50 @@ struct io_input_system_i // NOLINT
 
   // Call this every frame to show the mouse cursor.
   void (*request_mouse_cursor)();
+};
+
+//----------------------------------------------------------------------------//
+#define IO_ANIMATION_SYSTEM_API_NAME "io_animation_system_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to the animation subsystem
+//----------------------------------------------------------------------------//
+struct io_animation_system_i // NOLINT
+{
+  // Plays the given animation on the provided node and returns the animation
+  // instance handle.
+  io_handle64_t (*play_animation)(
+      io_ref_t node, const io_animation_system_animation_desc_t* desc);
+
+  // Stops the provided animation instance.
+  void (*stop_animation)(io_handle64_t instance);
+  // Stops all animations instances running on the provided node.
+  void (*stop_animations)(io_ref_t node);
+  // Stop all animations instances running on the provided node and its
+  // hierarchy.
+  void (*stop_all_animations)(io_ref_t node);
+
+  // Returns true if the given animation instance is finished.
+  // Please note that finished instances can not be resumed and any operation on
+  // a finished instance equals a NOP.
+  io_bool_t (*is_finished)(io_handle64_t instance);
+
+  // Animates the blend weight of the animation instance towards the provided
+  // target blend weight. Optionally stops the animation instance after the
+  // blending finished.
+  void (*blend_in_out)(io_handle64_t instance, io_float32_t target_blend_weight,
+                       io_float32_t duration, io_float32_t delay,
+                       io_bool_t stop_animation);
+
+  // Returns the current blend weight for the provided animation instance.
+  io_float32_t (*get_blend_weight)(io_handle64_t instance);
+  // Sets the blend weight for the provided animation instance.
+  void (*set_blend_weight)(io_handle64_t instance, io_float32_t blend_weight);
+
+  // Returns the current play speed for the provided animation instance.
+  io_float32_t (*get_play_speed)(io_handle64_t instance);
+  // Sets the play speed for the provided animation instance.
+  void (*set_play_speed)(io_handle64_t instance, io_float32_t play_speed);
 };
 
 //----------------------------------------------------------------------------//

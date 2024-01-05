@@ -69,6 +69,7 @@ extern const io_settings_i* io_settings;
 extern const io_save_data_i* io_save_data;
 extern const io_world_i* io_world;
 extern const io_particle_system_i* io_particle_system;
+extern const io_animation_system_i* io_animation_system;
 extern const io_sound_i* io_sound;
 extern const io_input_system_i* io_input_system;
 extern const io_plugin_terrain_i* io_plugin_terrain;
