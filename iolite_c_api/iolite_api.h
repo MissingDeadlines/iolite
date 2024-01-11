@@ -561,7 +561,9 @@ typedef io_uint32_t io_ui_style_var;
 //----------------------------------------------------------------------------//
 enum io_world_radius_damage_flags_
 {
-  io_radius_damage_flags_fracture = 0x01u // Apply as fracture
+  io_radius_damage_flags_fracture = 0x01u, // Apply as fracture
+  io_radius_damage_flags_use_noise =
+      0x02u // Apply detail using proecudral noise function
 };
 typedef io_uint32_t io_world_radius_damage_flags;
 
@@ -926,6 +928,8 @@ typedef struct
                             // calculating the path.
   io_uint32_t
       num_max_steps; // The maximum number of iterations to compute per frame.
+  io_uint32_t group_mask; // Masking defining the groups to consider for
+                          // calculating the path on.
 } io_pathfinding_path_settings_t;
 
 // Describes the animation to play via the animation system
@@ -1071,6 +1075,7 @@ io_pathfinding_init_path_settings(io_pathfinding_path_settings_t* settings)
   settings->step_height = 0.2f;
   settings->cell_size = 0.2f;
   settings->num_max_steps = 128u;
+  settings->group_mask = 1u; // Shapes only by default
 }
 
 //----------------------------------------------------------------------------//

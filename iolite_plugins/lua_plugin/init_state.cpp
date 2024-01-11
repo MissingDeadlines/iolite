@@ -1824,8 +1824,8 @@ void script_init_state(sol::state& s)
     // @summary Applies damage to all voxel shapes in the given radius in the world.
     // @param position Vec3 The position.
     // @param radius number The radius.
+    // @param radius_damage_flags number The flags to use.
     // @param group_mask number Mask that defines the groups affected by this operation (set to -1 for all).
-    // @param flags number The flags to use.
     // @param max_hardness number Limits which voxels this damage operation can affect based on the hardness material parameter.
     s["World"]["radius_damage"] = io_world->radius_damage;
 
