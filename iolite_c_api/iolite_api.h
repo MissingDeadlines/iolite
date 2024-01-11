@@ -1766,6 +1766,11 @@ struct io_animation_system_i // NOLINT
   // hierarchy.
   void (*stop_all_animations)(io_ref_t node);
 
+  // Pauses the given animation.
+  void (*pause_animation)(io_handle64_t instance);
+  // Resumes the given (paused) animation.
+  void (*resume_animation)(io_handle64_t instance);
+
   // Returns true if the given animation instance is finished.
   // Please note that finished instances can not be resumed and any operation on
   // a finished instance equals a NOP.
@@ -1787,6 +1792,12 @@ struct io_animation_system_i // NOLINT
   io_float32_t (*get_play_speed)(io_handle64_t instance);
   // Sets the play speed for the provided animation instance.
   void (*set_play_speed)(io_handle64_t instance, io_float32_t play_speed);
+
+  // Returns the current timeline position for the provided animation instance.
+  io_float32_t (*get_timeline_position)(io_handle64_t instance);
+  // Sets the timeline position for the provided animation instance.
+  void (*set_timeline_position)(io_handle64_t instance,
+                                io_float32_t timeline_position);
 };
 
 //----------------------------------------------------------------------------//

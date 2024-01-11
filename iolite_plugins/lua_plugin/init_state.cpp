@@ -2393,6 +2393,16 @@ void script_init_state(sol::state& s)
     // @param node Ref The node to stop all animation instances on.
     s["AnimationSystem"]["stop_all_animations"] = io_animation_system->stop_all_animations;
 
+
+    // @function pause_animation
+    // @summary Pauses the provided animation instance.
+    // @param instance Handle The handle of the instance to pause.
+    s["AnimationSystem"]["pause_animation"] = io_animation_system->pause_animation;
+    // @function resume_animation
+    // @summary Resumes the provided (paused) animation instance.
+    // @param instance Handle The handle of the instance to resume.
+    s["AnimationSystem"]["resume_animation"] = io_animation_system->resume_animation;
+
     // @function is_finished
     // @summary Returns true if the animation instance is finished. PLease note that finished instances can not be resumed and any operation on a finished instances equals a NOP.
     // @param instance Handle The handle of the instance.
@@ -2429,6 +2439,17 @@ void script_init_state(sol::state& s)
     // @param instance Handle The handle of the instance.
     // @param play_speed number The play speed to set.
     s["AnimationSystem"]["set_play_speed"] = io_animation_system->set_play_speed;
+
+    // @function get_timeline_position
+    // @summary Gets the current timeline position of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @return number value The current timeline position.
+    s["AnimationSystem"]["get_timeline_position"] = io_animation_system->get_timeline_position;
+    // @function set_timeline_position
+    // @summary Sets the timeline position of the provided animation instance.
+    // @param instance Handle The handle of the instance.
+    // @param timeline_position number The timeline position to set.
+    s["AnimationSystem"]["set_timeline_position"] = io_animation_system->set_timeline_position;
 
     // @function AnimationDesc
     // @summary Creates and initializes the animation description to its default values.
