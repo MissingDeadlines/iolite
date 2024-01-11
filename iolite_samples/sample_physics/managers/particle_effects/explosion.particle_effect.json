@@ -1,14 +1,17 @@
 {
   "name": "explosion",
   "properties": {
+    "uuid": {
+      "value": 3525389489281718101
+    },
     "name": {
       "value": "explosion"
     },
-    "dataSource": {
-      "value": "sample_physics"
-    },
     "emitterFlags": {
       "value": 5
+    },
+    "emitterType": {
+      "value": 0
     },
     "initialVelocity": {
       "value": 5.0
@@ -22,11 +25,17 @@
     "scaleFactor": {
       "value": 1.0
     },
-    "scaleFactorCurveEdgeStart": {
-      "value": 0.0
-    },
-    "scaleFactorCurveEdgeEnd": {
-      "value": 0.009999999776482582
+    "scaleOverLifetime": {
+      "values": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
     },
     "spawnRate": {
       "value": 800.0
@@ -34,30 +43,45 @@
     "lifetime": {
       "value": 1.0
     },
-    "emissiveIntensity": {
-      "value": 25.0
+    "emissiveFactor": {
+      "value": 100.0
     },
-    "colorStart": {
+    "emissiveOverLifetime": {
       "values": [
-        0.8648648858070374,
-        0.581028938293457,
-        0.0,
-        1.0
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
       ]
     },
-    "colorEnd": {
+    "colorOverLifetime": {
       "values": [
-        1.0,
-        0.46332043409347534,
-        0.0,
-        1.0
+        [
+          0.0,
+          1.0,
+          0.48648643493652344,
+          0.0,
+          1.0
+        ],
+        [
+          0.5090909004211426,
+          1.0,
+          0.11583012342453003,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0810810923576355,
+          0.0810810923576355,
+          0.0810810923576355,
+          1.0
+        ]
       ]
-    },
-    "colorCurveEdgeStart": {
-      "value": 0.0560000017285347
-    },
-    "colorCurveEdgeEnd": {
-      "value": 0.3230000138282776
     },
     "emissionDirection": {
       "values": [
@@ -86,6 +110,15 @@
     },
     "gravity": {
       "value": -20.0
+    },
+    "linearDamping": {
+      "value": 0.0
+    },
+    "collisionDamping": {
+      "value": 0.5
+    },
+    "collisionSpread": {
+      "value": 0.05000000074505806
     }
   }
 }

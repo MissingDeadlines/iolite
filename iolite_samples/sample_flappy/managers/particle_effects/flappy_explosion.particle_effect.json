@@ -1,14 +1,17 @@
 {
   "name": "flappy_explosion",
   "properties": {
+    "uuid": {
+      "value": 1011496413839943976
+    },
     "name": {
       "value": "flappy_explosion"
     },
-    "dataSource": {
-      "value": "sample_flappy"
-    },
     "emitterFlags": {
       "value": 4
+    },
+    "emitterType": {
+      "value": 0
     },
     "initialVelocity": {
       "value": 5.0
@@ -22,42 +25,63 @@
     "scaleFactor": {
       "value": 0.5
     },
-    "scaleFactorCurveEdgeStart": {
-      "value": 0.0
-    },
-    "scaleFactorCurveEdgeEnd": {
-      "value": 0.009999999776482582
+    "scaleOverLifetime": {
+      "values": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
     },
     "spawnRate": {
-      "value": 5000.0
+      "value": 1000.0
     },
     "lifetime": {
       "value": 2.0
     },
-    "emissiveIntensity": {
+    "emissiveFactor": {
       "value": 100.0
     },
-    "colorStart": {
+    "emissiveOverLifetime": {
       "values": [
-        1.0,
-        0.4247104525566101,
-        0.4247104525566101,
-        1.0
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
       ]
     },
-    "colorEnd": {
+    "colorOverLifetime": {
       "values": [
-        0.633204460144043,
-        0.0,
-        1.0,
-        1.0
+        [
+          0.0,
+          1.0,
+          0.5096524953842163,
+          0.0,
+          1.0
+        ],
+        [
+          0.25681817531585693,
+          1.0,
+          0.0648648589849472,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ]
       ]
-    },
-    "colorCurveEdgeStart": {
-      "value": 0.0
-    },
-    "colorCurveEdgeEnd": {
-      "value": 1.0
     },
     "emissionDirection": {
       "values": [
@@ -70,7 +94,7 @@
       "value": 0.5
     },
     "emissionRadius": {
-      "value": 1.0
+      "value": 0.20000000298023224
     },
     "vectorFieldIntensity": {
       "value": 20.0
@@ -86,6 +110,15 @@
     },
     "gravity": {
       "value": -20.0
+    },
+    "linearDamping": {
+      "value": 0.0
+    },
+    "collisionDamping": {
+      "value": 0.5
+    },
+    "collisionSpread": {
+      "value": 0.05000000074505806
     }
   }
 }

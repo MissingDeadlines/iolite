@@ -83,7 +83,8 @@ function GrabVoxelShape(delta_t)
 
   -- Search for a new shape if we have not found one yet
   if not GrabShape then
-    local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 5.0, -1)
+    -- Check for shapes only (to avoid hitting the character controller itself)
+    local _, _, hit_pos, _, hit_entity = Physics.raycast(origin, dir, 100.0, 1)
 
     if Ref.is_valid(hit_entity) then
       GrabShape = VoxelShape.get_component_for_entity(hit_entity)
@@ -327,8 +328,8 @@ function OnEvent(entity, events)
 
       if grenade_node and not ExplosionMask[Ref.get_id(grenade_node)] then
         -- Apply damage
-        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], -1, 1, GrenadeMaxHardness)
-        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, -1, 2, GrenadeMaxHardness)
+        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1], 2, -1, GrenadeMaxHardness)
+        World.radius_damage(e.data.pos, GrenadeRadii[GrenadeSetting + 1] * 2, 3, -1, GrenadeMaxHardness)
         ParticleSystem.spawn_particle_emitter("explosion", e.data.pos, 0.1, true)
 
         local explosion_sound = Sound.play_sound_effect("sp_explosion")

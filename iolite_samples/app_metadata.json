@@ -3,6 +3,7 @@
   "organization_name": "Missing Deadlines",
   "data_sources": [
     "sample_base",
+    "sample_animation",
     "sample_physics",
     "sample_pathfinding",
     "sample_tree_generator",
@@ -13,8 +14,7 @@
     "sample_spectrum",
     "trapped_below"
   ],
-  "initial_world": "sample_physics",
-  "active_data_source": "sample_physics",
+  "initial_world": "sample_animation",
   "initial_game_state": "Editing",
   "version_string": "development"
 }

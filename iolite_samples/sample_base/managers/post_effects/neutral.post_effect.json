@@ -1,0 +1,58 @@
+{
+  "name": "neutral",
+  "properties": {
+    "uuid": {
+      "value": 11735551558184716565
+    },
+    "name": {
+      "value": "neutral"
+    },
+    "sunIntensity": {
+      "value": 5.0,
+      "blendFactor": 1.0
+    },
+    "skyPanorama": {
+      "value": "sky2",
+      "blendFactor": 1.0
+    },
+    "tonemapper": {
+      "value": 0
+    },
+    "gradingStyle": {
+      "value": 0
+    },
+    "gradingLift": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingLiftMaster": {
+      "value": 0.0
+    },
+    "gradingGamma": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingGammaMaster": {
+      "value": 0.0
+    },
+    "gradingGain": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingGainMaster": {
+      "value": 0.0
+    },
+    "gradingSaturation": {
+      "value": 1.0
+    }
+  }
+}

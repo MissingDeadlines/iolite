@@ -1,14 +1,17 @@
 {
   "name": "dust",
   "properties": {
+    "uuid": {
+      "value": 1292890747410097914
+    },
     "name": {
       "value": "dust"
     },
-    "dataSource": {
-      "value": "trapped_below"
-    },
     "emitterFlags": {
       "value": 4
+    },
+    "emitterType": {
+      "value": 0
     },
     "initialVelocity": {
       "value": 0.0
@@ -22,11 +25,17 @@
     "scaleFactor": {
       "value": 1.0
     },
-    "scaleFactorCurveEdgeStart": {
-      "value": 0.0
-    },
-    "scaleFactorCurveEdgeEnd": {
-      "value": 0.009999999776482582
+    "scaleOverLifetime": {
+      "values": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ]
     },
     "spawnRate": {
       "value": 25.0
@@ -34,30 +43,38 @@
     "lifetime": {
       "value": 10.0
     },
-    "emissiveIntensity": {
-      "value": 0.0
+    "emissiveFactor": {
+      "value": 25.0
     },
-    "colorStart": {
+    "emissiveOverLifetime": {
       "values": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
       ]
     },
-    "colorEnd": {
+    "colorOverLifetime": {
       "values": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        [
+          0.0,
+          0.5598455667495728,
+          0.5598455667495728,
+          0.5598455667495728,
+          1.0
+        ],
+        [
+          1.0,
+          0.6332046389579773,
+          0.6332046389579773,
+          0.6332046389579773,
+          1.0
+        ]
       ]
-    },
-    "colorCurveEdgeStart": {
-      "value": 0.5
-    },
-    "colorCurveEdgeEnd": {
-      "value": 0.75
     },
     "emissionDirection": {
       "values": [
@@ -86,6 +103,15 @@
     },
     "gravity": {
       "value": 0.0
+    },
+    "linearDamping": {
+      "value": 0.0
+    },
+    "collisionDamping": {
+      "value": 0.5
+    },
+    "collisionSpread": {
+      "value": 0.05000000074505806
     }
   }
 }

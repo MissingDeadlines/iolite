@@ -1,0 +1,459 @@
+[
+  {
+    "uuid": {
+      "value": 5888550260918786931
+    },
+    "name": {
+      "value": "sample_animation"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 5888550260918786931
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 7911624522717697413
+    },
+    "name": {
+      "value": "game_camera"
+    },
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 7911624522717697413
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              8.904409408569336,
+              6.3715643882751465,
+              -9.553932189941406
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.4968545138835907,
+              -0.799178421497345,
+              4.281826976315628e-11
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "uuid": {
+            "value": 15483586340525642798
+          },
+          "projectionType": {
+            "value": 0
+          },
+          "nearPlane": {
+            "value": 0.10000000149011612
+          },
+          "farPlane": {
+            "value": 100000.0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      },
+      {
+        "type": "CameraController",
+        "properties": {
+          "uuid": {
+            "value": 6776039839308450484
+          },
+          "cameraControllerType": {
+            "value": 1
+          },
+          "flags": {
+            "value": 1
+          },
+          "offset": {
+            "values": [
+              0.0,
+              2.0,
+              0.0
+            ]
+          },
+          "group": {
+            "value": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 8754610056162698222
+    },
+    "name": {
+      "value": "editing_camera"
+    },
+    "offsetToParent": -2,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 8754610056162698222
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              11.569945335388184,
+              5.177897930145264,
+              6.687092304229736
+            ]
+          },
+          "localOrient": {
+            "values": [
+              -2.827667474746704,
+              -1.1284719705581665,
+              3.1415927410125732
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.1920928955078125e-7,
+              1.1920928955078125e-7,
+              1.1920928955078125e-7
+            ]
+          }
+        }
+      },
+      {
+        "type": "Camera",
+        "properties": {
+          "uuid": {
+            "value": 10144747808157852038
+          },
+          "projectionType": {
+            "value": 0
+          },
+          "nearPlane": {
+            "value": 0.10000000149011612
+          },
+          "farPlane": {
+            "value": 100000.0
+          },
+          "fov": {
+            "value": 60.000003814697266
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 4635511094697631657
+    },
+    "name": {
+      "value": "sky"
+    },
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Mesh",
+        "properties": {
+          "uuid": {
+            "value": 443837685793239573
+          },
+          "meshName": {
+            "value": "sky"
+          },
+          "colorTint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "parameterBias": {
+            "values": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 4635511094697631657
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              5000.0,
+              5000.0,
+              5000.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 13471366360153345273
+    },
+    "name": {
+      "value": "ground"
+    },
+    "offsetToParent": -4,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 13471366360153345273
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              0.05000000074505806,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 7715646000641758545
+          },
+          "voxelShapeName": {
+            "value": "cube_1m"
+          },
+          "paletteName": {
+            "value": ""
+          },
+          "textureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              5.0,
+              5.0,
+              5.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 18446744073709551615
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 15077859894105898528
+    },
+    "name": {
+      "value": "post_effect"
+    },
+    "offsetToParent": -5,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 15077859894105898528
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "PostEffectVolume",
+        "properties": {
+          "uuid": {
+            "value": 5401175780325055238
+          },
+          "postEffectName": {
+            "value": "neutral"
+          },
+          "radius": {
+            "value": 500.0
+          },
+          "blendRange": {
+            "value": 2.0
+          },
+          "priority": {
+            "value": 0.0
+          }
+        }
+      }
+    ]
+  }
+]

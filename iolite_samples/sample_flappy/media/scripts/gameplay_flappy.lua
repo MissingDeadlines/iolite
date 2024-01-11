@@ -94,7 +94,7 @@ end
 function KillBird(pos)
   -- Apply radius damage, spawn particles, play sound, and end game
   ParticleSystem.spawn_particle_emitter("flappy_explosion", pos, 0.1, true)
-  World.radius_damage(pos, 0.5, -1, 2, 0)
+  World.radius_damage(pos, 0.5, 1, -1, 0)
   State = "End"
   TimePassed = 0.0
   Sound.play_sound_effect("flappy_die")

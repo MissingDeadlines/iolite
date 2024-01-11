@@ -7,6 +7,10 @@
     "name": {
       "value": "sunny"
     },
+    "skyPanorama": {
+      "value": "sky2",
+      "blendFactor": 1.0
+    },
     "tonemapper": {
       "value": 0
     },
