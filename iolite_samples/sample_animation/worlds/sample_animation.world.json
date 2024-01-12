@@ -62,16 +62,16 @@
           },
           "localPos": {
             "values": [
-              8.904409408569336,
-              6.3715643882751465,
-              -9.553932189941406
+              16.451318740844727,
+              10.351314544677734,
+              16.45131492614746
             ]
           },
           "localOrient": {
             "values": [
-              0.4968545138835907,
-              -0.799178421497345,
-              4.281826976315628e-11
+              -2.526113271713257,
+              -0.7853981256484985,
+              -3.1415927410125732
             ]
           },
           "localSize": {
@@ -149,16 +149,16 @@
           },
           "localPos": {
             "values": [
-              7.5720601081848145,
-              2.990205764770508,
-              3.149688959121704
+              16.451318740844727,
+              10.351314544677734,
+              16.45131492614746
             ]
           },
           "localOrient": {
             "values": [
-              -2.9684693813323975,
-              -1.0316723585128784,
-              3.1415927410125732
+              -2.526113271713257,
+              -0.785398006439209,
+              -3.1415927410125732
             ]
           },
           "localSize": {
@@ -282,9 +282,9 @@
           },
           "localPos": {
             "values": [
-              0.0,
-              0.0,
-              0.0
+              -12.699996948242188,
+              0.09999997168779373,
+              0.1000003069639206
             ]
           },
           "localOrient": {
@@ -296,9 +296,9 @@
           },
           "localSize": {
             "values": [
-              1.0,
+              0.10000000149011612,
               0.05000000074505806,
-              1.0
+              0.10000000149011612
             ]
           }
         }
@@ -313,20 +313,20 @@
             "value": "cube_1m"
           },
           "paletteName": {
-            "value": ""
+            "value": "default"
           },
           "textureName": {
-            "value": ""
+            "value": "concrete"
           },
           "textureOffset": {
             "values": [
-              0,
-              0,
-              0
+              -123,
+              7,
+              5
             ]
           },
           "textureScalingFactor": {
-            "value": 1.0
+            "value": -1.0
           },
           "textureBlendFactor": {
             "value": 1.0
@@ -341,9 +341,9 @@
           },
           "customSize": {
             "values": [
-              0,
-              0,
-              0
+              128,
+              2,
+              128
             ]
           },
           "group": {
@@ -387,7 +387,7 @@
             "value": 0
           },
           "snapshotUuid": {
-            "value": 18446744073709551615
+            "value": 13471366360153345273
           }
         }
       }
@@ -487,9 +487,66 @@
           },
           "localPos": {
             "values": [
-              0.3508303165435791,
-              0.34950074553489685,
-              -0.010663025081157684
+              -6.376555442810059,
+              0.06364313513040543,
+              -3.2997071743011475
+            ]
+          },
+          "localOrient": {
+            "values": [
+              -7.21493265132267e-8,
+              1.1151514053344727,
+              -4.499069206076456e-8
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 15364727690550153176
+    },
+    "name": {
+      "value": "script"
+    },
+    "offsetToParent": -7,
+    "propertyEntries": [
+      {
+        "type": "Script",
+        "properties": {
+          "uuid": {
+            "value": 1106165593938191804
+          },
+          "updateInterval": {
+            "value": 100
+          },
+          "scriptName": {
+            "value": "gameplay_animation"
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 15364727690550153176
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              3.043813705444336,
+              -0.05050039291381836,
+              5.366795539855957
             ]
           },
           "localOrient": {
@@ -517,7 +574,7 @@
     "name": {
       "value": "body"
     },
-    "offsetToParent": -1,
+    "offsetToParent": -2,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -541,9 +598,9 @@
           },
           "localPos": {
             "values": [
-              0.0,
+              -4.031562639283948e-9,
               0.800000011920929,
-              0.0
+              5.4015430350773386e-8
             ]
           },
           "localOrient": {
@@ -659,7 +716,7 @@
     "name": {
       "value": "leg_right"
     },
-    "offsetToParent": -2,
+    "offsetToParent": -3,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -684,15 +741,15 @@
           "localPos": {
             "values": [
               0.0,
-              0.800000011920929,
+              0.7999999523162842,
               0.20000001788139343
             ]
           },
           "localOrient": {
             "values": [
               0.0,
-              0.0,
-              0.0
+              -0.0,
+              0.7185748815536499
             ]
           },
           "localSize": {
@@ -801,7 +858,7 @@
     "name": {
       "value": "leg_left"
     },
-    "offsetToParent": -3,
+    "offsetToParent": -4,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -826,15 +883,15 @@
           "localPos": {
             "values": [
               0.0,
-              0.800000011920929,
-              -0.20000000298023224
+              0.7999999523162842,
+              -0.19999998807907104
             ]
           },
           "localOrient": {
             "values": [
               0.0,
               0.0,
-              0.0
+              -0.7185748815536499
             ]
           },
           "localSize": {
@@ -968,15 +1025,15 @@
           "localPos": {
             "values": [
               0.0,
-              14.0,
-              6.000000476837158
+              13.999999046325684,
+              6.000000953674316
             ]
           },
           "localOrient": {
             "values": [
+              0.0,
               -0.0,
-              -0.0,
-              1.5707963705062866
+              1.14836585521698
             ]
           },
           "localSize": {
@@ -1109,9 +1166,9 @@
           },
           "localPos": {
             "values": [
-              0.0,
-              15.000000953674316,
-              0.0
+              1.6830017557367682e-7,
+              15.0,
+              -0.000007089240170898847
             ]
           },
           "localOrient": {
@@ -1252,15 +1309,15 @@
           "localPos": {
             "values": [
               0.0,
-              14.0,
+              13.999999046325684,
               -6.0
             ]
           },
           "localOrient": {
             "values": [
               0.0,
-              0.0,
-              0.0
+              -0.0,
+              0.605668842792511
             ]
           },
           "localSize": {
@@ -1357,6 +1414,603 @@
           },
           "snapshotUuid": {
             "value": 18446744073709551615
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 5742178812540108239
+    },
+    "name": {
+      "value": "torch"
+    },
+    "offsetToParent": -3,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 5742178812540108239
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              -0.39984676241874695,
+              -11.446381568908691,
+              0.48872238397598267
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              -1.5707963705062866
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 7829437336812928367
+          },
+          "voxelShapeName": {
+            "value": ""
+          },
+          "paletteName": {
+            "value": "default"
+          },
+          "textureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              1,
+              5,
+              1
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 5742178812540108239
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 9641483228827671156
+    },
+    "name": {
+      "value": "light"
+    },
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "Light",
+        "properties": {
+          "uuid": {
+            "value": 13423565114065211329
+          },
+          "radius": {
+            "value": 20.0
+          },
+          "iesProfileName": {
+            "value": ""
+          },
+          "fogIntensity": {
+            "value": 1.0
+          },
+          "shadowIntensity": {
+            "value": 1.0
+          },
+          "color": {
+            "values": [
+              1.0,
+              0.27799224853515625,
+              0.0
+            ]
+          },
+          "intensity": {
+            "value": 500.0
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 9641483228827671156
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.599999725818634,
+              5.700000286102295,
+              0.6000000238418579
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              10.0,
+              10.0,
+              10.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 9338459200774378027
+    },
+    "name": {
+      "value": "ground"
+    },
+    "offsetToParent": -12,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 9338459200774378027
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              128.0,
+              0.0,
+              -0.00000476837158203125
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 11401220279855502343
+          },
+          "voxelShapeName": {
+            "value": "cube_1m"
+          },
+          "paletteName": {
+            "value": "default"
+          },
+          "textureName": {
+            "value": "concrete"
+          },
+          "textureOffset": {
+            "values": [
+              4,
+              7,
+              4
+            ]
+          },
+          "textureScalingFactor": {
+            "value": -1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              128,
+              2,
+              128
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              5.0,
+              5.0,
+              5.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 13471366360153345273
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 7337084931785298714
+    },
+    "name": {
+      "value": "ground"
+    },
+    "offsetToParent": -13,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 7337084931785298714
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              0.0,
+              -128.00001525878906
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 16318499567609134690
+          },
+          "voxelShapeName": {
+            "value": "cube_1m"
+          },
+          "paletteName": {
+            "value": "default"
+          },
+          "textureName": {
+            "value": "concrete"
+          },
+          "textureOffset": {
+            "values": [
+              -123,
+              7,
+              -123
+            ]
+          },
+          "textureScalingFactor": {
+            "value": -1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              128,
+              2,
+              128
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              5.0,
+              5.0,
+              5.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 13471366360153345273
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 4837182618432392124
+    },
+    "name": {
+      "value": "ground"
+    },
+    "offsetToParent": -14,
+    "propertyEntries": [
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 4837182618432392124
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              128.0,
+              0.0,
+              -128.00001525878906
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              -0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 1063850544694529182
+          },
+          "voxelShapeName": {
+            "value": "cube_1m"
+          },
+          "paletteName": {
+            "value": "default"
+          },
+          "textureName": {
+            "value": "concrete"
+          },
+          "textureOffset": {
+            "values": [
+              4,
+              7,
+              -123
+            ]
+          },
+          "textureScalingFactor": {
+            "value": -1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              128,
+              2,
+              128
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              5.0,
+              5.0,
+              5.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 13471366360153345273
           }
         }
       }
