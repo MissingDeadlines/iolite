@@ -12,12 +12,12 @@ To disable the splash screen, add the following member to your ``app_metadata.js
 
   "show_splash_screen": false
 
-Creating voxel assets from meshes (Mesh Voxelizer)
---------------------------------------------------
+Mesh voxelizer
+--------------
 
-The mesh voxelizer allows you to create voxel assets from complex 3D meshes.
+The mesh voxelizer allows you to generate voxel assets from complex 3D meshes.
 
-To voxelize a mesh, export a mesh from your favorite 3D authoring software, like *Blender* or *3ds Max*, in the *glTF* format. After exporting, the meshes, head over to IOLITE's editor and open up the ``[Import and Export]`` menu in the toolbar and hover and click on ``[Voxelize Mesh]``.
+To voxelize a mesh, export a mesh from your favorite 3D authoring software, like *Blender* or *3ds Max*, in the *glTF* format. Afterwards, head over to IOLITE's editor and select ``[Import and Export] => [Voxelize Mesh]``.
 
 Exporting path-traced renders
 -----------------------------

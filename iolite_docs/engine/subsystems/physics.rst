@@ -33,6 +33,8 @@ Shapes can also be split based on the *voxel connectivity system*. This system a
 
 For example, if you want to cut a wall horizontally into two equally large pieces, call the ``disconnect`` voxel shape API function on all voxels in the center row, passing the flag for the top face. Doing this will disconnect all voxels from their top neighbors. The wall will be cut in half after calling ``voxelize`` for the shape.
 
+.. _vehcile_physics:
+
 Vehicle Physics
 ---------------
 

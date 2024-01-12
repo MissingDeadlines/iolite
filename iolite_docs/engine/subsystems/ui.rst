@@ -1,6 +1,6 @@
 .. _ui_system:
 
-UI system
-=========
+User interface (UI) system
+==========================
 
 .. note:: Coming soon.

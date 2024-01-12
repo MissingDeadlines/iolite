@@ -5,6 +5,11 @@ This section serves as a glossary for all the available core components.
 
 .. note:: The properties of the components are directly documented in the editor and can be accessed by hovering over the property name in the entity inspector.
 
+Animation Node
+--------------
+
+Animation nodes are used for tagging entity hierarchies in the context of the :ref:`animation_system`.
+
 Camera
 ------
 
@@ -24,6 +29,25 @@ Custom Data
 -----------
 
 *Custom Data* components offer the possibility to store custom properties for an entity. Properties can be read, added, modified, and removed via the editor or the scripting API.
+
+Flipbook Animation
+------------------
+
+Use this component to animate voxel shapes using flipbook-style animations. Flipbook animations operate by changing the voxel data of the corresponding shape component on a frame by frame basis.
+
+Importing a flipbook animation from MagicaVoxel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this short tutorial, we will load a flipbook animation authored in MagicaVoxel.
+
+1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source, like, e.g., ``default/media/voxels``. For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
+2. Create a voxel shape for your asset by dragging it from the *Prefab Browser* to the viewport
+3. Attach a *Flipbook Animation* component to the entity you just created
+4. Head to the entity inspector and set the ``First Frame`` and ``Last Frame`` properties to values matching your animation
+5. Set the ``Speed`` property to a fitting value. 20 frames per second can be a good starting point
+6. Enable the ``Loop`` and ``Play`` flags
+
+If everything works out, your animation should be playing.
 
 Joint
 -----
@@ -75,12 +99,12 @@ Use this component to play sound effects at certain positions in the world.
 Script
 ------
 
-This component can be used to add Lua scripts to the world.
+This component can be used to add scripts to the world.
 
 Tag
 ---
 
-Can be used to add tags to entities. Entities can then be looked up based on the tags via the scripting interface.
+Can be used to add tags to entities. Tags are useful for quickly looking up entities in the world via the APIs.
 
 Text
 ----
@@ -89,28 +113,19 @@ Use this component to render text at different positions in the world. It's also
 
 .. _component_voxel_shape:
 
+Vehicle
+-------
+
+Vehicle components are used in the context of the :ref:`vehcile_physics` and form the base part of a vehicle.
+
+Vehicle Wheel
+-------------
+
+Vehicle wheel components are used in the context of the :ref:`vehcile_physics` and define the wheel of a vehcile.
+
 Voxel Shape
 -----------
 
 Voxel shapes are in charge of rendering and simulating everything voxel-related. Shapes are either initialized from authored VOX files available in the data sources, or they are procedurally filled with content like, e.g., terrain using a script.
 
 In addition, voxel shapes support the generation of support structures and fracturing for physics-based destruction effects.
-
-Flipbook Animation
-------------------
-
-Use this component to animate voxel shapes using flipbook-style animations. Flipbook animations operate by changing the voxel data of the corresponding shape component on a frame by frame basis.
-
-Importing a flipbook animation from MagicaVoxel
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In this short tutorial, we will load a flipbook animation authored in MagicaVoxel.
-
-1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source, like, e.g., ``default/media/voxels``. For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
-2. Create a voxel shape for your asset by dragging it from the *Prefab Browser* to the viewport
-3. Attach a *Flipbook Animation* component to the entity you just created
-4. Head to the entity inspector and set the ``First Frame`` and ``Last Frame`` properties to values matching your animation
-5. Set the ``Speed`` property to a fitting value. 20 frames per second can be a good starting point
-6. Enable the ``Loop`` and ``Play`` flags
-
-If everything works out, your animation should be playing.
