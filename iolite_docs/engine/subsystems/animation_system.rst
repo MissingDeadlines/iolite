@@ -27,7 +27,7 @@ Heading over to Blender, the imported animation rig for our example character lo
 
 .. image:: /_static/images/animation_rig_in_blender.jpg
 
-When your happy with your animation, export it as a glTF binary to the ``<data source>/media/animations`` directory and sure it's suffixed with ``.glb``.
+When your happy with your animation, export it as a glTF binary to the ``<data source>/media/animations`` directory and ensure it's suffixed with ``.glb``.
 
 .. note:: The exported animation rig is currently only sparsely visualized by the bounds of each of the entities and their according shapes. To further improve this workflow in a future release, it will be possible to export a mesh representation of the shapes along with the rig.
 

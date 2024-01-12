@@ -100,3 +100,17 @@ Flipbook Animation
 ------------------
 
 Use this component to animate voxel shapes using flipbook-style animations. Flipbook animations operate by changing the voxel data of the corresponding shape component on a frame by frame basis.
+
+Importing a flipbook animation from MagicaVoxel
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this short tutorial, we will load a flipbook animation authored in MagicaVoxel.
+
+1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source, like, e.g., ``default/media/voxels``. For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
+2. Create a voxel shape for your asset by dragging it from the *Prefab Browser* to the viewport
+3. Attach a *Flipbook Animation* component to the entity you just created
+4. Head to the entity inspector and set the ``First Frame`` and ``Last Frame`` properties to values matching your animation
+5. Set the ``Speed`` property to a fitting value. 20 frames per second can be a good starting point
+6. Enable the ``Loop`` and ``Play`` flags
+
+If everything works out, your animation should be playing.
