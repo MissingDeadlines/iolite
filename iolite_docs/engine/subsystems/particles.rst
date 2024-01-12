@@ -1,3 +1,5 @@
+.. _particle_system:
+
 Particle system
 ===============
 

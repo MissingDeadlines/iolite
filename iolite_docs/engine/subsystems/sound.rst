@@ -1,3 +1,5 @@
+.. _sound_system:
+
 Sound system
 ============
 

@@ -1,3 +1,5 @@
+.. _physics:
+
 Physics
 =======
 
@@ -30,3 +32,8 @@ Voxel connectivity
 Shapes can also be split based on the *voxel connectivity system*. This system allows you to specify the connectivity for each of the six faces of a voxel. This system, e.g., eases the implementation of scenarios where the player can cut shapes into pieces.
 
 For example, if you want to cut a wall horizontally into two equally large pieces, call the ``disconnect`` voxel shape API function on all voxels in the center row, passing the flag for the top face. Doing this will disconnect all voxels from their top neighbors. The wall will be cut in half after calling ``voxelize`` for the shape.
+
+Vehicle Physics
+---------------
+
+.. note:: Coming soon.

@@ -1,3 +1,5 @@
+.. _ui_system:
+
 UI system
 =========
 

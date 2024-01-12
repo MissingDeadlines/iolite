@@ -7,17 +7,11 @@ This section covers some fundamentals of IOLITE's engine core, beginning by intr
   :hidden:
   
   intro
+  importing_assets
   voxel_shapes
   palettes
   components
-   
-  rendering_overview
-
-  subsystems/lighting_and_gi
-  subsystems/physics
-  subsystems/particles
-  subsystems/post_processing
-  subsystems/sound
-  subsystems/ui
-
+  rendering
+  subsystems/index
   best_practices
+  pro

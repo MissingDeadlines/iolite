@@ -7,7 +7,7 @@ Palettes are used to assign material parameters to the values of voxel shapes. A
 
 .. important:: As mentioned previously, due to the fact that a value of zero is reserved for empty/air voxels, the voxel values 1-255 map to the palette indices 0-254.
    
-Palettes can be edited either programmatically or via the :ref:`palette_inspector` in the editor, which is shown in the following screenshot:
+Palettes can be edited either programmatically or via the *Palette Inspector* in the editor, which is shown in the following screenshot:
 
 .. image:: /_static/images/palette_inspector.jpg
    
