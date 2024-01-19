@@ -1040,7 +1040,10 @@ typedef struct
 typedef struct
 {
   io_ref_t entity0, entity1; // The entities participating in the contact.
-  io_vec3_t pos, impulse;    // Position and impulse of the contact.
+  io_vec3_t pos, impulse; // Position and impulse of the contact (not available
+                          // for triggers).
+  io_name_t type; // Either "touch_found", "touch_lost", "touch_persists",
+                  // "trigger_touch_found", or "trigger_touch_lost".
 } io_events_data_physics_contact_t;
 
 // Voxel shape fracture event data

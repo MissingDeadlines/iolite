@@ -263,7 +263,7 @@ function OnEvent(entity, events)
   if State == "Game" then
     for i = 1, #events do
       local e = events[i]
-      if e.type == "physics_contact" then
+      if e.type == "physics_contact" and e.data.type == "touch_found" then
         KillBird(e.data.pos)
         break
       end

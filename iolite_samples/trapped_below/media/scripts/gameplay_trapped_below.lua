@@ -309,7 +309,7 @@ end
 function OnEvent(entity, events)
   for i = 1, #events do
     local e = events[i]
-    if e.type == "physics_contact" then
+    if e.type == "physics_contact" and e.data.type == "touch_found" then
       local strength = Math.vec_length(e.data.impulse)
       if strength > 0.01 then
         Sound.play_sound_effect("ground_hit")

@@ -424,7 +424,25 @@ static void on_physics_events(const io_events_header_t* begin,
   lua_events.reserve(64u);
 
   const io_events_header_t* event = begin;
-  const io_name_t contact_event_type = io_to_name("physics_contact");
+
+  const char* contact_event_type_str = "physics_contact";
+  const char* contact_type_touch_lost_str = "touch_lost";
+  const char* contact_type_touch_found_str = "touch_found";
+  const char* contact_type_touch_persists_str = "touch_persists";
+  const char* contact_type_trigger_touch_lost_str = "trigger_touch_lost";
+  const char* contact_type_trigger_touch_found_str = "trigger_touch_found";
+
+  const io_name_t contact_event_type = io_to_name(contact_event_type_str);
+  const io_name_t contact_type_touch_lost =
+      io_to_name(contact_type_touch_lost_str);
+  const io_name_t contact_type_touch_found =
+      io_to_name(contact_type_touch_found_str);
+  const io_name_t contact_type_touch_persists =
+      io_to_name(contact_type_touch_persists_str);
+  const io_name_t contact_type_trigger_touch_lost =
+      io_to_name(contact_type_trigger_touch_lost_str);
+  const io_name_t contact_type_trigger_touch_found =
+      io_to_name(contact_type_trigger_touch_found_str);
 
   // Collect events
   while (event < end)
@@ -434,9 +452,40 @@ static void on_physics_events(const io_events_header_t* begin,
       auto* contact =
           (io_events_data_physics_contact_t*)io_events_get_data(event);
 
-      lua_events.push_back({"physics_contact",
-                            {contact->entity0, contact->entity1, contact->pos,
-                             contact->impulse}});
+      if (contact->type.hash == contact_type_touch_lost.hash)
+      {
+        lua_events.push_back({contact_event_type_str,
+                              {contact->entity0, contact->entity1, contact->pos,
+                               contact->impulse, contact_type_touch_lost_str}});
+      }
+      else if (contact->type.hash == contact_type_touch_found.hash)
+      {
+        lua_events.push_back(
+            {contact_event_type_str,
+             {contact->entity0, contact->entity1, contact->pos,
+              contact->impulse, contact_type_touch_found_str}});
+      }
+      else if (contact->type.hash == contact_type_touch_persists.hash)
+      {
+        lua_events.push_back(
+            {contact_event_type_str,
+             {contact->entity0, contact->entity1, contact->pos,
+              contact->impulse, contact_type_touch_persists_str}});
+      }
+      else if (contact->type.hash == contact_type_trigger_touch_lost.hash)
+      {
+        lua_events.push_back(
+            {contact_event_type_str,
+             {contact->entity0, contact->entity1, contact->pos,
+              contact->impulse, contact_type_trigger_touch_lost_str}});
+      }
+      else if (contact->type.hash == contact_type_trigger_touch_found.hash)
+      {
+        lua_events.push_back(
+            {contact_event_type_str,
+             {contact->entity0, contact->entity1, contact->pos,
+              contact->impulse, contact_type_trigger_touch_found_str}});
+      }
     }
 
     event = io_events_get_next(event);

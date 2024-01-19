@@ -103,6 +103,7 @@ struct lua_physics_contact_event_t
   {
     io_ref_t entity0, entity1;
     io_vec3_t pos, impulse;
+    const char* type;
   } data;
 };
 

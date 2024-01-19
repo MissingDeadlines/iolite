@@ -304,7 +304,7 @@ function OnEvent(entity, events)
 
   for i = 1, #events do
     local e = events[i]
-    if e.type == "physics_contact" then
+    if e.type == "physics_contact" and e.data.type == "touch_found" then
       -- Check if a grenade hit something
       local grenade_node = nil
       if Ref.is_valid(e.data.entity0) then
