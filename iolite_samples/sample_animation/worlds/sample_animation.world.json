@@ -1585,7 +1585,7 @@
             ]
           },
           "intensity": {
-            "value": 500.0
+            "value": 150.0
           }
         }
       },
@@ -1625,12 +1625,66 @@
   },
   {
     "uuid": {
+      "value": 13747919163986405088
+    },
+    "name": {
+      "value": "particle"
+    },
+    "offsetToParent": -2,
+    "propertyEntries": [
+      {
+        "type": "Particle",
+        "properties": {
+          "uuid": {
+            "value": 1931501632747186308
+          },
+          "particleEffectName": {
+            "value": "torch"
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 13747919163986405088
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.49998408555984497,
+              5.000000476837158,
+              -0.0001074259344022721
+            ]
+          },
+          "localOrient": {
+            "values": [
+              6.405467445347313e-8,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              10.0,
+              10.0,
+              10.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
       "value": 9338459200774378027
     },
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -12,
+    "offsetToParent": -13,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1761,7 +1815,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -13,
+    "offsetToParent": -14,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1892,7 +1946,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -14,
+    "offsetToParent": -15,
     "propertyEntries": [
       {
         "type": "Node",
