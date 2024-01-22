@@ -912,7 +912,8 @@ inline io_name_t io_to_name(const char* string)
 
 // Called when a change to a file was detected.
 //----------------------------------------------------------------------------//
-typedef void (*io_filesystem_on_file_changed_function)(const char* filename);
+typedef void (*io_filesystem_on_file_changed_function)(const char* filename,
+                                                       const char* filepath);
 
 // Settings for the pathfinding system
 //----------------------------------------------------------------------------//

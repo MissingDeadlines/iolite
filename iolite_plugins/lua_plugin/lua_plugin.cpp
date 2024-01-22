@@ -397,7 +397,7 @@ static void on_tick_scripts_physics(io_float32_t delta_t,
 }
 
 //----------------------------------------------------------------------------//
-static void on_script_changed(const char* filename)
+static void on_script_changed(const char* filename, const char* filepath)
 {
   const auto filename_without_extension =
       std::filesystem::path(filename).filename().replace_extension().u8string();
