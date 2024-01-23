@@ -1464,6 +1464,16 @@ struct io_editor_i // NOLINT
   io_ref_t (*get_first_selected_node)();
   // Returns the first selected entity.
   io_ref_t (*get_first_selected_entity)();
+
+  // Pushes the *current* state of the given entity onto the undo/redo stack.
+  //   Use this function before editing an entity to enable undoing and redoing
+  //   the change. The "skip_serialization" parameter can be used when the
+  //   entity in question has just been created and the according undo operation
+  //   should delete it again. The "change" parameter expects a short and
+  //   meaningful description of the executed change, e.g., "Shape Edited",
+  //   "Entity Translated", etc.
+  void (*push_undo_redo_state_for_entity)(const char* change, io_ref_t entity,
+                                          io_bool_t skip_serialization);
 };
 
 //----------------------------------------------------------------------------//
@@ -2296,6 +2306,11 @@ struct io_component_voxel_shape_i // NOLINT
 
   // Retrieves the current palette in use for this shape (if any).
   io_ref_t (*get_palette)(io_ref_t shape);
+  // Commits the data of the shape to as a snapshot.
+  //   Snapshots are used to track the state of shapes which have been
+  //   edited during runtime and are serialized when storing prefabs,
+  //   worlds, etc.
+  void (*commit_snapshot)(io_ref_t shape);
 
   // Conversion helpers
 

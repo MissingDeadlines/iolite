@@ -24,7 +24,6 @@
 
 #include "common.h"
 #include "sparse_volume.h"
-#include "undo_redo.h"
 #include "editing.h"
 #include "editing_tools.h"
 
@@ -193,36 +192,21 @@ void show_editing_toolbar()
 
     SAME_LINE_RESET();
 
-    // Color picker
+    ImGui::BeginDisabled(!io_base->ref_is_valid(palette));
+
+    ImGui::Text("Palette Color");
     {
-      ImGui::BeginDisabled(!io_base->ref_is_valid(palette));
+      ImGui::Spacing();
+
       SAME_LINE_GROUP();
       show_palette_index_picker(palette, current_tool_params.palette_range,
                                 tb_button_size);
       show_tooltip(
           "The color or color selection for the editing operations.\nHold "
           "[SHIFT] to add/remove colors to/from the selection.");
-      ImGui::EndDisabled();
     }
 
-    // Undo/redo
-    {
-      ImGui::BeginDisabled(!io_base->ref_is_valid(shape) ||
-                           !undo_redo::can_undo(shape));
-      SAME_LINE_GROUP();
-      if (ImGui::Button(ICON_FA_ROTATE_LEFT, tb_button_size))
-        undo_redo::undo(shape);
-      show_tooltip("Undo changes.");
-      ImGui::EndDisabled();
-
-      ImGui::BeginDisabled(!io_base->ref_is_valid(shape) ||
-                           !undo_redo::can_redo(shape));
-      SAME_LINE_GROUP();
-      if (ImGui::Button(ICON_FA_ROTATE_RIGHT, tb_button_size))
-        undo_redo::redo(shape);
-      show_tooltip("Redo changes.");
-      ImGui::EndDisabled();
-    }
+    ImGui::EndDisabled();
 
     ImGui::BeginDisabled(!io_base->ref_is_valid(shape));
 
@@ -390,13 +374,12 @@ void show_editing_toolbar()
                 shape, current_tool_params.palette_range);
 
             // Undo/redo
-            {
-              auto prev = change;
-              prev.update_from_shape(shape);
-              undo_redo::push_change(shape, prev);
-            }
+            io_editor->push_undo_redo_state_for_entity(
+                "Edit Voxel Shape",
+                io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
+            io_component_voxel_shape->commit_snapshot(shape);
           }
           show_tooltip("Fill: Fills the selected voxels.");
           SAME_LINE_GROUP();
@@ -407,13 +390,12 @@ void show_editing_toolbar()
                 current_tool_params.selection.prepare_erase(shape);
 
             // Undo/redo
-            {
-              auto prev = change;
-              prev.update_from_shape(shape);
-              undo_redo::push_change(shape, prev);
-            }
+            io_editor->push_undo_redo_state_for_entity(
+                "Edit Voxel Shape",
+                io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
+            io_component_voxel_shape->commit_snapshot(shape);
           }
           show_tooltip("Erase: Erases the selected voxels.");
 
@@ -437,13 +419,12 @@ void show_editing_toolbar()
                 current_tool_params.clipboard.prepare_erase(shape);
 
             // Undo/redo
-            {
-              auto prev = change;
-              prev.update_from_shape(shape);
-              undo_redo::push_change(shape, prev);
-            }
+            io_editor->push_undo_redo_state_for_entity(
+                "Edit Voxel Shape",
+                io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
+            io_component_voxel_shape->commit_snapshot(shape);
           }
           show_tooltip("Cut: Cuts the selected voxels.");
 
@@ -451,14 +432,12 @@ void show_editing_toolbar()
           ImGui::BeginDisabled(current_tool_params.clipboard.empty());
           if (ImGui::Button(ICON_FA_PASTE "###paste_selection", tb_button_size))
           {
-            // Undo/redo
-            {
-              auto prev = current_tool_params.clipboard;
-              prev.update_from_shape(shape);
-              undo_redo::push_change(shape, prev);
-            }
+            io_editor->push_undo_redo_state_for_entity(
+                "Edit Voxel Shape",
+                io_component_voxel_shape->base.get_entity(shape), false);
 
             current_tool_params.clipboard.apply(shape);
+            io_component_voxel_shape->commit_snapshot(shape);
           }
           show_tooltip("Paste: Pastes the previously copied/cut voxels.");
           ImGui::EndDisabled();

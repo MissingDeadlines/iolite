@@ -23,7 +23,7 @@
 #pragma once
 
 #include "common.h"
-#include "undo_redo.h"
+#include "sparse_volume.h"
 
 //----------------------------------------------------------------------------//
 namespace editing
@@ -42,11 +42,14 @@ typedef uint8_t bool_op_t;
 //----------------------------------------------------------------------------//
 static void global_full(io_ref_t shape, const palette_range_t& range)
 {
+  // Undo/redo
+  io_editor->push_undo_redo_state_for_entity(
+      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+      false);
+
   auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
   auto dim = io_component_voxel_shape->get_dim(shape);
   const auto num_voxels = dim.x * dim.y * dim.z;
-
-  sparse_volume_t change;
 
   for (uint32_t z = 0u; z < dim.z; ++z)
   {
@@ -55,56 +58,25 @@ static void global_full(io_ref_t shape, const palette_range_t& range)
       for (uint32_t x = 0u; x < dim.x; ++x)
       {
         const auto value = range.get_random_palette_index() + 1u;
-        if (*write_ptr != value)
-        {
-          change.set(x, y, z, *write_ptr, dim);
-          *write_ptr = value;
-        }
-        ++write_ptr;
+        *write_ptr++ = value;
       }
     }
   }
 
-  undo_redo::push_change(shape, change);
+  io_component_voxel_shape->commit_snapshot(shape);
 }
 
 //----------------------------------------------------------------------------//
 static void global_fill(io_ref_t shape, const palette_range_t& range)
 {
+  // Undo/redo
+  io_editor->push_undo_redo_state_for_entity(
+      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+      false);
+
   auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
   const auto dim = io_component_voxel_shape->get_dim(shape);
   const auto num_voxels = dim.x * dim.y * dim.z;
-
-  sparse_volume_t change;
-
-  for (uint32_t z = 0u; z < dim.z; ++z)
-  {
-    for (uint32_t y = 0u; y < dim.y; ++y)
-    {
-      for (uint32_t x = 0u; x < dim.x; ++x)
-      {
-        const auto value = range.get_random_palette_index() + 1u;
-        if (*write_ptr != 0u && *write_ptr != value)
-        {
-          change.set(x, y, z, *write_ptr, dim);
-          *write_ptr = value;
-        }
-        ++write_ptr;
-      }
-    }
-  }
-
-  undo_redo::push_change(shape, change);
-}
-
-//----------------------------------------------------------------------------//
-static void global_invert(io_ref_t shape, const palette_range_t& range)
-{
-  auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
-  const auto dim = io_component_voxel_shape->get_dim(shape);
-  const auto num_voxels = dim.x * dim.y * dim.z;
-
-  sparse_volume_t change;
 
   for (uint32_t z = 0u; z < dim.z; ++z)
   {
@@ -114,20 +86,43 @@ static void global_invert(io_ref_t shape, const palette_range_t& range)
       {
         const auto value = range.get_random_palette_index() + 1u;
         if (*write_ptr != 0u)
-        {
-          change.set(x, y, z, *write_ptr, dim);
-          *write_ptr++ = 0u;
-        }
-        else if (*write_ptr != value)
-        {
-          change.set(x, y, z, *write_ptr, dim);
-          *write_ptr++ = value;
-        }
+          *write_ptr = value;
+        ++write_ptr;
       }
     }
   }
 
-  undo_redo::push_change(shape, change);
+  io_component_voxel_shape->commit_snapshot(shape);
+}
+
+//----------------------------------------------------------------------------//
+static void global_invert(io_ref_t shape, const palette_range_t& range)
+{
+  // Undo/redo
+  io_editor->push_undo_redo_state_for_entity(
+      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+      false);
+
+  auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
+  const auto dim = io_component_voxel_shape->get_dim(shape);
+  const auto num_voxels = dim.x * dim.y * dim.z;
+
+  for (uint32_t z = 0u; z < dim.z; ++z)
+  {
+    for (uint32_t y = 0u; y < dim.y; ++y)
+    {
+      for (uint32_t x = 0u; x < dim.x; ++x)
+      {
+        const auto value = range.get_random_palette_index() + 1u;
+        if (*write_ptr != 0u)
+          *write_ptr++ = 0u;
+        else if (*write_ptr != value)
+          *write_ptr++ = value;
+      }
+    }
+  }
+
+  io_component_voxel_shape->commit_snapshot(shape);
 }
 
 //----------------------------------------------------------------------------//
@@ -137,12 +132,15 @@ static void global_erase(io_ref_t shape) { global_full(shape, {255u}); };
 template <bool_op_t op>
 static void global_boolean(io_ref_t shape, io_ref_t op_shape)
 {
+  // Undo/redo
+  io_editor->push_undo_redo_state_for_entity(
+      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+      false);
+
   const auto dim = io_cvt(io_component_voxel_shape->get_dim(shape));
   const auto dim_op = io_cvt(io_component_voxel_shape->get_dim(op_shape));
   auto data = io_component_voxel_shape->get_voxel_data(shape);
   auto data_op = io_component_voxel_shape->get_voxel_data(op_shape);
-
-  sparse_volume_t change;
 
   for (uint32_t z = 0u; z < dim.z; ++z)
   {
@@ -171,7 +169,6 @@ static void global_boolean(io_ref_t shape, io_ref_t op_shape)
           if (val == 0x0u || val_op == 0x0u)
             continue;
 
-          change.set(x, y, z, data[index], io_u16vec3_t{dim.x, dim.y, dim.z});
           data[index] = val_op;
         }
         else if constexpr (op == bool_op_subtraction)
@@ -179,7 +176,6 @@ static void global_boolean(io_ref_t shape, io_ref_t op_shape)
           if (val == 0x0u || val_op == 0x0u)
             continue;
 
-          change.set(x, y, z, data[index], io_u16vec3_t{dim.x, dim.y, dim.z});
           data[index] = 0x0u;
         }
         else if constexpr (op == bool_op_union)
@@ -187,7 +183,6 @@ static void global_boolean(io_ref_t shape, io_ref_t op_shape)
           if (val_op == 0x0u)
             continue;
 
-          change.set(x, y, z, data[index], io_u16vec3_t{dim.x, dim.y, dim.z});
           data[index] = val_op;
         }
         else if constexpr (op == bool_op_intersection)
@@ -195,14 +190,13 @@ static void global_boolean(io_ref_t shape, io_ref_t op_shape)
           if (val == 0x0u || val_op != 0x0u)
             continue;
 
-          change.set(x, y, z, data[index], io_u16vec3_t{dim.x, dim.y, dim.z});
           data[index] = 0x0u;
         }
       }
     }
   }
 
-  undo_redo::push_change(shape, change);
+  io_component_voxel_shape->commit_snapshot(shape);
 }
 
 } // namespace editing

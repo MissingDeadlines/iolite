@@ -23,7 +23,7 @@
 #pragma once
 
 #include "common.h"
-#include "undo_redo.h"
+#include "sparse_volume.h"
 
 //----------------------------------------------------------------------------//
 namespace editing_tools
@@ -359,16 +359,15 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
     const auto current_palette_index =
         io_component_voxel_shape->get(shape, result.coord);
 
-    // Push current state to undo/redo history
-    {
-      sparse_volume_t change = paint_volume;
-      change.update_from_shape(shape);
-      undo_redo::push_change(shape, change);
-    }
+    // Undo/redo
+    io_editor->push_undo_redo_state_for_entity(
+        "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+        false);
 
     // Apply the changes to the shape
     paint_volume.apply(shape);
     // Commit the changes
+    io_component_voxel_shape->commit_snapshot(shape);
     io_component_voxel_shape->voxelize(shape);
 
     paint_volume.clear();
@@ -595,14 +594,14 @@ static void handle_tool_extrude(io_ref_t shape, tool_parameters_t& params,
 
     if (!is_left_mouse_buttom_pressed())
     {
-      // Push current state to undo/redo history
-      {
-        sparse_volume_t change = voxels_extruded;
-        change.update_from_shape(shape);
-        undo_redo::push_change(shape, change);
-      }
+      // Undo/redo
+      io_editor->push_undo_redo_state_for_entity(
+          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+          false);
 
       voxels_extruded.apply(shape);
+      io_component_voxel_shape->commit_snapshot(shape);
+
       voxels_extruded.clear();
       voxels.clear();
       dragging = false;
@@ -726,12 +725,18 @@ static void handle_tool_move(io_ref_t shape, tool_parameters_t& params)
       // Copy selection
       voxels_to_move.add(params.selection, dim);
       voxels_to_move.update_from_shape(shape);
-      undo_redo::push_change(shape, voxels_to_move);
-      params.selection.clear();
 
+      params.selection.clear();
       // Remove voxels
       auto change = voxels_to_move.prepare_erase(shape);
+
+      // Undo/redo
+      io_editor->push_undo_redo_state_for_entity(
+          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+          false);
+
       change.apply(shape);
+      io_component_voxel_shape->commit_snapshot(shape);
 
       dragging = true;
     }
@@ -784,8 +789,15 @@ static void handle_tool_move(io_ref_t shape, tool_parameters_t& params)
       // Move voxels
       auto change = voxels_to_draw;
       change.update_from_shape(shape);
-      undo_redo::push_change(shape, change);
+
+      // Undo/redo
+      io_editor->push_undo_redo_state_for_entity(
+          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
+          false);
+
       voxels_to_draw.apply(shape);
+      io_component_voxel_shape->commit_snapshot(shape);
+
       // Update selection
       params.selection = voxels_to_draw;
 
@@ -877,8 +889,14 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
         {
           auto change = voxels;
           change.update_from_shape(shape);
-          undo_redo::push_change(shape, change);
+
+          // Undo/redo
+          io_editor->push_undo_redo_state_for_entity(
+              "Edit Voxel Shape",
+              io_component_voxel_shape->base.get_entity(shape), false);
+
           voxels.apply(shape);
+          io_component_voxel_shape->commit_snapshot(shape);
         }
 
         dragging = false;

@@ -21,9 +21,6 @@
 // SOFTWARE.
 
 #include "common.h"
-#include "sparse_volume.h"
-#include "undo_redo.h"
-#include "editing.h"
 #include "editing_ui.h"
 
 //----------------------------------------------------------------------------//
