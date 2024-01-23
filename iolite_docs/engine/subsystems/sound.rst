@@ -21,7 +21,6 @@ The sound system supports **stereo** OGG and WAV audio files with a **fixed samp
 Preparing sound effects
 -----------------------
 
-
 After preparing your audio files, you need to create the appropriate sound effects. A single sound effect comprises one or multiple audio samplers, which reference the actual audio files on disk.
 
 To create a sound effect, create a ``my_sound_effect.effect.json`` file in the ``media/sounds`` directory in a `data source <data_sources>`_ of your choice, right next to your audio files. The effect file has the following format:

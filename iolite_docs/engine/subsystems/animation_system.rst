@@ -43,6 +43,8 @@ Working with the animation system
 
 When working on your game, you can play, layer, suspend, and stop animations via the native C or Lua API.
 
+.. note:: To see the animation system in action, check out the animation sample in our repository.
+
 Here's a simple snippet that showcases the usage of the animation system via a Lua script:
 
 .. code-block:: lua
@@ -74,7 +76,7 @@ Here's a simple snippet that showcases the usage of the animation system via a L
     desc.looping = true
     -- Player the animation at twice the speed
     desc.play_speed = 2.0
-    -- Blend it out initially so we can blend it in later on
+    -- Blend it out initially, so we can blend it in manually later on
     desc.blend_weight = 0.0
 
     -- Play the second animation
@@ -91,8 +93,12 @@ Here's a simple snippet that showcases the usage of the animation system via a L
   function OnDeactivate(entity)
     AnimationSystem.stop_animation(AnimInstanceA)
     AnimationSystem.stop_animation(AnimInstanceB)
+
+    -- Alternatively, stop all animations on the root node
+    -- local n = Node.get_component_for_entity(entity)
+    -- AnimationSystem.stop_animations(n)
   end
 
-In the example, we're playing a base animation on the node of the entity the script is attached to. In addition, we're playing an additional animation on top, which is initially blended out and won't affect the base layer animation. Over time, using the sine function, we're gradually blending in and out of the top layer animation. When the component is deactivated, either when the entity itself gets destroyed or the component itself, we're stopping both animations.
+In the example, we're playing a base animation on the node of the entity the script is attached to. In addition, we're playing an animation on top, which is initially blended out and won't affect the base layer animation. Over time, using the sine function, we're gradually blending in and out of the top layer animation. When the component is deactivated, either when the entity gets destroyed or the component itself, we're stopping both animations.
 
 Working with the animation system via the native C API works analogously.
