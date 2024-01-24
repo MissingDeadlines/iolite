@@ -1,0 +1,16 @@
+name: bundle_samples
+on: [push]
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name : "Bundle samples"
+        uses: actions/upload-artifact@v3
+        with:
+          name: samples
+          path: |
+            iolite_samples
