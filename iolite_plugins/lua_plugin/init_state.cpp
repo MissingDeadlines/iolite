@@ -821,7 +821,7 @@ void script_init_state(sol::state& s)
   // @member entity1 Ref The second entity in contact.
   // @member pos Vec3 The position of the contact.
   // @member impulse Vec3 The impulse of the contact.
-  // @member type string The type of the contact. Either "touch_found", "touch_lost", "touch_persists", "trigger_touch_found", or "trigger_touch_lost".
+  // @member type string The type of the contact. Either "touch_found", "touch_lost", "trigger_touch_found", or "trigger_touch_lost".
   s.new_usertype<lua_physics_contact_event_t::event_data_t>(
       "PhysicsContactEventData", sol::no_constructor, "entity0",
       &lua_physics_contact_event_t::event_data_t::entity0, "entity1",

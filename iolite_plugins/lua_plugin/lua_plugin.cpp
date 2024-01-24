@@ -420,15 +420,13 @@ static void on_physics_events(const io_events_header_t* begin,
   if (!internal::scripts_active)
     return;
 
-  std::vector<lua_physics_contact_event_t> lua_events;
-  lua_events.reserve(64u);
+  static std::vector<lua_physics_contact_event_t> lua_contact_events;
 
   const io_events_header_t* event = begin;
 
   const char* contact_event_type_str = "physics_contact";
   const char* contact_type_touch_lost_str = "touch_lost";
   const char* contact_type_touch_found_str = "touch_found";
-  const char* contact_type_touch_persists_str = "touch_persists";
   const char* contact_type_trigger_touch_lost_str = "trigger_touch_lost";
   const char* contact_type_trigger_touch_found_str = "trigger_touch_found";
 
@@ -437,8 +435,6 @@ static void on_physics_events(const io_events_header_t* begin,
       io_to_name(contact_type_touch_lost_str);
   const io_name_t contact_type_touch_found =
       io_to_name(contact_type_touch_found_str);
-  const io_name_t contact_type_touch_persists =
-      io_to_name(contact_type_touch_persists_str);
   const io_name_t contact_type_trigger_touch_lost =
       io_to_name(contact_type_trigger_touch_lost_str);
   const io_name_t contact_type_trigger_touch_found =
@@ -454,34 +450,28 @@ static void on_physics_events(const io_events_header_t* begin,
 
       if (contact->type.hash == contact_type_touch_lost.hash)
       {
-        lua_events.push_back({contact_event_type_str,
-                              {contact->entity0, contact->entity1, contact->pos,
-                               contact->impulse, contact_type_touch_lost_str}});
+        lua_contact_events.push_back(
+            {contact_event_type_str,
+             {contact->entity0, contact->entity1, contact->pos,
+              contact->impulse, contact_type_touch_lost_str}});
       }
       else if (contact->type.hash == contact_type_touch_found.hash)
       {
-        lua_events.push_back(
+        lua_contact_events.push_back(
             {contact_event_type_str,
              {contact->entity0, contact->entity1, contact->pos,
               contact->impulse, contact_type_touch_found_str}});
       }
-      else if (contact->type.hash == contact_type_touch_persists.hash)
-      {
-        lua_events.push_back(
-            {contact_event_type_str,
-             {contact->entity0, contact->entity1, contact->pos,
-              contact->impulse, contact_type_touch_persists_str}});
-      }
       else if (contact->type.hash == contact_type_trigger_touch_lost.hash)
       {
-        lua_events.push_back(
+        lua_contact_events.push_back(
             {contact_event_type_str,
              {contact->entity0, contact->entity1, contact->pos,
               contact->impulse, contact_type_trigger_touch_lost_str}});
       }
       else if (contact->type.hash == contact_type_trigger_touch_found.hash)
       {
-        lua_events.push_back(
+        lua_contact_events.push_back(
             {contact_event_type_str,
              {contact->entity0, contact->entity1, contact->pos,
               contact->impulse, contact_type_trigger_touch_found_str}});
@@ -489,6 +479,35 @@ static void on_physics_events(const io_events_header_t* begin,
     }
 
     event = io_events_get_next(event);
+  }
+
+  // Collect N events to dispatch this frame
+  constexpr uint32_t num_events_to_dispatch_per_frame = 100u;
+  std::vector<lua_physics_contact_event_t> contact_events_to_dispatch;
+  {
+    const auto first = lua_contact_events.begin();
+    const auto last = lua_contact_events.begin() +
+                      glm::min((uint32_t)lua_contact_events.size(),
+                               num_events_to_dispatch_per_frame);
+    contact_events_to_dispatch.insert(contact_events_to_dispatch.begin(), first,
+                                      last);
+    lua_contact_events.erase(first, last);
+
+    // Clean up obsolete events
+    for (auto it = contact_events_to_dispatch.begin();
+         it != contact_events_to_dispatch.end();)
+    {
+      if (io_base->ref_is_valid(it->data.entity0) &&
+          io_entity->is_alive(it->data.entity0) &&
+          io_base->ref_is_valid(it->data.entity1) &&
+          io_entity->is_alive(it->data.entity1))
+      {
+        ++it;
+        continue;
+      }
+
+      it = contact_events_to_dispatch.erase(it);
+    }
   }
 
   for (auto& script : script_instances)
@@ -499,7 +518,7 @@ static void on_physics_events(const io_events_header_t* begin,
 
     sol::protected_function on_event = s["OnEvent"];
     if (on_event.valid())
-      SOL_VALIDATE_RESULT(on_event(script.entity, lua_events),
+      SOL_VALIDATE_RESULT(on_event(script.entity, contact_events_to_dispatch),
                           s["__ScriptName"].get<const char*>());
   }
 }
