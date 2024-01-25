@@ -2,13 +2,13 @@ name: build_plugins
 on: [push]
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy: 
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
     steps:
       - name: "Checkout repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
       - name : "Build plugins"
@@ -18,11 +18,27 @@ jobs:
           cmake --build build --config Release
           python update_build_metadata.py ${{ secrets.IOLITE_PLUGIN_SALT }}
       - name : "Archive plugins"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: plugins
+          name: plugins-${{ matrix.runs-on }}
           path: |
             iolite_plugins/linux/*.so
             iolite_plugins/linux/*.json
             iolite_plugins/windows/*.dll
             iolite_plugins/windows/*.json
+  merge:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download artifacts" 
+        uses: actions/download-artifact@v4
+        with:
+          path: plugins 
+          pattern: plugins-*
+          merge-multiple: true
+      - name : "Archive plugins"
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugins
+          path: |
+            plugins/**/*
