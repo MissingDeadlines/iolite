@@ -1,43 +1,53 @@
 # IOLITE - Voxel Game Engine
 
-
 ![IOLITE Logo](https://media.missing-deadlines.com/iolite/images/iolite_logo2.png)
+
+[![Documentation Status](https://readthedocs.org/projects/iolite-voxel-game-engine/badge/?version=latest)](https://docs.iolite-engine.com/en/latest/?badge=latest)
+[![build_plugins](https://github.com/MissingDeadlines/iolite/actions/workflows/build_plugins.yml/badge.svg)](https://github.com/MissingDeadlines/iolite/actions/workflows/build_plugins.yml)
+[![build_sample_plugins](https://github.com/MissingDeadlines/iolite/actions/workflows/build_sample_plugins.yml/badge.svg)](https://github.com/MissingDeadlines/iolite/actions/workflows/build_sample_plugins.yml)
 
 A highly flexible, voxel-powered game engine with an embedded editor. Create games using Lua, the native C/C++ API, and assets authored in voxel editors like MagicaVoxel or Avoyd.
 
-<https://iolite-engine.com>
-
-[![Documentation Status](https://readthedocs.org/projects/iolite-voxel-game-engine/badge/?version=latest)](https://docs.iolite-engine.com/en/latest/?badge=latest)
+More details can be found on our website: <https://iolite-engine.com>
 
 ![The forest sample scene has been created solely using the editor and the new voxel editing plugin. The characters were created using MagicaVoxel and can be directly used as assets.](media/screenshot.jpg?raw=true)
 
 ## Overview
 
-This repository houses all public resources, like...
+This repository houses all public resources, including the following:
 
 - [C/C++ API](iolite_c_api)  
 Write native plugins in C or C++ or any other language that supports C bindings.
-- [Open-Source Plugins](iolite_plugins)  
-Open-source plugins, including the voxel editor, a terrain generator, and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
+- [Open-source plugins](iolite_plugins)  
+Including the voxel editor, terrain generator, and the Lua scripting backend. Fully customizable and great references for rolling custom implementations.
 - [Samples](iolite_samples)  
-Kick-start your journey with IOLITE.
+A collection of Lua-based samples to kick-start your journey with IOLITE.
 - [Issue tracker](https://github.com/MissingDeadlines/iolite/issues)  
 Report bugs or request new features.
 - [Auxiliary Python scripts](python_scripts)  
 Generate packages for your IOLITE projects and more.
-- [Additional Resources](various)  
+- [Additional resources](various)  
 Various resources like the display lookup tables (LUTs) for color grading in DaVinci Resolve.
 
 ## Join our Community
 
 Join our [Discord community](https://discord.com/invite/SZjfhw7z75), follow the development on [Mastodon](https://mastodon.missing-deadlines.com/@benjamin), and become a part of our development journey.
 
-## Download the Latest Version
+## Download
 
-- Download the [latest Windows build](https://iolite-engine.com/api/download_windows)
-- Download the [latest Linux build](https://iolite-engine.com/api/download_linux) (tested on Ubuntu 22.04 LTS and the latest SteamOS)
+Download the latest binary distribution of IOLITE.
 
-## Support this project with IOLITE PRO
+### Builds for Windows (Windows 10+)
+
+- Download the [latest IOLITE build](https://iolite-engine.com/api/download_windows)
+- Download the [latest IOLITE PRO build](https://iolite-engine.com/api/download_windows_pro)
+- Download the [latest IOLITE PRO beta build](https://iolite-engine.com/api/download_windows_beta)
+
+### Builds for Linux (Ubuntu 22.04, SteamOS, etc.)
+
+- Download the [latest build](https://iolite-engine.com/api/download_linux)
+
+## Support this project
 
 IOLITE is available in two distinct flavors. The free version, which comes with the main set of features, and **IOLITE PRO**, which adds the following and supports the further development of IOLITE:
 
