@@ -361,8 +361,8 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
 
     // Undo/redo
     io_editor->push_undo_redo_state_for_entity(
-        "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-        false);
+        ICON_FA_PEN_TO_SQUARE "   Brush Shape",
+        io_component_voxel_shape->base.get_entity(shape), false);
 
     // Apply the changes to the shape
     paint_volume.apply(shape);
@@ -596,8 +596,8 @@ static void handle_tool_extrude(io_ref_t shape, tool_parameters_t& params,
     {
       // Undo/redo
       io_editor->push_undo_redo_state_for_entity(
-          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-          false);
+          ICON_FA_PEN_TO_SQUARE "   Extrude Shape",
+          io_component_voxel_shape->base.get_entity(shape), false);
 
       voxels_extruded.apply(shape);
       io_component_voxel_shape->commit_snapshot(shape);
@@ -732,8 +732,8 @@ static void handle_tool_move(io_ref_t shape, tool_parameters_t& params)
 
       // Undo/redo
       io_editor->push_undo_redo_state_for_entity(
-          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-          false);
+          ICON_FA_PEN_TO_SQUARE "   Move Shape",
+          io_component_voxel_shape->base.get_entity(shape), false);
 
       change.apply(shape);
       io_component_voxel_shape->commit_snapshot(shape);
@@ -792,8 +792,8 @@ static void handle_tool_move(io_ref_t shape, tool_parameters_t& params)
 
       // Undo/redo
       io_editor->push_undo_redo_state_for_entity(
-          "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-          false);
+          ICON_FA_PEN_TO_SQUARE "   Move Shape",
+          io_component_voxel_shape->base.get_entity(shape), false);
 
       voxels_to_draw.apply(shape);
       io_component_voxel_shape->commit_snapshot(shape);
@@ -892,7 +892,7 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
 
           // Undo/redo
           io_editor->push_undo_redo_state_for_entity(
-              "Edit Voxel Shape",
+              ICON_FA_PEN_TO_SQUARE "   Box Shape",
               io_component_voxel_shape->base.get_entity(shape), false);
 
           voxels.apply(shape);

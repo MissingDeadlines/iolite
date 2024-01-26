@@ -44,8 +44,8 @@ static void global_full(io_ref_t shape, const palette_range_t& range)
 {
   // Undo/redo
   io_editor->push_undo_redo_state_for_entity(
-      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-      false);
+      ICON_FA_FILL_DRIP "   Full Shape",
+      io_component_voxel_shape->base.get_entity(shape), false);
 
   auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
   auto dim = io_component_voxel_shape->get_dim(shape);
@@ -71,8 +71,8 @@ static void global_fill(io_ref_t shape, const palette_range_t& range)
 {
   // Undo/redo
   io_editor->push_undo_redo_state_for_entity(
-      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-      false);
+      ICON_FA_FILL_DRIP "   Fill Shape",
+      io_component_voxel_shape->base.get_entity(shape), false);
 
   auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -100,8 +100,8 @@ static void global_invert(io_ref_t shape, const palette_range_t& range)
 {
   // Undo/redo
   io_editor->push_undo_redo_state_for_entity(
-      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-      false);
+      ICON_FA_PEN_TO_SQUARE "   Invert Shape",
+      io_component_voxel_shape->base.get_entity(shape), false);
 
   auto write_ptr = io_component_voxel_shape->get_voxel_data(shape);
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -134,8 +134,8 @@ static void global_boolean(io_ref_t shape, io_ref_t op_shape)
 {
   // Undo/redo
   io_editor->push_undo_redo_state_for_entity(
-      "Edit Voxel Shape", io_component_voxel_shape->base.get_entity(shape),
-      false);
+      ICON_FA_PEN_TO_SQUARE "   Boolean Shape",
+      io_component_voxel_shape->base.get_entity(shape), false);
 
   const auto dim = io_cvt(io_component_voxel_shape->get_dim(shape));
   const auto dim_op = io_cvt(io_component_voxel_shape->get_dim(op_shape));

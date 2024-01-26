@@ -375,7 +375,7 @@ void show_editing_toolbar()
 
             // Undo/redo
             io_editor->push_undo_redo_state_for_entity(
-                "Edit Voxel Shape",
+                ICON_FA_FILL_DRIP "   Fill Shape",
                 io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
@@ -391,7 +391,7 @@ void show_editing_toolbar()
 
             // Undo/redo
             io_editor->push_undo_redo_state_for_entity(
-                "Edit Voxel Shape",
+                ICON_FA_FILL_DRIP "   Fill Shape",
                 io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
@@ -420,7 +420,7 @@ void show_editing_toolbar()
 
             // Undo/redo
             io_editor->push_undo_redo_state_for_entity(
-                "Edit Voxel Shape",
+                ICON_FA_SCISSORS "   Cut Shape",
                 io_component_voxel_shape->base.get_entity(shape), false);
 
             change.apply(shape);
@@ -433,7 +433,7 @@ void show_editing_toolbar()
           if (ImGui::Button(ICON_FA_PASTE "###paste_selection", tb_button_size))
           {
             io_editor->push_undo_redo_state_for_entity(
-                "Edit Voxel Shape",
+                ICON_FA_PASTE "   Paste Shape",
                 io_component_voxel_shape->base.get_entity(shape), false);
 
             current_tool_params.clipboard.apply(shape);
