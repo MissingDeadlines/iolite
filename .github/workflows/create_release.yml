@@ -1,0 +1,90 @@
+name: create_release
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  bundle_samples:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name : "Bundle samples"
+        uses: actions/upload-artifact@v4
+        with:
+          name: samples
+          path: |
+            iolite_samples
+  build_plugins:
+    strategy: 
+      matrix:
+        runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name : "Build plugins"
+        run: |
+          cd iolite_plugins
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+          python update_build_metadata.py ${{ secrets.IOLITE_PLUGIN_SALT }}
+      - name : "Archive plugins"
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugins-${{ matrix.runs-on }}
+          path: |
+            iolite_plugins/linux/*.so
+            iolite_plugins/linux/*.json
+            iolite_plugins/windows/*.dll
+            iolite_plugins/windows/*.json
+  merge_plugins:
+    needs: build_plugins
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download artifacts" 
+        uses: actions/download-artifact@v4
+        with:
+          path: plugins 
+          pattern: plugins-*
+          merge-multiple: true
+      - name : "Archive plugins"
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugins
+          path: |
+            plugins/**/*
+  create_release:
+    needs: 
+      - merge_plugins
+      - bundle_samples
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download plugins" 
+        uses: actions/download-artifact@v4
+        with:
+          name: plugins
+          path: plugins
+      - name: "Download samples" 
+        uses: actions/download-artifact@v4
+        with:
+          name: samples
+          path: samples
+      - name: "Create Archives"
+        run: |
+          cd plugins
+          zip -q -r ../plugins.zip *
+          cd ../samples
+          zip -q -r ../samples.zip *
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            plugins.zip
+            samples.zip
+          body: Plugins and samples for the given IOLITE build. For the latest changes, check out our [changelog](https://iolite-engine.com/changelog).
