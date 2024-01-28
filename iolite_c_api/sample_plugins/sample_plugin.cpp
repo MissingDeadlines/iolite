@@ -59,6 +59,7 @@ static const io_editor_i* io_editor = nullptr;
 static const io_custom_components_i* io_custom_components = nullptr;
 static const io_resource_palette_i* io_resource_palette = nullptr;
 static const io_debug_geometry_i* io_debug_geometry = nullptr;
+static const io_low_level_imgui_i* io_low_level_imgui = nullptr;
 
 // Sample variables
 //----------------------------------------------------------------------------//
@@ -551,6 +552,8 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
           IO_RESOURCE_PALETTE_API_NAME);
   io_debug_geometry = (const io_debug_geometry_i*)io_api_manager->find_first(
       IO_DEBUG_GEOMETRY_API_NAME);
+  io_low_level_imgui = (const io_low_level_imgui_i*)io_api_manager->find_first(
+      IO_LOW_LEVEL_IMGUI_API_NAME);
 
   // Create our boid custom component
   boid_component_mgr = io_custom_components->request_manager();
@@ -593,13 +596,13 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
 
   // Set up Dear ImGui
   {
-    auto ctxt = (ImGuiContext*)io_base->imgui_get_context();
+    auto ctxt = (ImGuiContext*)io_low_level_imgui->get_imgui_context();
     ImGui::SetCurrentContext(ctxt);
 
     ImGuiMemAllocFunc alloc_func;
     ImGuiMemFreeFunc free_func;
-    io_base->imgui_get_allocator_functions((void**)&alloc_func,
-                                           (void**)&free_func);
+    io_low_level_imgui->get_imgui_allocator_functions((void**)&alloc_func,
+                                                      (void**)&free_func);
     ImGui::SetAllocatorFunctions(alloc_func, free_func);
   }
 

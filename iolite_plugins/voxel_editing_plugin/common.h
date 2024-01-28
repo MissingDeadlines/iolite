@@ -60,6 +60,7 @@ static const io_editor_i* io_editor = nullptr;
 static const io_world_i* io_world = nullptr;
 static const io_debug_geometry_i* io_debug_geometry = nullptr;
 static const io_input_system_i* io_input_system = nullptr;
+static const io_low_level_imgui_i* io_low_level_imgui = nullptr;
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//

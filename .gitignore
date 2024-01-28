@@ -22,11 +22,13 @@ iolite_c_api/sample_plugins/.cache
 iolite_c_api/sample_plugins/linux/*.so
 iolite_c_api/sample_plugins/windows/*.dll
 iolite_c_api/sample_plugins/windows/*.pdb
+iolite_c_api/sample_plugins/windows/*.ilk
 iolite_plugins/build
 iolite_plugins/.cache
 iolite_plugins/linux/*.so
 iolite_plugins/windows/*.dll
 iolite_plugins/windows/*.pdb
+iolite_plugins/windows/*.ilk
 
 !iolite_plugins/**/OpenImageDenoise.*
 !iolite_plugins/**/lua51.*

@@ -59,6 +59,9 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
     io_resource_palette =
         (const io_resource_palette_i*)io_api_manager->find_first(
             IO_RESOURCE_PALETTE_API_NAME);
+    io_low_level_imgui =
+        (const io_low_level_imgui_i*)io_api_manager->find_first(
+            IO_LOW_LEVEL_IMGUI_API_NAME);
   }
 
   // Register the edit tool
@@ -75,13 +78,13 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
 
   // Set up Dear ImGui
   {
-    auto ctxt = (ImGuiContext*)io_base->imgui_get_context();
+    auto ctxt = (ImGuiContext*)io_low_level_imgui->get_imgui_context();
     ImGui::SetCurrentContext(ctxt);
 
     ImGuiMemAllocFunc alloc_func;
     ImGuiMemFreeFunc free_func;
-    io_base->imgui_get_allocator_functions((void**)&alloc_func,
-                                           (void**)&free_func);
+    io_low_level_imgui->get_imgui_allocator_functions((void**)&alloc_func,
+                                                      (void**)&free_func);
     ImGui::SetAllocatorFunctions(alloc_func, free_func);
   }
 

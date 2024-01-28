@@ -11,3 +11,6 @@
 {"rule":"DOUBLE_PUNCTUATION","sentence":"^\\Q../_static/images/cow_voxel_shape.jpg\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Qif (shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y) {\r\ndespawn_voxel_shape();\r\n}\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qif (shape_bounds_center.y + shape_bounds_radius < kill_plane_position.y) {\r\ndespawn_voxel_shape();\r\n}\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QReturns the ptr to the physx::PxRigidActor instance for the given shape.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QPerforms a raycast.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QReturns the ptr to the \"physx::PxRigidActor\" instance for the given shape.\\E$"}

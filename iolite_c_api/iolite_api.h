@@ -780,7 +780,7 @@ typedef struct
 } io_scheduler_task_t;
 
 //----------------------------------------------------------------------------//
-// Global helper functions and types
+// Global helper functions, types, and type definitions
 //----------------------------------------------------------------------------//
 
 // Initializes a task with the given callback for the given amount of tasks
@@ -907,7 +907,7 @@ inline io_name_t io_to_name(const char* string)
 }
 
 //----------------------------------------------------------------------------//
-// Interface types and typedefs
+// Types and type definitions for API interfaces
 //----------------------------------------------------------------------------//
 
 // Called when a change to a file was detected.
@@ -1029,6 +1029,18 @@ typedef struct
   io_vec2_t pos;
   io_vec2_t extent;
 } io_ui_rect_t;
+
+// Collection of Vulkan internal functions
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  // Ptr to function of type "PFN_vkGetInstanceProcAddr". Can be used to
+  // retrieve other Vulkan functions dynamically
+  void* vk_get_instance_proc_addr;
+  // Ptr to function of type "PFN_vkGetDeviceProcAddr". Can be used to retrieve
+  // other Vulkan functions dynamically
+  void* vk_get_device_proc_addr;
+} io_low_level_vulkan_functions_t;
 
 //----------------------------------------------------------------------------//
 // Event data types
@@ -1402,15 +1414,6 @@ struct io_base_i // NOLINT
   io_variant_t (*variant_from_uvec4)(io_uvec4_t value);
   // Gets the value of the variant as an uvec4.
   io_uvec4_t (*variant_get_uvec4)(io_variant_t variant);
-
-  // Dear ImGui
-
-  // Needed to use Dear ImGui in a plugin; use in combination with
-  // ImGui::SetCurrentContext().
-  void* (*imgui_get_context)();
-  // Needed to use Dear ImGui in a plugin; use in combination with
-  // ImGui::SetAllocatorFunctions().
-  void (*imgui_get_allocator_functions)(void** alloc_func, void** free_func);
 
   // Memory management. Provides a TLSF-backed, thread-safe allocator which
   // features allocation tracking.
@@ -1846,30 +1849,6 @@ struct io_physics_i // NOLINT
   io_physics_raycast_result_t (*raycast)(io_vec3_t origin, io_vec3_t direction,
                                          io_float32_t distance,
                                          io_uint32_t group_mask);
-};
-
-//----------------------------------------------------------------------------//
-#define IO_PHYSX_API_NAME "io_physx_i"
-//----------------------------------------------------------------------------//
-
-// Provides direct access to the internal low-level PhysX data structures
-//    Use this if you want to directly utilize PhysX in your plugin to add
-//    custom behavior and functionality
-//----------------------------------------------------------------------------//
-struct io_physx_i // NOLINT
-{
-  // Returns the ptr to the global physx::PxPhysics instance.
-  void* (*get_px_physics)();
-  // Returns the ptr to the global physx::PxScene instance.
-  void* (*get_px_scene)();
-
-  // Returns the ptr to the physx::PxRigidActor instance for the given shape.
-  // Please note the following:
-  //     1. The actor can be *NULL* for shapes with pending voxelization or
-  //     disabled collision.
-  //     2. The actor is replaced after the voxelization for a shape finishes
-  //     and the previous one becomes *invalid*.
-  void* (*get_px_rigid_actor_for_shape)(io_ref_t shape);
 };
 
 //----------------------------------------------------------------------------//
@@ -2606,6 +2585,68 @@ struct io_resource_palette_i // NOLINT
   // palette.
   io_vec4_t (*get_material_parameters)(io_ref_t palette,
                                        io_uint8_t palette_index);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_LOW_LEVEL_PHYSX_API_NAME "io_low_level_physx_i"
+//----------------------------------------------------------------------------//
+
+// Provides direct access to the internal low-level PhysX data structures
+//   Use this if you want to directly utilize PhysX in your plugin to add
+//   custom behavior and functionality
+//----------------------------------------------------------------------------//
+struct io_low_level_physx_i // NOLINT
+{
+  // Returns the ptr to the global "physx::PxPhysics" instance.
+  void* (*get_px_physics)();
+  // Returns the ptr to the global "physx::PxScene" instance.
+  void* (*get_px_scene)();
+
+  // Returns the ptr to the "physx::PxRigidActor" instance for the given shape.
+  // Please note the following:
+  //   1. The actor can be *NULL* for shapes with pending voxelization or
+  //      disabled collision
+  //   2. The actor is replaced after the voxelization for a shape finishes
+  //      and the previous one becomes *invalid*
+  void* (*get_px_rigid_actor_for_shape)(io_ref_t shape);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_LOW_LEVEL_IMGUI_API_NAME "io_low_level_imgui_i"
+//----------------------------------------------------------------------------//
+
+// Provides direct access to the internal low-level Dear ImGui data structures
+//   Use this in conjunction with "ImGui::SetCurrentContext()" and
+//   "ImGui::SetAllocatorFunctions()" in your plugin
+struct io_low_level_imgui_i // NOLINT
+{
+  // Returns the ptr to the global "ImGui::ImGuiContext" instance
+  void* (*get_imgui_context)();
+  // Returns the ptrs to the global "ImGuiMemAllocFunc" and "ImGuiMemFreeFunc"
+  // functions
+  void (*get_imgui_allocator_functions)(void** alloc_func, void** free_func);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_LOW_LEVEL_VULKAN_API_NAME "io_low_level_vulkan_i"
+//----------------------------------------------------------------------------//
+
+// Provides direct access to the internal low-level Vulkan data structures
+struct io_low_level_vulkan_i // NOLINT
+{
+  // Returns the highest version of the API used. Constructed with
+  // "VK_MAKE_VERSION".
+  io_uint32_t (*get_vk_api_version)();
+
+  // Returns the ptr to the Vulkan physical device of type "VkPhysicalDevice".
+  void* (*get_vk_physical_device)();
+  // Returns the ptr to the Vulkan device of type "VkDevice".
+  void* (*get_vk_device)();
+  // Returns the ptr to the Vulkan instance of type "VkInstance".
+  void* (*get_vk_instance)();
+
+  // Returns a collection of Vulkan-internal functions.
+  void (*get_functions)(io_low_level_vulkan_functions_t* functions);
 };
 
 #endif
