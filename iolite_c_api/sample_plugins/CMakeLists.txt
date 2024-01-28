@@ -12,10 +12,11 @@ elseif(UNIX)
   set(OUTPUT_DIR "linux")
 endif()
 
-include_directories(../ dependencies/imgui dependencies/glm/glm)
+include_directories(../ dependencies/imgui dependencies/glm/glm dependencies/)
 add_definitions("-D_CRT_SECURE_NO_WARNINGS")
 
 add_library(IoliteSamplePluginC SHARED sample_plugin.c)
+add_library(IoliteSamplePluginVulkan SHARED sample_plugin_vulkan.c)
 
 add_library(IoliteSamplePluginCPP SHARED
   sample_plugin.cpp
@@ -26,7 +27,7 @@ add_library(IoliteSamplePluginCPP SHARED
 )
 add_library(IoliteMinimalPlugin SHARED minimal_plugin.cpp)
 
-foreach(EXECUTABLE IoliteSamplePluginC IoliteSamplePluginCPP IoliteMinimalPlugin)
+foreach(EXECUTABLE IoliteSamplePluginC IoliteSamplePluginCPP IoliteMinimalPlugin IoliteSamplePluginVulkan)
   set_target_properties(${EXECUTABLE} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/${OUTPUT_DIR}
     RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/${OUTPUT_DIR}
