@@ -756,27 +756,33 @@ typedef void (*io_scheduler_callback_t)(io_uvec2_t range, io_uint32_t thread_id,
                                         io_uint32_t sub_task_index, void* task);
 
 // Scheduler tasks provide the possibility to (evenly) spread workloads to a set
-// of worker threads provided by the internal task scheduler.
-//   Example:
-//     If you provide a task with the number of workloads set to 16 and there
-//     are 4 available hardware threads, the workload gets divided into 4
-//     sub-tasks with a range in [0, 4]
+// of worker threads via the internal task scheduler.
+//   Use the "io_init_scheduler_task" function to initialize the task.
 //----------------------------------------------------------------------------//
-typedef struct
+typedef struct io_scheduler_task_t_
 {
-  // The number of workloads this task should handle
+  // The total number of workloads this task handles.
+  //  Must be greater than 0.
   io_uint32_t num_workloads;
 
-  // The minimum amount of sub-tasks to spawn per worker thread
-  io_uint32_t min_sub_tasks_per_worker;
-  // The target of sub-tasks that should be created per worker thread
-  io_uint32_t target_sub_tasks_per_worker;
-
-  // The number of currently active sub-tasks. Initialize to zero
-  io_uint64_t running_sub_task_count;
+  // The minimum number of workloads a single worker thread should handle.
+  //   Default: 0
+  io_uint32_t min_workloads_per_worker;
+  // The number of workloads to target per worker thread.
+  //   Default: 4
+  io_uint32_t target_workloads_per_worker;
 
   // Callback function called for each of the internal sub-tasks.
+  //   Needs to be valid function pointer provided by the
+  //   user.
   io_scheduler_callback_t callback;
+  // Ooptional dependency which needs to be completed before running this task.
+  //   Default: nullptr
+  struct io_scheduler_task_t_* dependency;
+
+  // The number of currently active sub-tasks.
+  //   Used internally, required to be initialized to 0.
+  io_uint64_t running_sub_task_count;
 } io_scheduler_task_t;
 
 //----------------------------------------------------------------------------//
@@ -789,13 +795,16 @@ inline void io_init_scheduler_task(io_scheduler_task_t* task,
                                    io_uint32_t num_tasks,
                                    io_scheduler_callback_t callback)
 {
-  // Defaults
-  task->target_sub_tasks_per_worker = 4u;
-  task->min_sub_tasks_per_worker = 0u;
-  task->running_sub_task_count = 0u;
-
   task->num_workloads = num_tasks;
   task->callback = callback;
+
+  // Defaults
+  task->target_workloads_per_worker = 4u;
+  task->min_workloads_per_worker = 0u;
+  task->dependency = 0u;
+
+  // Internal
+  task->running_sub_task_count = 0u;
 }
 
 // Fixed time step accumulator
