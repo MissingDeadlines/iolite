@@ -755,9 +755,16 @@ typedef struct
 typedef void (*io_scheduler_callback_t)(io_uvec2_t range, io_uint32_t thread_id,
                                         io_uint32_t sub_task_index, void* task);
 
-// Scheduler tasks provide the possibility to (evenly) spread workloads to a set
-// of worker threads via the internal task scheduler.
-//   Use the "io_init_scheduler_task" function to initialize the task.
+// Scheduler tasks provide the possibility to spread a given workload to the
+// available worker threads of the internal task scheduler.
+//   Example: If there are 100 workloads set and 10 worker threads available,
+//            the scheduler (with default settings) divides the task up into 10
+//            sub tasks. Each of the sub tasks will be in charge of handling 10
+//            workloads. Each sub task calls the provided callback function
+//            with a range in [0, 10).
+//   Usage:  Use the "io_init_scheduler_task" function to initialize the task
+//           and dispatch the task via the functions provided via the
+//           "io_base_i" interface.
 //----------------------------------------------------------------------------//
 typedef struct io_scheduler_task_t_
 {
@@ -765,12 +772,16 @@ typedef struct io_scheduler_task_t_
   //  Must be greater than 0.
   io_uint32_t num_workloads;
 
-  // The minimum number of workloads a single worker thread should handle.
-  //   Default: 0
-  io_uint32_t min_workloads_per_worker;
-  // The number of workloads to target per worker thread.
-  //   Default: 4
-  io_uint32_t target_workloads_per_worker;
+  // The number of workloads to target per worker thread. Modifying this value
+  // can be useful for "uneven" workloads, making it possible for worker threads
+  // to "steal" additional workloads.
+  //   Example: A value of 1 spreads the workloads evenly by creating one sub
+  //            task per available worker thread.
+  //            A value of 2 creates two sub tasks per worker thread. If a
+  //            worker does not finish in time, another worker can "steal" the
+  //            second sub task from it.
+  //   Default: 1
+  io_uint32_t target_num_sub_tasks_per_worker;
 
   // Callback function called for each of the internal sub-tasks.
   //   Needs to be valid function pointer provided by the
@@ -799,8 +810,7 @@ inline void io_init_scheduler_task(io_scheduler_task_t* task,
   task->callback = callback;
 
   // Defaults
-  task->target_workloads_per_worker = 4u;
-  task->min_workloads_per_worker = 0u;
+  task->target_num_sub_tasks_per_worker = 1u;
   task->dependency = 0u;
 
   // Internal
