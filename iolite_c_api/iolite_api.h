@@ -2033,11 +2033,17 @@ struct io_entity_i // NOLINT
 
   // Gets the name of the given entity.
   const char* (*get_name)(io_ref_t entity);
+  // Gets the UUID of the given entity.
+  io_uint64_t (*get_uuid)(io_ref_t entity);
+
   // Returns the linear memory containing all the names for all active entities.
   io_name_t* (*get_name_memory)();
 
   // Finds the first entity with the given name.
   io_ref_t (*find_first_entity_with_name)(const char* name);
+  // Finds the first entity with the given UUID.
+  io_ref_t (*find_entity_with_uuid)(io_uint64_t uuid);
+
   // Finds all entities with the given name.
   void (*find_entities_with_name)(const char* name, io_ref_t* entities,
                                   io_uint32_t* entities_length);
@@ -2540,6 +2546,11 @@ typedef struct
   // Commits any changes and reloads the internals of the resource.
   void (*commit_changes)(io_ref_t component);
 
+  // Finds the first resource with the given name.
+  io_ref_t (*find_first_resource_with_name)(const char* name);
+  // Finds the first resource with the given name.
+  io_ref_t (*find_resource_with_uuid)(io_uint64_t uuid);
+
   // Returns the number of active resources.
   io_uint32_t (*get_num_active_resources)();
 
@@ -2550,6 +2561,9 @@ typedef struct
 
   // Returns the name of the resource.
   const char* (*get_name)(io_ref_t resource);
+  // Returns the UUID of the resource.
+  io_uint64_t (*get_uuid)(io_ref_t resource);
+
   // Returns the linear memory containing all the names for all active
   // resources.
   io_name_t* (*get_name_memory)();
