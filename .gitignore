@@ -1,14 +1,11 @@
 iolite_samples/base
-iolite_samples/user_data
-iolite_samples/sample_village
-iolite_samples/imgui.ini
 iolite_samples/keybindings_editor.json
 iolite_samples/keybindings_global.json
-iolite_samples/property_metadata.json
+iolite_samples/default.property_metadata.json
+iolite_samples/plugins.json
 iolite_samples/*.exe
 iolite_samples/*.so
 iolite_samples/*.dll
-iolite_samples/settings.json
 
 iolite_docs/_build
 iolite_docs/api/lua_generated.rst
