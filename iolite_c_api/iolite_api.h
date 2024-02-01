@@ -52,6 +52,23 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 }
 */
 
+//----------------------------------------------------------------------------//
+// Documentation
+//----------------------------------------------------------------------------//
+
+// Functions that return ranges of values
+// ----
+//   Examples: "find_entities_by_name", "collect_nodes_depth_first", etc.
+//   Usage:     To retrieve the total buffer length required, set the
+//              buffer ptr to nullptr. The length ptr will be updated
+//              accordingly. If both the buffer ptr and the length ptr are
+//              provided, the function fills the buffer up to the provided
+//              length (or less if the total buffer length is smaller) and sets
+//              the length to the amount of entries written to the
+//              buffer.
+//   Note:      It's best to avoid calling functions of this type multiple times
+//              and to pre-allocate a sufficiently large buffer upfront.
+
 #ifndef INCLUDE_IO_API
 #define INCLUDE_IO_API
 
@@ -1992,6 +2009,7 @@ struct io_filesystem_i // NOLINT
 
   // Tries to load the given file from the first data source (directory or
   // package) it is available in.
+  //   See "Documentation" for usage details.
   io_bool_t (*load_file_from_data_source)(const char* filepath,
                                           io_uint8_t* buffer,
                                           io_uint32_t* buffer_length);
@@ -2045,6 +2063,7 @@ struct io_entity_i // NOLINT
   io_ref_t (*find_entity_with_uuid)(io_uint64_t uuid);
 
   // Finds all entities with the given name.
+  //   See "Documentation" for usage details.
   void (*find_entities_with_name)(const char* name, io_ref_t* entities,
                                   io_uint32_t* entities_length);
 };
@@ -2095,6 +2114,7 @@ typedef struct
 
   // Returns a list of property descriptions for all the properties the
   // component provides.
+  //   See "Documentation" for usage details.
   void (*list_properties)(io_property_desc_t* property_descs,
                           io_uint32_t* property_descs_length);
 } io_component_base_i;
@@ -2173,9 +2193,11 @@ struct io_component_node_i // NOLINT
   io_vec3_t (*to_world_space_direction)(io_ref_t node, io_vec3_t dir);
 
   // Collects all nodes in the hierarchy (depth first ordering).
+  //   See "Documentation" for usage details.
   void (*collect_nodes_depth_first)(io_ref_t root_node, io_ref_t* nodes,
                                     io_uint32_t* nodes_length);
   // Collects all nodes in the hierarchy (breadth first ordering).
+  //   See "Documentation" for usage details.
   void (*collect_nodes_breadth_first)(io_ref_t root_node, io_ref_t* nodes,
                                       io_uint32_t* nodes_length);
 
@@ -2219,6 +2241,7 @@ struct io_component_tag_i // NOLINT
   io_component_base_i base;
 
   // Finds all entities with the given tag.
+  //   See "Documentation" for usage details.
   void (*find_entities_with_tag)(const char* tag, io_ref_t* entities,
                                  io_uint32_t* entities_length);
 
@@ -2397,6 +2420,7 @@ struct io_component_voxel_shape_i // NOLINT
                               io_uint32_t shapes_to_ignore_length);
   // Performs a sphere overlap test against all shapes in the world and returns
   // all candidates.
+  //   See "Documentation" for usage details.
   void (*overlap_sphere_global)(io_vec3_t position, io_float32_t radius,
                                 io_uint32_t group_mask,
                                 io_ref_t* overlapping_shapes,
@@ -2544,7 +2568,7 @@ typedef struct
   void (*destroy)(io_ref_t resource);
 
   // Commits any changes and reloads the internals of the resource.
-  void (*commit_changes)(io_ref_t component);
+  void (*commit_changes)(io_ref_t resource);
 
   // Finds the first resource with the given name.
   io_ref_t (*find_first_resource_with_name)(const char* name);
