@@ -169,6 +169,15 @@ typedef float io_float32_t;
 typedef double io_float64_t;
 
 //----------------------------------------------------------------------------//
+typedef io_uint32_t io_size_t;
+
+//----------------------------------------------------------------------------//
+typedef io_uint64_t io_uuid_t;
+typedef io_uint32_t io_ref_type_id_t;
+typedef io_uint32_t io_ref_index_t;
+typedef io_uint32_t io_ref_id_t;
+
+//----------------------------------------------------------------------------//
 // Math related types
 //----------------------------------------------------------------------------//
 
@@ -1029,7 +1038,7 @@ typedef struct
 typedef struct
 {
   io_name_t type; // The type of the event.
-  io_uint32_t
+  io_size_t
       data_size_in_bytes; // The size of the data blob attached to this event.
 } io_events_header_t;
 
@@ -1302,20 +1311,20 @@ struct io_user_script_i // NOLINT
   // Called when the given scripts should be ticked.
   void (*on_tick_scripts)(io_float32_t delta_t,
                           const io_user_script_batch_t* scripts,
-                          io_uint32_t scripts_length);
+                          io_size_t scripts_length);
   // Called when the given scripts should be ticked (zero or multiple times per
   // frame).
   //   Please note that the physics scene is advanced at a fixed rate, so the
   //   provided delta time is *constant*.
   void (*on_tick_scripts_physics)(io_float32_t delta_t,
                                   const io_user_script_batch_t* scripts,
-                                  io_uint32_t scripts_length);
+                                  io_size_t scripts_length);
   // Called when the given scripts should be activated.
   void (*on_activate_scripts)(const io_user_script_batch_t* scripts,
-                              io_uint32_t scripts_length);
+                              io_size_t scripts_length);
   // Called when the given scripts should be deactivated.
   void (*on_deactivate_scripts)(const io_user_script_batch_t* scripts,
-                                io_uint32_t scripts_length);
+                                io_size_t scripts_length);
 };
 
 //----------------------------------------------------------------------------//
@@ -1358,9 +1367,9 @@ struct io_base_i // NOLINT
   // Returns true if this ref is valid.
   io_bool_t (*ref_is_valid)(io_ref_t ref);
   // Returns the type ID for the provided ref.
-  io_uint32_t (*ref_get_type_id)(io_ref_t ref);
+  io_ref_type_id_t (*ref_get_type_id)(io_ref_t ref);
   // Returns the ID for the given ref.
-  io_uint32_t (*ref_get_id)(io_ref_t ref);
+  io_ref_id_t (*ref_get_id)(io_ref_t ref);
 
   // Names
 
@@ -1455,10 +1464,10 @@ struct io_base_i // NOLINT
   // features allocation tracking.
 
   // Allocates a memory area with the given size.
-  void* (*mem_allocate)(io_uint32_t size_in_bytes);
+  void* (*mem_allocate)(io_size_t size_in_bytes);
   // Allocates a memory area with the given size and alignment.
-  void* (*mem_allocate_aligned)(io_uint32_t size_in_bytes,
-                                io_uint32_t alignment_in_bytes);
+  void* (*mem_allocate_aligned)(io_size_t size_in_bytes,
+                                io_size_t alignment_in_bytes);
   // Frees the provided memory area.
   void (*mem_free)(void* ptr);
 
@@ -1551,7 +1560,7 @@ struct io_custom_components_i // NOLINT
   void (*init_manager)(io_handle16_t manager, const char* type);
 
   // Returns the type ID for this type of component.
-  io_uint32_t (*get_type_id)(io_handle16_t manager);
+  io_ref_type_id_t (*get_type_id)(io_handle16_t manager);
 
   // Functions to interact with components and their properties
 
@@ -1570,7 +1579,7 @@ struct io_custom_components_i // NOLINT
   io_ref_t* (*get_entity_memory)(io_handle16_t manager);
 
   // Returns the number of active components.
-  io_uint32_t (*get_num_active_components)(io_handle16_t manager);
+  io_size_t (*get_num_active_components)(io_handle16_t manager);
 
   // Gets the entity the given component is attached to.
   io_ref_t (*get_entity)(io_handle16_t manager, io_ref_t component);
@@ -1580,9 +1589,9 @@ struct io_custom_components_i // NOLINT
   io_bool_t (*is_alive)(io_handle16_t manager, io_ref_t component);
 
   // Converts the given index to a ref.
-  io_ref_t (*make_ref)(io_handle16_t manager, io_uint32_t component_index);
+  io_ref_t (*make_ref)(io_handle16_t manager, io_ref_index_t component_index);
   // Converts the given ref to an index.
-  io_uint32_t (*make_index)(io_handle16_t manager, io_ref_t component);
+  io_ref_index_t (*make_index)(io_handle16_t manager, io_ref_t component);
 };
 
 //----------------------------------------------------------------------------//
@@ -1921,20 +1930,20 @@ struct io_debug_geometry_i // NOLINT
   //   Line 1: positions[0], positions[1]
   //   Line 2: positions[2], positions[3]
   //   ...
-  void (*draw_lines)(io_vec3_t* positions, io_uint32_t num_positions,
+  void (*draw_lines)(io_vec3_t* positions, io_size_t num_positions,
                      io_vec4_t color, io_bool_t always_in_front);
   // Draws the given line strip.
   //   Line 1: positions[0], positions[1]
   //   Line 2: positions[1], positions[2]
   //  ...
-  void (*draw_line_strip)(io_vec3_t* positions, io_uint32_t num_positions,
+  void (*draw_line_strip)(io_vec3_t* positions, io_size_t num_positions,
                           io_vec4_t color, io_bool_t always_in_front);
 
   // Draws the given triangles.
   //   Triangle 1: positions[0], positions[1], positions[2]
   //   Triangle 2: positions[3], positions[4], positions[5]
   //   ...
-  void (*draw_solid_triangles)(io_vec3_t* positions, io_uint32_t num_positions,
+  void (*draw_solid_triangles)(io_vec3_t* positions, io_size_t num_positions,
                                io_vec4_t color, io_bool_t always_in_front);
 
   // Enables software back face culling between the begin/end calls.
@@ -1960,7 +1969,7 @@ struct io_sound_i // NOLINT
 
   // Gets the current audio spectrum.
   void (*get_spectrum)(const io_float32_t** spectrum,
-                       io_uint32_t* spectrum_length);
+                       io_size_t* spectrum_length);
 };
 
 //----------------------------------------------------------------------------//
@@ -2012,7 +2021,7 @@ struct io_filesystem_i // NOLINT
   //   See "Documentation" for usage details.
   io_bool_t (*load_file_from_data_source)(const char* filepath,
                                           io_uint8_t* buffer,
-                                          io_uint32_t* buffer_length);
+                                          io_size_t* buffer_length);
 
   // User data access
 
@@ -2020,7 +2029,7 @@ struct io_filesystem_i // NOLINT
   // user directory. "Subdirectory" is optional and can be NULL.
   void (*create_or_retrieve_user_directory)(const char* subdirectory,
                                             char* buffer,
-                                            io_uint32_t* buffer_length);
+                                            io_size_t* buffer_length);
 
   // File system watches
 
@@ -2045,14 +2054,14 @@ struct io_filesystem_i // NOLINT
 struct io_entity_i // NOLINT
 {
   // Gets the type ID for entities.
-  io_uint32_t (*get_type_id)();
+  io_ref_type_id_t (*get_type_id)();
   // Returns true if the given entity is alive.
   io_bool_t (*is_alive)(io_ref_t entity);
 
   // Gets the name of the given entity.
   const char* (*get_name)(io_ref_t entity);
   // Gets the UUID of the given entity.
-  io_uint64_t (*get_uuid)(io_ref_t entity);
+  io_uuid_t (*get_uuid)(io_ref_t entity);
 
   // Returns the linear memory containing all the names for all active entities.
   io_name_t* (*get_name_memory)();
@@ -2060,12 +2069,12 @@ struct io_entity_i // NOLINT
   // Finds the first entity with the given name.
   io_ref_t (*find_first_entity_with_name)(const char* name);
   // Finds the first entity with the given UUID.
-  io_ref_t (*find_entity_with_uuid)(io_uint64_t uuid);
+  io_ref_t (*find_entity_with_uuid)(io_uuid_t uuid);
 
   // Finds all entities with the given name.
   //   See "Documentation" for usage details.
   void (*find_entities_with_name)(const char* name, io_ref_t* entities,
-                                  io_uint32_t* entities_length);
+                                  io_size_t* entities_length);
 };
 
 // Base interface all components provide
@@ -2074,7 +2083,7 @@ struct io_entity_i // NOLINT
 typedef struct
 {
   // Returns the type ID for this type of component.
-  io_uint32_t (*get_type_id)();
+  io_ref_type_id_t (*get_type_id)();
 
   // Creates a new component and attaches it to the provided parent entity.
   io_ref_t (*create)(io_ref_t parent_entity);
@@ -2085,14 +2094,14 @@ typedef struct
   void (*commit_changes)(io_ref_t component);
 
   // Returns the number of active components.
-  io_uint32_t (*get_num_active_components)();
+  io_size_t (*get_num_active_components)();
   // Gets the component for the given entity (if any).
   io_ref_t (*get_component_for_entity)(io_ref_t entity);
 
   // Returns a ref for the given linear component index.
-  io_ref_t (*make_ref)(io_uint32_t component_index);
+  io_ref_t (*make_ref)(io_ref_index_t component_index);
   // Returns the linear component index for the given ref
-  io_uint32_t (*make_index)(io_ref_t component);
+  io_ref_index_t (*make_index)(io_ref_t component);
 
   // Returns true if the given component is alive.
   io_bool_t (*is_alive)(io_ref_t component);
@@ -2116,7 +2125,7 @@ typedef struct
   // component provides.
   //   See "Documentation" for usage details.
   void (*list_properties)(io_property_desc_t* property_descs,
-                          io_uint32_t* property_descs_length);
+                          io_size_t* property_descs_length);
 } io_component_base_i;
 
 //----------------------------------------------------------------------------//
@@ -2195,17 +2204,17 @@ struct io_component_node_i // NOLINT
   // Collects all nodes in the hierarchy (depth first ordering).
   //   See "Documentation" for usage details.
   void (*collect_nodes_depth_first)(io_ref_t root_node, io_ref_t* nodes,
-                                    io_uint32_t* nodes_length);
+                                    io_size_t* nodes_length);
   // Collects all nodes in the hierarchy (breadth first ordering).
   //   See "Documentation" for usage details.
   void (*collect_nodes_breadth_first)(io_ref_t root_node, io_ref_t* nodes,
-                                      io_uint32_t* nodes_length);
+                                      io_size_t* nodes_length);
 
   // Updates the transforms of the node hierarchy.
   void (*update_transforms)(io_ref_t node);
   // Updates the transforms of the node hierarchy in parallel (if possible).
   void (*update_transforms_jobified)(const io_ref_t* node,
-                                     io_uint32_t nodes_length);
+                                     io_size_t nodes_length);
 };
 
 //----------------------------------------------------------------------------//
@@ -2220,13 +2229,13 @@ struct io_component_custom_data_i // NOLINT
   io_component_base_i base;
 
   // Gets the variant value for the given index.
-  io_variant_t (*get)(io_ref_t custom_data, io_uint32_t index);
+  io_variant_t (*get)(io_ref_t custom_data, io_size_t index);
   // Sets the variant value for the given index.
-  void (*set)(io_ref_t custom_data, io_uint32_t index, io_variant_t value);
+  void (*set)(io_ref_t custom_data, io_size_t index, io_variant_t value);
   // Adds a new variant value to end of the list.
   void (*add)(io_ref_t custom_data, io_variant_t value);
   // Removes the variant value at the given index.
-  void (*remove)(io_ref_t custom_data, io_uint32_t index);
+  void (*remove)(io_ref_t custom_data, io_size_t index);
 };
 
 //----------------------------------------------------------------------------//
@@ -2243,7 +2252,7 @@ struct io_component_tag_i // NOLINT
   // Finds all entities with the given tag.
   //   See "Documentation" for usage details.
   void (*find_entities_with_tag)(const char* tag, io_ref_t* entities,
-                                 io_uint32_t* entities_length);
+                                 io_size_t* entities_length);
 
   // Adds a new tag with the given name.
   void (*add)(io_ref_t tag, const char* tag_name);
@@ -2417,14 +2426,14 @@ struct io_component_voxel_shape_i // NOLINT
                               io_float32_t distance, io_uint32_t group_mask,
                               io_component_voxel_shape_raycast_result_t* result,
                               const io_ref_t* shapes_to_ignore,
-                              io_uint32_t shapes_to_ignore_length);
+                              io_size_t shapes_to_ignore_length);
   // Performs a sphere overlap test against all shapes in the world and returns
   // all candidates.
   //   See "Documentation" for usage details.
   void (*overlap_sphere_global)(io_vec3_t position, io_float32_t radius,
                                 io_uint32_t group_mask,
                                 io_ref_t* overlapping_shapes,
-                                io_uint32_t* overlapping_shapes_length);
+                                io_size_t* overlapping_shapes_length);
 
   // Physics related functions
 
@@ -2560,7 +2569,7 @@ struct io_component_particle_i // NOLINT
 typedef struct
 {
   // Returns the type ID for this type of resource.
-  io_uint32_t (*get_type_id)();
+  io_ref_type_id_t (*get_type_id)();
 
   // Creates a new resource with the given name.
   io_ref_t (*create)(const char* name);
@@ -2573,20 +2582,20 @@ typedef struct
   // Finds the first resource with the given name.
   io_ref_t (*find_first_resource_with_name)(const char* name);
   // Finds the first resource with the given name.
-  io_ref_t (*find_resource_with_uuid)(io_uint64_t uuid);
+  io_ref_t (*find_resource_with_uuid)(io_uuid_t uuid);
 
   // Returns the number of active resources.
-  io_uint32_t (*get_num_active_resources)();
+  io_size_t (*get_num_active_resources)();
 
   // Returns a ref for the given linear resource index.
-  io_ref_t (*make_ref)(io_uint32_t resource_index);
+  io_ref_t (*make_ref)(io_ref_index_t resource_index);
   // Returns the linear resource index for the given ref
-  io_uint32_t (*make_index)(io_ref_t resource);
+  io_ref_index_t (*make_index)(io_ref_t resource);
 
   // Returns the name of the resource.
   const char* (*get_name)(io_ref_t resource);
   // Returns the UUID of the resource.
-  io_uint64_t (*get_uuid)(io_ref_t resource);
+  io_uuid_t (*get_uuid)(io_ref_t resource);
 
   // Returns the linear memory containing all the names for all active
   // resources.
@@ -2607,7 +2616,7 @@ typedef struct
   // Returns a list of property descriptions for all the properties the
   // resource provides.
   void (*list_properties)(io_property_desc_t* property_descs,
-                          io_uint32_t* property_descs_length);
+                          io_size_t* property_descs_length);
 } io_resource_base_i;
 
 //----------------------------------------------------------------------------//
