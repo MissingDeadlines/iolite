@@ -904,28 +904,28 @@ void script_init_state(sol::state& s)
   // @param value number The floating point value to set.
   // @return Variant value The new variant.
   s["Variant"]["from_float"] = [](float value) {
-    return io_base->variant_from_float(value);
+    return io_variant_from_float(value);
   };
   // @function from_int
   // @summary Creates a new variant storing a single integer value.
   // @param value number The integer value to set.
   // @return Variant value The new variant.
   s["Variant"]["from_int"] = [](int32_t value) {
-    return io_base->variant_from_int(value);
+    return io_variant_from_int(value);
   };
   // @function from_uint
   // @summary Creates a new variant storing a single unsigned integer value.
   // @param value number The unsigned integer value to set.
   // @return Variant value The new variant.
   s["Variant"]["from_uint"] = [](uint32_t value) {
-    return io_base->variant_from_uint(value);
+    return io_variant_from_uint(value);
   };
   // @function from_string
   // @summary Creates a new variant storing a string.
   // @param value string The string to set.
   // @return Variant value The new variant.
   s["Variant"]["from_string"] = [](const char* value) {
-    return io_base->variant_from_string(value);
+    return io_variant_from_name(io_base->name_from_string(value));
   };
 
   // @function from_vec2
@@ -933,21 +933,21 @@ void script_init_state(sol::state& s)
   // @param value Vec2 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_vec2"] = [](const io_vec2_t& value) {
-    return io_base->variant_from_vec2(value);
+    return io_variant_from_vec2(value);
   };
   // @function from_vec3
   // @summary Creates a new variant storing a vector with three components.
   // @param value Vec3 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_vec3"] = [](const io_vec3_t& value) {
-    return io_base->variant_from_vec3(value);
+    return io_variant_from_vec3(value);
   };
   // @function from_vec4
   // @summary Creates a new variant storing a vector with four components.
   // @param value Vec4 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_vec4"] = [](const io_vec4_t& value) {
-    return io_base->variant_from_vec4(value);
+    return io_variant_from_vec4(value);
   };
 
   // @function from_quat
@@ -955,7 +955,7 @@ void script_init_state(sol::state& s)
   // @param value Quat The quternion to set.
   // @return Variant value The new variant.
   s["Variant"]["from_quat"] = [](const io_quat_t& value) {
-    return io_base->variant_from_quat(value);
+    return io_variant_from_quat(value);
   };
 
   // @function from_ivec2
@@ -963,21 +963,21 @@ void script_init_state(sol::state& s)
   // @param value IVec2 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_ivec2"] = [](const io_ivec2_t& value) {
-    return io_base->variant_from_ivec2(value);
+    return io_variant_from_ivec2(value);
   };
   // @function from_ivec3
   // @summary Creates a new variant storing an integer vector with three components.
   // @param value IVec3 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_ivec3"] = [](const io_ivec3_t& value) {
-    return io_base->variant_from_ivec3(value);
+    return io_variant_from_ivec3(value);
   };
   // @function from_ivec4
   // @summary Creates a new variant storing an integer vector with fours components.
   // @param value IVec4 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_ivec4"] = [](const io_ivec4_t& value) {
-    return io_base->variant_from_ivec4(value);
+    return io_variant_from_ivec4(value);
   };
 
   // @function from_uvec2
@@ -985,35 +985,35 @@ void script_init_state(sol::state& s)
   // @param value UVec2 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_uvec2"] = [](const io_uvec2_t& value) {
-    return io_base->variant_from_uvec2(value);
+    return io_variant_from_uvec2(value);
   };
   // @function from_uvec3
   // @summary Creates a new variant storing an unsigned integer vector with three components.
   // @param value UVec3 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_uvec3"] = [](const io_uvec3_t& value) {
-    return io_base->variant_from_uvec3(value);
+    return io_variant_from_uvec3(value);
   };
   // @function from_u8vec3
   // @summary Creates a new variant storing an 8-bit unsigned integer vector with three components.
   // @param value U8Vec3 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_u8vec3"] = [](const io_u8vec3_t& value) {
-    return io_base->variant_from_u8vec3(value);
+    return io_variant_from_u8vec3(value);
   };
   // @function from_u16vec3
   // @summary Creates a new variant storing an 16-bit unsigned integer vector with three components.
   // @param value U16Vec3 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_u16vec3"] = [](const io_u16vec3_t& value) {
-    return io_base->variant_from_u16vec3(value);
+    return io_variant_from_u16vec3(value);
   };
   // @function from_uvec4
   // @summary Creates a new variant storing an unsigned integer vector with fours components.
   // @param value UVec4 The vector to set.
   // @return Variant value The new variant.
   s["Variant"]["from_uvec4"] = [](const io_uvec4_t& value) {
-    return io_base->variant_from_uvec4(value);
+    return io_variant_from_uvec4(value);
   };
 
   // @function get_float
@@ -1021,28 +1021,28 @@ void script_init_state(sol::state& s)
   // @param variant Variant The variant to retrieve from.
   // @return number value The floating point value.
   s["Variant"]["get_float"] = [](io_variant_t variant) {
-    return io_base->variant_get_float(variant);
+    return io_variant_get_float(variant);
   };
   // @function get_int
   // @summary Returns the underlying integer value.
   // @param variant Variant The variant to retrieve from.
   // @return number value The integer value.
   s["Variant"]["get_int"] = [](io_variant_t variant) {
-    return io_base->variant_get_int(variant);
+    return io_variant_get_int(variant);
   };
   // @function get_uint
   // @summary Returns the underlying unsigned integer value.
   // @param variant Variant The variant to retrieve from.
   // @return number value The unsigned integer value.
   s["Variant"]["get_uint"] = [](io_variant_t variant) {
-    return io_base->variant_get_uint(variant);
+    return io_variant_get_uint(variant);
   };
   // @function get_string
   // @summary Returns the underlying string.
   // @param variant Variant The variant to retrieve from.
   // @return number value The string.
   s["Variant"]["get_string"] = [](io_variant_t variant) {
-    return io_base->variant_get_string(variant);
+    return io_base->name_get_string(io_variant_get_name(variant));
   };
 
   // @function get_vec2
@@ -1050,21 +1050,21 @@ void script_init_state(sol::state& s)
   // @param variant Variant The variant to retrieve from.
   // @return Vec2 value The vector.
   s["Variant"]["get_vec2"] = [](io_variant_t variant) {
-    return io_base->variant_get_vec2(variant);
+    return io_variant_get_vec2(variant);
   };
   // @function get_vec3
   // @summary Returns the underlying three-component vector.
   // @param variant Variant The variant to retrieve from.
   // @return Vec3 value The vector.
   s["Variant"]["get_vec3"] = [](io_variant_t variant) {
-    return io_base->variant_get_vec3(variant);
+    return io_variant_get_vec3(variant);
   };
   // @function get_vec4
   // @summary Returns the underlying four-component vector.
   // @param variant Variant The variant to retrieve from.
   // @return Vec4 value The vector.
   s["Variant"]["get_vec4"] = [](io_variant_t variant) {
-    return io_base->variant_get_vec4(variant);
+    return io_variant_get_vec4(variant);
   };
 
   // @function get_quat
@@ -1072,7 +1072,7 @@ void script_init_state(sol::state& s)
   // @param variant Variant The variant to retrieve from.
   // @return Quat value The quaternion.
   s["Variant"]["get_quat"] = [](io_variant_t variant) {
-    return io_base->variant_get_vec4(variant);
+    return io_variant_get_vec4(variant);
   };
 
   // @function get_ivec2
@@ -1080,21 +1080,21 @@ void script_init_state(sol::state& s)
   // @param variant Variant The variant to retrieve from.
   // @return IVec2 value The vector.
   s["Variant"]["get_ivec2"] = [](io_variant_t variant) {
-    return io_base->variant_get_ivec2(variant);
+    return io_variant_get_ivec2(variant);
   };
   // @function get_ivec3
   // @summary Returns the underlying three-component integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return IVec3 value The vector.
   s["Variant"]["get_ivec3"] = [](io_variant_t variant) {
-    return io_base->variant_get_ivec3(variant);
+    return io_variant_get_ivec3(variant);
   };
   // @function get_ivec4
   // @summary Returns the underlying four-component integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return IVec4 value The vector.
   s["Variant"]["get_ivec4"] = [](io_variant_t variant) {
-    return io_base->variant_get_ivec4(variant);
+    return io_variant_get_ivec4(variant);
   };
 
   // @function get_uvec2
@@ -1102,35 +1102,35 @@ void script_init_state(sol::state& s)
   // @param variant Variant The variant to retrieve from.
   // @return UVec2 value The vector.
   s["Variant"]["get_uvec2"] = [](io_variant_t variant) {
-    return io_base->variant_get_uvec2(variant);
+    return io_variant_get_uvec2(variant);
   };
   // @function get_uvec3
   // @summary Returns the underlying three-component unsigned integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return UVec3 value The vector.
   s["Variant"]["get_uvec3"] = [](io_variant_t variant) {
-    return io_base->variant_get_uvec3(variant);
+    return io_variant_get_uvec3(variant);
   };
   // @function get_u8vec3
   // @summary Returns the underlying three-component 8-bit unsigned integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return U8Vec3 value The vector.
   s["Variant"]["get_u8vec3"] = [](io_variant_t variant) {
-    return io_base->variant_get_u8vec3(variant);
+    return io_variant_get_u8vec3(variant);
   };
   // @function get_u16vec3
   // @summary Returns the underlying three-component 16-bit unsigned integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return U16Vec3 value The vector.
   s["Variant"]["get_u16vec3"] = [](io_variant_t variant) {
-    return io_base->variant_get_u16vec3(variant);
+    return io_variant_get_u16vec3(variant);
   };
   // @function get_uvec4
   // @summary Returns the underlying four-component unsigned integer vector.
   // @param variant Variant The variant to retrieve from.
   // @return UVec4 value The vector.
   s["Variant"]["get_uvec4"] = [](io_variant_t variant) {
-    return io_base->variant_get_uvec4(variant);
+    return io_variant_get_uvec4(variant);
   };
 
   s["Math"] = s.create_table();

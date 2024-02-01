@@ -295,11 +295,10 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
 
           auto shape = io_component_voxel_shape->base.create(chunk_entity);
           io_component_voxel_shape->base.set_property(
-              shape, "PaletteName", io_base->variant_from_string(palette_name));
+              shape, "PaletteName", io_variant_from_string(palette_name));
           io_component_voxel_shape->base.set_property(
               shape, "CustomSize",
-              io_base->variant_from_u16vec3(
-                  {CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE}));
+              io_variant_from_u16vec3({CHUNK_SIZE, CHUNK_SIZE, CHUNK_SIZE}));
           io_component_voxel_shape->base.commit_changes(shape);
 
           vertical_chunks.emplace_back(shape);

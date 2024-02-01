@@ -186,10 +186,10 @@ static void on_build_plugin_menu()
 
       // Set our shape to a cube voxel asset
       io_component_voxel_shape->base.set_property(
-          shape, "VoxelShapeName", io_base->variant_from_string("cube_1m"));
+          shape, "VoxelShapeName", io_variant_from_string("cube_1m"));
       // Set our custom palette
       io_component_voxel_shape->base.set_property(
-          shape, "PaletteName", io_base->variant_from_string("my_palette"));
+          shape, "PaletteName", io_variant_from_string("my_palette"));
       io_component_voxel_shape->base.commit_changes(shape);
     }
   }
@@ -560,15 +560,15 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
   {
     io_custom_components->register_property(
         boid_component_mgr, "Position",
-        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        io_variant_from_vec3(io_cvt(glm::vec3(0.0f))),
         (void**)&comp_boid_position, 0);
     io_custom_components->register_property(
         boid_component_mgr, "PrevPosition",
-        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        io_variant_from_vec3(io_cvt(glm::vec3(0.0f))),
         (void**)&comp_boid_prev_position, 0);
     io_custom_components->register_property(
         boid_component_mgr, "Velocity",
-        io_base->variant_from_vec3(io_cvt(glm::vec3(0.0f))),
+        io_variant_from_vec3(io_cvt(glm::vec3(0.0f))),
         (void**)&comp_boid_velocity, 0);
   }
   io_custom_components->init_manager(boid_component_mgr, "Boid");

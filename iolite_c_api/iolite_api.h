@@ -941,7 +941,7 @@ inline io_uint32_t io_hash(const char* data)
 // Converts the given string to a name.
 //   Please note that the given string is not being internalized when using
 //   this function, hence it won't be possible to request the string for this
-//   name. Please use the name related functions provided by the "io_base_t"
+//   name. Please use the name related functions provided by the "io_base_i"
 //   interface to ensure string internalization.
 //----------------------------------------------------------------------------//
 inline io_name_t io_to_name(const char* string)
@@ -949,6 +949,309 @@ inline io_name_t io_to_name(const char* string)
   io_name_t name;
   name.hash = io_hash(string);
   return name;
+}
+
+//----------------------------------------------------------------------------//
+// Variant related functions
+//----------------------------------------------------------------------------//
+
+// Creates a new variant from a float value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_float(io_float32_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xF71E19Bu;
+    *(io_float32_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a float.
+//----------------------------------------------------------------------------//
+inline io_float32_t io_variant_get_float(io_variant_t variant)
+{
+  return *(io_float32_t*)variant.data;
+}
+
+// Creates a new variant from a signed integer value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_int(io_int32_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xB888030u;
+    *(io_int32_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a signed integer.
+//----------------------------------------------------------------------------//
+inline io_int32_t io_variant_get_int(io_variant_t variant)
+{
+  return *(io_int32_t*)variant.data;
+}
+
+// Creates a new variant from an unsigned integer value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uint(io_uint32_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9F0525u;
+    *(io_uint32_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an unsigned integer.
+//----------------------------------------------------------------------------//
+inline io_uint32_t io_variant_get_uint(io_variant_t variant)
+{
+  return *(io_uint32_t*)variant.data;
+}
+
+// Creates a new variant from a name.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_name(io_name_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9B0C46u;
+    *(io_name_t*)v.data = value;
+  }
+  return v;
+}
+// Creates a new variant from a string.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_string(const char* value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9B0C46u;
+    *(io_name_t*)v.data = io_to_name(value);
+  }
+  return v;
+}
+// Gets the value of the variant as a name.
+//----------------------------------------------------------------------------//
+inline io_name_t io_variant_get_name(io_variant_t variant)
+{
+  return *(io_name_t*)variant.data;
+}
+
+// Creates a new variant from a vec2.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_vec2(io_vec2_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9F7ED5u;
+    *(io_vec2_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a vec2.
+//----------------------------------------------------------------------------//
+inline io_vec2_t io_variant_get_vec2(io_variant_t variant)
+{
+  return *(io_vec2_t*)variant.data;
+}
+
+// Creates a new variant from a vec3.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_vec3(io_vec3_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9F7ED6u;
+    *(io_vec3_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a vec3.
+//----------------------------------------------------------------------------//
+inline io_vec3_t io_variant_get_vec3(io_variant_t variant)
+{
+  return *(io_vec3_t*)variant.data;
+}
+
+// Creates a new variant from a vec4.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_vec4(io_vec4_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9F7ED7u;
+    *(io_vec4_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a vec4.
+//----------------------------------------------------------------------------//
+inline io_vec4_t io_variant_get_vec4(io_variant_t variant)
+{
+  return *(io_vec4_t*)variant.data;
+}
+
+// Creates a new variant from a quaternion.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_quat(io_quat_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x7C9D0500u;
+    *(io_quat_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a quaternion.
+//----------------------------------------------------------------------------//
+inline io_quat_t io_variant_get_quat(io_variant_t variant)
+{
+  return *(io_quat_t*)variant.data;
+}
+
+// Creates a new variant from an ivec2.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_ivec2(io_ivec2_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xFAD7C5Eu;
+    *(io_ivec2_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an ivec2.
+//----------------------------------------------------------------------------//
+inline io_ivec2_t io_variant_get_ivec2(io_variant_t variant)
+{
+  return *(io_ivec2_t*)variant.data;
+}
+
+// Creates a new variant from an ivec3.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_ivec3(io_ivec3_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xFAD7C5Fu;
+    *(io_ivec3_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an ivec3.
+//----------------------------------------------------------------------------//
+inline io_ivec3_t io_variant_get_ivec3(io_variant_t variant)
+{
+  return *(io_ivec3_t*)variant.data;
+}
+
+// Creates a new variant from an ivec4.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_ivec4(io_ivec4_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xFAD7C60u;
+    *(io_ivec4_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an ivec4.
+//----------------------------------------------------------------------------//
+inline io_ivec4_t io_variant_get_ivec4(io_variant_t variant)
+{
+  return *(io_ivec4_t*)variant.data;
+}
+
+// Creates a new variant from an uvec2.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uvec2(io_uvec2_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x1086A26Au;
+    *(io_uvec2_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an uvec2.
+//----------------------------------------------------------------------------//
+inline io_uvec2_t io_variant_get_uvec2(io_variant_t variant)
+{
+  return *(io_uvec2_t*)variant.data;
+}
+
+// Creates a new variant from an uvec3.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uvec3(io_uvec3_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x1086A26Bu;
+    *(io_uvec3_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an uvec3.
+//----------------------------------------------------------------------------//
+inline io_uvec3_t io_variant_get_uvec3(io_variant_t variant)
+{
+  return *(io_uvec3_t*)variant.data;
+}
+
+// Creates a new variant from an 8-bit uvec3.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_u8vec3(io_u8vec3_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x1D0261E3u;
+    *(io_u8vec3_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an 8-bit uvec3.
+//----------------------------------------------------------------------------//
+inline io_u8vec3_t io_variant_get_u8vec3(io_variant_t variant)
+{
+  return *(io_u8vec3_t*)variant.data;
+}
+
+// Creates a new variant from a 16-bit uvec3.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_u16vec3(io_u16vec3_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0xA87DC2F2u;
+    *(io_u16vec3_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a 16-bit uvec3.
+//----------------------------------------------------------------------------//
+inline io_u16vec3_t io_variant_get_u16vec3(io_variant_t variant)
+{
+  return *(io_u16vec3_t*)variant.data;
+}
+
+// Creates a new variant from an uvec4.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uvec4(io_uvec4_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = 0x1086A26Cu;
+    *(io_uvec4_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as an uvec4.
+//----------------------------------------------------------------------------//
+inline io_uvec4_t io_variant_get_uvec4(io_variant_t variant)
+{
+  return *(io_uvec4_t*)variant.data;
 }
 
 //----------------------------------------------------------------------------//
@@ -1377,88 +1680,6 @@ struct io_base_i // NOLINT
   io_name_t (*name_from_string)(const char* string);
   // Returns the internalized string for the given name.
   const char* (*name_get_string)(io_name_t name);
-
-  // Variants
-
-  // Creates a new variant from a float value.
-  io_variant_t (*variant_from_float)(io_float32_t value);
-  // Gets the value of the variant as a float.
-  io_float32_t (*variant_get_float)(io_variant_t variant);
-
-  // Creates a new variant from a signed integer value.
-  io_variant_t (*variant_from_int)(io_int32_t value);
-  // Gets the value of the variant as a signed integer.
-  io_int32_t (*variant_get_int)(io_variant_t variant);
-
-  // Creates a new variant from an unsigned integer value.
-  io_variant_t (*variant_from_uint)(io_uint32_t value);
-  // Gets the value of the variant as an unsigned integer.
-  io_uint32_t (*variant_get_uint)(io_variant_t variant);
-
-  // Creates a new variant from a string.
-  io_variant_t (*variant_from_string)(const char* value);
-  // Gets the value of the variant as a string.
-  const char* (*variant_get_string)(io_variant_t variant);
-
-  // Creates a new variant from a vec2.
-  io_variant_t (*variant_from_vec2)(io_vec2_t value);
-  // Gets the value of the variant as a vec2.
-  io_vec2_t (*variant_get_vec2)(io_variant_t variant);
-
-  // Creates a new variant from a vec3.
-  io_variant_t (*variant_from_vec3)(io_vec3_t value);
-  // Gets the value of the variant as a vec3.
-  io_vec3_t (*variant_get_vec3)(io_variant_t variant);
-
-  // Creates a new variant from a vec4.
-  io_variant_t (*variant_from_vec4)(io_vec4_t value);
-  // Gets the value of the variant as a vec4.
-  io_vec4_t (*variant_get_vec4)(io_variant_t variant);
-
-  // Creates a new variant from a quaternion.
-  io_variant_t (*variant_from_quat)(io_quat_t value);
-  // Gets the value of the variant as a quaternion.
-  io_quat_t (*variant_get_quat)(io_variant_t variant);
-
-  // Creates a new variant from an ivec2.
-  io_variant_t (*variant_from_ivec2)(io_ivec2_t value);
-  // Gets the value of the variant as an ivec2.
-  io_ivec2_t (*variant_get_ivec2)(io_variant_t variant);
-
-  // Creates a new variant from an ivec3.
-  io_variant_t (*variant_from_ivec3)(io_ivec3_t value);
-  // Gets the value of the variant as an ivec3.
-  io_ivec3_t (*variant_get_ivec3)(io_variant_t variant);
-
-  // Creates a new variant from an ivec4.
-  io_variant_t (*variant_from_ivec4)(io_ivec4_t value);
-  // Gets the value of the variant as an ivec4.
-  io_ivec4_t (*variant_get_ivec4)(io_variant_t variant);
-
-  // Creates a new variant from an uvec2.
-  io_variant_t (*variant_from_uvec2)(io_uvec2_t value);
-  // Gets the value of the variant as an uvec2.
-  io_uvec2_t (*variant_get_uvec2)(io_variant_t variant);
-
-  // Creates a new variant from an uvec3.
-  io_variant_t (*variant_from_uvec3)(io_uvec3_t value);
-  // Gets the value of the variant as an uvec3.
-  io_uvec3_t (*variant_get_uvec3)(io_variant_t variant);
-
-  // Creates a new variant from an 8-bit uvec3.
-  io_variant_t (*variant_from_u8vec3)(io_u8vec3_t value);
-  // Gets the value of the variant as an 8-bit uvec3.
-  io_u8vec3_t (*variant_get_u8vec3)(io_variant_t variant);
-
-  // Creates a new variant from a 16-bit uvec3.
-  io_variant_t (*variant_from_u16vec3)(io_u16vec3_t value);
-  // Gets the value of the variant as a 16-bit uvec3.
-  io_u16vec3_t (*variant_get_u16vec3)(io_variant_t variant);
-
-  // Creates a new variant from an uvec4.
-  io_variant_t (*variant_from_uvec4)(io_uvec4_t value);
-  // Gets the value of the variant as an uvec4.
-  io_uvec4_t (*variant_get_uvec4)(io_variant_t variant);
 
   // Memory management. Provides a TLSF-backed, thread-safe allocator which
   // features allocation tracking.
