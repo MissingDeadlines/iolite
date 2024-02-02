@@ -1839,7 +1839,7 @@ void script_init_state(sol::state& s)
     s["World"]["calc_mouse_ray"] = []() { io_vec3_t o, d; io_world->calc_mouse_ray(&o, &d); return std::make_tuple(o, d); };
 
     // @function highlight_node
-    // @summary Highlights the given node using an outline shader.
+    // @summary Enables a visual highlight (transparent overlay and/or outline) for the given node. Pass an invalid ref for the "node" parameter to remove the highlight.
     // @param node Ref The node to highlight.
     // @param color Vec4 The color of the highlight.
     // @param outline boolean Set to true to only highlight using an outline.

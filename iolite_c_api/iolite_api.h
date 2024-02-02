@@ -1727,6 +1727,7 @@ struct io_logging_i // NOLINT
 struct io_editor_i // NOLINT
 {
   // Selects the provided node.
+  //   Pass an invalid ref for the "node" parameter to clear the selection.
   void (*select_node)(io_ref_t node);
 
   // Returns the first selected node.
@@ -1961,7 +1962,9 @@ struct io_world_i // NOLINT
   // mouse.
   void (*calc_mouse_ray)(io_vec3_t* origin, io_vec3_t* dir);
 
-  // Highlights the given node.
+  // Enables a visual highlight (transparent overlay and/or outline) for the
+  // given node.
+  //    Pass an invalid ref for the "node" parameter to remove the highlight.
   void (*highlight_node)(io_ref_t node, io_vec4_t color, io_bool_t outline);
 };
 
