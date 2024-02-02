@@ -720,6 +720,32 @@ enum io_input_key_
 };
 typedef io_uint8_t io_input_key;
 
+// The different types supported by variants
+//----------------------------------------------------------------------------//
+enum io_variant_type_
+{
+  io_variant_type_float = 0xF71E19B,
+  io_variant_type_int = 0xB888030,
+  io_variant_type_uint = 0x7C9F0525,
+  io_variant_type_uint8 = 0x107FA9FD,
+  io_variant_type_uint16 = 0x2074E8EC,
+  io_variant_type_uint64 = 0x2074E98F,
+  io_variant_type_name = 0x7C9B0C46,
+  io_variant_type_vec2 = 0x7C9F7ED5,
+  io_variant_type_vec3 = 0x7C9F7ED6,
+  io_variant_type_vec4 = 0x7C9F7ED7,
+  io_variant_type_quat = 0x7C9D0500,
+  io_variant_type_ivec2 = 0xFAD7C5E,
+  io_variant_type_ivec3 = 0xFAD7C5F,
+  io_variant_type_ivec4 = 0xFAD7C60,
+  io_variant_type_uvec2 = 0x1086A26A,
+  io_variant_type_uvec3 = 0x1086A26B,
+  io_variant_type_u8vec3 = 0x1D0261E3,
+  io_variant_type_u16vec3 = 0xA87DC2F2,
+  io_variant_type_uvec4 = 0x1086A26C
+};
+typedef io_uint32_t io_variant_type;
+
 //----------------------------------------------------------------------------//
 // Custom types
 //----------------------------------------------------------------------------//
@@ -961,7 +987,7 @@ inline io_variant_t io_variant_from_float(io_float32_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xF71E19Bu;
+    v.type.hash = io_variant_type_float;
     *(io_float32_t*)v.data = value;
   }
   return v;
@@ -970,6 +996,8 @@ inline io_variant_t io_variant_from_float(io_float32_t value)
 //----------------------------------------------------------------------------//
 inline io_float32_t io_variant_get_float(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_float)
+    return 0.0f;
   return *(io_float32_t*)variant.data;
 }
 
@@ -979,7 +1007,7 @@ inline io_variant_t io_variant_from_int(io_int32_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xB888030u;
+    v.type.hash = io_variant_type_int;
     *(io_int32_t*)v.data = value;
   }
   return v;
@@ -988,6 +1016,8 @@ inline io_variant_t io_variant_from_int(io_int32_t value)
 //----------------------------------------------------------------------------//
 inline io_int32_t io_variant_get_int(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_int)
+    return 0;
   return *(io_int32_t*)variant.data;
 }
 
@@ -997,7 +1027,7 @@ inline io_variant_t io_variant_from_uint(io_uint32_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9F0525u;
+    v.type.hash = io_variant_type_uint;
     *(io_uint32_t*)v.data = value;
   }
   return v;
@@ -1006,7 +1036,69 @@ inline io_variant_t io_variant_from_uint(io_uint32_t value)
 //----------------------------------------------------------------------------//
 inline io_uint32_t io_variant_get_uint(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_uint)
+    return 0u;
   return *(io_uint32_t*)variant.data;
+}
+
+// Creates a new variant from a 8-bit unsigned integer value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uint8(io_uint8_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = io_variant_type_uint8;
+    *(io_uint8_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a 8-bit unsigned integer.
+//----------------------------------------------------------------------------//
+inline io_uint8_t io_variant_get_uint8(io_variant_t variant)
+{
+  if (variant.type.hash != io_variant_type_uint8)
+    return 0u;
+  return *(io_uint8_t*)variant.data;
+}
+
+// Creates a new variant from a 16-bit unsigned integer value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uint16(io_uint16_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = io_variant_type_uint16;
+    *(io_uint16_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a 16-bit unsigned integer.
+//----------------------------------------------------------------------------//
+inline io_uint16_t io_variant_get_uint16(io_variant_t variant)
+{
+  if (variant.type.hash != io_variant_type_uint16)
+    return 0u;
+  return *(io_uint16_t*)variant.data;
+}
+
+// Creates a new variant from a 64-bit unsigned integer value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_uint64(io_uint64_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = io_variant_type_uint64;
+    *(io_uint64_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a 64-bit unsigned integer.
+//----------------------------------------------------------------------------//
+inline io_uint64_t io_variant_get_uint64(io_variant_t variant)
+{
+  if (variant.type.hash != io_variant_type_uint64)
+    return 0ull;
+  return *(io_uint64_t*)variant.data;
 }
 
 // Creates a new variant from a name.
@@ -1015,7 +1107,7 @@ inline io_variant_t io_variant_from_name(io_name_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9B0C46u;
+    v.type.hash = io_variant_type_name;
     *(io_name_t*)v.data = value;
   }
   return v;
@@ -1026,7 +1118,7 @@ inline io_variant_t io_variant_from_string(const char* value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9B0C46u;
+    v.type.hash = io_variant_type_name;
     *(io_name_t*)v.data = io_to_name(value);
   }
   return v;
@@ -1035,6 +1127,12 @@ inline io_variant_t io_variant_from_string(const char* value)
 //----------------------------------------------------------------------------//
 inline io_name_t io_variant_get_name(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_name)
+  {
+    io_name_t name;
+    name.hash = 0u;
+    return name;
+  }
   return *(io_name_t*)variant.data;
 }
 
@@ -1044,7 +1142,7 @@ inline io_variant_t io_variant_from_vec2(io_vec2_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9F7ED5u;
+    v.type.hash = io_variant_type_vec2;
     *(io_vec2_t*)v.data = value;
   }
   return v;
@@ -1053,6 +1151,13 @@ inline io_variant_t io_variant_from_vec2(io_vec2_t value)
 //----------------------------------------------------------------------------//
 inline io_vec2_t io_variant_get_vec2(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_vec2)
+  {
+    io_vec2_t vec;
+    vec.x = 0.0f;
+    vec.y = 0.0f;
+    return vec;
+  }
   return *(io_vec2_t*)variant.data;
 }
 
@@ -1062,7 +1167,7 @@ inline io_variant_t io_variant_from_vec3(io_vec3_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9F7ED6u;
+    v.type.hash = io_variant_type_vec3;
     *(io_vec3_t*)v.data = value;
   }
   return v;
@@ -1071,6 +1176,14 @@ inline io_variant_t io_variant_from_vec3(io_vec3_t value)
 //----------------------------------------------------------------------------//
 inline io_vec3_t io_variant_get_vec3(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_vec3)
+  {
+    io_vec3_t vec;
+    vec.x = 0.0f;
+    vec.y = 0.0f;
+    vec.z = 0.0f;
+    return vec;
+  }
   return *(io_vec3_t*)variant.data;
 }
 
@@ -1080,7 +1193,7 @@ inline io_variant_t io_variant_from_vec4(io_vec4_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9F7ED7u;
+    v.type.hash = io_variant_type_vec4;
     *(io_vec4_t*)v.data = value;
   }
   return v;
@@ -1089,6 +1202,15 @@ inline io_variant_t io_variant_from_vec4(io_vec4_t value)
 //----------------------------------------------------------------------------//
 inline io_vec4_t io_variant_get_vec4(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_vec4)
+  {
+    io_vec4_t vec;
+    vec.x = 0.0f;
+    vec.y = 0.0f;
+    vec.z = 0.0f;
+    vec.w = 0.0f;
+    return vec;
+  }
   return *(io_vec4_t*)variant.data;
 }
 
@@ -1098,7 +1220,7 @@ inline io_variant_t io_variant_from_quat(io_quat_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x7C9D0500u;
+    v.type.hash = io_variant_type_quat;
     *(io_quat_t*)v.data = value;
   }
   return v;
@@ -1107,6 +1229,15 @@ inline io_variant_t io_variant_from_quat(io_quat_t value)
 //----------------------------------------------------------------------------//
 inline io_quat_t io_variant_get_quat(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_quat)
+  {
+    io_quat_t quat;
+    quat.w = 0.0f;
+    quat.x = 0.0f;
+    quat.y = 0.0f;
+    quat.z = 0.0f;
+    return quat;
+  }
   return *(io_quat_t*)variant.data;
 }
 
@@ -1116,7 +1247,7 @@ inline io_variant_t io_variant_from_ivec2(io_ivec2_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xFAD7C5Eu;
+    v.type.hash = io_variant_type_ivec2;
     *(io_ivec2_t*)v.data = value;
   }
   return v;
@@ -1125,6 +1256,13 @@ inline io_variant_t io_variant_from_ivec2(io_ivec2_t value)
 //----------------------------------------------------------------------------//
 inline io_ivec2_t io_variant_get_ivec2(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_ivec2)
+  {
+    io_ivec2_t vec;
+    vec.x = 0;
+    vec.y = 0;
+    return vec;
+  }
   return *(io_ivec2_t*)variant.data;
 }
 
@@ -1134,7 +1272,7 @@ inline io_variant_t io_variant_from_ivec3(io_ivec3_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xFAD7C5Fu;
+    v.type.hash = io_variant_type_ivec3;
     *(io_ivec3_t*)v.data = value;
   }
   return v;
@@ -1143,6 +1281,14 @@ inline io_variant_t io_variant_from_ivec3(io_ivec3_t value)
 //----------------------------------------------------------------------------//
 inline io_ivec3_t io_variant_get_ivec3(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_ivec3)
+  {
+    io_ivec3_t vec;
+    vec.x = 0;
+    vec.y = 0;
+    vec.z = 0;
+    return vec;
+  }
   return *(io_ivec3_t*)variant.data;
 }
 
@@ -1152,7 +1298,7 @@ inline io_variant_t io_variant_from_ivec4(io_ivec4_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xFAD7C60u;
+    v.type.hash = io_variant_type_ivec4;
     *(io_ivec4_t*)v.data = value;
   }
   return v;
@@ -1161,6 +1307,15 @@ inline io_variant_t io_variant_from_ivec4(io_ivec4_t value)
 //----------------------------------------------------------------------------//
 inline io_ivec4_t io_variant_get_ivec4(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_ivec4)
+  {
+    io_ivec4_t vec;
+    vec.x = 0;
+    vec.y = 0;
+    vec.z = 0;
+    vec.w = 0;
+    return vec;
+  }
   return *(io_ivec4_t*)variant.data;
 }
 
@@ -1170,7 +1325,7 @@ inline io_variant_t io_variant_from_uvec2(io_uvec2_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x1086A26Au;
+    v.type.hash = io_variant_type_uvec2;
     *(io_uvec2_t*)v.data = value;
   }
   return v;
@@ -1179,6 +1334,13 @@ inline io_variant_t io_variant_from_uvec2(io_uvec2_t value)
 //----------------------------------------------------------------------------//
 inline io_uvec2_t io_variant_get_uvec2(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_uvec2)
+  {
+    io_uvec2_t vec;
+    vec.x = 0u;
+    vec.y = 0u;
+    return vec;
+  }
   return *(io_uvec2_t*)variant.data;
 }
 
@@ -1188,7 +1350,7 @@ inline io_variant_t io_variant_from_uvec3(io_uvec3_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x1086A26Bu;
+    v.type.hash = io_variant_type_uvec3;
     *(io_uvec3_t*)v.data = value;
   }
   return v;
@@ -1197,6 +1359,14 @@ inline io_variant_t io_variant_from_uvec3(io_uvec3_t value)
 //----------------------------------------------------------------------------//
 inline io_uvec3_t io_variant_get_uvec3(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_uvec3)
+  {
+    io_uvec3_t vec;
+    vec.x = 0u;
+    vec.y = 0u;
+    vec.z = 0u;
+    return vec;
+  }
   return *(io_uvec3_t*)variant.data;
 }
 
@@ -1206,7 +1376,7 @@ inline io_variant_t io_variant_from_u8vec3(io_u8vec3_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x1D0261E3u;
+    v.type.hash = io_variant_type_u8vec3;
     *(io_u8vec3_t*)v.data = value;
   }
   return v;
@@ -1215,6 +1385,14 @@ inline io_variant_t io_variant_from_u8vec3(io_u8vec3_t value)
 //----------------------------------------------------------------------------//
 inline io_u8vec3_t io_variant_get_u8vec3(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_u8vec3)
+  {
+    io_u8vec3_t vec;
+    vec.x = 0u;
+    vec.y = 0u;
+    vec.z = 0u;
+    return vec;
+  }
   return *(io_u8vec3_t*)variant.data;
 }
 
@@ -1224,7 +1402,7 @@ inline io_variant_t io_variant_from_u16vec3(io_u16vec3_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0xA87DC2F2u;
+    v.type.hash = io_variant_type_u16vec3;
     *(io_u16vec3_t*)v.data = value;
   }
   return v;
@@ -1233,6 +1411,14 @@ inline io_variant_t io_variant_from_u16vec3(io_u16vec3_t value)
 //----------------------------------------------------------------------------//
 inline io_u16vec3_t io_variant_get_u16vec3(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_u16vec3)
+  {
+    io_u16vec3_t vec;
+    vec.x = 0u;
+    vec.y = 0u;
+    vec.z = 0u;
+    return vec;
+  }
   return *(io_u16vec3_t*)variant.data;
 }
 
@@ -1242,7 +1428,7 @@ inline io_variant_t io_variant_from_uvec4(io_uvec4_t value)
 {
   io_variant_t v;
   {
-    v.type.hash = 0x1086A26Cu;
+    v.type.hash = io_variant_type_uvec4;
     *(io_uvec4_t*)v.data = value;
   }
   return v;
@@ -1251,6 +1437,15 @@ inline io_variant_t io_variant_from_uvec4(io_uvec4_t value)
 //----------------------------------------------------------------------------//
 inline io_uvec4_t io_variant_get_uvec4(io_variant_t variant)
 {
+  if (variant.type.hash != io_variant_type_uvec4)
+  {
+    io_uvec4_t vec;
+    vec.x = 0u;
+    vec.y = 0u;
+    vec.z = 0u;
+    vec.w = 0u;
+    return vec;
+  }
   return *(io_uvec4_t*)variant.data;
 }
 
