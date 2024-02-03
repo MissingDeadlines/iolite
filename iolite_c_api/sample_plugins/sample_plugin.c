@@ -63,7 +63,9 @@ void traverse_node(io_ref_t node)
     const io_uint32_t num_indents = num_indents_wanted < num_indents_max
                                         ? num_indents_wanted
                                         : num_indents_max;
-    for (io_uint32_t i = 0u; i < num_indents; ++i)
+
+    io_uint32_t i;
+    for (i = 0u; i < num_indents; ++i)
       indents[i] = i < num_indents - 1u ? ' ' : '-';
     indents[num_indents] = '\0';
 
