@@ -31,10 +31,30 @@
 //----------------------------------------------------------------------------//
 const struct io_api_manager_i* io_api_manager;
 const struct io_logging_i* io_logging;
+const struct io_entity_i* io_entity;
+const struct io_component_node_i* io_component_node;
+const struct io_world_i* io_world;
+const struct io_base_i* io_base;
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
 struct io_user_task_i io_user_task;
+
+//----------------------------------------------------------------------------//
+void traverse_node(io_ref_t node)
+{
+  if (!io_base->ref_is_valid(node))
+    return;
+
+  const io_ref_t entity = io_component_node->base.get_entity(node);
+
+  // Log the name of the entity
+  io_logging->log_info(io_entity->get_name(entity));
+
+  // Depth first traversal
+  traverse_node(io_component_node->get_first_child(node));
+  traverse_node(io_component_node->get_next_sibling(node));
+}
 
 //----------------------------------------------------------------------------//
 void tick(float delta_t)
@@ -51,6 +71,14 @@ void tick(float delta_t)
 }
 
 //----------------------------------------------------------------------------//
+void on_activate()
+{
+  // Traverse world and log entity names of all nodes
+  const io_ref_t world_root = io_world->get_root_node();
+  traverse_node(world_root);
+}
+
+//----------------------------------------------------------------------------//
 IO_API_EXPORT io_uint32_t IO_API_CALL get_api_version()
 {
   return IO_API_VERSION;
@@ -63,10 +91,15 @@ IO_API_EXPORT int IO_API_CALL load_plugin(const void* api_manager)
 
   // Retrieve required interfaces
   io_logging = io_api_manager->find_first(IO_LOGGING_API_NAME);
+  io_world = io_api_manager->find_first(IO_WORLD_API_NAME);
+  io_entity = io_api_manager->find_first(IO_ENTITY_API_NAME);
+  io_component_node = io_api_manager->find_first(IO_COMPONENT_NODE_API_NAME);
+  io_base = io_api_manager->find_first(IO_BASE_API_NAME);
 
-  // Set up and register user task 
+  // Set up and register user task
   memset(&io_user_task, 0, sizeof(io_user_task));
   io_user_task.on_tick = tick;
+  io_user_task.on_activate = on_activate;
   io_api_manager->register_api(IO_USER_TASK_API_NAME, &io_user_task);
 
   return 0;

@@ -2563,8 +2563,17 @@ struct io_component_node_i // NOLINT
   // Creates a new node and attaches it to the provided parent node.
   io_ref_t (*create_with_parent)(const char* name, io_ref_t parent);
 
+  // Returns the depth of the node in the hierarchy.
+  //   0: World root node
+  //   1: All children of the world root node
+  //   2: All children of a child of the world root node
+  //   3: ..., and so on
+  io_uint32_t (*get_depth)(io_ref_t node);
+
   // Retrieves the parent node (if any).
   io_ref_t (*get_parent)(io_ref_t node);
+  // Retrieves the first child of the node (if any).
+  io_ref_t (*get_first_child)(io_ref_t node);
   // Retrieves the next sibling node (if any).
   io_ref_t (*get_next_sibling)(io_ref_t node);
   // Retrieves the previous sibling node (if any).

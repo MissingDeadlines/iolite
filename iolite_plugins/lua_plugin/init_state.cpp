@@ -2804,11 +2804,22 @@ void script_init_state(sol::state& s)
     // @param node Ref The node to destroy.
     s["Node"]["destroy"] = [](io_ref_t node) { internal::queue_destroy_node(node); };
 
+    // @function get_depth
+    // @summary Gets the depth of the node in the hierarchy (0: world root node, 1: children of the world root node, 2: ..., and so on)
+    // @param node Ref The node in question.
+    // @return number value The depth of the node in the hierarchy.
+    s["Node"]["get_depth"] = io_component_node->get_depth;
+
     // @function get_parent
     // @summary Gets the parent node (if any).
     // @param node Ref The node in question.
     // @return Ref value The parent of the node (if any).
     s["Node"]["get_parent"] = io_component_node->get_parent;
+    // @function get_first_child
+    // @summary Gets the first child of the node (if any).
+    // @param node Ref The node in question.
+    // @return Ref value The first child of the node (if any).
+    s["Node"]["get_first_child"] = io_component_node->get_first_child;
     // @function get_next_sibling
     // @summary Gets the next sibling of the node (if any).
     // @param node Ref The node in question.
