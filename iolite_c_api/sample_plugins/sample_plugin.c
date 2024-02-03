@@ -24,6 +24,10 @@
 #include <stdio.h>
 #include <string.h>
 
+// Dependencies
+#define STB_SPRINTF_IMPLEMENTATION
+#include "stb_sprintf.h"
+
 // API
 #include "iolite_api.h"
 
@@ -47,9 +51,26 @@ void traverse_node(io_ref_t node)
     return;
 
   const io_ref_t entity = io_component_node->base.get_entity(node);
+  const io_uint32_t depth = io_component_node->get_depth(node);
 
   // Log the name of the entity
-  io_logging->log_info(io_entity->get_name(entity));
+  {
+    char buffer[128u];
+    char indents[16u];
+
+    const io_uint32_t num_indents_wanted = depth * 2u + 1u;
+    const io_uint32_t num_indents_max = sizeof(indents) - 1u;
+    const io_uint32_t num_indents = num_indents_wanted < num_indents_max
+                                        ? num_indents_wanted
+                                        : num_indents_max;
+    for (io_uint32_t i = 0u; i < num_indents; ++i)
+      indents[i] = i < num_indents - 1u ? ' ' : '-';
+    indents[num_indents] = '\0';
+
+    stbsp_snprintf(buffer, sizeof(buffer), " %s'%s' (Depth: %u)", indents,
+                   io_entity->get_name(entity), depth);
+    io_logging->log_plugin("Sample C", buffer);
+  }
 
   // Depth first traversal
   traverse_node(io_component_node->get_first_child(node));
@@ -65,7 +86,7 @@ void tick(float delta_t)
   // Log a message every second
   if (time_passed >= 1.0f)
   {
-    io_logging->log_info("Hello from your C plugin!");
+    io_logging->log_plugin("Sample C", "Hello from your C plugin!");
     time_passed = 0.0f;
   }
 }
@@ -73,9 +94,11 @@ void tick(float delta_t)
 //----------------------------------------------------------------------------//
 void on_activate()
 {
-  // Traverse world and log entity names of all nodes
-  const io_ref_t world_root = io_world->get_root_node();
-  traverse_node(world_root);
+  io_logging->log_plugin("Sample C", "Traversing all nodes in the world...");
+
+  traverse_node(io_world->get_root_node());
+
+  io_logging->log_plugin("Sample C", "Done!");
 }
 
 //----------------------------------------------------------------------------//

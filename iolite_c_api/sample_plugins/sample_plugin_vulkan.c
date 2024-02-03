@@ -86,7 +86,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(const void* api_manager)
       char buffer[1024u];
       stbsp_snprintf(buffer, sizeof(buffer), "Vulkan Sample Plugin: %s",
                      props.deviceName);
-      io_logging->log_info(buffer);
+      io_logging->log_plugin("Sample Vulkan", buffer);
     }
   }
 

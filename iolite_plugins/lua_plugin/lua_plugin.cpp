@@ -79,7 +79,7 @@ io_user_events_i io_user_events = {};
       sol::error err = result;                                                 \
       stbsp_snprintf(string_buffer, string_buffer_length,                      \
                      "Lua script '%s' failed: %s", _scriptName, err.what());   \
-      io_logging->log_info(string_buffer);                                     \
+      io_logging->log_plugin("Lua", string_buffer);                            \
     }                                                                          \
   }
 
@@ -171,13 +171,13 @@ auto load_script(sol::state& state, const char* filepath)
       stbsp_snprintf(string_buffer, string_buffer_length,
                      "Lua script '%s' failed to load: %s", filepath,
                      err.what());
-      io_logging->log_info(string_buffer);
+      io_logging->log_plugin("Lua", string_buffer);
     }
     else
     {
       stbsp_snprintf(string_buffer, string_buffer_length,
                      "Lua script '%s' loaded...", filepath);
-      io_logging->log_info(string_buffer);
+      io_logging->log_plugin("Lua", string_buffer);
 
       return script;
     }

@@ -1932,6 +1932,9 @@ struct io_logging_i // NOLINT
   void (*log_warning)(const char* msg);
   // Logs the given message as a error.
   void (*log_error)(const char* msg);
+
+  // Logs the given message, highlighted as a message originating from a plugin.
+  void (*log_plugin)(const char* plugin_tag, const char* msg);
 };
 
 //----------------------------------------------------------------------------//

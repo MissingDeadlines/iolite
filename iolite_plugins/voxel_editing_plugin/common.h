@@ -241,7 +241,7 @@ inline static auto log_info(const char* fmt, ...)
   stbsp_vsnprintf(buffer, 256, fmt, args);
   va_end(args);
 
-  io_logging->log_info(buffer);
+  io_logging->log_plugin("Voxel Editing", buffer);
 }
 //----------------------------------------------------------------------------//
 #else
