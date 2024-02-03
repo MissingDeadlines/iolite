@@ -730,6 +730,7 @@ enum io_variant_type_
   io_variant_type_uint8 = 0x107FA9FD,
   io_variant_type_uint16 = 0x2074E8EC,
   io_variant_type_uint64 = 0x2074E98F,
+  io_variant_type_bool = 0x7C94B391,
   io_variant_type_name = 0x7C9B0C46,
   io_variant_type_vec2 = 0x7C9F7ED5,
   io_variant_type_vec3 = 0x7C9F7ED6,
@@ -1099,6 +1100,26 @@ inline io_uint64_t io_variant_get_uint64(io_variant_t variant)
   if (variant.type.hash != io_variant_type_uint64)
     return 0ull;
   return *(io_uint64_t*)variant.data;
+}
+
+// Creates a new variant from a boolean value.
+//----------------------------------------------------------------------------//
+inline io_variant_t io_variant_from_bool(io_bool_t value)
+{
+  io_variant_t v;
+  {
+    v.type.hash = io_variant_type_bool;
+    *(io_bool_t*)v.data = value;
+  }
+  return v;
+}
+// Gets the value of the variant as a boolean value.
+//----------------------------------------------------------------------------//
+inline io_bool_t io_variant_get_bool(io_variant_t variant)
+{
+  if (variant.type.hash != io_variant_type_uint64)
+    return IO_FALSE;
+  return *(io_bool_t*)variant.data;
 }
 
 // Creates a new variant from a name.
