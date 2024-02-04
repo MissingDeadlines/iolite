@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 // STL
-#include <stdio.h>
 #include <string.h>
 
 // Dependencies
@@ -45,6 +44,19 @@ const struct io_base_i* io_base;
 struct io_user_task_i io_user_task;
 
 //----------------------------------------------------------------------------//
+inline static void log_message(const char* fmt, ...)
+{
+  char buffer[256];
+
+  va_list args;
+  va_start(args, fmt);
+  stbsp_vsnprintf(buffer, 256, fmt, args);
+  va_end(args);
+
+  io_logging->log_plugin("Sample C", buffer);
+}
+
+//----------------------------------------------------------------------------//
 void traverse_node(io_ref_t node)
 {
   if (!io_ref_is_valid(node))
@@ -55,23 +67,24 @@ void traverse_node(io_ref_t node)
 
   // Log the name of the entity
   {
-    char buffer[128u];
     char indents[16u];
 
-    const io_uint32_t num_indents_wanted = depth * 2u + 1u;
-    const io_uint32_t num_indents_max = sizeof(indents) - 1u;
-    const io_uint32_t num_indents = num_indents_wanted < num_indents_max
-                                        ? num_indents_wanted
-                                        : num_indents_max;
+    // Prepare indents for depth
+    {
+      const io_uint32_t num_indents_wanted = depth * 2u + 1u;
+      const io_uint32_t num_indents_max = sizeof(indents) - 1u;
+      const io_uint32_t num_indents = num_indents_wanted < num_indents_max
+                                          ? num_indents_wanted
+                                          : num_indents_max;
 
-    io_uint32_t i;
-    for (i = 0u; i < num_indents; ++i)
-      indents[i] = i < num_indents - 1u ? ' ' : '-';
-    indents[num_indents] = '\0';
+      io_uint32_t i;
+      for (i = 0u; i < num_indents; ++i)
+        indents[i] = i < num_indents - 1u ? ' ' : '-';
+      indents[num_indents] = '\0';
+    }
 
-    stbsp_snprintf(buffer, sizeof(buffer), " %s'%s' (Depth: %u)", indents,
-                   io_entity->get_name(entity), depth);
-    io_logging->log_plugin("Sample C", buffer);
+    log_message(" %s'%s' (Depth: %u)", indents, io_entity->get_name(entity),
+                depth);
   }
 
   // Depth first traversal
@@ -82,20 +95,22 @@ void traverse_node(io_ref_t node)
 //----------------------------------------------------------------------------//
 void tick(float delta_t)
 {
-  static float time_passed = 0.0f;
-  time_passed += delta_t;
+  static io_uint32_t num_messages_logged = 0u;
 
-  // Log a message every second
-  if (time_passed >= 1.0f)
+  // Log up to 5 messages
+  if (num_messages_logged < 5u)
   {
-    io_logging->log_plugin("Sample C", "Hello from your C plugin!");
-    time_passed = 0.0f;
+    ++num_messages_logged;
+    log_message("Your plugin is ticking, this is message %u/5...",
+                num_messages_logged);
   }
 }
 
 //----------------------------------------------------------------------------//
 void on_activate()
 {
+  io_logging->log_plugin("Sample C", "Game mode activated!");
+
   io_logging->log_plugin("Sample C", "Traversing all nodes in the world...");
 
   traverse_node(io_world->get_root_node());
