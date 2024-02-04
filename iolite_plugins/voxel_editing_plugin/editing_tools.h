@@ -189,7 +189,7 @@ static void handle_tool_voxel(io_ref_t shape, const tool_parameters_t& params)
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -390,7 +390,7 @@ static void handle_tool_select_wand(io_ref_t shape, tool_parameters_t& params)
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -485,7 +485,7 @@ static void handle_tool_extrude(io_ref_t shape, tool_parameters_t& params,
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -681,7 +681,7 @@ static void handle_tool_move(io_ref_t shape, tool_parameters_t& params)
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -817,7 +817,7 @@ static void handle_tool_eyedropper(io_ref_t shape, tool_parameters_t& params)
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -854,7 +854,7 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
 {
   auto palette = io_component_voxel_shape->get_palette(shape);
 
-  if (!io_base->ref_is_valid(palette))
+  if (!io_ref_is_valid(palette))
     return;
 
   const auto dim = io_component_voxel_shape->get_dim(shape);
@@ -974,13 +974,13 @@ static void handle_tool_box(io_ref_t shape, tool_parameters_t& params)
 static void handle_tool(tool_parameters_t& params)
 {
   const auto entity = io_editor->get_first_selected_entity();
-  if (!io_base->ref_is_valid(entity))
+  if (!io_ref_is_valid(entity))
     return;
 
   const auto shape =
       io_component_voxel_shape->base.get_component_for_entity(entity);
 
-  if (!io_base->ref_is_valid(shape))
+  if (!io_ref_is_valid(shape))
     return;
 
   if (params.tool == tool_modify)

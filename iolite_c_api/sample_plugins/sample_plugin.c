@@ -47,7 +47,7 @@ struct io_user_task_i io_user_task;
 //----------------------------------------------------------------------------//
 void traverse_node(io_ref_t node)
 {
-  if (!io_base->ref_is_valid(node))
+  if (!io_ref_is_valid(node))
     return;
 
   const io_ref_t entity = io_component_node->base.get_entity(node);

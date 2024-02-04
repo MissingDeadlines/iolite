@@ -138,7 +138,7 @@ void execute_queued_actions()
 {
   for (auto node : queued_nodes_to_destroy)
   {
-    if (io_base->ref_is_valid(node) && io_component_node->base.is_alive(node))
+    if (io_ref_is_valid(node) && io_component_node->base.is_alive(node))
       io_component_node->base.destroy(node);
   }
   queued_nodes_to_destroy.clear();
@@ -497,9 +497,9 @@ static void on_physics_events(const io_events_header_t* begin,
     for (auto it = contact_events_to_dispatch.begin();
          it != contact_events_to_dispatch.end();)
     {
-      if (io_base->ref_is_valid(it->data.entity0) &&
+      if (io_ref_is_valid(it->data.entity0) &&
           io_entity->is_alive(it->data.entity0) &&
-          io_base->ref_is_valid(it->data.entity1) &&
+          io_ref_is_valid(it->data.entity1) &&
           io_entity->is_alive(it->data.entity1))
       {
         ++it;

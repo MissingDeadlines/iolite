@@ -37,8 +37,7 @@ void show_palette_index_picker(io_ref_t palette, palette_range_t& range,
                                ImVec2 button_size)
 {
   ImGui::SetNextItemWidth(button_size.x);
-  if (!io_base->ref_is_valid(palette) ||
-      !io_resource_palette->base.is_alive(palette))
+  if (!io_ref_is_valid(palette) || !io_resource_palette->base.is_alive(palette))
   {
     ImGui::ColorButton("###no_palette", ImVec4(0.5f, 0.5f, 0.5f, 1.0f), 0,
                        button_size);
@@ -167,20 +166,19 @@ void show_editing_toolbar()
                    ImGuiWindowFlags_AlwaysAutoResize |
                        ImGuiWindowFlags_NoDocking))
   {
-    io_ref_t shape = io_base->ref_invalid();
+    io_ref_t shape = io_ref_invalid();
     io_ref_t entity = io_editor->get_first_selected_entity();
-    if (io_base->ref_is_valid(entity))
+    if (io_ref_is_valid(entity))
       shape = io_component_voxel_shape->base.get_component_for_entity(entity);
-    io_ref_t palette = io_base->ref_invalid();
-    if (io_base->ref_is_valid(shape))
+    io_ref_t palette = io_ref_invalid();
+    if (io_ref_is_valid(shape))
       palette = io_component_voxel_shape->get_palette(shape);
 
-    static auto op = io_base->ref_invalid();
+    static auto op = io_ref_invalid();
 
     // Validate current operator
-    if (io_base->ref_is_valid(op) &&
-        !io_component_voxel_shape->base.is_alive(op))
-      op = io_base->ref_invalid();
+    if (io_ref_is_valid(op) && !io_component_voxel_shape->base.is_alive(op))
+      op = io_ref_invalid();
 
     bool shape_changed = false;
     uint32_t group = 0u;
@@ -192,7 +190,7 @@ void show_editing_toolbar()
 
     SAME_LINE_RESET();
 
-    ImGui::BeginDisabled(!io_base->ref_is_valid(palette));
+    ImGui::BeginDisabled(!io_ref_is_valid(palette));
 
     ImGui::Text("Palette Color");
     {
@@ -208,7 +206,7 @@ void show_editing_toolbar()
 
     ImGui::EndDisabled();
 
-    ImGui::BeginDisabled(!io_base->ref_is_valid(shape));
+    ImGui::BeginDisabled(!io_ref_is_valid(shape));
 
     ImGui::Text("Tools");
     {
@@ -636,9 +634,7 @@ void show_editing_toolbar()
         op = shape;
       show_tooltip("Sets the current shape as the active operator.");
 
-      // TODO: Comparisons of refs are ugly
-      ImGui::BeginDisabled(!io_base->ref_is_valid(op) ||
-                           op.internal == shape.internal);
+      ImGui::BeginDisabled(!io_ref_is_valid(op) || io_ref_is_equal(op, shape));
 
       SAME_LINE_GROUP();
       if (ImGui::Button(ICON_FA_CLONE, tb_button_size))

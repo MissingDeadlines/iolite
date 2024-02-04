@@ -320,7 +320,7 @@ void script_init_state(sol::state& s)
   // @function InvalidRef
   // @summary Creates an invalid ref.
   // @return Ref value The invalid ref.
-  s["InvalidRef"] = []() { return io_base->ref_invalid(); };
+  s["InvalidRef"] = []() { return io_ref_invalid(); };
 
   // @type Handle
   // @summary Handles are used to reference elements of the various subsystems.
@@ -879,20 +879,20 @@ void script_init_state(sol::state& s)
   // @param ref Ref The ref.
   // @return number value The ID of the type referenced.
   s["Ref"]["get_type_id"] = [](io_ref_t ref) {
-    return io_base->ref_get_type_id(ref);
+    return ref.type;
   };
   // @function is_valid
   // @summary Returns the ID of the type referenced.
   // @param ref Ref The ref.
   // @return boolean value True if the given ref is valid.
   s["Ref"]["is_valid"] = [](io_ref_t ref) {
-    return io_base->ref_is_valid(ref);
+    return io_ref_is_valid(ref);
   };
   // @function get_id
   // @summary Returns the unique ID of the referenced resource.
   // @param ref Ref The ref.
   // @return number value The ID of the referenced resource.
-  s["Ref"]["get_id"] = [](io_ref_t ref) { return io_base->ref_get_id(ref); };
+  s["Ref"]["get_id"] = [](io_ref_t ref) { return ref.id; };
 
   // @namespace Variant
   // @category Variant Functions to interact with variants.

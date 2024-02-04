@@ -497,7 +497,7 @@ struct sparse_volume_t
     const auto entity = io_component_voxel_shape->base.get_entity(shape);
     const auto palette = io_component_voxel_shape->get_palette(shape);
 
-    if (!io_base->ref_is_valid(palette))
+    if (!io_ref_is_valid(palette))
       return;
 
     const auto dim = io_component_voxel_shape->get_dim(shape);

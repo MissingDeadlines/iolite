@@ -745,17 +745,31 @@ enum io_variant_type_
   io_variant_type_u16vec3 = 0xA87DC2F2,
   io_variant_type_uvec4 = 0x1086A26C
 };
-typedef io_uint32_t io_variant_type;
+
+// Various internal constants used for refs
+//----------------------------------------------------------------------------//
+enum io_ref_internal_
+{
+  io_ref_internal_max_id = 65534u,        // Max valid ID, 2^16 - 2
+  io_ref_internal_max_gen_id = 253u,      // Max valid gen ID, 2^8 - 3
+  io_ref_internal_max_type_id = 254u,     // Max valid type ID, 2^8 - 2
+  io_ref_internal_invalid_id = 65535u,    // Indicates invalid ID
+  io_ref_internal_invalid_gen_id = 255u,  // Indicates invalid generation ID
+  io_ref_internal_invalid_type_id = 255u, // Indicates invalid type ID
+  io_ref_internal_is_index_gen_id = 254u  // Indicates ID is index
+};
 
 //----------------------------------------------------------------------------//
-// Custom types
+// Data types and type definitions
 //----------------------------------------------------------------------------//
 
 // Ref type
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint32_t internal;
+  io_uint16_t id;  // ID of the ref
+  io_uint8_t gen;  // Generation of the ref
+  io_uint8_t type; // Type ID of the ref
 } io_ref_t;
 
 // Name type
@@ -976,6 +990,39 @@ inline io_name_t io_to_name(const char* string)
   io_name_t name;
   name.hash = io_hash(string);
   return name;
+}
+
+//----------------------------------------------------------------------------//
+// Ref related functions
+//----------------------------------------------------------------------------//
+
+// Returns an invalid ref
+//----------------------------------------------------------------------------//
+inline io_ref_t io_ref_invalid()
+{
+  io_ref_t ref;
+  {
+    ref.id = io_ref_internal_invalid_id;
+    ref.gen = io_ref_internal_invalid_gen_id;
+    ref.type = io_ref_internal_invalid_type_id;
+  }
+  return ref;
+}
+
+// Returns true if the given ref is valid
+//----------------------------------------------------------------------------//
+inline io_bool_t io_ref_is_valid(io_ref_t ref)
+{
+  return ref.id != io_ref_internal_invalid_id &&
+         ref.gen != io_ref_internal_invalid_gen_id;
+}
+
+// Returns true if both refs are equal
+//----------------------------------------------------------------------------//
+inline io_bool_t io_ref_is_equal(io_ref_t left, io_ref_t right)
+{
+  return left.id == right.id && left.gen == right.gen &&
+         left.type == right.type;
 }
 
 //----------------------------------------------------------------------------//
@@ -1879,17 +1926,6 @@ struct io_api_manager_i // NOLINT
 //----------------------------------------------------------------------------//
 struct io_base_i // NOLINT
 {
-  // Refs
-
-  // Returns an invalid ref.
-  io_ref_t (*ref_invalid)();
-  // Returns true if this ref is valid.
-  io_bool_t (*ref_is_valid)(io_ref_t ref);
-  // Returns the type ID for the provided ref.
-  io_ref_type_id_t (*ref_get_type_id)(io_ref_t ref);
-  // Returns the ID for the given ref.
-  io_ref_id_t (*ref_get_id)(io_ref_t ref);
-
   // Names
 
   // Internalizes the given string and returns a name.

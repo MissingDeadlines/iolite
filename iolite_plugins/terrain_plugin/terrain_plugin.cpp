@@ -179,7 +179,7 @@ struct terrain_task_t : public io_scheduler_task_t
               const uint32_t voxels_to_set =
                   glm::min(mat_voxels_to_set, CHUNK_SIZE);
 
-              if (io_base->ref_is_valid(c))
+              if (io_ref_is_valid(c))
               {
                 auto vox_data = io_component_voxel_shape->get_voxel_data(c);
                 memset(&vox_data[chunk_pos_x * CHUNK_SIZE +
@@ -197,7 +197,7 @@ struct terrain_task_t : public io_scheduler_task_t
               const uint32_t voxels_to_set =
                   glm::min(grass_voxels_to_set, CHUNK_SIZE - write_start);
 
-              if (io_base->ref_is_valid(c))
+              if (io_ref_is_valid(c))
               {
                 auto voxel_data = io_component_voxel_shape->get_voxel_data(c);
                 memset(&voxel_data[chunk_pos_x * CHUNK_SIZE +
@@ -229,7 +229,7 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
   {
     io_logging->log_warning(
         "Terrain size needs to be a multiple of the chunk size of 32 voxels.");
-    return io_base->ref_invalid();
+    return io_ref_invalid();
   }
 
   const uint32_t num_voxels = size;
@@ -265,7 +265,7 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
         // Skip empty chunks
         if (min_max_height.y == 0u)
         {
-          vertical_chunks.emplace_back(io_base->ref_invalid());
+          vertical_chunks.emplace_back(io_ref_invalid());
           continue;
         }
 
@@ -273,7 +273,7 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
         if (skip_enclosed_chunks && num_vertical_chunks_min >= 2u &&
             y < num_vertical_chunks_min - 2u)
         {
-          vertical_chunks.emplace_back(io_base->ref_invalid());
+          vertical_chunks.emplace_back(io_ref_invalid());
           continue;
         }
 
@@ -326,7 +326,7 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
     for (auto& cz : cx)
       for (auto cy : cz.chunks)
       {
-        if (io_base->ref_is_valid(cy))
+        if (io_ref_is_valid(cy))
           io_component_voxel_shape->voxelize(cy);
       }
 
@@ -348,7 +348,7 @@ auto generate_from_image(const char* heightmap_name, const char* palette_name,
   if (!io_filesystem->load_file_from_data_source(filepath.c_str(), data.data(),
                                                  &length))
   {
-    return io_base->ref_invalid();
+    return io_ref_invalid();
   }
 
   int32_t width, height;
@@ -362,7 +362,7 @@ auto generate_from_image(const char* heightmap_name, const char* palette_name,
 
     // Clean up
     free(heightmap);
-    return io_base->ref_invalid();
+    return io_ref_invalid();
   }
 
   io_ref_t result =
