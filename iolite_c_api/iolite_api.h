@@ -2001,7 +2001,7 @@ struct io_custom_components_i // NOLINT
                             io_variant_t default_value, void** accessor,
                             io_property_flags flags);
 
-  // Registers the given set of callbacks function for the given manager.
+  // Registers the given set of callback functions for the given manager.
   void (*register_callbacks)(io_handle16_t manager,
                              const io_custom_components_callbacks_t* callbacks);
 
