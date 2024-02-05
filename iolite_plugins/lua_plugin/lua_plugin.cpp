@@ -308,7 +308,7 @@ void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
 } // namespace internal
 
 //----------------------------------------------------------------------------//
-static void on_init_script(const char* script_name, io_ref_t entity,
+static void on_script_init(const char* script_name, io_ref_t entity,
                            io_uint32_t update_interval, sol::state** s)
 {
   void* mem = io_base->mem_allocate(sizeof(sol::state));
@@ -324,7 +324,7 @@ static void on_init_script(const char* script_name, io_ref_t entity,
 }
 
 //----------------------------------------------------------------------------//
-static void on_destroy_script(io_ref_t entity, sol::state** s)
+static void on_script_destroy(io_ref_t entity, sol::state** s)
 {
   internal::script_deactivate(**s, entity);
 
@@ -336,7 +336,7 @@ static void on_destroy_script(io_ref_t entity, sol::state** s)
 }
 
 //----------------------------------------------------------------------------//
-static void on_activate_scripts(const script_batch_t* scripts)
+static void on_scripts_activate(const script_batch_t* scripts)
 {
   internal::scripts_active = true;
 
@@ -351,7 +351,7 @@ static void on_activate_scripts(const script_batch_t* scripts)
 }
 
 //----------------------------------------------------------------------------//
-static void on_deactivate_scripts(const script_batch_t* scripts)
+static void on_scripts_deactivate(const script_batch_t* scripts)
 {
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
@@ -364,7 +364,7 @@ static void on_deactivate_scripts(const script_batch_t* scripts)
 }
 
 //----------------------------------------------------------------------------//
-static void on_tick_scripts(io_float32_t delta_t, const script_batch_t* scripts)
+static void on_scripts_tick(io_float32_t delta_t, const script_batch_t* scripts)
 {
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
@@ -380,7 +380,7 @@ static void on_tick_scripts(io_float32_t delta_t, const script_batch_t* scripts)
 }
 
 //----------------------------------------------------------------------------//
-static void on_tick_scripts_physics(io_float32_t delta_t,
+static void on_scripts_tick_physics(io_float32_t delta_t,
                                     const script_batch_t* scripts)
 {
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
@@ -527,28 +527,28 @@ static void on_physics_events(const io_events_header_t* begin,
 static void on_tick(float delta_t)
 {
   const auto batch = get_batch();
-  on_tick_scripts(delta_t, &batch);
+  on_scripts_tick(delta_t, &batch);
 }
 
 //----------------------------------------------------------------------------//
 static void on_tick_physics(float delta_t)
 {
   const auto batch = get_batch();
-  on_tick_scripts_physics(delta_t, &batch);
+  on_scripts_tick_physics(delta_t, &batch);
 }
 
 //----------------------------------------------------------------------------//
 static void on_activate()
 {
   const auto batch = get_batch();
-  on_activate_scripts(&batch);
+  on_scripts_activate(&batch);
 }
 
 //----------------------------------------------------------------------------//
 static void on_deactivate()
 {
   const auto batch = get_batch();
-  on_deactivate_scripts(&batch);
+  on_scripts_deactivate(&batch);
 }
 
 //----------------------------------------------------------------------------//
@@ -562,7 +562,7 @@ static void on_script_components_create(const io_ref_t* components,
     const auto script_idx =
         io_custom_components->make_index(script_manager, script);
 
-    on_init_script(io_base->name_get_string(batch.names[script_idx]),
+    on_script_init(io_base->name_get_string(batch.names[script_idx]),
                    batch.entities[script_idx],
                    batch.update_intervals[script_idx],
                    &batch.states[script_idx]);
@@ -580,7 +580,7 @@ static void on_script_components_destroy(const io_ref_t* components,
     const auto script_idx =
         io_custom_components->make_index(script_manager, script);
 
-    on_destroy_script(batch.entities[script_idx], &batch.states[script_idx]);
+    on_script_destroy(batch.entities[script_idx], &batch.states[script_idx]);
   }
 }
 
