@@ -23,18 +23,6 @@
 #define STB_SPRINTF_IMPLEMENTATION
 #include "lua_plugin.h"
 
-// SOA style batch of script data
-//----------------------------------------------------------------------------//
-typedef struct
-{
-  sol::state** states;
-  const io_ref_t* entities;
-  const io_uint32_t* update_intervals;
-  io_name_t* names;
-
-  uint32_t num_scripts;
-} script_batch_t;
-
 // Globals
 //----------------------------------------------------------------------------//
 char string_buffer[string_buffer_length];
@@ -85,6 +73,38 @@ io_user_task_i io_user_task = {};
 //----------------------------------------------------------------------------//
 io_handle16_t script_manager = {};
 
+// SOA style batch of script data
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  sol::state** states;
+  const io_ref_t* entities;
+  const io_uint32_t* update_intervals;
+  io_name_t* names;
+
+  uint32_t num_scripts;
+} script_batch_t;
+
+//----------------------------------------------------------------------------//
+static script_batch_t get_batch()
+{
+  script_batch_t batch{};
+  {
+    batch.entities = io_custom_components->get_entity_memory(script_manager);
+    batch.states = (sol::state**)io_custom_components->get_property_memory(
+        script_manager, "state");
+    batch.update_intervals =
+        (uint32_t*)io_custom_components->get_property_memory(script_manager,
+                                                             "updateInterval");
+    batch.names = (io_name_t*)io_custom_components->get_property_memory(
+        script_manager, "scriptName");
+
+    batch.num_scripts =
+        io_custom_components->get_num_active_components(script_manager);
+  }
+  return batch;
+}
+
 // Macros
 //----------------------------------------------------------------------------//
 #define SOL_VALIDATE_RESULT(_func, _scriptName)                                \
@@ -98,34 +118,6 @@ io_handle16_t script_manager = {};
       io_logging->log_plugin("Lua", string_buffer);                            \
     }                                                                          \
   }
-
-//----------------------------------------------------------------------------//
-struct script_instance_t
-{
-  const char* script_name;
-  io_ref_t entity;
-  sol::state* state;
-};
-static std::vector<script_instance_t> script_instances;
-
-//----------------------------------------------------------------------------//
-static void register_script_instance(const char* script_name, io_ref_t entity,
-                                     sol::state* state)
-{
-  script_instances.push_back({script_name, entity, state});
-}
-
-//----------------------------------------------------------------------------//
-static void unregister_script_instance(sol::state* state)
-{
-  for (auto it = script_instances.begin(); it != script_instances.end();)
-  {
-    if (it->state == state)
-      it = script_instances.erase(it);
-    else
-      ++it;
-  }
-}
 
 //----------------------------------------------------------------------------//
 namespace internal
@@ -322,8 +314,6 @@ static void on_init_script(const char* script_name, io_ref_t entity,
   void* mem = io_base->mem_allocate(sizeof(sol::state));
   *s = new (mem) sol::state();
 
-  register_script_instance(script_name, entity, *s);
-
   internal::script_init_state(**s);
 
   if (strlen(script_name) > 0)
@@ -339,7 +329,6 @@ static void on_destroy_script(io_ref_t entity, sol::state** s)
   internal::script_deactivate(**s, entity);
 
   internal::execute_queued_actions();
-  unregister_script_instance(*s);
 
   (*s)->~state();
   io_base->mem_free(*s);
@@ -408,14 +397,16 @@ static void on_script_changed(const char* filename, const char* filepath)
 {
   const auto filename_without_extension =
       std::filesystem::path(filename).filename().replace_extension().u8string();
+  const auto script_name =
+      io_to_name((const char*)filename_without_extension.c_str());
 
-  for (auto& script : script_instances)
+  const auto batch = get_batch();
+  for (uint32_t i = 0u; i < batch.num_scripts; ++i)
   {
-    if (strcmp(script.script_name,
-               (const char*)filename_without_extension.c_str()) == 0)
+    if (batch.names[i].hash == script_name.hash)
     {
-      internal::execute_script(*script.state, "media/scripts",
-                               script.script_name);
+      internal::execute_script(*batch.states[i], "media/scripts",
+                               (const char*)filename_without_extension.c_str());
     }
   }
 }
@@ -517,70 +508,52 @@ static void on_physics_events(const io_events_header_t* begin,
     }
   }
 
-  for (auto& script : script_instances)
+  const auto batch = get_batch();
+  for (uint32_t i = 0u; i < batch.num_scripts; ++i)
   {
-    const auto& s = *script.state;
+    const auto& s = *batch.states[i];
     if (!s["__ScriptIsActive"].get<bool>())
       return;
 
     sol::protected_function on_event = s["OnEvent"];
     if (on_event.valid())
-      SOL_VALIDATE_RESULT(on_event(script.entity, contact_events_to_dispatch),
-                          s["__ScriptName"].get<const char*>());
+      SOL_VALIDATE_RESULT(
+          on_event(batch.entities[i], contact_events_to_dispatch),
+          s["__ScriptName"].get<const char*>());
   }
 }
 
 //----------------------------------------------------------------------------//
-script_batch_t get_batch()
-{
-  script_batch_t batch{};
-  {
-    batch.entities = io_custom_components->get_entity_memory(script_manager);
-    batch.states = (sol::state**)io_custom_components->get_property_memory(
-        script_manager, "state");
-    batch.update_intervals =
-        (uint32_t*)io_custom_components->get_property_memory(script_manager,
-                                                             "updateInterval");
-    batch.names = (io_name_t*)io_custom_components->get_property_memory(
-        script_manager, "scriptName");
-
-    batch.num_scripts =
-        io_custom_components->get_num_active_components(script_manager);
-  }
-  return batch;
-}
-
-//----------------------------------------------------------------------------//
-void on_tick(float delta_t)
+static void on_tick(float delta_t)
 {
   const auto batch = get_batch();
   on_tick_scripts(delta_t, &batch);
 }
 
 //----------------------------------------------------------------------------//
-void on_tick_physics(float delta_t)
+static void on_tick_physics(float delta_t)
 {
   const auto batch = get_batch();
   on_tick_scripts_physics(delta_t, &batch);
 }
 
 //----------------------------------------------------------------------------//
-void on_activate()
+static void on_activate()
 {
   const auto batch = get_batch();
   on_activate_scripts(&batch);
 }
 
 //----------------------------------------------------------------------------//
-void on_deactivate()
+static void on_deactivate()
 {
   const auto batch = get_batch();
   on_deactivate_scripts(&batch);
 }
 
 //----------------------------------------------------------------------------//
-void on_script_components_create(const io_ref_t* components,
-                                 io_size_t components_length)
+static void on_script_components_create(const io_ref_t* components,
+                                        io_size_t components_length)
 {
   const auto batch = get_batch();
   for (uint32_t i = 0u; i < components_length; ++i)
@@ -597,8 +570,8 @@ void on_script_components_create(const io_ref_t* components,
 }
 
 //----------------------------------------------------------------------------//
-void on_script_components_destroy(const io_ref_t* components,
-                                  io_size_t components_length)
+static void on_script_components_destroy(const io_ref_t* components,
+                                         io_size_t components_length)
 {
   const auto batch = get_batch();
   for (uint32_t i = 0u; i < components_length; ++i)
