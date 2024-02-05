@@ -76,6 +76,7 @@ extern const io_plugin_terrain_i* io_plugin_terrain;
 extern const io_physics_i* io_physics;
 extern const io_debug_geometry_i* io_debug_geometry;
 extern const io_pathfinding_i* io_pathfinding;
+extern const io_custom_components_i* io_custom_components;
 
 extern const io_component_node_i* io_component_node;
 extern const io_component_custom_data_i* io_component_custom_data;
@@ -83,7 +84,6 @@ extern const io_component_tag_i* io_component_tag;
 extern const io_component_flipbook_animation_i* io_component_flipbook_animation;
 extern const io_component_post_effect_volume_i* io_component_post_effect_volume;
 extern const io_component_camera_i* io_component_camera;
-extern const io_component_script_i* io_component_script;
 extern const io_component_voxel_shape_i* io_component_voxel_shape;
 extern const io_component_light_i* io_component_light;
 extern const io_component_character_controller_i*
@@ -109,8 +109,11 @@ struct lua_physics_contact_event_t
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
-extern io_user_script_i io_user_script;
 extern io_user_events_i io_user_events;
+
+// Custom components
+//----------------------------------------------------------------------------//
+extern io_handle16_t script_manager;
 
 //----------------------------------------------------------------------------//
 namespace internal

@@ -1608,17 +1608,6 @@ typedef struct
       data_size_in_bytes; // The size of the data blob attached to this event.
 } io_events_header_t;
 
-// SOA style batch of script data
-//----------------------------------------------------------------------------//
-typedef struct
-{
-  void** user_datas; // User data ptrs that can be used to, e.g., store the Lua
-                     // state.
-  const io_ref_t* entities; // The entities of each of the script components.
-  const io_uint32_t* update_intervals; // The update intervals of each of the
-                                       // script components.
-} io_user_script_batch_t;
-
 // Defines an anchor for UI transformations
 //----------------------------------------------------------------------------//
 typedef struct
@@ -1652,6 +1641,18 @@ typedef struct
   // other Vulkan functions dynamically
   void* vk_get_device_proc_addr;
 } io_low_level_vulkan_functions_t;
+
+// Various (optional) callbacks available for custom components
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  // Called when a set of components is created
+  void (*on_components_create)(const io_ref_t* components,
+                               io_size_t components_length);
+  // Called when a set of components is destroyed
+  void (*on_components_destroy)(const io_ref_t* components,
+                                io_size_t components_length);
+} io_custom_components_callbacks_t;
 
 //----------------------------------------------------------------------------//
 // Event data types
@@ -1862,38 +1863,6 @@ struct io_user_events_i // NOLINT
 };
 
 //----------------------------------------------------------------------------//
-#define IO_USER_SCRIPT_API_NAME "io_user_script_i"
-//----------------------------------------------------------------------------//
-
-// Interface for implementing custom scripting backends
-//----------------------------------------------------------------------------//
-struct io_user_script_i // NOLINT
-{
-  // Called when a script component is initialized.
-  void (*on_init_script)(const char* script_name, io_ref_t entity,
-                         io_uint32_t update_interval, void** user_data);
-  // Called when a script component is destroyed.
-  void (*on_destroy_script)(io_ref_t entity, void** user_data);
-  // Called when the given scripts should be ticked.
-  void (*on_tick_scripts)(io_float32_t delta_t,
-                          const io_user_script_batch_t* scripts,
-                          io_size_t scripts_length);
-  // Called when the given scripts should be ticked (zero or multiple times per
-  // frame).
-  //   Please note that the physics scene is advanced at a fixed rate, so the
-  //   provided delta time is *constant*.
-  void (*on_tick_scripts_physics)(io_float32_t delta_t,
-                                  const io_user_script_batch_t* scripts,
-                                  io_size_t scripts_length);
-  // Called when the given scripts should be activated.
-  void (*on_activate_scripts)(const io_user_script_batch_t* scripts,
-                              io_size_t scripts_length);
-  // Called when the given scripts should be deactivated.
-  void (*on_deactivate_scripts)(const io_user_script_batch_t* scripts,
-                                io_size_t scripts_length);
-};
-
-//----------------------------------------------------------------------------//
 // Interfaces that are provided by IOLITE.
 //----------------------------------------------------------------------------//
 
@@ -2031,6 +2000,10 @@ struct io_custom_components_i // NOLINT
   void (*register_property)(io_handle16_t manager, const char* name,
                             io_variant_t default_value, void** accessor,
                             io_property_flags flags);
+
+  // Registers the given set of callbacks function for the given manager.
+  void (*register_callbacks)(io_handle16_t manager,
+                             const io_custom_components_callbacks_t* callbacks);
 
   // Initializes the manager and makes it available under the given (type) name.
   //   Call this *once* after all properties have been registered.
@@ -2786,18 +2759,6 @@ struct io_component_post_effect_volume_i // NOLINT
 // Provides access to camera components
 //----------------------------------------------------------------------------//
 struct io_component_camera_i // NOLINT
-{
-  // Base interface functions.
-  io_component_base_i base;
-};
-
-//----------------------------------------------------------------------------//
-#define IO_COMPONENT_SCRIPT_API_NAME "io_component_script_i"
-//----------------------------------------------------------------------------//
-
-// Provides access to script components
-//----------------------------------------------------------------------------//
-struct io_component_script_i // NOLINT
 {
   // Base interface functions.
   io_component_base_i base;

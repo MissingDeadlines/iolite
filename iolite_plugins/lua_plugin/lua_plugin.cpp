@@ -23,6 +23,18 @@
 #define STB_SPRINTF_IMPLEMENTATION
 #include "lua_plugin.h"
 
+// SOA style batch of script data
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  sol::state** states;
+  const io_ref_t* entities;
+  const io_uint32_t* update_intervals;
+  io_name_t* names;
+
+  uint32_t num_scripts;
+} script_batch_t;
+
 // Globals
 //----------------------------------------------------------------------------//
 char string_buffer[string_buffer_length];
@@ -46,6 +58,7 @@ const io_plugin_terrain_i* io_plugin_terrain = {};
 const io_physics_i* io_physics = {};
 const io_debug_geometry_i* io_debug_geometry = {};
 const io_pathfinding_i* io_pathfinding = {};
+const io_custom_components_i* io_custom_components = {};
 
 const io_component_node_i* io_component_node = {};
 const io_component_custom_data_i* io_component_custom_data = {};
@@ -53,7 +66,6 @@ const io_component_tag_i* io_component_tag = {};
 const io_component_flipbook_animation_i* io_component_flipbook_animation = {};
 const io_component_post_effect_volume_i* io_component_post_effect_volume = {};
 const io_component_camera_i* io_component_camera = {};
-const io_component_script_i* io_component_script = {};
 const io_component_voxel_shape_i* io_component_voxel_shape = {};
 const io_component_light_i* io_component_light = {};
 const io_component_character_controller_i* io_component_character_controller =
@@ -66,8 +78,12 @@ const io_component_joint_i* io_component_joint = {};
 
 // Interfaces we provide
 //----------------------------------------------------------------------------//
-io_user_script_i io_user_script = {};
 io_user_events_i io_user_events = {};
+io_user_task_i io_user_task = {};
+
+// Custom components
+//----------------------------------------------------------------------------//
+io_handle16_t script_manager = {};
 
 // Macros
 //----------------------------------------------------------------------------//
@@ -301,29 +317,25 @@ void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
 
 //----------------------------------------------------------------------------//
 static void on_init_script(const char* script_name, io_ref_t entity,
-                           io_uint32_t update_interval, void** user_data)
+                           io_uint32_t update_interval, sol::state** s)
 {
-  auto** state = (sol::state**)user_data;
-
   void* mem = io_base->mem_allocate(sizeof(sol::state));
-  *state = new (mem) sol::state();
+  *s = new (mem) sol::state();
 
-  register_script_instance(script_name, entity, *state);
+  register_script_instance(script_name, entity, *s);
 
-  internal::script_init_state(**state);
+  internal::script_init_state(**s);
 
   if (strlen(script_name) > 0)
-    internal::execute_script(**state, "media/scripts", script_name);
+    internal::execute_script(**s, "media/scripts", script_name);
 
-  internal::script_activate(**state, entity, update_interval);
+  internal::script_activate(**s, entity, update_interval);
   internal::execute_queued_actions();
 }
 
 //----------------------------------------------------------------------------//
-static void on_destroy_script(io_ref_t entity, void** user_data)
+static void on_destroy_script(io_ref_t entity, sol::state** s)
 {
-  auto** s = (sol::state**)user_data;
-
   internal::script_deactivate(**s, entity);
 
   internal::execute_queued_actions();
@@ -335,14 +347,13 @@ static void on_destroy_script(io_ref_t entity, void** user_data)
 }
 
 //----------------------------------------------------------------------------//
-static void on_activate_scripts(const io_user_script_batch_t* scripts,
-                                io_uint32_t scripts_length)
+static void on_activate_scripts(const script_batch_t* scripts)
 {
   internal::scripts_active = true;
 
-  for (uint32_t i = 0u; i < scripts_length; ++i)
+  for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
-    auto* state = (sol::state*)scripts->user_datas[i];
+    auto state = scripts->states[i];
     internal::script_activate(*state, scripts->entities[i],
                               scripts->update_intervals[i]);
   }
@@ -351,12 +362,11 @@ static void on_activate_scripts(const io_user_script_batch_t* scripts,
 }
 
 //----------------------------------------------------------------------------//
-static void on_deactivate_scripts(const io_user_script_batch_t* scripts,
-                                  io_uint32_t scripts_length)
+static void on_deactivate_scripts(const script_batch_t* scripts)
 {
-  for (uint32_t i = 0u; i < scripts_length; ++i)
+  for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
-    auto* state = (sol::state*)scripts->user_datas[i];
+    auto state = scripts->states[i];
     internal::script_deactivate(*state, scripts->entities[i]);
   }
 
@@ -365,13 +375,11 @@ static void on_deactivate_scripts(const io_user_script_batch_t* scripts,
 }
 
 //----------------------------------------------------------------------------//
-static void on_tick_scripts(io_float32_t delta_t,
-                            const io_user_script_batch_t* scripts,
-                            io_uint32_t scripts_length)
+static void on_tick_scripts(io_float32_t delta_t, const script_batch_t* scripts)
 {
-  for (uint32_t i = 0u; i < scripts_length; ++i)
+  for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
-    auto* state = (sol::state*)scripts->user_datas[i];
+    auto state = scripts->states[i];
     internal::script_tick(*state, delta_t, scripts->entities[i]);
     // TODO
     internal::script_tick_async(*state, delta_t, scripts->entities[i]);
@@ -384,12 +392,11 @@ static void on_tick_scripts(io_float32_t delta_t,
 
 //----------------------------------------------------------------------------//
 static void on_tick_scripts_physics(io_float32_t delta_t,
-                                    const io_user_script_batch_t* scripts,
-                                    io_uint32_t scripts_length)
+                                    const script_batch_t* scripts)
 {
-  for (uint32_t i = 0u; i < scripts_length; ++i)
+  for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
-    auto* state = (sol::state*)scripts->user_datas[i];
+    auto state = scripts->states[i];
     internal::script_tick_physics(*state, delta_t, scripts->entities[i]);
   }
 
@@ -524,6 +531,87 @@ static void on_physics_events(const io_events_header_t* begin,
 }
 
 //----------------------------------------------------------------------------//
+script_batch_t get_batch()
+{
+  script_batch_t batch{};
+  {
+    batch.entities = io_custom_components->get_entity_memory(script_manager);
+    batch.states = (sol::state**)io_custom_components->get_property_memory(
+        script_manager, "state");
+    batch.update_intervals =
+        (uint32_t*)io_custom_components->get_property_memory(script_manager,
+                                                             "updateInterval");
+    batch.names = (io_name_t*)io_custom_components->get_property_memory(
+        script_manager, "scriptName");
+
+    batch.num_scripts =
+        io_custom_components->get_num_active_components(script_manager);
+  }
+  return batch;
+}
+
+//----------------------------------------------------------------------------//
+void on_tick(float delta_t)
+{
+  const auto batch = get_batch();
+  on_tick_scripts(delta_t, &batch);
+}
+
+//----------------------------------------------------------------------------//
+void on_tick_physics(float delta_t)
+{
+  const auto batch = get_batch();
+  on_tick_scripts_physics(delta_t, &batch);
+}
+
+//----------------------------------------------------------------------------//
+void on_activate()
+{
+  const auto batch = get_batch();
+  on_activate_scripts(&batch);
+}
+
+//----------------------------------------------------------------------------//
+void on_deactivate()
+{
+  const auto batch = get_batch();
+  on_deactivate_scripts(&batch);
+}
+
+//----------------------------------------------------------------------------//
+void on_script_components_create(const io_ref_t* components,
+                                 io_size_t components_length)
+{
+  const auto batch = get_batch();
+  for (uint32_t i = 0u; i < components_length; ++i)
+  {
+    const auto script = components[i];
+    const auto script_idx =
+        io_custom_components->make_index(script_manager, script);
+
+    on_init_script(io_base->name_get_string(batch.names[script_idx]),
+                   batch.entities[script_idx],
+                   batch.update_intervals[script_idx],
+                   &batch.states[script_idx]);
+  }
+}
+
+//----------------------------------------------------------------------------//
+void on_script_components_destroy(const io_ref_t* components,
+                                  io_size_t components_length)
+{
+  const auto batch = get_batch();
+  for (uint32_t i = 0u; i < components_length; ++i)
+  {
+    const auto script = components[i];
+    const auto script_idx =
+        io_custom_components->make_index(script_manager, script);
+
+    on_destroy_script(batch.entities[script_idx], &batch.states[script_idx]);
+  }
+}
+
+//----------------------------------------------------------------------------//
 IO_API_EXPORT io_uint32_t IO_API_CALL get_api_version()
 {
   return IO_API_VERSION;
@@ -534,7 +622,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
 {
   io_api_manager = (const io_api_manager_i*)api_manager;
 
-  // Core intefaces
+  // Core interfaces
   io_logging =
       (const io_logging_i*)io_api_manager->find_first(IO_LOGGING_API_NAME);
   io_base = (const io_base_i*)io_api_manager->find_first(IO_BASE_API_NAME);
@@ -562,6 +650,9 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
       IO_DEBUG_GEOMETRY_API_NAME);
   io_pathfinding = (const io_pathfinding_i*)io_api_manager->find_first(
       IO_PATHFINDING_API_NAME);
+  io_custom_components =
+      (const io_custom_components_i*)io_api_manager->find_first(
+          IO_CUSTOM_COMPONENTS_API_NAME);
 
   // Component interfaces
   io_component_custom_data =
@@ -578,9 +669,6 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_component_camera =
       (const io_component_camera_i*)io_api_manager->find_first(
           IO_COMPONENT_CAMERA_API_NAME);
-  io_component_script =
-      (const io_component_script_i*)io_api_manager->find_first(
-          IO_COMPONENT_SCRIPT_API_NAME);
   io_component_voxel_shape =
       (const io_component_voxel_shape_i*)io_api_manager->find_first(
           IO_COMPONENT_VOXEL_SHAPE_API_NAME);
@@ -606,29 +694,50 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_component_joint = (const io_component_joint_i*)io_api_manager->find_first(
       IO_COMPONENT_JOINT_API_NAME);
 
-  // Factory plugin intefaces
+  // Factory plugin interfaces
   io_plugin_terrain = (const io_plugin_terrain_i*)io_api_manager->find_first(
       IO_PLUGIN_TERRAIN_API_NAME);
 
-  // Set up the functions we provide
-  io_user_script = {};
+  // Register task
+  io_user_task = {};
   {
-    io_user_script.on_activate_scripts = on_activate_scripts;
-    io_user_script.on_deactivate_scripts = on_deactivate_scripts;
-    io_user_script.on_init_script = on_init_script;
-    io_user_script.on_destroy_script = on_destroy_script;
-    io_user_script.on_tick_scripts = on_tick_scripts;
-    io_user_script.on_tick_scripts_physics = on_tick_scripts_physics;
+    io_user_task.on_activate = on_activate;
+    io_user_task.on_deactivate = on_deactivate;
+    io_user_task.on_tick = on_tick;
+    io_user_task.on_tick_physics = on_tick_physics;
   }
-  io_api_manager->register_api(IO_USER_SCRIPT_API_NAME, &io_user_script);
+  io_api_manager->register_api(IO_USER_TASK_API_NAME, &io_user_task);
 
+  // Register event callbacks
   io_user_events = {};
   {
     io_user_events.on_physics_events = on_physics_events;
   }
   io_api_manager->register_api(IO_USER_EVENTS_API_NAME, &io_user_events);
 
-  // Watch the scripts directory for changes
+  // Set up our custom script component
+  {
+    script_manager = io_custom_components->request_manager();
+    io_custom_components->register_property(
+        script_manager, "scriptName", io_variant_from_string(""), nullptr, 0);
+    io_custom_components->register_property(
+        script_manager, "updateInterval", io_variant_from_uint(0u), nullptr, 0);
+
+    io_custom_components->register_property(
+        script_manager, "state", io_variant_from_uint64(0ull), nullptr,
+        io_property_flags_runtime_only);
+
+    io_custom_components_callbacks_t callbacks = {};
+    {
+      callbacks.on_components_create = on_script_components_create;
+      callbacks.on_components_destroy = on_script_components_destroy;
+    }
+    io_custom_components->register_callbacks(script_manager, &callbacks);
+
+    io_custom_components->init_manager(script_manager, "Script");
+  }
+
+  // Watch the "scripts" directory for changes
   io_filesystem->watch_data_source_directory("media/scripts",
                                              on_script_changed);
 
@@ -639,6 +748,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
 IO_API_EXPORT void IO_API_CALL unload_plugin()
 {
   io_filesystem->remove_directory_watch(on_script_changed);
-  io_api_manager->unregister_api(&io_user_script);
   io_api_manager->unregister_api(&io_user_events);
+  io_api_manager->unregister_api(&io_user_task);
+  io_custom_components->release_and_destroy_manager(script_manager);
 }

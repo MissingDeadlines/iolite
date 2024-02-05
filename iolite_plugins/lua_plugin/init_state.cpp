@@ -2601,18 +2601,6 @@ void script_init_state(sol::state& s)
 
   };
 
-  s["Script"] = s.create_table();
-  s["Script"]["load"] = [&s]() {
-
-    SHARED_COMPONENT_INTERFACE_IMPL(s["Script"], io_component_script);
-
-    // @namespace Script
-    // @category Script_Component Functions to interact with scripts.
-    // @copy_category Interface
-    // @copy_category Components
-
-  };
-
   s["VoxelShape"] = s.create_table();
   s["VoxelShape"]["load"] = [&s]() {
 
