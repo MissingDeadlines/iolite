@@ -693,8 +693,9 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
     script_manager = io_custom_components->request_manager();
     io_custom_components->register_property(
         script_manager, "scriptName", io_variant_from_string(""), nullptr, 0);
-    io_custom_components->register_property(
-        script_manager, "updateInterval", io_variant_from_uint(0u), nullptr, 0);
+    io_custom_components->register_property(script_manager, "updateInterval",
+                                            io_variant_from_uint(100u), nullptr,
+                                            0);
 
     io_custom_components->register_property(
         script_manager, "state", io_variant_from_uint64(0ull), nullptr,
