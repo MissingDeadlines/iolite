@@ -14,6 +14,39 @@ The Lua 5.1 Reference Manual
 
 .. important:: This section serves as an introduction to the Lua scripting integration in IOLITE. For further details, make sure to check out the :ref:`api_lua` documentation to quickly locate the functionality you are looking for.
 
+Writing your first script in Lua
+--------------------------------
+
+This short tutorial serves as a step-by-step guide to writing your first Lua script in IOLITE.
+
+.. important::
+  This guide requires the latest version of the Lua plugin for IOLITE to be installed. Please check the section :ref:`working_with_plugins` for more details.
+
+Open up your favorite code editor and create a new file. Copy and paste the following Lua script, which logs two strings to the console:
+
+.. code-block:: lua
+
+  Log.load()
+
+  -- Logs each time the script gets (re-)loaded
+  Log.log_info("Hello world! Script loaded!")
+
+  function OnActivate(entity)
+    -- Logs once the component becomes active
+    Log.log_info("Hello world! Component active!")
+  end
+
+After that, continue with the following steps:
+
+1. Store the script in ``default/media/scripts/`` and name it ``hello_world.lua``
+2. Open up IOLITE, ensure that the editor is active, and head over to the *World Inspector*
+3. Create a new entity with a script component attached to it
+4. In the property inspector, set the ``Script`` property to ``hello_world`` (without the extension)
+5. Switch to the game mode by clicking ``[Game Mode]`` in the menu bar
+6. Press ``[F2]`` to open up the console and check if the strings have been logged successfully
+
+Keep IOLITE open and modify the strings passed to the log functions. Every time you save the script, it triggers a hot reload. Notice how the global log call gets executed while the call in ``OnActivate`` is not. This call can be, e.g., triggered by switching back and forth between the game mode and the editor; the editor can be activated using ``[F3]``.
+
 Lua runtime and libraries
 -------------------------
 

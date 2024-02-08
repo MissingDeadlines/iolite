@@ -42,32 +42,32 @@ To create a sound effect, create a ``my_sound_effect.effect.json`` file in the `
    
 A single effect supports the following parameters:
    
-audio_samplers (Array of audio samplers)
+audio_samplers ``Array of audio samplers``
    The audio samplers for this effect. A single effect can play multiple samplers at the same time.
-volume (Float, optional)
+volume ``Float, optional``
    The volume for this sound effect. Use a value of ``0.0`` for a muted and a value of ``1.0`` for the loudest sound effect.
-looping (Boolean, optional)
+looping ``Boolean, optional``
    Set to ``true`` to automatically restart the effect instance when it has finished playing. Great for background music or ambient effects.
-spatial (Boolean, optional)
+spatial ``Boolean, optional``
    Set to ``true`` for spatial/3D sound effects. Spatial effects have a position in 3D space and change their volume depending on the listener's position.
-spatial_size (Float, optional)
+spatial_size ``Float, optional``
    The spatial size of the effect. If the distance to the listener is less than this value, the effect fades into a non-spatial sound effect.
-dist_att_min (Float, optional)
+dist_att_min ``Float, optional``
    The minimum distance attenuation volume. Sound effects will never get quieter than this volume value when attenuated based on the distance to the listener.
-dist_att_power (Float, optional)
+dist_att_power ``Float, optional``
    Specifies how quickly a sound effect is attenuated based on the distance to the listener.
-dist_att_range (Float, optional)
+dist_att_range ``Float, optional``
    The range world units in which the distance attenuation operates. Effects out of this range will be attenuated to the volume specified by the ``dist_att_min`` parameter.
 
 Audio samplers support the following parameters:
 
-file_names (Array of strings)
+file_names ``Array of strings``
    List of file names, including the file extension, of the audio files to play for this sampler. If more than one file name is provided, a random file is picked every time the effect is restarted.
-volume (Float, optional)
+volume ``Float, optional``
    The volume for this sampler. Behaves the same as the global volume for the effect.
-timeline_offset (Float, optional)
+timeline_offset ``Float, optional``
    The position on the effect's timeline in seconds when this sampler should start playing.
-pitch (Array of floats, optional)
+pitch ``Array of floats, optional``
    Randomly alters the pitch in the provided interval. Requires exactly two values in the array, which can be positive or negative. The first represents the minimum, and the second the maximum relative pitch change in cents.
 
 Playing sound effects

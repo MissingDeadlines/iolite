@@ -95,24 +95,24 @@ The app metadata allows you to adjust basic properties like your application's n
 
 Here's an overview of all the different parameters:
 
-application_name (String)
+application_name ``String``
    The name of your application.
-organization_name (String)
+organization_name ``String``
    The name of your organization (if any).
-version_string (String)
+version_string ``String``
    Version string following the `Semantic Versioning <https://semver.org/>`_ scheme.
-data_sources (Array of strings)
+data_sources ``Array of strings``
    The data sources used for your project. Data sources are loaded in the provided order. The engine starts searching for files in the first data sources and, if the file in question is found, skips searching all the other data sources.
-initial_world (String)
+initial_world ``String``
    The initial world to load after startup.
-initial_game_state (String)
+initial_game_state ``String``
    The initial game state to activate after startup. It can be either ``Editing`` for the editor or ``Main`` to start the application in game mode directly.
-disable_telemetry (Boolean)
+disable_telemetry ``Boolean``
    Set this to ``true`` to disable the collection of anonymous telemetry data.
 
 These additional settings are available in the PRO version of IOLITE:
 
-show_splash_screen (Boolean, PRO only)
+show_splash_screen ``Boolean, PRO only``
    Set to ``false`` to disable the splash screen shown during startup.
-disable_pro_features (Boolean, PRO only)
+disable_pro_features ``Boolean, PRO only``
    Set to ``false`` to disable all features of IOLITE PRO.

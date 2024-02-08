@@ -1,7 +1,7 @@
 .. _faq:
 
-⁉️ Frequently asked questions
-=============================
+️❓Frequently asked questions
+============================
 
 Here's a collection of frequently asked questions. Make sure to go through each one if you're encountering an issue. Chances are high that it is already known and documented here.
 

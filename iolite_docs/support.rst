@@ -1,5 +1,5 @@
-🚀 Support the development
-===========================
+🚀 Support us 
+=============
 
 If you would like to support the development of IOLITE, please consider `subscribing to IOLITE PRO <https://iolite-engine.com/subscribe>`_. In addition to all the features of the free version, the PRO version supports the following:
 

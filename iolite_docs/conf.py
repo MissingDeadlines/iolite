@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'IOLITE - Voxel Game Engine'
+project = 'IOLITE'
 copyright = '2023, Missing Deadlines. All Rights Reserved'
 author = 'Missing Deadlines (Benjamin Wrensch)'
 

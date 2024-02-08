@@ -38,8 +38,11 @@
   
   api
    
-   
 IOLITE 0.5 documentation
 ========================
-   
-Welcome to the documentation of IOLITE, the voxel-powered game engine. If you're new here, we recommend directly heading to the :ref:`introduction section <intro>`.
+
+Welcome to the documentation of IOLITE, the voxel-powered game engine.
+
+If you're new here, we recommend directly heading to the :ref:`introduction section <intro>`.
+
+.. note:: This documentation is considered a work in progress and is updated frequently.

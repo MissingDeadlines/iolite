@@ -5,9 +5,9 @@ Writing plugins using the native C/C++ API
 
 IOLITE's C/C++ API offers the possibility to create highly modular engine and editor plugins in C, C++, or any other language that supports C bindings.
 
-.. important:: The API documentation is provided via the header file itself.
+.. important:: The API documentation is provided via the header file itself, see :ref:`api_c` for details.
 
-.. important:: Native plugins are a feature of IOLITE PRO. You're free to evaluate plugins in the free version, but loading non-default plugins will add a watermark to the editor and game.
+.. warning:: Native plugins are a feature of IOLITE PRO. You're free to evaluate plugins in the free version, but loading non-default plugins will add a watermark to the editor and game.
 
 Writing a simple plugin
 ^^^^^^^^^^^^^^^^^^^^^^^
