@@ -3,5 +3,9 @@
     "editor.defaultFormatter": "ms-python.autopep8"
   },
   "python.formatting.provider": "none",
-  "esbonio.sphinx.confDir": "${workspaceFolder}\\iolite_docs"
+  "esbonio.sphinx.confDir": "${workspaceFolder}\\iolite_docs",
+  "cSpell.words": [
+    "voxel",
+    "Wrensch"
+  ]
 }

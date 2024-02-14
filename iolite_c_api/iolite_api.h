@@ -43,7 +43,7 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(const void* api_manager)
   // Do something with the API manager, set up your plugin, etc.
 
   return 0; // Return a value < 0 to indicate that the loading of your plugin
-            // has failed (depedency not available, etc.)
+            // has failed (dependency not available, etc.)
 }
 
 IO_API_EXPORT void IO_API_CALL unload_plugin()
@@ -68,6 +68,20 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
 //              buffer.
 //   Note:      It's best to avoid calling functions of this type multiple times
 //              and to pre-allocate a sufficiently large buffer upfront.
+
+// Working with event streams
+// ----
+//   Examples: "on_physics_events", "on_shape_events", etc.
+//   Usage:
+//
+//     const io_events_header_t* event = begin;
+//     while (event < end)
+//     {
+//       // Check type in header and fetch data via "io_events_get_data(event)"
+//       // ...
+//
+//       event = io_events_get_next(event);
+//     }
 
 #ifndef INCLUDE_IO_API
 #define INCLUDE_IO_API
@@ -996,7 +1010,7 @@ inline io_name_t io_to_name(const char* string)
 // Ref related functions
 //----------------------------------------------------------------------------//
 
-// Returns an invalid ref
+// Returns an invalid ref.
 //----------------------------------------------------------------------------//
 inline io_ref_t io_ref_invalid()
 {
@@ -1009,7 +1023,7 @@ inline io_ref_t io_ref_invalid()
   return ref;
 }
 
-// Returns true if the given ref is valid
+// Returns true if the given ref is valid.
 //----------------------------------------------------------------------------//
 inline io_bool_t io_ref_is_valid(io_ref_t ref)
 {
@@ -1017,7 +1031,7 @@ inline io_bool_t io_ref_is_valid(io_ref_t ref)
          ref.gen != io_ref_internal_invalid_gen_id;
 }
 
-// Returns true if both refs are equal
+// Returns true if both refs are equal.
 //----------------------------------------------------------------------------//
 inline io_bool_t io_ref_is_equal(io_ref_t left, io_ref_t right)
 {
@@ -1855,9 +1869,11 @@ struct io_user_denoiser_i // NOLINT
 struct io_user_events_i // NOLINT
 {
   // Called when physics related events are ready to be processed.
+  //   See "Documentation" for usage details.
   void (*on_physics_events)(const io_events_header_t* begin,
                             const io_events_header_t* end);
   // Called when voxel shape related events are ready to be processed.
+  //   See "Documentation" for usage details.
   void (*on_shape_events)(const io_events_header_t* begin,
                           const io_events_header_t* end);
 };
@@ -2539,7 +2555,7 @@ struct io_entity_i // NOLINT
   //       the component gets reinitialized.
   //     - If the component of the given type name does not exist, nothing
   //       is executed.
-  //     - If the source component does nont have a component of the given type,
+  //     - If the source component does not have a component of the given type,
   //       nothing is executed
   void (*copy_component_from_entity)(io_ref_t entity_target,
                                      io_ref_t entity_source,
