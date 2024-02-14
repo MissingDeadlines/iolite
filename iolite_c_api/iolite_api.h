@@ -2527,6 +2527,23 @@ struct io_entity_i // NOLINT
   //   See "Documentation" for usage details.
   void (*find_entities_with_name)(const char* name, io_ref_t* entities,
                                   io_size_t* entities_length);
+
+  // Copies and initializes the component of the given type from the source
+  // entity to the given target entity.
+  //   Rules:
+  //     - If the component does not exist on the target entity, a new
+  //       component with the properties of the component of the source
+  //       entity is created and initialized.
+  //     - If the component already exists on the target entity, the
+  //       component properties are copied from the source component and
+  //       the component gets reinitialized.
+  //     - If the component of the given type name does not exist, nothing
+  //       is executed.
+  //     - If the source component does nont have a component of the given type,
+  //       nothing is executed
+  void (*copy_component_from_entity)(io_ref_t entity_target,
+                                     io_ref_t entity_source,
+                                     const char* component_type_name);
 };
 
 // Base interface all components provide
