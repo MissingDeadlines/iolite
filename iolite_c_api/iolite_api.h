@@ -1692,6 +1692,8 @@ typedef struct
 typedef struct
 {
   io_ref_t base, chunk; // The base and the chunk shape
+  io_u8vec3_t origin;   // The origin of the chunk in the coordinate frame
+                        // of the base shape
 } io_events_data_shape_fractured_t;
 
 // Voxel shape voxelization completed event data
