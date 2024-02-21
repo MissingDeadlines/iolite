@@ -60,6 +60,7 @@ static const io_custom_components_i* io_custom_components = nullptr;
 static const io_resource_palette_i* io_resource_palette = nullptr;
 static const io_debug_geometry_i* io_debug_geometry = nullptr;
 static const io_low_level_imgui_i* io_low_level_imgui = nullptr;
+static const io_custom_event_streams_i* io_custom_event_streams = nullptr;
 
 // Sample variables
 //----------------------------------------------------------------------------//
@@ -75,7 +76,8 @@ static io_user_debug_view_i io_user_debug_view = {};
 
 // Globals
 //----------------------------------------------------------------------------//
-static io_handle16_t boid_component_mgr = {};
+static io_handle16_t boid_component_mgr = io_handle16_invalid();
+static io_handle16_t event_stream = io_handle16_invalid();
 
 // Boid component example
 //----------------------------------------------------------------------------//
@@ -479,6 +481,39 @@ static void draw_ui_sample(io_float32_t delta_t)
 }
 
 //----------------------------------------------------------------------------//
+static void process_events()
+{
+  // Process the queued events
+  {
+    const auto draw_event_type = io_to_name("Draw");
+    const auto draw_ui_event_type = io_to_name("DrawUI");
+    const auto simulate_event_type = io_to_name("Simulate");
+
+    const io_events_header_t *event, *end;
+    io_custom_event_streams->process_events(event_stream, &event, &end);
+
+    while (event < end)
+    {
+      // React on draw event
+      if (io_name_is_equal(event->type, draw_event_type))
+        draw_boids();
+      else if (io_name_is_equal(event->type, simulate_event_type))
+        simulate_boids();
+      else if (io_name_is_equal(event->type, draw_ui_event_type))
+      {
+        const float* delta_t = (float*)io_events_get_data(event);
+        draw_ui_sample(*delta_t);
+      }
+
+      event = io_events_get_next(event);
+    }
+
+    // We're done processing events
+    io_custom_event_streams->reset(event_stream);
+  }
+}
+
+//----------------------------------------------------------------------------//
 static void on_editor_tick(io_float32_t delta_t)
 {
   if (imgui_sample_show)
@@ -490,12 +525,18 @@ static void on_editor_tick(io_float32_t delta_t)
     ImGui::End();
   }
 
-  // Draw the boids
-  draw_boids();
+  // Post "Draw" event if there's something to draw
+  const io_uint32_t num_boids =
+      io_custom_components->get_num_active_components(boid_component_mgr);
+  if (num_boids > 0u)
+    io_custom_event_streams->post_event(event_stream, "Draw", nullptr, 0u);
 
   // Draw the UI sample (if active)
   if (ui_sample_show)
-    draw_ui_sample(delta_t);
+    io_custom_event_streams->post_event(event_stream, "DrawUI", &delta_t,
+                                        sizeof(delta_t));
+
+  process_events();
 }
 
 //----------------------------------------------------------------------------//
@@ -509,12 +550,18 @@ static void on_tick(io_float32_t delta_t)
 {
   // Add frame delta time to our accumulator
   io_accumulator_add(delta_t, &fixed_accum);
-  // Simulate our boids using our fixed stepper
-  while (io_accumulator_step(&fixed_accum))
-    simulate_boids();
 
-  // Draw the boids
-  draw_boids();
+  // Post a "Simulate" event for each step
+  while (io_accumulator_step(&fixed_accum))
+    io_custom_event_streams->post_event(event_stream, "Simulate", nullptr, 0u);
+
+  // Post "Draw" event if there's something to draw
+  const io_uint32_t num_boids =
+      io_custom_components->get_num_active_components(boid_component_mgr);
+  if (num_boids > 0u)
+    io_custom_event_streams->post_event(event_stream, "Draw", nullptr, 0u);
+
+  process_events();
 }
 
 //----------------------------------------------------------------------------//
@@ -554,6 +601,9 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
       IO_DEBUG_GEOMETRY_API_NAME);
   io_low_level_imgui = (const io_low_level_imgui_i*)io_api_manager->find_first(
       IO_LOW_LEVEL_IMGUI_API_NAME);
+  io_custom_event_streams =
+      (const io_custom_event_streams_i*)io_api_manager->find_first(
+          IO_CUSTOM_EVENT_STREAMS_API_NAME);
 
   // Create our boid custom component
   boid_component_mgr = io_custom_components->request_manager();
@@ -606,12 +656,20 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
     ImGui::SetAllocatorFunctions(alloc_func, free_func);
   }
 
+  // Set up a custom event stream
+  {
+    event_stream = io_custom_event_streams->request_event_stream();
+  }
+
   return 0;
 }
 
 //----------------------------------------------------------------------------//
 IO_API_EXPORT void IO_API_CALL unload_plugin()
 {
+  // Release our custom event stream
+  io_custom_event_streams->release_and_destroy_event_stream(event_stream);
+
   // Release our custom component manager
   io_custom_components->release_and_destroy_manager(boid_component_mgr);
 
