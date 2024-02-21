@@ -993,17 +993,85 @@ inline io_uint32_t io_hash(const char* data)
   return hash;
 }
 
+//----------------------------------------------------------------------------//
+// Name related functions
+//----------------------------------------------------------------------------//
+
 // Converts the given string to a name.
-//   Please note that the given string is not being internalized when using
-//   this function, hence it won't be possible to request the string for this
-//   name. Please use the name related functions provided by the "io_base_i"
-//   interface to ensure string internalization.
+//   Note:  The given string is not being internalized when using
+//          this function, hence it won't be possible to request the string for
+//          this name. Please use the name related functions provided by the
+//          "io_base_i" interface to ensure string internalization.
 //----------------------------------------------------------------------------//
 inline io_name_t io_to_name(const char* string)
 {
   io_name_t name;
   name.hash = io_hash(string);
   return name;
+}
+
+//----------------------------------------------------------------------------//
+inline io_bool_t io_name_is_equal(io_name_t left, io_name_t right)
+{
+  return left.hash == right.hash;
+}
+
+//----------------------------------------------------------------------------//
+inline io_bool_t io_name_is_not_equal(io_name_t left, io_name_t right)
+{
+  return left.hash != right.hash;
+}
+
+//----------------------------------------------------------------------------//
+// Handle related functions
+//----------------------------------------------------------------------------//
+
+// Returns an invalid 16-bit handle.
+//----------------------------------------------------------------------------//
+inline io_handle16_t io_handle16_invalid()
+{
+  io_handle16_t handle;
+  handle.internal = (io_uint16_t)-1;
+  return handle;
+}
+
+// Returns an invalid 32-bit handle.
+//----------------------------------------------------------------------------//
+inline io_handle32_t io_handle32_invalid()
+{
+  io_handle32_t handle;
+  handle.internal = (io_uint32_t)-1;
+  return handle;
+}
+
+// Returns an invalid 64-bit handle.
+//----------------------------------------------------------------------------//
+inline io_handle64_t io_handle64_invalid()
+{
+  io_handle64_t handle;
+  handle.internal = (io_uint64_t)-1;
+  return handle;
+}
+
+// Returns true if the given 16-bit handle is valid.
+//----------------------------------------------------------------------------//
+inline io_bool_t io_handle16_is_valid(io_handle16_t handle)
+{
+  return handle.internal != (io_uint16_t)-1;
+}
+
+// Returns true if the given 32-bit handle is valid.
+//----------------------------------------------------------------------------//
+inline io_bool_t io_handle32_is_valid(io_handle32_t handle)
+{
+  return handle.internal != (io_uint32_t)-1;
+}
+
+// Returns true if the given 64-bit handle is valid.
+//----------------------------------------------------------------------------//
+inline io_bool_t io_handle64_is_valid(io_handle64_t handle)
+{
+  return handle.internal != (io_uint64_t)-1;
 }
 
 //----------------------------------------------------------------------------//
@@ -1992,7 +2060,7 @@ struct io_editor_i // NOLINT
 #define IO_CUSTOM_COMPONENTS_API_NAME "io_custom_components_i"
 //----------------------------------------------------------------------------//
 
-// Interface for managing custom components
+// Interface for managing and working with custom components
 //----------------------------------------------------------------------------//
 struct io_custom_components_i // NOLINT
 {
@@ -2060,6 +2128,37 @@ struct io_custom_components_i // NOLINT
   io_ref_t (*make_ref)(io_handle16_t manager, io_ref_index_t component_index);
   // Converts the given ref to an index.
   io_ref_index_t (*make_index)(io_handle16_t manager, io_ref_t component);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_CUSTOM_EVENT_STREAMS_API_NAME "io_custom_event_streams"
+//----------------------------------------------------------------------------//
+
+// Interface for managing and working with custom event streams
+//----------------------------------------------------------------------------//
+struct io_custom_event_streams_i // NOLINT
+{
+  // Requests a new event stream to use.
+  io_handle16_t (*request_event_stream)();
+  // Releases and destroys the given event stream.
+  void (*release_and_destroy_event_stream)(io_handle16_t stream);
+
+  // Posts a new event to the event stream with an optional data chunk attached
+  // to it.
+  //   Note: The "event_data" can be nullptr if the "event_data_size_in_bytes"
+  //         is also zero.
+  void (*post_event)(io_handle16_t stream, const char* event_type,
+                     void* event_data, io_uint32_t event_data_size_in_bytes);
+
+  // Returns the "begin" and "end" ptr for processing the currently available
+  // events.
+  //   See "Documentation" for usage details.
+  void (*process_events)(io_handle16_t stream, const io_events_header_t** begin,
+                         const io_events_header_t** end);
+
+  // Resets the given event stream. Call this when you have fully processed the
+  // events.
+  void (*reset)(io_handle16_t stream);
 };
 
 //----------------------------------------------------------------------------//
