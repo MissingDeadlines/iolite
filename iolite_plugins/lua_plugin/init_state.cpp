@@ -920,6 +920,20 @@ void script_init_state(sol::state& s)
   s["Variant"]["from_uint"] = [](uint32_t value) {
     return io_variant_from_uint(value);
   };
+  // @function from_uint8
+  // @summary Creates a new variant storing a single 8-bit unsigned integer value.
+  // @param value number The unsigned integer value to set.
+  // @return Variant value The new variant.
+  s["Variant"]["from_uint8"] = [](uint32_t value) {
+    return io_variant_from_uint8(value);
+  };
+  // @function from_uint16
+  // @summary Creates a new variant storing a single 16-bit unsigned integer value.
+  // @param value number The unsigned integer value to set.
+  // @return Variant value The new variant.
+  s["Variant"]["from_uint16"] = [](uint32_t value) {
+    return io_variant_from_uint16(value);
+  };
   // @function from_string
   // @summary Creates a new variant storing a string.
   // @param value string The string to set.
@@ -1036,6 +1050,20 @@ void script_init_state(sol::state& s)
   // @return number value The unsigned integer value.
   s["Variant"]["get_uint"] = [](io_variant_t variant) {
     return io_variant_get_uint(variant);
+  };
+  // @function get_uint8
+  // @summary Returns the underlying 8-bit unsigned integer value.
+  // @param variant Variant The variant to retrieve from.
+  // @return number value The unsigned integer value.
+  s["Variant"]["get_uint8"] = [](io_variant_t variant) {
+    return io_variant_get_uint8(variant);
+  };
+  // @function get_uint16
+  // @summary Returns the underlying 16-bit unsigned integer value.
+  // @param variant Variant The variant to retrieve from.
+  // @return number value The unsigned integer value.
+  s["Variant"]["get_uint16"] = [](io_variant_t variant) {
+    return io_variant_get_uint16(variant);
   };
   // @function get_string
   // @summary Returns the underlying string.
