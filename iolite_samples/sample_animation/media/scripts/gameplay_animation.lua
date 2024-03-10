@@ -25,6 +25,7 @@ AnimationSystem.load()
 World.load()
 Node.load()
 Math.load()
+FlipbookAnimation.load()
 
 function OnActivate(entity)
   local e = Entity.find_first_entity_with_name("knight")
@@ -46,6 +47,22 @@ function OnActivate(entity)
 
   -- Keep track of time
   Time = 0.0
+
+  -- Set up flipbook animations
+
+  -- Start with the dinosaur
+  e = Entity.find_first_entity_with_name("dino")
+  local fb = FlipbookAnimation.get_component_for_entity(e)
+  -- Play animation by setting the flags manually
+  -- Flag bit 1: Play, Flag bit 2: Loop, Flag bit 3: Clear
+  -- Bits: 0000 0111, Decimal: 7
+  FlipbookAnimation.set_property(fb, "Flags", Variant.from_uint8(7))
+
+  -- Set up the deer
+  e = Entity.find_first_entity_with_name("deer")
+  fb = FlipbookAnimation.get_component_for_entity(e)
+  -- Play animation by using the helper function
+  FlipbookAnimation.play(fb)
 end
 
 function Tick(entity, delta_t)

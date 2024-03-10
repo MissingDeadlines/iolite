@@ -525,11 +525,13 @@
           "uuid": {
             "value": 1106165593938191804
           },
-          "updateInterval": {
-            "value": 100
-          },
           "scriptName": {
+            "type": "name",
             "value": "gameplay_animation"
+          },
+          "updateInterval": {
+            "type": "uint",
+            "value": 100
           }
         }
       },
@@ -569,12 +571,320 @@
   },
   {
     "uuid": {
+      "value": 10494881434840561748
+    },
+    "name": {
+      "value": "deer"
+    },
+    "offsetToParent": -8,
+    "propertyEntries": [
+      {
+        "type": "FlipbookAnimation",
+        "properties": {
+          "uuid": {
+            "value": 13021085401451636351
+          },
+          "firstFrame": {
+            "value": 0
+          },
+          "lastFrame": {
+            "value": 3
+          },
+          "currentFrame": {
+            "value": 2
+          },
+          "speed": {
+            "value": 10.0
+          },
+          "flags": {
+            "value": 6
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 10494881434840561748
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              5.630620002746582,
+              1.2995001077651978,
+              10.743817329406738
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 9014556890659814382
+          },
+          "voxelShapeName": {
+            "value": "deer"
+          },
+          "paletteName": {
+            "value": ""
+          },
+          "textureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              13.0,
+              13.5,
+              4.5
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 10494881434840561748
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 6211028497377848228
+    },
+    "name": {
+      "value": "dino"
+    },
+    "offsetToParent": -9,
+    "propertyEntries": [
+      {
+        "type": "FlipbookAnimation",
+        "properties": {
+          "uuid": {
+            "value": 5774404106133422323
+          },
+          "firstFrame": {
+            "value": 0
+          },
+          "lastFrame": {
+            "value": 7
+          },
+          "currentFrame": {
+            "value": 0
+          },
+          "speed": {
+            "value": 10.0
+          },
+          "flags": {
+            "value": 6
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 6211028497377848228
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              10.720365524291992,
+              1.24950110912323,
+              8.652095794677734
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              0.10000000149011612,
+              0.10000000149011612,
+              0.10000000149011612
+            ]
+          }
+        }
+      },
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "uuid": {
+            "value": 990254927015339929
+          },
+          "voxelShapeName": {
+            "value": "dino"
+          },
+          "paletteName": {
+            "value": ""
+          },
+          "textureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 0
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              12.0,
+              13.0,
+              12.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 6211028497377848228
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
       "value": 4165698318257684284
     },
     "name": {
       "value": "body"
     },
-    "offsetToParent": -2,
+    "offsetToParent": -4,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -716,7 +1026,7 @@
     "name": {
       "value": "leg_right"
     },
-    "offsetToParent": -3,
+    "offsetToParent": -5,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -858,7 +1168,7 @@
     "name": {
       "value": "leg_left"
     },
-    "offsetToParent": -4,
+    "offsetToParent": -6,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -1684,7 +1994,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -13,
+    "offsetToParent": -15,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1815,7 +2125,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -14,
+    "offsetToParent": -16,
     "propertyEntries": [
       {
         "type": "Node",
@@ -1946,7 +2256,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -15,
+    "offsetToParent": -17,
     "propertyEntries": [
       {
         "type": "Node",
