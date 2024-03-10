@@ -2498,7 +2498,8 @@ void script_init_state(sol::state& s)
   t_["get_type_id"] = i_->base.get_type_id;                                    \
   t_["create"] = i_->base.create;                                              \
   t_["destroy"] = i_->base.destroy;                                            \
-  t_["commit_changes"] = i_->base.commit_changes;                              \
+  t_["commit_changes"] = [](io_ref_t component) { if (i_->base.commit_changes) \
+    i_->base.commit_changes(component); };                                     \
   t_["get_num_active_components"] = i_->base.get_num_active_components;        \
   t_["get_component_for_entity"] = i_->base.get_component_for_entity;          \
   t_["is_alive"] = i_->base.is_alive;                                          \
