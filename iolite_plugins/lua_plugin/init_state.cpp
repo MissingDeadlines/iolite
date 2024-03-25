@@ -895,6 +895,13 @@ void script_init_state(sol::state& s)
   s["Variant"]["from_uint"] = [](uint32_t value) {
     return io_base->variant_from_uint(value);
   };
+  // @function from_uint8
+  // @summary Creates a new variant storing a single 8bit unsigned integer value.
+  // @param value number The unsigned 8bit integer value to set.
+  // @return Variant value The new variant.
+  s["Variant"]["from_uint8"] = [](uint8_t value) {
+    return io_base->variant_from_uint8(value);
+  };
   // @function from_string
   // @summary Creates a new variant storing a string.
   // @param value string The string to set.
