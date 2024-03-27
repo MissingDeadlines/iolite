@@ -2728,7 +2728,16 @@ struct io_component_node_i // NOLINT
   // Creates a new node and attaches it to the current world's root node.
   io_ref_t (*create)(const char* name);
   // Creates a new node and attaches it to the provided parent node.
-  io_ref_t (*create_with_parent)(const char* name, io_ref_t parent);
+  //   See the documentation of the "attach" function regarding
+  //   the "ignore_parent" parameter.
+  io_ref_t (*create_with_parent)(const char* name, io_ref_t parent,
+                                 io_bool_t ignore_parent);
+
+  // Attaches the given child node to the provided parent node.
+  //   By default, the transform of the parent node is considered so the child
+  //   node keeps its world transform. Set the "ignore_parent" parameter to
+  //   "true" to avoid this behavior and ignore the parent transform.
+  void (*attach)(io_ref_t parent, io_ref_t child, io_bool_t ignore_parent);
 
   // Returns the depth of the node in the hierarchy.
   //   0: World root node

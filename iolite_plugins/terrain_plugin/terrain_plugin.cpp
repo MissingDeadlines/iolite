@@ -280,7 +280,7 @@ auto generate_from_data(const io_plugin_terrain_heightmap_pixel* heightmap,
         // Set up entity for this chunk
         {
           auto chunk_node = io_component_node->create_with_parent(
-              "terrain_chunk", terrain_node);
+              "terrain_chunk", terrain_node, false);
           auto chunk_entity = io_component_node->base.get_entity(chunk_node);
 
           io_component_node->set_position(
