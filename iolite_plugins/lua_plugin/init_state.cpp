@@ -764,6 +764,39 @@ void script_init_state(sol::state& s)
                       return {w, x, y, z};
                     });
 
+
+  // @type Sphere
+  // @summary A sphere defined by a center and radius.
+  // @member center Vec3
+  // @member radius number
+  s.new_usertype<io_sphere_t>("Sphere", sol::no_constructor, "center", &io_sphere_t::center,
+                            "radius", &io_sphere_t::radius);
+
+  // @function Sphere
+  // @summary Initializes a new Sphere.
+  // @param center Vec3 The center of the sphere.
+  // @param radius number The radius of the sphere.
+  // @return Sphere value The new sphere.
+
+  s["Sphere"] =[](const io_vec3_t& center, io_float32_t radius) -> io_sphere_t 
+    { return {center, radius}; };
+
+  // @type AABB
+  // @summary A axis aligned bounding box (AABB) defined by a center and half extent.
+  // @member center Vec3
+  // @member half_extent Vec3
+  s.new_usertype<io_aabb_t>("AABB", sol::no_constructor, "center", &io_aabb_t::center,
+                            "half_extent", &io_aabb_t::half_extent);
+
+  // @function AABB
+  // @summary Initializes a new AABB (axis aligned bounding box).
+  // @param center Vec3 The center of the AABB.
+  // @param half_extent Vec3 The half extent of the AABB.
+  // @return AABB value The new AABB.
+
+  s["AABB"] =[](const io_vec3_t& center, const io_vec3_t& half_extent) -> io_aabb_t 
+    { return {center, half_extent}; };
+
   // @type HeightmapPixel
   // @summary A single pixel used for generating heightmaps.
   s.new_usertype<io_plugin_terrain_heightmap_pixel>("HeightmapPixel",
@@ -3024,6 +3057,61 @@ void script_init_state(sol::state& s)
     // @summary Updates the transformations of the given node hierarchy.
     // @param node Ref The root node of the hierarchy.
     s["Node"]["update_transforms"] = io_component_node->update_transforms;
+
+    // @function intersect_point
+    // @summary Iterates over all the provided nodes and returns the ones which intersect the given point.
+    // @param point Vec3 The point test against.
+    // @param nodes table The nodes to check for intersections.
+    // @param use_global_bounds boolean Set to true to use the global bounds (the compound bounds of each node and all its children).
+    // @return table value All nodes intersecting the provided point.
+    s["Node"]["intersect_point"] = [](const io_vec3_t& point, const sol::table& nodes, bool use_global_bounds) {
+      std::vector<io_ref_t> ns(nodes.size());
+      for (uint32_t i=0u; i<nodes.size(); ++i)
+        ns[i] = nodes[i+1u];
+
+      uint32_t num_intersecting_nodes;
+      io_component_node->intersect_point(point, ns.data(), ns.size(), nullptr, &num_intersecting_nodes, use_global_bounds);
+      std::vector<io_ref_t> intersecting_nodes(num_intersecting_nodes);
+      io_component_node->intersect_point(point, ns.data(), ns.size(), intersecting_nodes.data(), &num_intersecting_nodes, use_global_bounds);
+
+      return intersecting_nodes;
+    };
+    // @function intersect_aabb
+    // @summary Iterates over all the provided nodes and returns the ones which intersect the given axis aligned bounding box (AABB).
+    // @param aabb AABB The AABB to test against.
+    // @param nodes table The nodes to check for intersections.
+    // @param use_global_bounds boolean Set to true to use the global bounds (the compound bounds of each node and all its children).
+    // @return table value All nodes intersecting the provided AABB.
+    s["Node"]["intersect_aabb"] = [](const io_aabb_t& aabb, const sol::table& nodes, bool use_global_bounds) {
+      std::vector<io_ref_t> ns(nodes.size());
+      for (uint32_t i=0u; i<nodes.size(); ++i)
+        ns[i] = nodes[i+1u];
+
+      uint32_t num_intersecting_nodes;
+      io_component_node->intersect_aabb(aabb, ns.data(), ns.size(), nullptr, &num_intersecting_nodes, use_global_bounds);
+      std::vector<io_ref_t> intersecting_nodes(num_intersecting_nodes);
+      io_component_node->intersect_aabb(aabb, ns.data(), ns.size(), intersecting_nodes.data(), &num_intersecting_nodes, use_global_bounds);
+
+      return intersecting_nodes;
+    };
+    // @function intersect_sphere
+    // @summary Iterates over all the provided nodes and returns the ones which intersect the given sphere.
+    // @param sphere Sphere The sphere to test against.
+    // @param nodes table The nodes to check for intersections.
+    // @param use_global_bounds boolean Set to true to use the global bounds (the compound bounds of each node and all its children).
+    // @return table value All nodes intersecting the provided sphere.
+    s["Node"]["intersect_sphere"] = [](const io_sphere_t& sphere, const sol::table& nodes, bool use_global_bounds) {
+      std::vector<io_ref_t> ns(nodes.size());
+      for (uint32_t i=0u; i<nodes.size(); ++i)
+        ns[i] = nodes[i+1u];
+
+      uint32_t num_intersecting_nodes;
+      io_component_node->intersect_sphere(sphere, ns.data(), ns.size(), nullptr, &num_intersecting_nodes, use_global_bounds);
+      std::vector<io_ref_t> intersecting_nodes(num_intersecting_nodes);
+      io_component_node->intersect_sphere(sphere, ns.data(), ns.size(), intersecting_nodes.data(), &num_intersecting_nodes, use_global_bounds);
+
+      return intersecting_nodes;
+    };
 
   };
 

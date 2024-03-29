@@ -364,6 +364,20 @@ typedef struct
 } io_uvec4_t;
 
 //----------------------------------------------------------------------------//
+typedef struct
+{
+  io_vec3_t center;
+  io_float32_t radius;
+} io_sphere_t;
+
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_vec3_t center;
+  io_vec3_t half_extent;
+} io_aabb_t;
+
+//----------------------------------------------------------------------------//
 // Math type conversion helpers
 //----------------------------------------------------------------------------//
 
@@ -2825,8 +2839,36 @@ struct io_component_node_i // NOLINT
   // Updates the transforms of the node hierarchy.
   void (*update_transforms)(io_ref_t node);
   // Updates the transforms of the node hierarchy in parallel (if possible).
-  void (*update_transforms_jobified)(const io_ref_t* node,
+  void (*update_transforms_jobified)(const io_ref_t* nodes,
                                      io_size_t nodes_length);
+
+  // Iterates over all the provided nodes and returns the ones which intersect
+  // the given point.
+  //   If "use_global_bounds" is set to true, the
+  //   compound bounds of a node and all its children are used for
+  //   the intersection tests.
+  void (*intersect_point)(io_vec3_t point, const io_ref_t* nodes,
+                          io_size_t nodes_length, io_ref_t* intersecting_nodes,
+                          io_size_t* intersecting_nodes_length,
+                          io_bool_t use_global_bounds);
+  // Iterates over all the provided nodes and returns the ones which intersect
+  // the given axis aligned bounding box (AABB).
+  //   If "use_global_bounds" is set to true, the
+  //   compound bounds of a node and all its children are used for
+  //   the intersection tests.
+  void (*intersect_aabb)(io_aabb_t aabb, const io_ref_t* nodes,
+                         io_size_t nodes_length, io_ref_t* intersecting_nodes,
+                         io_size_t* intersecting_nodes_length,
+                         io_bool_t use_global_bounds);
+  // Iterates over all the provided nodes and returns the ones which intersect
+  // the given sphere.
+  //   If "use_global_bounds" is set to true, the
+  //   compound bounds of a node and all its children are used for
+  //   the intersection tests.
+  void (*intersect_sphere)(io_sphere_t sphere, const io_ref_t* nodes,
+                           io_size_t nodes_length, io_ref_t* intersecting_nodes,
+                           io_size_t* intersecting_nodes_length,
+                           io_bool_t use_global_bounds);
 };
 
 //----------------------------------------------------------------------------//
