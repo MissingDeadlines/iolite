@@ -717,7 +717,7 @@
             "value": 0
           },
           "snapshotUuid": {
-            "value": 10494881434840561748
+            "value": 18446744073709551615
           }
         }
       }
@@ -871,7 +871,66 @@
             "value": 0
           },
           "snapshotUuid": {
-            "value": 6211028497377848228
+            "value": 18446744073709551615
+          }
+        }
+      }
+    ]
+  },
+  {
+    "uuid": {
+      "value": 1003647510606990265
+    },
+    "name": {
+      "value": "animation_controller"
+    },
+    "offsetToParent": -10,
+    "propertyEntries": [
+      {
+        "type": "Script",
+        "properties": {
+          "uuid": {
+            "value": 11390178141684372613
+          },
+          "scriptName": {
+            "type": "name",
+            "value": "animation_controller"
+          },
+          "updateInterval": {
+            "type": "uint",
+            "value": 100
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "uuid": {
+            "value": 1003647510606990265
+          },
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              3.043813705444336,
+              -0.05050039291381836,
+              5.366795539855957
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
           }
         }
       }
@@ -884,7 +943,7 @@
     "name": {
       "value": "body"
     },
-    "offsetToParent": -4,
+    "offsetToParent": -5,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -1026,7 +1085,7 @@
     "name": {
       "value": "leg_right"
     },
-    "offsetToParent": -5,
+    "offsetToParent": -6,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -1168,7 +1227,7 @@
     "name": {
       "value": "leg_left"
     },
-    "offsetToParent": -6,
+    "offsetToParent": -7,
     "propertyEntries": [
       {
         "type": "AnimationNode",
@@ -1994,7 +2053,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -15,
+    "offsetToParent": -16,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2125,7 +2184,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -16,
+    "offsetToParent": -17,
     "propertyEntries": [
       {
         "type": "Node",
@@ -2256,7 +2315,7 @@
     "name": {
       "value": "ground"
     },
-    "offsetToParent": -17,
+    "offsetToParent": -18,
     "propertyEntries": [
       {
         "type": "Node",

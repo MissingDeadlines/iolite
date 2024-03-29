@@ -26,33 +26,20 @@ World.load()
 Node.load()
 Math.load()
 FlipbookAnimation.load()
+Events.load()
 
 function OnActivate(entity)
-  local e = Entity.find_first_entity_with_name("knight")
-  local n = Node.get_component_for_entity(e)
-
-  local desc = AnimationSystem.AnimationDesc()
-  desc.animation_name = "walk_circle"
-  desc.looping = true
-
-  -- Base animation that animates the knights root node around a circle
-  AnimCircle = AnimationSystem.play_animation(n, desc)
-
-  desc.animation_name = "walk"
-  desc.looping = true
-  desc.play_speed = 2.0
-
-  -- Walk cycle layered on top
-  AnimWalk = AnimationSystem.play_animation(n, desc)
-
   -- Keep track of time
   Time = 0.0
 
-  -- Set up flipbook animations
+  -- Start the node-based animations for the knight via the event system
+  -- See the separate "animation_controller.lua" script for details
+  Events.post_event(entity, "start_animations")
 
-  -- Start with the dinosaur
-  e = Entity.find_first_entity_with_name("dino")
+  -- Set up flipbook animations, start with the dinosaur
+  local e = Entity.find_first_entity_with_name("dino")
   local fb = FlipbookAnimation.get_component_for_entity(e)
+
   -- Play animation by setting the flags manually
   -- Flag bit 1: Play, Flag bit 2: Loop, Flag bit 3: Clear
   -- Bits: 0000 0111, Decimal: 7
@@ -61,23 +48,25 @@ function OnActivate(entity)
   -- Set up the deer
   e = Entity.find_first_entity_with_name("deer")
   fb = FlipbookAnimation.get_component_for_entity(e)
-  -- Play animation by using the helper function
+  -- Play animation by using one of the helper functions instead of the flags
   FlipbookAnimation.play(fb)
 end
 
 function Tick(entity, delta_t)
   Time = Time + delta_t
 
-  -- Vary play speed
-  local speed = Math.sin(Time) + 1.0
-  AnimationSystem.set_play_speed(AnimCircle, 1.0 * speed)
-  AnimationSystem.set_play_speed(AnimWalk, 2.0 * speed)
+  -- Adjust this to speed up the animations
+  local speed_factor = 1.0
 
-  -- Blend out walk animation when stopping
-  AnimationSystem.set_blend_weight(AnimWalk, Math.min(speed / 0.25, 1.0))
+  -- Update the animation paramerters for the knight each frame via the event system
+  -- See the separate "animation_controller.lua" script for details
+  Events.post_event_with_payload(entity, "update_animations", {
+    Variant.from_float(Time), Variant.from_float(speed_factor)
+  })
 end
 
 function OnDeactivate(entity)
-  AnimationSystem.stop_animation(AnimCircle)
-  AnimationSystem.stop_animation(AnimWalk)
+  -- Stop the animations of the knight
+  -- See the separate "animation_controller.lua" script for details
+  Events.post_event(entity, "stop_animations")
 end
