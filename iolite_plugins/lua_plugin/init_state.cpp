@@ -24,9 +24,6 @@
 
 #include "lua_plugin.h"
 
-namespace internal
-{
-
 //----------------------------------------------------------------------------//
 namespace math_helper
 {
@@ -288,7 +285,7 @@ void script_init_state(sol::state& s)
   s["Utils"]["load"] = [&s](const char* script_name) -> sol::reference {
     const std::string filepath =
         std::string("media/scripts/") + script_name + ".lua";
-    auto script = internal::load_script(s, filepath.c_str());
+    auto script = load_script(s, filepath.c_str());
     if (script.valid())
       return script();
     return sol::nil;
@@ -306,7 +303,7 @@ void script_init_state(sol::state& s)
     {
       const std::string filepath =
           std::string("media/scripts/") + script_name + ".lua";
-      auto script = internal::load_script(s, filepath.c_str());
+      auto script = load_script(s, filepath.c_str());
       if (script.valid())
         s["__MODULES"][script_name] = script();
     }
@@ -830,6 +827,24 @@ void script_init_state(sol::state& s)
       &lua_physics_contact_event_t::event_data_t::impulse, "type",
       &lua_physics_contact_event_t::event_data_t::type
       );
+
+  // @type UserEvent
+  // @summary Custom user event fired via the Event table interface.
+  // @member type string The type name.
+  // @member data UserEventData The data of this event.
+  s.new_usertype<lua_user_event_t>(
+      "UserEvent", sol::no_constructor, "type",
+      &lua_user_event_t::type, "data",
+      &lua_user_event_t::data);
+  // @type UserEventData
+  // @summary The data for a single user event.
+  // @member source_entity Ref The source entity of this event.
+  // @member variants table The variant payload of this event.
+  s.new_usertype<lua_user_event_t::event_data_t>(
+      "UserEventData", sol::no_constructor, "source_entity",
+      &lua_user_event_t::event_data_t::source_entity, "variants",
+      &lua_user_event_t::event_data_t::variants
+  );
 
   // @type UIAnchor
   // @summary Defines an anchor used for creating (rectangle) transforms in the UI system.
@@ -1541,7 +1556,42 @@ void script_init_state(sol::state& s)
     s["Log"]["log_error"] = io_logging->log_error;
   };
 
-  // TODO:
+  s["Events"] = s.create_table();
+  s["Events"]["load"] = [&s]() {
+    // @namespace Events
+    // @category Functions for working with user events.
+    // @copy_category Interface
+
+    // @function register_event_listener
+    // @summary Register the given entity to listen for the given event type.
+    // @param target_entity Ref The target entity that should listen for events.
+    // @param event_type string The type of events to listen for.
+    s["Events"]["register_event_listener"] = register_event_listener;
+    // @function unregister_event_listener
+    // @summary Unregister the given entity as a listener for the given event type.
+    // @param target_entity Ref The target entity listening for events.
+    // @param event_type string The type of events to stop listening for.
+    s["Events"]["unregister_event_listener"] = unregister_event_listener;
+    // @function post_event
+    // @summary Posts the given event type from the given source entity.
+    // @param source_entity Ref The entity the event is originating from.
+    // @param event_type string The type of the event to post.
+    s["Events"]["post_event"] = [](io_ref_t source_entity, const char* event_type) {
+      post_event( source_entity, event_type, nullptr, 0u);
+    };
+    // @function post_event_with_payload
+    // @summary Posts the given event type from the given source entity with the provided payload of variants.
+    // @param source_entity Ref The entity the event is originating from.
+    // @param event_type string The type of the event to post.
+    // @param variants table Array of variants serving as the payload for the event.
+    s["Events"]["post_event_with_payload"] = [](io_ref_t source_entity, const char* event_type, const sol::table& variants) {
+      std::vector<io_variant_t> vars(variants.size());
+      for (uint32_t i=0u; i<variants.size(); ++i)
+        vars[i] = variants[1u + i];
+      post_event( source_entity, event_type, vars.data(), vars.size());
+    };
+  };
+
   s["UI"] = s.create_table();
   s["UI"]["load"] = [&s]() {
     // @namespace UI
@@ -1827,7 +1877,7 @@ void script_init_state(sol::state& s)
     // @function load_world
     // @summary Loads the world with the given name.
     // @param name string The name of the world to load.
-    s["World"]["load_world"] = [](const char* world_name) { internal::queue_load_world(world_name); };
+    s["World"]["load_world"] = [](const char* world_name) { queue_load_world(world_name); };
     // @function save_world
     // @summary Saves the current world under the given name.
     // @param name string The name of the world to save.
@@ -2819,7 +2869,7 @@ void script_init_state(sol::state& s)
     // @function destroy
     // @summary Destroys the given node component.
     // @param node Ref The node to destroy.
-    s["Node"]["destroy"] = [](io_ref_t node) { internal::queue_destroy_node(node); };
+    s["Node"]["destroy"] = [](io_ref_t node) { queue_destroy_node(node); };
 
     // @function get_depth
     // @summary Gets the depth of the node in the hierarchy (0: world root node, 1: children of the world root node, 2: ..., and so on)
@@ -2948,7 +2998,7 @@ void script_init_state(sol::state& s)
     // @function collect_nodes_depth_first
     // @summary Collects all nodes in the hierarchy in depth first ordering starting at the provided node (including the root).
     // @param node Ref The root node to start collecting at.
-    // @return table value Table containig all nodes in the hierarchy.
+    // @return table value Table containing all nodes in the hierarchy.
     s["Node"]["collect_nodes_depth_first"] = [](io_ref_t root_node) {
       uint32_t num_nodes;
       io_component_node->collect_nodes_depth_first(root_node, nullptr, &num_nodes);
@@ -2960,7 +3010,7 @@ void script_init_state(sol::state& s)
     // @function collect_nodes_breadth_first
     // @summary Collects all nodes in the hierarchy in breadth first ordering starting at the provided node (including the root).
     // @param node Ref The root node to start at.
-    // @return table value Table containig all nodes in the hierarchy.
+    // @return table value Table containing all nodes in the hierarchy.
     s["Node"]["collect_nodes_breadth_first"] = [](io_ref_t root_node) {
       uint32_t num_nodes;
       io_component_node->collect_nodes_breadth_first(root_node, nullptr, &num_nodes);
@@ -3125,4 +3175,3 @@ void script_init_state(sol::state& s)
             lua_callback_interface);
   }
 }
-} // namespace internal

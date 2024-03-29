@@ -94,13 +94,7 @@ function Tick(entity, delta_t)
   elseif not TerrainNode then
     DrawText(string.format("Generating terrain... %.2f %%", Progress))
   end
-end
 
---- Called every frame and executed asynchronously.
---- Please note that **only working on local data is allowed here** and reading or writing scene data will lead to **crashes**.
----@param entity Ref The ref of the entity the script component is attached to.
----@param delta_t number The time (in seconds) passed since the last call to this function.
-function TickAsync(entity, delta_t)
   local status, heightmap = coroutine.resume(HeightmapGenerator)
   if status then
     Heightmap = heightmap

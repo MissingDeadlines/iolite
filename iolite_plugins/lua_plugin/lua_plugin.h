@@ -94,6 +94,30 @@ extern const io_component_vehicle_i* io_component_vehicle;
 extern const io_component_vehicle_wheel_i* io_component_vehicle_wheel;
 extern const io_component_joint_i* io_component_joint;
 
+// Custom types and helpers
+//----------------------------------------------------------------------------//
+template <typename T> struct lua_array_wrapper_t
+{
+  typedef T value_type;
+  typedef T* iterator;
+
+  inline lua_array_wrapper_t() {}
+  inline lua_array_wrapper_t(T* data, io_size_t length)
+  {
+    begin_ptr = data;
+    end_ptr = data + length;
+  }
+
+  inline T& operator[](size_t n) { return begin_ptr[n]; }
+  inline iterator begin() { return begin_ptr; }
+  inline iterator end() { return end_ptr; }
+  inline size_t size() { return size_t(end_ptr - begin_ptr); }
+  inline size_t max_size() { return size(); }
+
+  T* begin_ptr{};
+  T* end_ptr{};
+};
+
 // Custom data types
 //----------------------------------------------------------------------------//
 struct lua_physics_contact_event_t
@@ -107,6 +131,17 @@ struct lua_physics_contact_event_t
   } data;
 };
 
+//----------------------------------------------------------------------------//
+struct lua_user_event_t
+{
+  const char* type;
+  struct event_data_t
+  {
+    io_ref_t source_entity;
+    lua_array_wrapper_t<io_variant_t> variants;
+  } data;
+};
+
 // Interfaces we provide
 //----------------------------------------------------------------------------//
 extern io_user_events_i io_user_events;
@@ -115,38 +150,36 @@ extern io_user_events_i io_user_events;
 //----------------------------------------------------------------------------//
 extern io_handle16_t script_manager;
 
+// Public functions
 //----------------------------------------------------------------------------//
-namespace internal
-{
 
+// Initialize the given state.
+//----------------------------------------------------------------------------//
+void script_init_state(sol::state& s);
+
+// Queues loading of the world with the given name.
 //----------------------------------------------------------------------------//
 void queue_load_world(const char* world_name);
 
+// Queues the destruction of the given node.
 //----------------------------------------------------------------------------//
 void queue_destroy_node(io_ref_t node);
 
+// Loads the script from the given filepath.
 //----------------------------------------------------------------------------//
 auto load_script(sol::state& state, const char* filepath)
     -> sol::protected_function;
 
+// Adds a new event listener for the provided event type.
 //----------------------------------------------------------------------------//
-void execute_script(sol::state& state, const char* directory_path,
-                    const char* script_name);
+void register_event_listener(io_ref_t target_entity, const char* event_type);
 
+// Removes the event listener for the provided event type.
 //----------------------------------------------------------------------------//
-void script_activate(sol::state& state, io_ref_t entity,
-                     uint32_t update_interval);
+void unregister_event_listener(io_ref_t target_entity, const char* event_type);
 
+// Posts a new event of a given type from the given source entity with the
+// provided variants as payload.
 //----------------------------------------------------------------------------//
-void script_deactivate(sol::state& state, io_ref_t entity);
-
-//----------------------------------------------------------------------------//
-void script_tick(sol::state& state, io_float32_t delta_t, io_ref_t entity);
-
-//----------------------------------------------------------------------------//
-void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
-                   uint32_t update_interval);
-
-//----------------------------------------------------------------------------//
-void script_init_state(sol::state& s);
-} // namespace internal
+void post_event(io_ref_t source_entity, const char* event_type,
+                io_variant_t* variants, io_size_t variants_length);

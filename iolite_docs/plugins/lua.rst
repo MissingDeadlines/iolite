@@ -151,18 +151,16 @@ All the different types of available events are described in a later section. Bu
         end
       end
 
-Last but not least, a variation of the ``Tick`` callback function:
+A similar callback function is available for user events:
 
 .. code-block:: lua
 
-  function TickAsync(entity, delta_t)
+  function OnUserEvent(entity, events)
   end
 
-Called precisely once during each rendered frame but executed asynchronously till the next call to this function.
+Called as soon as one or multiple user events are available.
 
-Use this function to optimize scripts that need to do some complex and costly calculations. Check out the heightmap sample in our `GitHub repository <https://github.com/MissingDeadlines/iolite/tree/main/iolite_samples>`_, which uses this functionality. 
-
-.. important:: It's only safe to do some basic calculations here and to modify the internal state of the current script. Accessing entities and components via the scripting API will most certainly lead to crashes or very hard to reproduce bugs. **Use with absolute caution!**
+This callback function is useful for inter-script communication and data sharing. Listening to and sending of user events can be controlled via the ``Events`` interface table.
 
 Loading API interfaces
 ----------------------

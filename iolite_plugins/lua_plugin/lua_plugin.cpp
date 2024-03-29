@@ -47,6 +47,7 @@ const io_physics_i* io_physics = {};
 const io_debug_geometry_i* io_debug_geometry = {};
 const io_pathfinding_i* io_pathfinding = {};
 const io_custom_components_i* io_custom_components = {};
+const io_custom_event_streams_i* io_custom_event_streams = {};
 
 const io_component_node_i* io_component_node = {};
 const io_component_custom_data_i* io_component_custom_data = {};
@@ -72,6 +73,10 @@ io_user_task_i io_user_task = {};
 // Custom components
 //----------------------------------------------------------------------------//
 io_handle16_t script_manager = {};
+
+// Custom event streams
+//----------------------------------------------------------------------------//
+io_handle16_t event_stream = {};
 
 // SOA style batch of script data
 //----------------------------------------------------------------------------//
@@ -120,11 +125,16 @@ static script_batch_t get_batch()
   }
 
 //----------------------------------------------------------------------------//
-namespace internal
-{
-//----------------------------------------------------------------------------//
 static std::vector<std::string> queued_world_loads;
 static std::vector<io_ref_t> queued_nodes_to_destroy;
+
+//----------------------------------------------------------------------------//
+struct lua_event_listener_t
+{
+  io_ref_t target_entity;
+  std::vector<io_name_t> event_types;
+};
+static std::vector<lua_event_listener_t> event_listeners;
 
 //----------------------------------------------------------------------------//
 static bool scripts_active = false;
@@ -265,19 +275,6 @@ void script_tick_physics(sol::state& state, io_float32_t delta_t,
                         state["__ScriptName"].get<const char*>());
 }
 
-// TODO
-//----------------------------------------------------------------------------//
-void script_tick_async(sol::state& state, io_float32_t delta_t, io_ref_t entity)
-{
-  if (!scripts_active || !state["__ScriptIsActive"].get<bool>())
-    return;
-
-  sol::protected_function tick = state["TickAsync"];
-  if (tick.valid())
-    SOL_VALIDATE_RESULT(tick(entity, delta_t),
-                        state["__ScriptName"].get<const char*>());
-}
-
 //----------------------------------------------------------------------------//
 void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
                    uint32_t update_interval)
@@ -302,7 +299,174 @@ void script_update(sol::state& state, io_float32_t delta_t, io_ref_t entity,
   state["__TimeSinceLastUpdate"] = time_since_last_update;
 }
 
-} // namespace internal
+//----------------------------------------------------------------------------//
+lua_event_listener_t* find_event_listener(io_ref_t target_entity)
+{
+  // Try to locate an existing entry
+  lua_event_listener_t* listener = nullptr;
+  for (auto& l : event_listeners)
+  {
+    if (io_ref_is_equal(l.target_entity, target_entity))
+    {
+      listener = &l;
+      break;
+    }
+  }
+
+  return listener;
+}
+
+//----------------------------------------------------------------------------//
+void register_event_listener(io_ref_t target_entity, const char* event_type)
+{
+  const io_name_t event_type_name = io_to_name(event_type);
+
+  // Create new one if none found
+  lua_event_listener_t* listener = find_event_listener(target_entity);
+  if (!listener)
+  {
+    event_listeners.resize(event_listeners.size() + 1u);
+    listener = &event_listeners.back();
+    listener->target_entity = target_entity;
+  }
+
+  // Add new event type to listener if not already available
+  io_bool_t found = false;
+
+  for (const auto etn : listener->event_types)
+  {
+    if (io_name_is_equal(event_type_name, etn))
+    {
+      found = true;
+      break;
+    }
+  }
+
+  if (!found)
+    listener->event_types.push_back(event_type_name);
+}
+
+//----------------------------------------------------------------------------//
+void unregister_event_listener(io_ref_t target_entity, const char* event_type)
+{
+  const io_name_t event_type_name = io_to_name(event_type);
+
+  lua_event_listener_t* listener = find_event_listener(target_entity);
+  if (!listener)
+    return;
+
+  for (auto it = listener->event_types.begin();
+       it != listener->event_types.end(); ++it)
+  {
+    if (io_name_is_equal(*it, event_type_name))
+    {
+      listener->event_types.erase(it);
+      // Can only exist once so it is safe to break here
+      break;
+    }
+  }
+}
+
+//----------------------------------------------------------------------------//
+void post_event(io_ref_t source_entity, const char* event_type,
+                io_variant_t* variants, io_size_t variants_length)
+{
+  // Allocate event
+  lua_user_event_t::event_data_t* event =
+      (lua_user_event_t::event_data_t*)
+          io_custom_event_streams->post_event_uninitialized(
+              event_stream, event_type,
+              sizeof(lua_user_event_t) +
+                  sizeof(io_variant_t) * variants_length);
+
+  // Copy payload
+  const auto begin = (io_variant_t*)(event + 1u);
+  memcpy(begin, variants, variants_length * sizeof(io_variant_t));
+  // Set other metadata
+  event->variants = lua_array_wrapper_t(begin, variants_length);
+  event->source_entity = source_entity;
+}
+
+//----------------------------------------------------------------------------//
+void script_dispatch_user_events(sol::state& state, io_ref_t entity)
+{
+  if (!scripts_active || !state["__ScriptIsActive"].get<bool>())
+    return;
+
+  auto listener = find_event_listener(entity);
+  if (!listener)
+    return;
+
+  // Collect relevant events
+  std::vector<lua_user_event_t> user_events;
+  {
+    const io_events_header_t *event, *end;
+    io_custom_event_streams->process_events(event_stream, &event, &end);
+
+    while (event < end)
+    {
+      // Check if we need to handle this event
+      bool handle_event = false;
+      for (auto t : listener->event_types)
+      {
+        if (io_name_is_equal(t, event->type))
+        {
+          handle_event = true;
+          break;
+        }
+      }
+
+      if (handle_event)
+      {
+        lua_user_event_t user_event;
+        {
+          user_event.data =
+              *(lua_user_event_t::event_data_t*)io_events_get_data(event);
+          user_event.type = io_base->name_get_string(event->type);
+        }
+
+        user_events.emplace_back(user_event);
+      }
+
+      event = io_events_get_next(event);
+    }
+  }
+
+  // Finally dispatch the events
+  if (!user_events.empty())
+  {
+    sol::protected_function on_user_event = state["OnUserEvent"];
+    if (on_user_event.valid())
+      SOL_VALIDATE_RESULT(on_user_event(entity, user_events),
+                          state["__ScriptName"].get<const char*>());
+  }
+}
+
+//----------------------------------------------------------------------------//
+static void dispatch_user_events(const script_batch_t* scripts)
+{
+  // Dispatch events to all listeners
+  for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
+  {
+    auto state = scripts->states[i];
+    script_dispatch_user_events(*state, scripts->entities[i]);
+  }
+
+  // Reset the event stream
+  io_custom_event_streams->reset(event_stream);
+
+  // Clean up obsolete event listeners
+  for (auto it = event_listeners.begin(); it != event_listeners.end();)
+  {
+    if (io_entity->is_alive(it->target_entity))
+    {
+      ++it;
+      continue;
+    }
+
+    it = event_listeners.erase(it);
+  }
+}
 
 //----------------------------------------------------------------------------//
 static void on_script_init(const char* script_name, io_ref_t entity,
@@ -311,21 +475,20 @@ static void on_script_init(const char* script_name, io_ref_t entity,
   void* mem = io_base->mem_allocate(sizeof(sol::state));
   *s = new (mem) sol::state();
 
-  internal::script_init_state(**s);
+  script_init_state(**s);
 
   if (strlen(script_name) > 0)
-    internal::execute_script(**s, "media/scripts", script_name);
+    execute_script(**s, "media/scripts", script_name);
 
-  internal::script_activate(**s, entity, update_interval);
-  internal::execute_queued_actions();
+  script_activate(**s, entity, update_interval);
+  execute_queued_actions();
 }
 
 //----------------------------------------------------------------------------//
 static void on_script_destroy(io_ref_t entity, sol::state** s)
 {
-  internal::script_deactivate(**s, entity);
-
-  internal::execute_queued_actions();
+  script_deactivate(**s, entity);
+  execute_queued_actions();
 
   (*s)->~state();
   io_base->mem_free(*s);
@@ -335,16 +498,15 @@ static void on_script_destroy(io_ref_t entity, sol::state** s)
 //----------------------------------------------------------------------------//
 static void on_scripts_activate(const script_batch_t* scripts)
 {
-  internal::scripts_active = true;
+  scripts_active = true;
 
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
     auto state = scripts->states[i];
-    internal::script_activate(*state, scripts->entities[i],
-                              scripts->update_intervals[i]);
+    script_activate(*state, scripts->entities[i], scripts->update_intervals[i]);
   }
 
-  internal::execute_queued_actions();
+  execute_queued_actions();
 }
 
 //----------------------------------------------------------------------------//
@@ -353,11 +515,11 @@ static void on_scripts_deactivate(const script_batch_t* scripts)
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
     auto state = scripts->states[i];
-    internal::script_deactivate(*state, scripts->entities[i]);
+    script_deactivate(*state, scripts->entities[i]);
   }
 
-  internal::execute_queued_actions();
-  internal::scripts_active = false;
+  execute_queued_actions();
+  scripts_active = false;
 }
 
 //----------------------------------------------------------------------------//
@@ -366,14 +528,13 @@ static void on_scripts_tick(io_float32_t delta_t, const script_batch_t* scripts)
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
     auto state = scripts->states[i];
-    internal::script_tick(*state, delta_t, scripts->entities[i]);
-    // TODO
-    internal::script_tick_async(*state, delta_t, scripts->entities[i]);
-    internal::script_update(*state, delta_t, scripts->entities[i],
-                            scripts->update_intervals[i]);
+    script_tick(*state, delta_t, scripts->entities[i]);
+    script_update(*state, delta_t, scripts->entities[i],
+                  scripts->update_intervals[i]);
   }
 
-  internal::execute_queued_actions();
+  dispatch_user_events(scripts);
+  execute_queued_actions();
 }
 
 //----------------------------------------------------------------------------//
@@ -383,10 +544,10 @@ static void on_scripts_tick_physics(io_float32_t delta_t,
   for (uint32_t i = 0u; i < scripts->num_scripts; ++i)
   {
     auto state = scripts->states[i];
-    internal::script_tick_physics(*state, delta_t, scripts->entities[i]);
+    script_tick_physics(*state, delta_t, scripts->entities[i]);
   }
 
-  internal::execute_queued_actions();
+  execute_queued_actions();
 }
 
 //----------------------------------------------------------------------------//
@@ -402,8 +563,8 @@ static void on_script_changed(const char* filename, const char* filepath)
   {
     if (batch.names[i].hash == script_name.hash)
     {
-      internal::execute_script(*batch.states[i], "media/scripts",
-                               (const char*)filename_without_extension.c_str());
+      execute_script(*batch.states[i], "media/scripts",
+                     (const char*)filename_without_extension.c_str());
     }
   }
 }
@@ -412,7 +573,7 @@ static void on_script_changed(const char* filename, const char* filepath)
 static void on_physics_events(const io_events_header_t* begin,
                               const io_events_header_t* end)
 {
-  if (!internal::scripts_active)
+  if (!scripts_active)
     return;
 
   static std::vector<lua_physics_contact_event_t> lua_contact_events;
@@ -623,6 +784,9 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_custom_components =
       (const io_custom_components_i*)io_api_manager->find_first(
           IO_CUSTOM_COMPONENTS_API_NAME);
+  io_custom_event_streams =
+      (const io_custom_event_streams_i*)io_api_manager->find_first(
+          IO_CUSTOM_EVENT_STREAMS_API_NAME);
 
   // Component interfaces
   io_component_custom_data =
@@ -688,12 +852,12 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   // Set up our custom script component
   {
     script_manager = io_custom_components->request_manager();
+
     io_custom_components->register_property(
         script_manager, "scriptName", io_variant_from_string(""), nullptr, 0);
     io_custom_components->register_property(script_manager, "updateInterval",
                                             io_variant_from_uint(100u), nullptr,
                                             0);
-
     io_custom_components->register_property(
         script_manager, "state", io_variant_from_uint64(0ull), nullptr,
         io_property_flags_runtime_only);
@@ -704,8 +868,12 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
       callbacks.on_components_destroy = on_script_components_destroy;
     }
     io_custom_components->register_callbacks(script_manager, &callbacks);
-
     io_custom_components->init_manager(script_manager, "Script");
+  }
+
+  // Set up custom event stream
+  {
+    event_stream = io_custom_event_streams->request_event_stream();
   }
 
   // Watch the "scripts" directory for changes
@@ -722,4 +890,5 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
   io_api_manager->unregister_api(&io_user_events);
   io_api_manager->unregister_api(&io_user_task);
   io_custom_components->release_and_destroy_manager(script_manager);
+  io_custom_event_streams->release_and_destroy_event_stream(event_stream);
 }
