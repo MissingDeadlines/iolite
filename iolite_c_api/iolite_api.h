@@ -2150,6 +2150,14 @@ struct io_custom_event_streams_i // NOLINT
   void (*post_event)(io_handle16_t stream, const char* event_type,
                      void* event_data, io_uint32_t event_data_size_in_bytes);
 
+  // Posts a new event to the event stream with an uninitialized data chunk of
+  // the given size. Returns the pointer to the data chunk which
+  // can *then* be initialized by the user. Returns nullptr if the size of the
+  // data chunk is zero.
+  void* (*post_event_uninitialized)(io_handle16_t stream,
+                                    const char* event_type,
+                                    io_uint32_t event_data_size_in_bytes);
+
   // Returns the "begin" and "end" ptr for processing the currently available
   // events.
   //   See "Documentation" for usage details.
