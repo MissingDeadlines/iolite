@@ -2961,8 +2961,9 @@ void script_init_state(sol::state& s)
 
     // @function create
     // @summary Creates a new node component with the given name and attaches it to the provided node.
-    // @param parent_node Ref The node to attach the new node to.
     // @param name string The name of the new node component.
+    // @param parent_node Ref The node to attach the new node to.
+    // @param ignore_parent boolean Set this to true to keep the local transform of the node and avoid undoing the parent transform first.
     // @return Ref value The new node component.
 
     s["Node"]["create"] =
