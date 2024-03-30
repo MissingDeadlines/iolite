@@ -94,6 +94,8 @@ extern const io_component_vehicle_i* io_component_vehicle;
 extern const io_component_vehicle_wheel_i* io_component_vehicle_wheel;
 extern const io_component_joint_i* io_component_joint;
 
+extern const io_resource_palette_i* io_resource_palette;
+
 // Custom types and helpers
 //----------------------------------------------------------------------------//
 template <typename T> struct lua_array_wrapper_t

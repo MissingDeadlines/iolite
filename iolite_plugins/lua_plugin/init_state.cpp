@@ -250,6 +250,57 @@ inline auto calc_random_float_fast(io_uint64_t& seed) -> float
 // @summary Lists all properties exposed by this component interface.
 // @return table value Table containing the names and types of all the exposed properties.
 
+// @namespace Resources
+// @category Resources Dummy category.
+// @hidden
+
+// @function get_type_id
+// @summary Returns the type ID of the resource.
+// @param component Ref The resource.
+// @return number value The type ID of the resource.
+
+// @function find_first_resource_with_:name
+// @summary Finds the first resource with the given name.
+// @param name string The name of the resource to find.
+// @return Ref value The first resource with the given name. Returns an invalid Ref if none is found.
+
+// @function create
+// @summary Creates a new resource with the given name.
+// @param name string The name of the new resource.
+
+// @function destroy
+// @summary Destroys the provided resource.
+// @param resource Ref The resource to destroy.
+
+// @function commit_changes
+// @summary Commits all changes to the properties of the provided resource.
+// @param resource Ref The resource to update.
+
+// @function get_num_active_resources
+// @summary Returns the total number of active resources of this type.
+// @return number value Total total number of active resources of this type.
+
+// @function is_alive
+// @summary Returns true if the referenced resource is alive.
+// @param resource Ref The resource.
+// @return boolean value True if the resource is alive.
+
+// @function get_property
+// @summary Returns the requested property as a variant.
+// @param resource Ref The resource.
+// @param property_name string The name of the property to retrieve.
+// @return Variant value The property as a variant.
+
+// @function set_property
+// @summary Sets the requested property to the provided variant value.
+// @param resource Ref The resource.
+// @param property_name string The name of the property to set.
+// @param value Variant The value to set.
+
+// @function list_properties
+// @summary Lists all properties exposed by this resource interface.
+// @return table value Table containing the names and types of all the exposed properties.
+
 // @namespace Interface
 // @category Interface Dummy category.
 // @hidden
@@ -2597,6 +2648,24 @@ void script_init_state(sol::state& s)
     return properties;                                                         \
   }
 
+#define SHARED_RESOURCE_INTERFACE_IMPL(t_, i_)                                 \
+  t_["get_type_id"] = i_->base.get_type_id;                                    \
+  t_["find_first_resource_with_name"] = i_->base.find_first_resource_with_name;                                    \
+  t_["create"] = i_->base.create;                                              \
+  t_["destroy"] = i_->base.destroy;                                            \
+  t_["commit_changes"] = [](io_ref_t resource) { if (i_->base.commit_changes)  \
+    i_->base.commit_changes(resource); };                                      \
+  t_["get_num_active_resources"] = i_->base.get_num_active_resources;          \
+  t_["set_property"] = i_->base.set_property;                                  \
+  t_["get_property"] = i_->base.get_property;                                  \
+  t_["list_properties"] = []() {                                               \
+    uint32_t numProperties;                                                    \
+    i_->base.list_properties(nullptr, &numProperties);                         \
+    std::vector<io_property_desc_t> properties(numProperties);                 \
+    i_->base.list_properties(properties.data(), &numProperties);               \
+    return properties;                                                         \
+  }
+
   s["CustomData"] = s.create_table();
   s["CustomData"]["load"] = [&s]() {
 
@@ -3247,6 +3316,45 @@ void script_init_state(sol::state& s)
     // @return Handle value The emitter handle of this particle.
     s["Particle"]["get_emitter_handle"] = io_component_particle->get_emitter_handle;
 
+  };
+
+  s["Palette"] = s.create_table();
+  s["Palette"]["load"] = [&s]() {
+
+    SHARED_RESOURCE_INTERFACE_IMPL(s["Palette"], io_resource_palette);
+
+    // @namespace Palette
+    // @category Palette_Resource Functions to interact with palettes.
+    // @copy_category Interface
+    // @copy_category Resources
+
+    // @function set_color
+    // @summary Sets the color for the given palette index of the given palette.
+    // @param palette Ref The palette in question.
+    // @param palette_index number The palette index of the color to change.
+    // @param color Vec4 The color to set.
+    s["Palette"]["set_color"] = io_resource_palette->set_color;
+
+    // @function get_color
+    // @summary Gets the color for the given palette index of the given palette.
+    // @param palette Ref The palette in question.
+    // @param palette_index number The palette index of the color to change.
+    // @return Vec4 value The color at the given palette index.
+    s["Palette"]["get_color"] = io_resource_palette->get_color;
+
+    // @function set_material_parameters
+    // @summary Sets the material parameters for the given palette index of the given palette.
+    // @param palette Ref The palette in question.
+    // @param palette_index number The palette index of the material_parameters to change.
+    // @param material_parameters Vec4 The material parameters to set (roughness, matalmask, hardness, and emissive).
+    s["Palette"]["set_material_parameters"] = io_resource_palette->set_material_parameters;
+
+    // @function get_material_parameters
+    // @summary Gets the material parameters for the given palette index of the given palette.
+    // @param palette Ref The palette in question.
+    // @param palette_index number The palette index of the material_parameters to change.
+    // @return Vec4 value The material parameters at the given palette index (roughness, metalmask, hardness, and emissive).
+    s["Palette"]["get_material_parameters"] = io_resource_palette->get_material_parameters;
   };
 
   // Call into plugins and let them init. the state
