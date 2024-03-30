@@ -3280,7 +3280,7 @@ struct io_resource_palette_i // NOLINT
 
   // Material parameters:
   //   x: Roughness  [0, 1]
-  //   y: Metal mask  [0, 1]
+  //   y: Metalmask  [0, 1]
   //   z: Hardness   [0, 255]
   //   w: Emissive   [0, FLT_MAX]
 
