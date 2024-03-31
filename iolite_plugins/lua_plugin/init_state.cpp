@@ -1623,7 +1623,7 @@ void script_init_state(sol::state& s)
   s["Log"] = s.create_table();
   s["Log"]["load"] = [&s]() {
     // @namespace Log
-    // @category Logging Functions to log to the console and log file.
+    // @category Log Functions to log to the console and log file.
     // @copy_category Interface
 
     // @function log_info
@@ -1643,7 +1643,7 @@ void script_init_state(sol::state& s)
   s["Events"] = s.create_table();
   s["Events"]["load"] = [&s]() {
     // @namespace Events
-    // @category Functions for working with user events.
+    // @category Events Functions for listening for custom user events and sending them with and without payloads.
     // @copy_category Interface
 
     // @function register_event_listener
@@ -1661,7 +1661,7 @@ void script_init_state(sol::state& s)
     // @param source_entity Ref The entity the event is originating from.
     // @param event_type string The type of the event to post.
     s["Events"]["post_event"] = [](io_ref_t source_entity, const char* event_type) {
-      post_event( source_entity, event_type, nullptr, 0u);
+      post_event(source_entity, event_type, nullptr, 0u);
     };
     // @function post_event_with_payload
     // @summary Posts the given event type from the given source entity with the provided payload of variants.
@@ -1672,7 +1672,7 @@ void script_init_state(sol::state& s)
       std::vector<io_variant_t> vars(variants.size());
       for (uint32_t i=0u; i<variants.size(); ++i)
         vars[i] = variants[1u + i];
-      post_event( source_entity, event_type, vars.data(), vars.size());
+      post_event(source_entity, event_type, vars.data(), vars.size());
     };
   };
 

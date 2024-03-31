@@ -31,3 +31,5 @@ html_theme_options = {
 }
 html_logo = '_static/images/logo.png'
 html_static_path = ['_static']
+
+latex_engine = 'xelatex'
