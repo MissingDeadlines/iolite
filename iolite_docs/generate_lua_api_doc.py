@@ -197,7 +197,7 @@ with open("api/lua.json", "w") as f:
 with open("api/lua_generated.rst", "w") as f:
     for cat in api:
         if "functions" in cat or "types" in cat:
-            f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n")
+            f.write(cat["name"] + "\n" + "-"*len(cat["name"]) + "\n\n" + cat["description"] + "\n\n")
         if "functions" in cat:
             for function in cat["functions"]:
 
