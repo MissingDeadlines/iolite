@@ -110,11 +110,12 @@ template <typename T> struct lua_array_wrapper_t
     end_ptr = data + length;
   }
 
-  inline T& operator[](size_t n) { return begin_ptr[n]; }
-  inline iterator begin() { return begin_ptr; }
-  inline iterator end() { return end_ptr; }
-  inline size_t size() { return size_t(end_ptr - begin_ptr); }
-  inline size_t max_size() { return size(); }
+  inline T& operator[](size_t n) const { return begin_ptr[n]; }
+  inline iterator begin() const { return begin_ptr; }
+  inline iterator end() const { return end_ptr; }
+  inline size_t size() const { return size_t(end_ptr - begin_ptr); }
+  inline bool empty() const { return size() == 0u; }
+  inline size_t max_size() const { return size(); }
 
   T* begin_ptr{};
   T* end_ptr{};
@@ -141,6 +142,7 @@ struct lua_user_event_t
   {
     io_ref_t source_entity;
     lua_array_wrapper_t<io_variant_t> variants;
+    lua_array_wrapper_t<io_ref_t> target_entities;
   } data;
 };
 
@@ -184,4 +186,5 @@ void unregister_event_listener(io_ref_t target_entity, const char* event_type);
 // provided variants as payload.
 //----------------------------------------------------------------------------//
 void post_event(io_ref_t source_entity, const char* event_type,
-                io_variant_t* variants, io_size_t variants_length);
+                io_variant_t* variants, io_size_t variants_length,
+                io_ref_t* target_entities, io_size_t target_entities_length);

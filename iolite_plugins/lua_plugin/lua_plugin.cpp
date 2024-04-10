@@ -371,21 +371,29 @@ void unregister_event_listener(io_ref_t target_entity, const char* event_type)
 
 //----------------------------------------------------------------------------//
 void post_event(io_ref_t source_entity, const char* event_type,
-                io_variant_t* variants, io_size_t variants_length)
+                io_variant_t* variants, io_size_t variants_length,
+                io_ref_t* target_entities, io_size_t target_entities_length)
 {
   // Allocate event
   lua_user_event_t::event_data_t* event =
       (lua_user_event_t::event_data_t*)
           io_custom_event_streams->post_event_uninitialized(
               event_stream, event_type,
-              sizeof(lua_user_event_t) +
-                  sizeof(io_variant_t) * variants_length);
+              sizeof(lua_user_event_t::event_data_t) +
+                  sizeof(io_variant_t) * variants_length +
+                  sizeof(io_ref_t) * target_entities_length);
 
   // Copy payload
-  const auto begin = (io_variant_t*)(event + 1u);
-  memcpy(begin, variants, variants_length * sizeof(io_variant_t));
+  const auto variants_ptr = (io_variant_t*)(event + 1u);
+  memcpy(variants_ptr, variants, variants_length * sizeof(io_variant_t));
+  const auto target_entities_ptr = (io_ref_t*)(variants_ptr + variants_length);
+  memcpy(target_entities_ptr, target_entities,
+         target_entities_length * sizeof(io_ref_t));
+
   // Set other metadata
-  event->variants = lua_array_wrapper_t(begin, variants_length);
+  event->variants = lua_array_wrapper_t(variants_ptr, variants_length);
+  event->target_entities =
+      lua_array_wrapper_t(target_entities_ptr, target_entities_length);
   event->source_entity = source_entity;
 }
 
@@ -420,14 +428,37 @@ void script_dispatch_user_events(sol::state& state, io_ref_t entity)
 
       if (handle_event)
       {
-        lua_user_event_t user_event;
+        const auto data =
+            *(lua_user_event_t::event_data_t*)io_events_get_data(event);
+
+        bool event_filtered = false;
+
+        // Filter target entities upfront (if provided)
+        if (!data.target_entities.empty())
         {
-          user_event.data =
-              *(lua_user_event_t::event_data_t*)io_events_get_data(event);
-          user_event.type = io_base->name_get_string(event->type);
+          bool found = false;
+          for (auto it = data.target_entities.begin();
+               it != data.target_entities.end(); ++it)
+          {
+            if (io_ref_is_equal(entity, *it))
+            {
+              found = true;
+              break;
+            }
+          }
+
+          event_filtered = !found;
         }
 
-        user_events.emplace_back(user_event);
+        if (!event_filtered)
+        {
+          lua_user_event_t user_event;
+          {
+            user_event.data = data;
+            user_event.type = io_base->name_get_string(event->type);
+          }
+          user_events.emplace_back(user_event);
+        }
       }
 
       event = io_events_get_next(event);

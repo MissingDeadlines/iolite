@@ -1656,24 +1656,57 @@ void script_init_state(sol::state& s)
     // @param target_entity Ref The target entity listening for events.
     // @param event_type string The type of events to stop listening for.
     s["Events"]["unregister_event_listener"] = unregister_event_listener;
+
     // @function post_event
     // @summary Posts the given event type from the given source entity.
     // @param source_entity Ref The entity the event is originating from.
     // @param event_type string The type of the event to post.
-    s["Events"]["post_event"] = [](io_ref_t source_entity, const char* event_type) {
-      post_event(source_entity, event_type, nullptr, 0u);
-    };
+
+    // @function post_event
+    // @summary Posts the given event type from the given source entity.
+    // @param source_entity Ref The entity the event is originating from.
+    // @param event_type string The type of the event to post.
+    // @param target_entities table List of target entities this event should be delivered to
+
+    s["Events"]["post_event"] = sol::overload(
+      [](io_ref_t source_entity, const char* event_type) {
+      post_event(source_entity, event_type, nullptr, 0u, nullptr, 0u);
+    }, [](io_ref_t source_entity, const char* event_type, const sol::table& target_entities) {
+      std::vector<io_ref_t> targets(target_entities.size());
+      for (uint32_t i=0u; i<target_entities.size(); ++i)
+        targets[i] = target_entities[1u + i];
+      post_event(source_entity, event_type, nullptr, 0u, targets.data(), targets.size());
+    });
+
     // @function post_event_with_payload
     // @summary Posts the given event type from the given source entity with the provided payload of variants.
     // @param source_entity Ref The entity the event is originating from.
     // @param event_type string The type of the event to post.
     // @param variants table Array of variants serving as the payload for the event.
-    s["Events"]["post_event_with_payload"] = [](io_ref_t source_entity, const char* event_type, const sol::table& variants) {
+
+    // @function post_event_with_payload
+    // @summary Posts the given event type from the given source entity with the provided payload of variants.
+    // @param source_entity Ref The entity the event is originating from.
+    // @param event_type string The type of the event to post.
+    // @param variants table Array of variants serving as the payload for the event.
+    // @param target_entities table List of target entities this event should be delivered to
+
+    s["Events"]["post_event_with_payload"] = sol::overload(
+      [](io_ref_t source_entity, const char* event_type, const sol::table& variants) {
       std::vector<io_variant_t> vars(variants.size());
       for (uint32_t i=0u; i<variants.size(); ++i)
         vars[i] = variants[1u + i];
-      post_event(source_entity, event_type, vars.data(), vars.size());
-    };
+      post_event(source_entity, event_type, vars.data(), vars.size(), nullptr, 0u);
+    },
+    [](io_ref_t source_entity, const char* event_type, const sol::table& variants, const sol::table& target_entities) {
+      std::vector<io_variant_t> vars(variants.size());
+      for (uint32_t i=0u; i<variants.size(); ++i)
+        vars[i] = variants[1u + i];
+      std::vector<io_ref_t> targets(target_entities.size());
+      for (uint32_t i=0u; i<target_entities.size(); ++i)
+        targets[i] = target_entities[1u + i];
+      post_event(source_entity, event_type, vars.data(), vars.size(), targets.data(), targets.size());
+    });
   };
 
   s["UI"] = s.create_table();
