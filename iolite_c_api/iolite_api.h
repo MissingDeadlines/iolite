@@ -2125,8 +2125,22 @@ struct io_custom_components_i // NOLINT
   //  Don't cache the returned pointer! The property memory will change when
   //  the manager runs over its current capacity.
   void* (*get_property_memory)(io_handle16_t manager, const char* name);
+
+  // Gets a pointer to a pointer pointing to the linear memory for the
+  // property with the given name. The referenced pointer is updated if the
+  // internal memory changes.
+  //   It's only safe to cache the returned pointer when all properties have
+  //   been registered.
+  void** (*get_property_memory_ptr)(io_handle16_t manager, const char* name);
+
   // Gets the linear memory storing the entities of the active components.
+  //  Don't cache the returned pointer! The property memory will change when
+  //  the manager runs over its current capacity.
   io_ref_t* (*get_entity_memory)(io_handle16_t manager);
+  // Gets a pointer to a pointer pointing to the linear memory storing the
+  // entities of the active components. The referenced pointer is updated if the
+  // internal memory changes.
+  io_ref_t** (*get_entity_memory_ptr)(io_handle16_t manager);
 
   // Returns the number of active components.
   io_size_t (*get_num_active_components)(io_handle16_t manager);
@@ -2722,12 +2736,25 @@ typedef struct
   // Gets the property of the given component as a variant.
   io_variant_t (*get_property)(io_ref_t component, const char* name);
 
-  // Returns the linear property memory for the given property for all active
-  // components.
+  // Gets the linear memory for the property with the given name.
+  //  Don't cache the returned pointer! The property memory will change when
+  //  the manager runs over its current capacity.
   void* (*get_property_memory)(const char* name);
+
+  // Gets a pointer to a pointer pointing to the linear memory for the
+  // property with the given name. The referenced pointer is updated if the
+  // internal memory changes.
+  //   It's only safe to cache the returned pointer when all properties have
+  //   been registered.
+  void** (*get_property_memory_ptr)(const char* name);
+
   // Returns the linear memory containing the entities for all active
   // components.
   io_ref_t* (*get_entity_memory)();
+  // Gets a pointer to a pointer pointing to the linear memory storing the
+  // entities of the active components. The referenced pointer is updated if the
+  // internal memory changes.
+  io_ref_t** (*get_entity_memory_ptr)();
 
   // Returns a list of property descriptions for all the properties the
   // component provides.
@@ -3251,9 +3278,17 @@ typedef struct
   // Gets the property of the given resource as a variant.
   io_variant_t (*get_property)(io_ref_t resource, const char* name);
 
-  // Returns the linear property memory for the given property for all active
-  // resources.
+  // Gets the linear memory for the property with the given name.
+  //  Don't cache the returned pointer! The property memory will change when
+  //  the manager runs over its current capacity.
   void* (*get_property_memory)(const char* name);
+
+  // Gets a pointer to a pointer pointing to the linear memory for the
+  // property with the given name. The referenced pointer is updated if the
+  // internal memory changes.
+  //   It's only safe to cache the returned pointer when all properties have
+  //   been registered.
+  void** (*get_property_memory_ptr)(const char* name);
 
   // Returns a list of property descriptions for all the properties the
   // resource provides.
