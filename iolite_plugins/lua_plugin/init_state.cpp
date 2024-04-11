@@ -2768,6 +2768,18 @@ void script_init_state(sol::state& s)
     // @param tag_name string The name of the tag to remove.
     s["Tag"]["remove"] = io_component_tag->remove;
 
+    // @function get_tags
+    // @summary Returns all tags set for the given component.
+    // @param tag Ref The component to retrieve the tags from.
+    // @return table value Table containing all tags for the given component.
+    s["Tag"]["get_tags"] = [](io_ref_t tag) {
+      uint32_t num_tags;
+      io_component_tag->get_tags(tag, nullptr, &num_tags);
+      std::vector<io_name_t> tags(num_tags);
+      io_component_tag->get_tags(tag, tags.data(),
+                                              &num_tags);
+      return tags;
+    };
   };
 
   s["FlipbookAnimation"] = s.create_table();
