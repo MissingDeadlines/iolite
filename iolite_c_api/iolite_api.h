@@ -2939,6 +2939,9 @@ struct io_component_tag_i // NOLINT
   void (*add)(io_ref_t tag, const char* tag_name);
   // Removes the tag with the given name (if it exists).
   void (*remove)(io_ref_t tag, const char* tag_name);
+
+  // Returns all tags set for this components
+  void (*get_tags)(io_ref_t tag, io_name_t* tags, io_size_t* tags_length);
 };
 
 //----------------------------------------------------------------------------//
