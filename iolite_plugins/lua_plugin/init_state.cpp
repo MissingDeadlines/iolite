@@ -2004,7 +2004,22 @@ void script_init_state(sol::state& s)
     // @summary Loads the prefab with the given name.
     // @param name string The name of the prefab to load.
     // @return Ref value The root node of the loaded prefab.
-    s["World"]["spawn_prefab"] = io_world->spawn_prefab;
+
+    // @function spawn_prefab
+    // @summary Loads the prefab with the given name and attaches it to the given parent node.
+    // @param name string The name of the prefab to load.
+    // @param parent Ref The parent node to attach the prefab to.
+    // @param ignore_parent boolean Set this to true to keep the local transform of the node and avoid undoing the parent transform first.
+    // @return Ref value The root node of the loaded prefab.
+
+    s["World"]["spawn_prefab"] = sol::overload(
+      io_world->spawn_prefab, 
+      [](const char* name, io_ref_t parent, io_bool_t ignore_parent) {
+        const auto node = io_world->spawn_prefab(name);
+        if (io_ref_is_valid(node)) { io_component_node->attach(parent, node, ignore_parent); }
+        return node;
+      }
+    );
 
     // @function get_current_time_factor
     // @summary Returns the current time factor.
@@ -3013,6 +3028,13 @@ void script_init_state(sol::state& s)
 
     s["Node"]["create"] =
         sol::overload(io_component_node->create, io_component_node->create_with_parent);
+
+    // @function attach
+    // @summary Attaches the child node to the provided parent node.
+    // @param parent Ref The parent node to attach the child node to.
+    // @param child Ref The child node to attach.
+    // @param ignore_parent boolean Set this to true to keep the local transform of the node and avoid undoing the parent transform first.
+    s["Node"]["attach"] = io_component_node->attach;
 
     // @function destroy
     // @summary Destroys the given node component.
