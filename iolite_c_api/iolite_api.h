@@ -1726,6 +1726,18 @@ typedef struct
   io_vec2_t extent;
 } io_ui_rect_t;
 
+// Defines a single particle for the custom particle buffer that can be passed
+// to the particle system.
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_vec3_t pos;     // The position of the particle in world space.
+  float size;        // The size of the particle in world units.
+  float emissive;    // The emissive intensity. Set to zero for non-emissive
+                     // particles.
+  io_uint32_t color; // The color encoded as a 32-bit value (4x8 unorm).
+} io_particle_system_particle_t;
+
 // Collection of Vulkan internal functions
 //----------------------------------------------------------------------------//
 typedef struct
@@ -2391,6 +2403,11 @@ struct io_particle_system_i // NOLINT
   void (*set_scale)(io_handle16_t emitter, float scale);
   // Sets the scale for the given emitter.
   void (*set_emission_direction)(io_handle16_t emitter, io_vec3_t direction);
+
+  // Sets or updates a custom particle buffer. Pass a nullptr as buffer to unset
+  // it.
+  void (*set_custom_particle_buffer)(
+      const io_particle_system_particle_t* buffer, io_size_t num_particles);
 };
 
 //----------------------------------------------------------------------------//
