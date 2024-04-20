@@ -61,6 +61,7 @@ static const io_resource_palette_i* io_resource_palette = nullptr;
 static const io_debug_geometry_i* io_debug_geometry = nullptr;
 static const io_low_level_imgui_i* io_low_level_imgui = nullptr;
 static const io_custom_event_streams_i* io_custom_event_streams = nullptr;
+static const io_particle_system_i* io_particle_system = nullptr;
 
 // Sample variables
 //----------------------------------------------------------------------------//
@@ -143,6 +144,10 @@ static void draw_boids()
   const io_uint32_t num_boids =
       io_custom_components->get_num_active_components(boid_component_mgr);
 
+  // Static buffer we're going to hand over to the particle system
+  static std::vector<io_particle_system_particle_t> particles;
+  particles.resize(num_boids);
+
   for (io_uint32_t i = 0u; i < num_boids; ++i)
   {
     // Calculate interpolated position for rendering
@@ -150,9 +155,23 @@ static void draw_boids()
         glm::mix(comp_boid_prev_position[i], comp_boid_position[i],
                  fixed_accum.interpolator);
 
+    // Draw boids via debug geometry interface
     io_debug_geometry->draw_sphere(
         io_cvt(pos), 0.1f, io_cvt(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f)), false);
+
+    // Draw boids via the particle system
+    auto& p = particles[i];
+    {
+      p.color = (uint32_t)-1;
+      p.emissive = 0.0f;
+      p.pos = io_cvt(pos);
+      p.size = 0.1f;
+    }
   }
+
+  // Set the custom buffer to render via the particle system
+  io_particle_system->set_custom_particle_buffer(particles.data(),
+                                                 (uint32_t)particles.size());
 }
 
 //----------------------------------------------------------------------------//
@@ -604,6 +623,8 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
   io_custom_event_streams =
       (const io_custom_event_streams_i*)io_api_manager->find_first(
           IO_CUSTOM_EVENT_STREAMS_API_NAME);
+  io_particle_system = (const io_particle_system_i*)io_api_manager->find_first(
+      IO_PARTICLE_SYSTEM_API_NAME);
 
   // Create our boid custom component
   boid_component_mgr = io_custom_components->request_manager();
