@@ -2965,6 +2965,12 @@ void script_init_state(sol::state& s)
     // @param velocity Vec3 The angular velocity to set.
     s["VoxelShape"]["set_angular_velocity"] = io_component_voxel_shape->set_angular_velocity;
 
+    // @function get_mass
+    // @summary Gets the mass of the shape. Returns zero if not available.
+    // @param component Ref The voxel shape component.
+    // @return number value The mass of the shape. Zero if no mass is available.
+    s["VoxelShape"]["get_mass"] = io_component_voxel_shape->get_mass;
+
   };
 
   s["Light"] = s.create_table();
