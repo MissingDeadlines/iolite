@@ -3130,6 +3130,9 @@ struct io_component_voxel_shape_i // NOLINT
   void (*set_angular_velocity)(io_ref_t shape, io_vec3_t velocity);
   // Gets the angular velocity of this shape.
   io_vec3_t (*get_angular_velocity)(io_ref_t shape);
+
+  // Gets the mass of the shape. Returns zero if not available.
+  float (*get_mass)(io_ref_t shape);
 };
 
 //----------------------------------------------------------------------------//
