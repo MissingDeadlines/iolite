@@ -2337,6 +2337,8 @@ struct io_world_i // NOLINT
 
   // Retrieves the currently active camera.
   io_ref_t (*get_active_camera)();
+  // Activates the given camera.
+  void (*activate_camera)(io_ref_t camera);
 
   // Gets the current time factor.
   io_float32_t (*get_current_time_factor)();

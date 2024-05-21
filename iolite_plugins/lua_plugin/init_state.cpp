@@ -2021,6 +2021,15 @@ void script_init_state(sol::state& s)
       }
     );
 
+    // @function get_active_camera
+    // @summary Returns the currently active camera.
+    // @return Ref value The currently active camera.
+    s["World"]["get_active_camera"] = io_world->get_active_camera;
+    // @function activate_camera
+    // @summary Activates the provided camera.
+    // @param camera Ref The camera to activate.
+    s["World"]["activate_camera"] = io_world->activate_camera;
+
     // @function get_current_time_factor
     // @summary Returns the current time factor.
     // @return Ref value The current time factor.
