@@ -2463,8 +2463,8 @@ struct io_animation_system_i // NOLINT
   void (*resume_animation)(io_handle64_t instance);
 
   // Returns true if the given animation instance is finished.
-  // Please note that finished instances can not be resumed and any operation on
-  // a finished instance equals a NOP.
+  //   Please note that finished instances can not be resumed and any operation
+  //   on a finished instance equals a NOP.
   io_bool_t (*is_finished)(io_handle64_t instance);
 
   // Animates the blend weight of the animation instance towards the provided
@@ -3220,6 +3220,12 @@ struct io_component_character_controller_i // NOLINT
   io_bool_t (*is_colliding_sides)(io_ref_t controller);
   // Returns true if the upper part of the character controller is colliding.
   io_bool_t (*is_colliding_up)(io_ref_t controller);
+
+  // Returns the raw (fot) position provided by the underlying physics
+  // simulation.
+  //   Please note that, in contrast to the node position, this position is
+  //   *not* interpolated to provide smooth visuals.
+  io_vec3_t (*get_foot_position)(io_ref_t controller);
 };
 
 //----------------------------------------------------------------------------//
@@ -3370,13 +3376,18 @@ struct io_low_level_physx_i // NOLINT
   // Returns the ptr to the global "physx::PxScene" instance.
   void* (*get_px_scene)();
 
-  // Returns the ptr to the "physx::PxRigidActor" instance for the given shape.
-  // Please note the following:
-  //   1. The actor can be *NULL* for shapes with pending voxelization or
-  //      disabled collision
-  //   2. The actor is replaced after the voxelization for a shape finishes
-  //      and the previous one becomes *invalid*
+  // Returns the ptr to the "physx::PxRigidActor" instance for the given shape
+  // (component).
+  //   Please note:
+  //     1. The actor can be *NULL* for shapes with pending voxelization or
+  //        disabled collision
+  //     2. The actor is replaced after the voxelization for a shape finishes
+  //        and the previous one becomes *invalid*
   void* (*get_px_rigid_actor_for_shape)(io_ref_t shape);
+
+  // Returns the tpr to the "physx::PxController" instance for the given
+  // character controller (component).
+  void* (*get_px_controller_for_cct)(io_ref_t controller);
 };
 
 //----------------------------------------------------------------------------//
