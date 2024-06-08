@@ -31,6 +31,8 @@
 #include "glm.hpp"
 #include "gtc/quaternion.hpp"
 #include "gtx/norm.hpp"
+#define STB_SPRINTF_IMPLEMENTATION
+#include "stb_sprintf.h"
 
 // API
 #define IO_USER_VEC2_TYPE glm::vec2
@@ -67,6 +69,8 @@ static const io_particle_system_i* io_particle_system = nullptr;
 //----------------------------------------------------------------------------//
 static bool ui_sample_show = false;
 static bool imgui_sample_show = false;
+static bool log_shape_events = false;
+static bool log_node_events = false;
 static float ui_sample_time_accum = 0.0f;
 
 // Interfaces we provide
@@ -74,6 +78,7 @@ static float ui_sample_time_accum = 0.0f;
 static io_user_task_i io_user_task = {};
 static io_user_editor_i io_user_editor = {};
 static io_user_debug_view_i io_user_debug_view = {};
+static io_user_events_i io_user_events = {};
 
 // Globals
 //----------------------------------------------------------------------------//
@@ -86,6 +91,19 @@ static glm::vec3* comp_boid_position = nullptr;
 static glm::vec3* comp_boid_prev_position = nullptr;
 static glm::vec3* comp_boid_velocity = nullptr;
 static io_fixed_step_accumulator_t fixed_accum;
+
+//----------------------------------------------------------------------------//
+inline static void log_message(const char* fmt, ...)
+{
+  char buffer[256];
+
+  va_list args;
+  va_start(args, fmt);
+  stbsp_vsnprintf(buffer, 256, fmt, args);
+  va_end(args);
+
+  io_logging->log_plugin("Sample CPP", buffer);
+}
 
 //----------------------------------------------------------------------------//
 static void simulate_boids()
@@ -243,6 +261,11 @@ static void on_build_plugin_menu()
   ImGui::Checkbox("Show Sample ImGui Window", &imgui_sample_show);
   if (ImGui::Checkbox("Show UI Sample", &ui_sample_show))
     ui_sample_time_accum = 0.0f;
+
+  ImGui::Separator();
+
+  ImGui::Checkbox("Log Node Events", &log_node_events);
+  ImGui::Checkbox("Log Shape Events", &log_shape_events);
 }
 
 //----------------------------------------------------------------------------//
@@ -584,6 +607,62 @@ static void on_tick(io_float32_t delta_t)
 }
 
 //----------------------------------------------------------------------------//
+void on_shape_events(const io_events_header_t* begin,
+                     const io_events_header_t* end)
+{
+  if (!log_shape_events)
+    return;
+
+  while (begin < end)
+  {
+    if (io_name_is_equal(begin->type,
+                         io_to_name("shape_linear_velocity_changed")))
+    {
+      auto data =
+          (io_events_data_shape_velocity_changed_t*)io_events_get_data(begin);
+      log_message("Velocity changed: %.2f %.2f %.2f", data->velocity.x,
+                  data->velocity.y, data->velocity.z);
+    }
+    else if (io_name_is_equal(begin->type,
+                              io_to_name("shape_angular_velocity_changed")))
+    {
+      auto data =
+          (io_events_data_shape_velocity_changed_t*)io_events_get_data(begin);
+      log_message("Angular velocity changed: %.2f %.2f %.2f", data->velocity.x,
+                  data->velocity.y, data->velocity.z);
+    }
+
+    begin = io_events_get_next(begin);
+  }
+}
+
+//----------------------------------------------------------------------------//
+void on_node_events(const io_events_header_t* begin,
+                    const io_events_header_t* end)
+{
+  if (!log_node_events)
+    return;
+
+  while (begin < end)
+  {
+    if (io_name_is_equal(begin->type, io_to_name("node_transform_changed")))
+    {
+      auto data =
+          (io_events_data_node_transform_changed_t*)io_events_get_data(begin);
+
+      if ((data->flags & io_transform_changed_flags_position) > 0u)
+        log_message("Node position changed!");
+      if ((data->flags & io_transform_changed_flags_orientation) > 0u)
+        log_message("Node orientation changed!");
+      if ((data->flags & io_transform_changed_flags_size) > 0u)
+        log_message("Node size changed!");
+    }
+
+    begin = io_events_get_next(begin);
+  }
+}
+
+//----------------------------------------------------------------------------//
 IO_API_EXPORT io_uint32_t IO_API_CALL get_api_version()
 {
   return IO_API_VERSION;
@@ -664,6 +743,11 @@ IO_API_EXPORT io_int32_t IO_API_CALL load_plugin(void* api_manager)
   io_user_debug_view.on_build_debug_view = on_build_debug_view;
   io_api_manager->register_api(IO_USER_DEBUG_VIEW_API_NAME,
                                &io_user_debug_view);
+
+  io_user_events = {};
+  io_user_events.on_node_events = on_node_events;
+  io_user_events.on_shape_events = on_shape_events;
+  io_api_manager->register_api(IO_USER_EVENTS_API_NAME, &io_user_events);
 
   // Set up Dear ImGui
   {
