@@ -1809,6 +1809,18 @@ typedef struct
   io_ref_t shape; // The shape that has been voxelized
 } io_events_data_shape_voxelization_completed_t;
 
+// Voxel shape velocity changed event data
+//   Event type name:       "shape_linear_velocity_changed" or
+//                          "shape_angular_velocity_changed"
+//   Reported by callback:  "on_shape_events"
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_ref_t shape; // The shape with changed velocity
+  io_vec3_t velocity,
+      delta; // The velocity and the velocity delta of the shape
+} io_events_data_shape_velocity_changed_t;
+
 // Node transform changed event data
 //   Event type name:       "node_transform_changed" or
 //                          "node_transform_changed_by_physics"
