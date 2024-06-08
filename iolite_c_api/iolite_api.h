@@ -502,6 +502,16 @@ inline IO_USER_IVEC4_TYPE io_cvt(io_ivec4_t v) { return {v.x, v.y, v.z, v.w}; }
 // Loosely typed enums and flags
 //----------------------------------------------------------------------------//
 
+// Flags specifying which components of a node transform have changed
+//----------------------------------------------------------------------------//
+enum io_transform_changed_flags_
+{
+  io_transform_changed_flags_position = 0x01u,
+  io_transform_changed_flags_orientation = 0x02u,
+  io_transform_changed_flags_size = 0x04u,
+};
+typedef io_uint8_t io_transform_changed_flags;
+
 // Flags defining the faces of a box
 //----------------------------------------------------------------------------//
 enum io_box_face_flags_
@@ -1799,6 +1809,18 @@ typedef struct
   io_ref_t shape; // The shape that has been voxelized
 } io_events_data_shape_voxelization_completed_t;
 
+// Node transform changed event data
+//   Event type name:       "node_transform_changed" or
+//                          "node_transform_changed_by_physics"
+//   Reported by callback:  "on_node_events"
+//----------------------------------------------------------------------------//
+typedef struct
+{
+  io_ref_t node; // The node with a changed transform
+  io_transform_changed_flags
+      flags; // Specifies which components of the transform have changed
+} io_events_data_node_transform_changed_t;
+
 //----------------------------------------------------------------------------//
 // Interface function declarations and implementations
 //----------------------------------------------------------------------------//
@@ -1972,6 +1994,10 @@ struct io_user_events_i // NOLINT
   //   See "Documentation" for usage details.
   void (*on_shape_events)(const io_events_header_t* begin,
                           const io_events_header_t* end);
+  // Called when node related events are ready to be processed.
+  //   See "Documentation" for usage details.
+  void (*on_node_events)(const io_events_header_t* begin,
+                         const io_events_header_t* end);
 };
 
 //----------------------------------------------------------------------------//
