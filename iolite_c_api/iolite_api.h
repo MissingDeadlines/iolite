@@ -2722,11 +2722,13 @@ struct io_entity_i // NOLINT
 
   // Gets the name of the given entity.
   const char* (*get_name)(io_ref_t entity);
-  // Gets the UUID of the given entity.
-  io_uuid_t (*get_uuid)(io_ref_t entity);
-
+  // Renames the given entity.
+  void (*rename)(io_ref_t entity, const char* name);
   // Returns the linear memory containing all the names for all active entities.
   io_name_t* (*get_name_memory)();
+
+  // Gets the UUID of the given entity.
+  io_uuid_t (*get_uuid)(io_ref_t entity);
 
   // Finds the first entity with the given name.
   io_ref_t (*find_first_entity_with_name)(const char* name);

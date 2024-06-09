@@ -1933,6 +1933,11 @@ void script_init_state(sol::state& s)
     // @param entity Ref The entity to check.
     // @return string value The name of the given entity.
     s["Entity"]["get_name"] = io_entity->get_name;
+    // @function rename
+    // @summary Renames the given entity.
+    // @param entity Ref The entity to rename.
+    // @param name string The new name of the entity.
+    s["Entity"]["rename"] = io_entity->rename;
 
     // @function find_first_entity_with_name
     // @summary Finds the first entity with the given name.
