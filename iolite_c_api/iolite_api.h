@@ -2745,6 +2745,11 @@ struct io_entity_i // NOLINT
   //   See "Documentation" for usage details.
   void (*find_entities_with_name)(const char* name, io_ref_t* entities,
                                   io_size_t* entities_length);
+  // Finds all entities which have a component with the given component type
+  // name attached.
+  void (*find_entities_with_component)(const char* component_type_name,
+                                       io_ref_t* entities,
+                                       io_size_t* entities_length);
 
   // Copies and initializes the component of the given type from the source
   // entity to the given target entity.

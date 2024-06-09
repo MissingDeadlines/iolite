@@ -1946,14 +1946,26 @@ void script_init_state(sol::state& s)
     s["Entity"]["find_first_entity_with_name"] = io_entity->find_first_entity_with_name;
 
     // @function find_entities_with_name
-    // @summary Finds all entities with the given name and returns as table containg refs as result.
+    // @summary Finds all entities with the given name.
     // @param name string The name of the entities to search for.
-    // @return table value Table containing the entities with the given name.
+    // @return table value Table containing the matching entities.
     s["Entity"]["find_entities_with_name"] = [](const char* name) {
       uint32_t num_entities;
       io_entity->find_entities_with_name(name, nullptr, &num_entities);
       std::vector<io_ref_t> entities(num_entities); 
       io_entity->find_entities_with_name(name, entities.data(), &num_entities);
+
+      return entities;
+    };
+    // @function find_entities_with_component
+    // @summary Finds all entities with a component of the given component type name attached to them.
+    // @param name string The component type name.
+    // @return table value Table containing the matching entities.
+    s["Entity"]["find_entities_with_component"] = [](const char* name) {
+      uint32_t num_entities;
+      io_entity->find_entities_with_component(name, nullptr, &num_entities);
+      std::vector<io_ref_t> entities(num_entities); 
+      io_entity->find_entities_with_component(name, entities.data(), &num_entities);
 
       return entities;
     };
