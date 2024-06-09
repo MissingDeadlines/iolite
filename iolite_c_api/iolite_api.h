@@ -2874,6 +2874,13 @@ struct io_component_node_i // NOLINT
   // Retrieves the previous sibling node (if any).
   io_ref_t (*get_prev_sibling)(io_ref_t node);
 
+  // Gets the bounds of the node in local space (as an axis-aligned bounding
+  // box).
+  io_aabb_t (*get_local_bounds)(io_ref_t node);
+  // Gets the bounds of the node in world space (as an axis-aligned bounding
+  // box).
+  io_aabb_t (*get_world_bounds)(io_ref_t node);
+
   // Sets the hidden state of the node.
   void (*set_hidden)(io_ref_t node, io_bool_t hidden);
   // Returns true if the node is hidden, false otherwise.
