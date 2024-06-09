@@ -2068,6 +2068,12 @@ void script_init_state(sol::state& s)
     // @param color Vec4 The color of the highlight.
     // @param outline boolean Set to true to only highlight using an outline.
     s["World"]["highlight_node"] = io_world->highlight_node;
+    // @function highlight_node
+    // @summary Highlights the given node (transparent overlay and/or outline) once in the current frame. Call this function each frame to keep the highlight visible. Please note that this function overwrites/resets any available persistent highlight.
+    // @param node Ref The node to highlight.
+    // @param color Vec4 The color of the highlight.
+    // @param outline boolean Set to true to only highlight using an outline.
+    s["World"]["highlight_node_once"] = io_world->highlight_node_once;
 
   };
 

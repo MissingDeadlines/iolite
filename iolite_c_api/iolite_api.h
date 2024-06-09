@@ -2396,9 +2396,15 @@ struct io_world_i // NOLINT
   void (*calc_mouse_ray)(io_vec3_t* origin, io_vec3_t* dir);
 
   // Enables a visual highlight (transparent overlay and/or outline) for the
-  // given node.
-  //    Pass an invalid ref for the "node" parameter to remove the highlight.
+  // given node. Pass an invalid ref to the "node" parameter to remove the
+  // highlight.
   void (*highlight_node)(io_ref_t node, io_vec4_t color, io_bool_t outline);
+  // Highlights the given node (transparent overlay and/or outline) once in the
+  // current frame. Call this function each frame to keep the highlight visible.
+  //   Please note that this function overwrites/resets any available persistent
+  //   highlight.
+  void (*highlight_node_once)(io_ref_t node, io_vec4_t color,
+                              io_bool_t outline);
 };
 
 //----------------------------------------------------------------------------//
