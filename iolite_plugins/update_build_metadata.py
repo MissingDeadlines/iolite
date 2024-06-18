@@ -20,25 +20,27 @@ plugins = [
 platforms = [("windows", "dll"), ("linux", "so")]
 
 for plat in platforms:
-  any_plugin_found = False
+  plugins_filtered = []
 
-  for p in plugins:
-      dll_filepath = "{}/{}.{}".format(plat[0], p["filename"], plat[1])
+  for plugin in plugins:
+      dll_filepath = "{}/{}.{}".format(plat[0], plugin["filename"], plat[1])
       json_filepath = "{}/plugins.json".format(plat[0])
 
       if os.path.isfile(dll_filepath):
-        with open(dll_filepath, "rb") as plugin:
-            plugin_data = plugin.read()
+        with open(dll_filepath, "rb") as plugin_file:
+            plugin_data = plugin_file.read()
             checksum = hash_djb2(plugin_data)
             checksum_with_salt = hash_djb2(bytes("{}{}".format(checksum, sys.argv[1]), "ascii"))
-            p["checksum"] = checksum_with_salt
-            any_plugin_found = True
+
+            plugin_with_checksum = plugin.copy()
+            plugin_with_checksum["checksum"] = checksum_with_salt
+            plugins_filtered.append(plugin_with_checksum)
       else:
         print("Plugin '{}' not found. Skipping checksum generation...".format(dll_filepath))
 
   # Only write the file if we've found at least one of the plugins
-  if any_plugin_found:
+  if len(plugins_filtered) > 0:
     with open(json_filepath, "w") as plugins_json:
-        json.dump(plugins, plugins_json, indent=2)
+        json.dump(plugins_filtered, plugins_json, indent=2)
   else:
     print("No plugins found for platform '{}'. Not writing 'plugins.json' file...".format(plat[0]))
