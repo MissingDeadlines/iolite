@@ -19,8 +19,9 @@ plugins = [
 ]
 platforms = [("windows", "dll"), ("linux", "so")]
 
-
 for plat in platforms:
+  any_plugin_found = False
+
   for p in plugins:
       dll_filepath = "{}/{}.{}".format(plat[0], p["filename"], plat[1])
       json_filepath = "{}/plugins.json".format(plat[0])
@@ -31,6 +32,13 @@ for plat in platforms:
             checksum = hash_djb2(plugin_data)
             checksum_with_salt = hash_djb2(bytes("{}{}".format(checksum, sys.argv[1]), "ascii"))
             p["checksum"] = checksum_with_salt
+            any_plugin_found = True
+      else:
+        print("Plugin '{}' not found. Skipping checksum generation...".format(dll_filepath))
 
-  with open(json_filepath, "w") as plugins_json:
-      json.dump(plugins, plugins_json, indent=2)
+  # Only write the file if we've found at least one of the plugins
+  if any_plugin_found:
+    with open(json_filepath, "w") as plugins_json:
+        json.dump(plugins, plugins_json, indent=2)
+  else:
+    print("No plugins found for platform '{}'. Not writing 'plugins.json' file...".format(plat[0]))
