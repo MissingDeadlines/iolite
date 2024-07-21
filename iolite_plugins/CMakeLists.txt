@@ -52,6 +52,13 @@ add_library(IoliteVoxelEditingPlugin SHARED
 )
 list(APPEND PLUGINS IoliteVoxelEditingPlugin)
 
+# Benchmark plugin
+add_library(IoliteBenchmarkPlugin SHARED
+  benchmark_plugin/benchmark_plugin.cpp
+  ${IMGUI_SOURCES}
+)
+list(APPEND PLUGINS IoliteBenchmarkPlugin)
+
 if(WIN32)
   # OIDN denoiser plugin
   add_library(IoliteDenoiserOIDNPlugin SHARED

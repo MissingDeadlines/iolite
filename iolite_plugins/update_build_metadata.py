@@ -15,7 +15,8 @@ plugins = [
     {"name": "terrain", "filename": "IoliteTerrainPlugin"},
     {"name": "lua", "filename": "IoliteLuaPlugin"},
     {"name": "denoiser_oidn", "filename": "IoliteDenoiserOIDNPlugin"},
-    {"name": "voxel_editing", "filename": "IoliteVoxelEditingPlugin"}
+    {"name": "voxel_editing", "filename": "IoliteVoxelEditingPlugin"},
+    {"name": "benchmark", "filename": "IoliteBenchmarkPlugin"}
 ]
 platforms = [("windows", "dll"), ("linux", "so")]
 

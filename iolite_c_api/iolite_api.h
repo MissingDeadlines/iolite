@@ -871,7 +871,7 @@ typedef void (*io_scheduler_callback_t)(io_uvec2_t range, io_uint32_t thread_id,
 //           and dispatch the task via the functions provided via the
 //           "io_base_i" interface.
 //----------------------------------------------------------------------------//
-typedef struct io_scheduler_task_t_
+typedef struct io_scheduler_task_t_ // NOLINT
 {
   // The total number of workloads this task handles.
   //  Must be greater than 0.
@@ -1947,6 +1947,9 @@ struct io_user_editor_i // NOLINT
   // Called when building the "Plugin" menu in the editor's menu bar. Extend the
   // menu here using ImGui::MenuItem() etc.
   void (*on_build_plugin_menu)();
+  // Called when building the "Actions" category in the node context menu.
+  io_bool_t (*on_build_node_action_menu)(io_ref_t node, const io_ref_t* nodes,
+                                         io_size_t num_nodes);
 
   // Called once when the editor becomes active.
   void (*on_activate)();
@@ -2093,13 +2096,36 @@ struct io_logging_i // NOLINT
 };
 
 //----------------------------------------------------------------------------//
+#define IO_APPLICATION_API_NAME "io_application_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to the application.
+//----------------------------------------------------------------------------//
+struct io_application_i // NOLINT
+{
+  // Closes the application.
+  void (*shutdown)();
+
+  // Creates or retrieves the user directory and returns its path. The
+  // provided subdirectory is created and appended to the path if not nullptr.
+  void (*create_or_retrieve_user_directory)(const char* subdirectory,
+                                            char* path, io_size_t* path_length);
+
+  // Returns the current frames per second.
+  float (*get_fps)();
+};
+
+//----------------------------------------------------------------------------//
 #define IO_EDITOR_API_NAME "io_editor_i"
 //----------------------------------------------------------------------------//
 
-// Provides access to the editor
+// Provides access to the editor.
 //----------------------------------------------------------------------------//
 struct io_editor_i // NOLINT
 {
+  // Activates or deactivates the editor.
+  void (*set_enabled)(io_bool_t enabled);
+
   // Selects the provided node.
   //   Pass an invalid ref for the "node" parameter to clear the selection.
   void (*select_node)(io_ref_t node);
@@ -2598,21 +2624,22 @@ struct io_debug_geometry_i // NOLINT
   //   Line 1: positions[0], positions[1]
   //   Line 2: positions[2], positions[3]
   //   ...
-  void (*draw_lines)(io_vec3_t* positions, io_size_t num_positions,
+  void (*draw_lines)(const io_vec3_t* positions, io_size_t num_positions,
                      io_vec4_t color, io_bool_t always_in_front);
   // Draws the given line strip.
   //   Line 1: positions[0], positions[1]
   //   Line 2: positions[1], positions[2]
   //  ...
-  void (*draw_line_strip)(io_vec3_t* positions, io_size_t num_positions,
+  void (*draw_line_strip)(const io_vec3_t* positions, io_size_t num_positions,
                           io_vec4_t color, io_bool_t always_in_front);
 
   // Draws the given triangles.
   //   Triangle 1: positions[0], positions[1], positions[2]
   //   Triangle 2: positions[3], positions[4], positions[5]
   //   ...
-  void (*draw_solid_triangles)(io_vec3_t* positions, io_size_t num_positions,
-                               io_vec4_t color, io_bool_t always_in_front);
+  void (*draw_solid_triangles)(const io_vec3_t* positions,
+                               io_size_t num_positions, io_vec4_t color,
+                               io_bool_t always_in_front);
 
   // Enables software back face culling between the begin/end calls.
   void (*backface_culling_begin)();
@@ -3321,8 +3348,46 @@ struct io_component_particle_i // NOLINT
   io_handle16_t (*get_emitter_handle)(io_ref_t particle);
 };
 
-// Base interface all resources provide
-//   *Not all functions are provided by all resources*
+//----------------------------------------------------------------------------//
+#define IO_COMPONENT_TRACK_API_NAME "io_component_track_i"
+//----------------------------------------------------------------------------//
+
+// Provides access to track components.
+//----------------------------------------------------------------------------//
+struct io_component_track_i // NOLINT
+{
+  // Base interface functions.
+  io_component_base_i base;
+
+  // Returns the length of the track in meters.
+  io_float32_t (*get_length)(io_ref_t track);
+  // Returns the number of samples used for interpolating the track.
+  io_uint32_t (*get_num_samples)(io_ref_t track);
+  // Returns the raw positions of the associated track points.
+  void (*get_track_points)(io_ref_t track, io_vec3_t* points,
+                           io_size_t* points_length);
+
+  // Calculates the world position for the given time t in [0, 1]. Returns false
+  // if the path is invalid and does not contain enough track points for
+  // interpolation.
+  io_bool_t (*calc_world_position_on_track)(io_ref_t track, io_float32_t t,
+                                            io_vec3_t* world_position);
+  // Calculates the world position for the given distance *on the track* in
+  // meters. Returns false if the path is invalid and does not contain enough
+  // track points for interpolation.
+  io_bool_t (*calc_world_position_on_track_absolute)(io_ref_t track,
+                                                     io_float32_t distance,
+                                                     io_vec3_t* world_position);
+
+  // Finds the closest point on the track relative to the provided reference
+  // position.
+  io_vec3_t (*find_closest_point_on_track)(io_ref_t track,
+                                           io_vec3_t reference_point,
+                                           float* distance,
+                                           float step_size_in_m);
+};
+
+// Base interface all resources provide.
 //----------------------------------------------------------------------------//
 typedef struct
 {
