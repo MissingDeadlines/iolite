@@ -408,6 +408,45 @@ static void on_build_plugin_menu()
 static io_bool_t on_build_node_action_menu(io_ref_t node, const io_ref_t* nodes,
                                            io_size_t num_nodes)
 {
+  auto entity = io_component_node->base.get_entity(node);
+  auto track = io_component_track->base.get_component_for_entity(entity);
+
+  if (io_ref_is_valid(track))
+  {
+    if (ImGui::BeginMenu(ICON_FA_ROCKET "   Benchmark"))
+    {
+      if (ImGui::MenuItem(ICON_FA_ROCKET_LAUNCH "   Benchmark Selected Tracks"))
+      {
+        std::vector<benchmark::section_t> sections;
+
+        for (uint32_t i = 0u; i < num_nodes; ++i)
+        {
+          node = nodes[i];
+          entity = io_component_node->base.get_entity(node);
+          track = io_component_track->base.get_component_for_entity(entity);
+
+          if (io_ref_is_valid(track))
+          {
+            benchmark::section_t section = {};
+            {
+              section.track = track;
+              benchmark::cache_look_at_points(section.track,
+                                              section.look_at_points);
+            }
+            sections.push_back(section);
+          }
+        }
+
+        if (!sections.empty())
+          benchmark::start(sections);
+      }
+
+      ImGui::EndMenu();
+    }
+
+    return true;
+  }
+
   return false;
 }
 
