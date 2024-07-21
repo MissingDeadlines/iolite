@@ -7,6 +7,9 @@
     "name": {
       "value": "flappy"
     },
+    "category": {
+      "value": ""
+    },
     "sunAzimuthElevation": {
       "values": [
         22.85700035095215,
@@ -16,6 +19,10 @@
     },
     "sunIntensity": {
       "value": 50.0,
+      "blendFactor": 1.0
+    },
+    "skyPanorama": {
+      "value": "sky",
       "blendFactor": 1.0
     },
     "chromaShiftFactor": {

@@ -1,0 +1,13 @@
+{
+  "breathing": {
+    "volume": 0.2,
+    "audio_samplers": [
+      {
+        "file_names": [
+          "breathing.ogg"
+        ],
+        "volume": 1.0
+      }
+    ]
+  }
+}

@@ -2,6 +2,8 @@
   "application_name": "IOLITE Samples",
   "organization_name": "Missing Deadlines",
   "data_sources": [
+    "default",
+    "extras",
     "sample_base",
     "sample_animation",
     "sample_physics",
@@ -12,7 +14,7 @@
     "sample_minecraft_map",
     "sample_heightmap",
     "sample_spectrum",
-    "trapped_below"
+    "sample_puzzle_game"
   ],
   "initial_world": "sample_animation",
   "initial_game_state": "Editing"
