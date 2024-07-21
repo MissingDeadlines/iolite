@@ -62,8 +62,8 @@ namespace benchmark
 
 static struct settings_t
 {
-  uint32_t vsync;
-  uint32_t refresh_rate_limit;
+  io_uint32_t vsync;
+  io_uint32_t refresh_rate_limit;
 
 } previous_settings;
 
@@ -71,14 +71,15 @@ static struct settings_t
 struct look_at_point_t
 {
   io_vec3_t p;
-  float d;
+  io_float32_t d;
 };
 
 //----------------------------------------------------------------------------//
 struct section_t
 {
   io_ref_t track{};
-  float distance{0.0f};
+  io_float32_t distance{0.0f};
+  io_float32_t time_passed{0.0f};
   std::vector<look_at_point_t> look_at_points;
   std::vector<float> benchmark_result;
 };
@@ -88,10 +89,12 @@ static std::vector<section_t> active_sections;
 static std::vector<section_t> finished_sections;
 
 //----------------------------------------------------------------------------//
-constexpr float speed = 15.0f;
-constexpr float look_at_rigidness = 1.0f;
-constexpr float look_at_distance = 1000.0f;
-constexpr float look_at_blend_distance = 5.0f;
+constexpr io_float32_t speed_in_mps = 5.0f;
+constexpr io_float32_t fade_in_out_duration_in_s = 2.0f;
+constexpr io_float32_t pause_between_sections_in_s = 1.0f;
+constexpr io_float32_t look_at_rigidness = 1.0f;
+constexpr io_float32_t look_at_distance_in_m = 1000.0f;
+constexpr io_float32_t look_at_blend_distance_in_m = 5.0f;
 
 //----------------------------------------------------------------------------//
 inline static void log_message(const char* fmt, ...)
@@ -175,7 +178,7 @@ static void cache_look_at_points(io_ref_t track,
                                  std::vector<look_at_point_t> look_at_points)
 {
   // Cache look-at points
-  if (look_at_distance > glm::epsilon<float>())
+  if (look_at_distance_in_m > glm::epsilon<float>())
   {
     io_size_t entities_length;
     io_component_tag->find_entities_with_tag("look_at", nullptr,
@@ -184,7 +187,8 @@ static void cache_look_at_points(io_ref_t track,
     io_component_tag->find_entities_with_tag(
         "look_at", look_at_point_nodes.data(), &entities_length);
 
-    const float look_at_distance2 = look_at_distance * look_at_distance;
+    const float look_at_distance2 =
+        look_at_distance_in_m * look_at_distance_in_m;
     for (const auto entity : look_at_point_nodes)
     {
       const auto node =
@@ -264,7 +268,7 @@ static void update(float dt)
   // Fade from/to black based on track position
   {
     constexpr float fade_in_out_time = 2.0f;
-    const float fade_distance = speed * fade_in_out_time;
+    const float fade_distance = speed_in_mps * fade_in_out_time;
 
     const float fade_in =
         glm::min(current_section.distance / fade_distance, 1.0f);
@@ -283,7 +287,12 @@ static void update(float dt)
     io_ui->pop_style_var();
   }
 
-  current_section.distance += dt * speed;
+  current_section.time_passed += dt;
+
+  if (current_section.time_passed < pause_between_sections_in_s)
+    return;
+
+  current_section.distance += dt * speed_in_mps;
 
   if (current_section.distance < track_length)
   {
@@ -313,7 +322,7 @@ static void update(float dt)
       }
 
       if (idx >= num_look_at_points - 1u ||
-          look_at_blend_distance <= glm::epsilon<float>())
+          look_at_blend_distance_in_m <= glm::epsilon<float>())
       {
         look_at_pos = current_section.look_at_points[idx].p;
       }
@@ -323,7 +332,7 @@ static void update(float dt)
         const auto& lp1 = current_section.look_at_points[idx + 1u];
 
         const float look_at_distance =
-            glm::min(lp1.d - lp0.d, look_at_blend_distance);
+            glm::min(lp1.d - lp0.d, look_at_blend_distance_in_m);
         look_at_pos =
             io_cvt(glm::mix(io_cvt(lp0.p), io_cvt(lp1.p),
                             1.0f - glm::min((lp1.d - current_section.distance) /
