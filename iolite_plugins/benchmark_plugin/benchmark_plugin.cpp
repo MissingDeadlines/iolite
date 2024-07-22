@@ -21,21 +21,21 @@
 // SOFTWARE.
 
 // Dependencies
+#include <vector>
 #include <glm.hpp>
 #include <gtc/quaternion.hpp>
 #include <gtx/norm.hpp>
-#include <vector>
 #include "ext/scalar_constants.hpp"
 #include "geometric.hpp"
 #include "imgui.h"
 #include "IconsFontAwesome6.h"
-#define STB_SPRINTF_IMPLEMENTATION
-#include "stb_sprintf.h"
 
 // API
 #define IO_USER_VEC3_TYPE glm::vec3
 #define IO_USER_QUAT_TYPE glm::quat
 #include "iolite_api.h"
+#define _IO_PLUGIN_NAME "Benchmark"
+#include "iolite_plugins_common.h"
 
 // Interfaces we use
 //----------------------------------------------------------------------------//
@@ -97,26 +97,13 @@ constexpr io_float32_t look_at_distance_in_m = 1000.0f;
 constexpr io_float32_t look_at_blend_distance_in_m = 5.0f;
 
 //----------------------------------------------------------------------------//
-inline static void log_message(const char* fmt, ...)
-{
-  char buffer[256];
-
-  va_list args;
-  va_start(args, fmt);
-  stbsp_vsnprintf(buffer, 256, fmt, args);
-  va_end(args);
-
-  io_logging->log_plugin("Benchmark", buffer);
-}
-
-//----------------------------------------------------------------------------//
 static void start(const std::vector<section_t>& sections)
 {
   active_sections = sections;
   finished_sections.clear();
 
-  log_message("Starting IOLITE benchmark...");
-  log_message("---");
+  common::log_message(io_logging, "Starting IOLITE benchmark...");
+  common::log_message(io_logging, "---");
 
   // Remember current and update settings
   previous_settings.refresh_rate_limit =
@@ -132,8 +119,8 @@ static void start(const std::vector<section_t>& sections)
 //----------------------------------------------------------------------------//
 static void stop_internal()
 {
-  log_message("IOLITE benchmark completed!");
-  log_message("---");
+  common::log_message(io_logging, "IOLITE benchmark completed!");
+  common::log_message(io_logging, "---");
 
   std::vector<float> section_results;
 
@@ -147,22 +134,23 @@ static void stop_internal()
     section_results.emplace_back(mean_fps);
   }
 
-  log_message("Section results:");
-  log_message("---");
+  common::log_message(io_logging, "Section results:");
+  common::log_message(io_logging, "---");
 
   float result = 0.0f;
   uint32_t section_id = 1u;
   for (float r : section_results)
   {
-    log_message("  Section %u: %.3f FPS", section_id, r);
+    common::log_message(io_logging, "  Section %u: %.3f FPS", section_id, r);
     result += 1.0f / r;
     ++section_id;
   }
   result = section_results.size() / result;
 
-  log_message("---");
-  log_message("Final score: %u points", (uint32_t)std::round(result * 1000.0f));
-  log_message("---");
+  common::log_message(io_logging, "---");
+  common::log_message(io_logging, "Final score: %u points",
+                      (uint32_t)std::round(result * 1000.0f));
+  common::log_message(io_logging, "---");
 
   // Restore settings
   io_settings->set_uint("refresh_rate_limit",

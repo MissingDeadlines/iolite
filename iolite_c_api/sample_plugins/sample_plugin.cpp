@@ -20,16 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// STL
-#include <stdio.h>
-#include <vector>
-
 // Dependencies
-#include "gtc/constants.hpp"
+#include <vector>
 #include "gtc/random.hpp"
 #include "imgui.h"
-#include "glm.hpp"
-#include "gtc/quaternion.hpp"
 #include "gtx/norm.hpp"
 #define STB_SPRINTF_IMPLEMENTATION
 #include "stb_sprintf.h"

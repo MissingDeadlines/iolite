@@ -16,7 +16,7 @@ elseif(UNIX)
   find_library(LUA_JIT_LIBRARIES NAMES luajit PATHS "dependencies/lua/lib")
 endif()
 
-include_directories(../iolite_c_api/sample_plugins/dependencies/glm/glm ../iolite_c_api/sample_plugins/dependencies/imgui ../iolite_c_api dependencies dependencies/lua/include dependencies/oidn/include lua_plugin terrain_plugin)
+include_directories(../iolite_c_api/sample_plugins/dependencies/glm/glm ../iolite_c_api/sample_plugins/dependencies/imgui ../iolite_c_api dependencies dependencies/lua/include dependencies/oidn/include lua_plugin terrain_plugin shared)
 
 # Lua plugin
 add_library(IoliteLuaPlugin SHARED
@@ -59,19 +59,11 @@ add_library(IoliteBenchmarkPlugin SHARED
 )
 list(APPEND PLUGINS IoliteBenchmarkPlugin)
 
-if(WIN32)
-  # OIDN denoiser plugin
-  add_library(IoliteDenoiserOIDNPlugin SHARED
-    denoiser_oidn_plugin/denoiser_oidn_plugin.cpp
-  )
-  list(APPEND PLUGINS IoliteDenoiserOIDNPlugin)
-
-  find_library(_OIDN_LIB NAMES OpenImageDenoise PATHS "dependencies/oidn/lib")
-  list(APPEND OIDN_LIBS ${_OIDN_LIB})
-  find_library(_OIDN_LIB_TBB NAMES tbb PATHS "dependencies/oidn/lib")
-  list(APPEND OIDN_LIBS ${_OIDN_LIB_TBB})
-  target_link_libraries(IoliteDenoiserOIDNPlugin ${OIDN_LIBS})
-endif()
+# OIDN denoiser plugin
+add_library(IoliteDenoiserOIDNPlugin SHARED
+  denoiser_oidn_plugin/denoiser_oidn_plugin.cpp
+)
+list(APPEND PLUGINS IoliteDenoiserOIDNPlugin)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR UNIX)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=core-avx2")

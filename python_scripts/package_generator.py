@@ -108,5 +108,6 @@ try:
     os.remove(package_path + "_tmp")
 
     print("Package creation finished!")
-except:
+except Exception as e:
+    print("ERROR: {}".format(e))
     exit(-1)
