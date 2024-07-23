@@ -1,6 +1,8 @@
 {
-  "application_name": "IOLITE Samples",
+  "application_name": "IOLITE",
   "organization_name": "Missing Deadlines",
+  // Set this to your version string
+  //"version_string": "0.0.0",
   "data_sources": [
     "default",
     "extras",
