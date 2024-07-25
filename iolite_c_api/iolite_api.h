@@ -187,7 +187,8 @@ typedef io_uint32_t io_size_t;
 
 //----------------------------------------------------------------------------//
 typedef io_uint64_t io_uuid_t;
-typedef io_uint32_t io_ref_type_id_t;
+typedef io_uint16_t io_ref_type_id_t;
+typedef io_uint16_t io_ref_generation_t;
 typedef io_uint32_t io_ref_index_t;
 typedef io_uint32_t io_ref_id_t;
 
@@ -805,9 +806,9 @@ enum io_ref_internal_
 //----------------------------------------------------------------------------//
 typedef struct
 {
-  io_uint16_t id;  // ID of the ref
-  io_uint8_t gen;  // Generation of the ref
-  io_uint8_t type; // Type ID of the ref
+  io_ref_id_t id;          // The ID of the ref
+  io_ref_generation_t gen; // The generation of the ref
+  io_ref_type_id_t type;   // The type ID of the ref
 } io_ref_t;
 
 // Name type
