@@ -776,4 +776,5 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
   io_api_manager->unregister_api(&io_user_task);
   io_api_manager->unregister_api(&io_user_editor);
   io_api_manager->unregister_api(&io_user_debug_view);
+  io_api_manager->unregister_api(&io_user_events);
 }
