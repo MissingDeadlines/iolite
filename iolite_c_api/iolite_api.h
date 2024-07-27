@@ -789,13 +789,14 @@ enum io_variant_type_
 //----------------------------------------------------------------------------//
 enum io_ref_internal_
 {
-  io_ref_internal_max_id = 65534u,        // Max valid ID, 2^16 - 2
-  io_ref_internal_max_gen_id = 253u,      // Max valid gen ID, 2^8 - 3
-  io_ref_internal_max_type_id = 254u,     // Max valid type ID, 2^8 - 2
-  io_ref_internal_invalid_id = 65535u,    // Indicates invalid ID
-  io_ref_internal_invalid_gen_id = 255u,  // Indicates invalid generation ID
-  io_ref_internal_invalid_type_id = 255u, // Indicates invalid type ID
-  io_ref_internal_is_index_gen_id = 254u  // Indicates ID is index
+  io_ref_internal_max_id = (io_ref_id_t)-1 - 1u,
+  io_ref_internal_max_gen_id = (io_ref_generation_t)-1 - 2u,
+  io_ref_internal_max_type_id = (io_ref_type_id_t)-1 - 1u,
+
+  io_ref_internal_invalid_id = io_ref_internal_max_id + 1u,
+  io_ref_internal_is_index_gen_id = io_ref_internal_max_gen_id + 1u,
+  io_ref_internal_invalid_gen_id = io_ref_internal_max_gen_id + 2u,
+  io_ref_internal_invalid_type_id = io_ref_internal_max_type_id + 1u,
 };
 
 //----------------------------------------------------------------------------//
