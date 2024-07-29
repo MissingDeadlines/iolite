@@ -29,11 +29,6 @@
 
 // Vulkan
 #include "vulkan/vulkan.h"
-#include "vulkan/vulkan_core.h"
-
-// Dependencies
-#define STB_SPRINTF_IMPLEMENTATION
-#include "stb_sprintf.h"
 
 // Interfaces we use
 //----------------------------------------------------------------------------//
@@ -82,11 +77,7 @@ IO_API_EXPORT int IO_API_CALL load_plugin(const void* api_manager)
     {
       VkPhysicalDeviceProperties props;
       vkGetPhysicalDeviceProperties(vk_device, &props);
-
-      char buffer[1024u];
-      stbsp_snprintf(buffer, sizeof(buffer), "Vulkan Sample Plugin: %s",
-                     props.deviceName);
-      io_logging->log_plugin("Sample Vulkan", buffer);
+      io_logging->log_plugin("Sample Vulkan", props.deviceName);
     }
   }
 
