@@ -241,6 +241,13 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   io_logging =
       (const io_logging_i*)io_api_manager->find_first(IO_LOGGING_API_NAME);
 
+  if (!load_oidn())
+  {
+    // Unsupported if OIDN is not available
+    return -1;
+  }
+  unload_oidn();
+
   // Register the interfaces we provide
   {
     io_user_denoiser.get_name = get_name;
