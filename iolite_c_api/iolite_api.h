@@ -1272,7 +1272,7 @@ inline io_variant_t io_variant_from_bool(io_bool_t value)
 //----------------------------------------------------------------------------//
 inline io_bool_t io_variant_get_bool(io_variant_t variant)
 {
-  if (variant.type.hash != io_variant_type_uint64)
+  if (variant.type.hash != io_variant_type_bool)
     return IO_FALSE;
   return *(io_bool_t*)variant.data;
 }
