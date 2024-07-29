@@ -26,6 +26,7 @@
 #include "iolite_api.h"
 
 // Dependencies
+#include <string>
 #define STB_SPRINTF_IMPLEMENTATION
 #include "stb_sprintf.h"
 
@@ -52,7 +53,14 @@ void* load_library(const char* name)
 #ifdef _WIN32
   return LoadLibraryA(name);
 #else
-  return dlopen(name, RTLD_LAZY);
+  void * handle = dlopen(name, RTLD_LAZY);
+  if (!handle)
+    handle = dlopen((std::string("lib") + name).c_str(), RTLD_LAZY);
+  if (!handle)
+    handle = dlopen((std::string(name) + ".so").c_str(), RTLD_LAZY);
+  if (!handle)
+    handle = dlopen((std::string("lib") + name + ".so").c_str(), RTLD_LAZY);
+  return handle;
 #endif
 }
 
