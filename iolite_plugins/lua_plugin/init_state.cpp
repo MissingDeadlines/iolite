@@ -2407,14 +2407,14 @@ void script_init_state(sol::state& s)
     // @category Noise Various procedural noise functions. Useful for, e.g., generating terrain, animations, etc.
     // @copy_category Interface
 
-    // @function simplex
-    // @summary Calculates perlin noise.
+    // @function perlin
+    // @summary Calculates Perlin noise.
     // @param x Vec4 The coordinate to calculate the noise value at.
     // @return number value The noise value at the given coordinate.
     s["Noise"]["perlin"] = [](const io_vec4_t& x) { return glm::perlin(io_cvt(x)); };
 
     // @function simplex
-    // @summary Calculates simplex noise.
+    // @summary Calculates Simplex noise.
     // @param x Vec4 The coordinate to calculate the noise value at.
     // @return number value The noise value at the given coordinate.
     s["Noise"]["simplex"] = [](const io_vec4_t& x) { return glm::simplex(io_cvt(x)); };
