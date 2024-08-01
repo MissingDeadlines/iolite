@@ -38,7 +38,7 @@
   
   api
    
-IOLITE 0.5 documentation
+IOLITE 0.6 documentation
 ========================
 
 Welcome to the documentation of IOLITE, the voxel-powered game engine.
