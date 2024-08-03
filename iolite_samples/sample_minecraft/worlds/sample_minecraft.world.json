@@ -507,19 +507,22 @@
         "type": "CharacterController",
         "properties": {
           "type": {
-            "value": 0
+            "value": 1
           },
           "halfHeight": {
-            "value": 1.100000023841858
+            "value": 0.8999999761581421
           },
           "radius": {
-            "value": 0.6000000238418579
+            "value": 0.30000001192092896
           },
           "contactOffset": {
             "value": 0.10000000149011612
           },
           "stepOffset": {
-            "value": 0.5
+            "value": 0.0
+          },
+          "slopeLimit": {
+            "value": 0.0
           },
           "group": {
             "value": 1
