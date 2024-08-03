@@ -329,6 +329,14 @@
             ]
           }
         }
+      },
+      {
+        "type": "KillPlane",
+        "properties": {
+          "uuid": {
+            "value": 10330599970929934827
+          }
+        }
       }
     ]
   },
@@ -619,7 +627,7 @@
             "value": 1
           },
           "fractureType": {
-            "value": 0
+            "value": 1
           },
           "maxNumConvexSubdivisions": {
             "value": 0
