@@ -30,8 +30,4 @@ iolite_plugins/windows/*.dll
 iolite_plugins/windows/*.pdb
 iolite_plugins/windows/*.ilk
 
-!iolite_plugins/**/OpenImageDenoise.*
 !iolite_plugins/**/lua51.*
-
-hohenzollern_castle_and_kingdom.vox
-.DS_Store
