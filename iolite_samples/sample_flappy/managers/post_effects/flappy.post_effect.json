@@ -12,13 +12,22 @@
     },
     "sunAzimuthElevation": {
       "values": [
-        22.85700035095215,
-        3.571000099182129
+        30.0,
+        12.0
       ],
       "blendFactor": 1.0
     },
     "sunIntensity": {
-      "value": 50.0,
+      "value": 3.0,
+      "blendFactor": 1.0
+    },
+    "sunColor": {
+      "values": [
+        0.96138995885849,
+        0.5591972470283508,
+        0.17817266285419464,
+        1.0
+      ],
       "blendFactor": 1.0
     },
     "skyPanorama": {

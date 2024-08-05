@@ -7,6 +7,13 @@
     "name": {
       "value": "sunny"
     },
+    "category": {
+      "value": ""
+    },
+    "sunIntensity": {
+      "value": 4.0,
+      "blendFactor": 1.0
+    },
     "skyPanorama": {
       "value": "sky",
       "blendFactor": 1.0

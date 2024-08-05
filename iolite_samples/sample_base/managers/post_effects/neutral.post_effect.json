@@ -7,8 +7,20 @@
     "name": {
       "value": "neutral"
     },
+    "category": {
+      "value": ""
+    },
     "sunIntensity": {
-      "value": 5.0,
+      "value": 3.0,
+      "blendFactor": 1.0
+    },
+    "sunColor": {
+      "values": [
+        1.0,
+        0.7406269907951355,
+        0.4710424542427063,
+        1.0
+      ],
       "blendFactor": 1.0
     },
     "skyPanorama": {
