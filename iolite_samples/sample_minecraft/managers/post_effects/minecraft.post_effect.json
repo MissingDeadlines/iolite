@@ -1,0 +1,85 @@
+{
+  "name": "minecraft",
+  "properties": {
+    "uuid": {
+      "value": 13933655925635695247
+    },
+    "name": {
+      "value": "minecraft"
+    },
+    "category": {
+      "value": ""
+    },
+    "sunIntensity": {
+      "value": 4.0,
+      "blendFactor": 1.0
+    },
+    "skyPanorama": {
+      "value": "sky",
+      "blendFactor": 1.0
+    },
+    "minBrightness": {
+      "value": -2.0,
+      "blendFactor": 1.0
+    },
+    "maxBrightness": {
+      "value": 2.0,
+      "blendFactor": 1.0
+    },
+    "autofocus": {
+      "value": true,
+      "blendFactor": 1.0
+    },
+    "focusRange": {
+      "value": 100.0,
+      "blendFactor": 1.0
+    },
+    "blurRadius": {
+      "value": 5.0,
+      "blendFactor": 1.0
+    },
+    "tonemapper": {
+      "value": 0
+    },
+    "gradingLut": {
+      "value": "neutral",
+      "blendFactor": 1.0
+    },
+    "gradingStyle": {
+      "value": 0
+    },
+    "gradingLift": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingLiftMaster": {
+      "value": 0.0
+    },
+    "gradingGamma": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingGammaMaster": {
+      "value": 0.0
+    },
+    "gradingGain": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "gradingGainMaster": {
+      "value": 0.0
+    },
+    "gradingSaturation": {
+      "value": 1.0
+    }
+  }
+}
