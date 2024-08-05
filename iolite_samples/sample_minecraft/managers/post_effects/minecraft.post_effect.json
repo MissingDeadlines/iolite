@@ -10,8 +10,24 @@
     "category": {
       "value": ""
     },
+    "sunAzimuthElevation": {
+      "values": [
+        45.0,
+        45.0
+      ],
+      "blendFactor": 1.0
+    },
     "sunIntensity": {
       "value": 4.0,
+      "blendFactor": 1.0
+    },
+    "sunColor": {
+      "values": [
+        1.0,
+        0.8358849883079529,
+        0.6100386381149292,
+        1.0
+      ],
       "blendFactor": 1.0
     },
     "skyPanorama": {
