@@ -142,7 +142,10 @@ function UpdateCharacter(delta_t)
   -- Simple water handling
   local water_plane = Entity.find_first_entity_with_name("water_plane")
   local water_plane_node = Node.get_component_for_entity(water_plane)
-  local in_water = Node.get_world_position(player_node).y < Node.get_world_position(water_plane_node).y
+
+  local player_in_water_offset = 1.2
+  local in_water = Node.get_world_position(player_node).y <
+      Node.get_world_position(water_plane_node).y - player_in_water_offset
 
   if not WasInWater and in_water then
     Sound.play_sound_effect("sp_water_splash")
@@ -166,16 +169,18 @@ function UpdateCharacter(delta_t)
 
   -- Apply gravity
   if not grounded and not in_water then
-    PlayerVelocity.y = PlayerVelocity.y - delta_t * 9.81
+    PlayerVelocity.y = PlayerVelocity.y - delta_t * 20.0
   elseif PlayerVelocity.y < 0.0 then
-    PlayerVelocity.y = PlayerVelocity.y * 0.999
+    PlayerVelocity.y = 0.0
   end
 
   -- Apply mouse movement
   local mouse_pos_rel = Input.get_mouse_pos_relative()
   local target_orientation = CameraController.get_target_euler_angles(cam_ctrl)
-  target_orientation.x = target_orientation.x + mouse_pos_rel.y * 0.01
-  target_orientation.y = target_orientation.y - mouse_pos_rel.x * 0.01
+
+  local mouse_sensitivity = 0.0016;
+  target_orientation.x = target_orientation.x + mouse_pos_rel.y * mouse_sensitivity
+  target_orientation.y = target_orientation.y - mouse_pos_rel.x * mouse_sensitivity
 
   -- WASD movement
   local mov_vec_local = Vec3(0.0)
@@ -210,7 +215,7 @@ function UpdateCharacter(delta_t)
   end
 
   -- Apply speed
-  local speed = 8.0
+  local speed = 5.0
   mov_vec_local = Math.vec_scale(speed, mov_vec_local)
 
   local move_vec_global = Math.quat_rotate(Math.quat_from_euler_angles(Vec3(0.0, target_orientation.y, 0.0)),
@@ -220,7 +225,7 @@ function UpdateCharacter(delta_t)
 
   -- Jumping
   if (TimeAirborne < 0.1 or in_water) and Input.get_key_state(Key.kSpace, 0) == KeyState.kPressed and not Jumped then
-    PlayerVelocity.y = 5.0
+    PlayerVelocity.y = 7.0
     Jumped = true
   elseif Input.get_key_state(Key.kSpace, 0) == KeyState.kReleased then
     Jumped = false
