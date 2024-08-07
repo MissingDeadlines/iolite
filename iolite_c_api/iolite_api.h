@@ -1122,7 +1122,8 @@ inline io_ref_t io_ref_invalid()
 inline io_bool_t io_ref_is_valid(io_ref_t ref)
 {
   return ref.id != io_ref_internal_invalid_id &&
-         ref.gen != io_ref_internal_invalid_gen_id;
+         ref.gen != io_ref_internal_invalid_gen_id &&
+         ref.type != io_ref_internal_invalid_type_id;
 }
 
 // Returns true if both refs are equal.
