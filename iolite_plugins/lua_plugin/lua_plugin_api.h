@@ -25,17 +25,28 @@
 #ifndef INCLUDE_IO_PLUGIN_LUA_API
 #define INCLUDE_IO_PLUGIN_LUA_API
 
+// Inteface exposed by the Lua scripting backend plugin
+//----------------------------------------------------------------------------//
+
 //----------------------------------------------------------------------------//
 #define IO_PLUGIN_LUA_USER_CALLBACK_API_NAME "io_plugin_lua_user_callback_i"
 //----------------------------------------------------------------------------//
 
-// Inteface exposed by the Lua scripting backend plugin
-//----------------------------------------------------------------------------//
-struct io_plugin_lua_user_callack_i
+struct io_plugin_lua_user_callack_i // NOLINT
 {
   // Called when the Lua state for a script should be initialized. Use this
   // function to expose functionality from other plugins.
   void (*on_init_lua_state)(void* lua_state);
+};
+
+//----------------------------------------------------------------------------//
+#define IO_PLUGIN_LUA_API_NAME "io_plugin_lua_i"
+//----------------------------------------------------------------------------//
+
+struct io_plugin_lua_i // NOLINT
+{
+  // Executes the provided lua script
+  void (*execute_script)(const char* script);
 };
 
 #endif

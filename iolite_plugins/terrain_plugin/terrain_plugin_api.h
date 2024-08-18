@@ -54,7 +54,7 @@ io_plugin_terrain_create_heightmap_pixel(io_float32_t height,
 
 // Inteface exposed by the terrain (generator) plugin
 //----------------------------------------------------------------------------//
-struct io_plugin_terrain_i
+struct io_plugin_terrain_i // NOLINT
 {
   // Generates heightmap based terrain from the provided data.
   io_ref_t (*generate_from_data)(

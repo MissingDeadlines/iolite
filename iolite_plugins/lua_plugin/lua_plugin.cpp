@@ -70,7 +70,8 @@ const io_resource_palette_i* io_resource_palette = {};
 // Interfaces we provide
 //----------------------------------------------------------------------------//
 io_user_events_i io_user_events = {};
-io_user_task_i io_user_task = {};
+static io_user_task_i io_user_task = {};
+static io_plugin_lua_i io_plugin_lua = {};
 
 // Custom components
 //----------------------------------------------------------------------------//
@@ -78,7 +79,7 @@ io_handle16_t script_manager = {};
 
 // Custom event streams
 //----------------------------------------------------------------------------//
-io_handle16_t event_stream = {};
+static io_handle16_t event_stream = {};
 
 // SOA style batch of script data
 //----------------------------------------------------------------------------//
@@ -174,8 +175,8 @@ void execute_queued_actions()
 }
 
 //----------------------------------------------------------------------------//
-auto load_script(sol::state& state, const char* filepath)
-    -> sol::protected_function
+auto load_script(sol::state& state,
+                 const char* filepath) -> sol::protected_function
 {
 
   uint32_t buffer_length;
@@ -921,6 +922,17 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
     event_stream = io_custom_event_streams->request_event_stream();
   }
 
+  // Register the interfaces we provide
+  {
+    io_plugin_lua.execute_script = [](const char* script) {
+      sol::state s;
+      script_init_state(s);
+      s.script(script);
+    };
+
+    io_api_manager->register_api(IO_PLUGIN_LUA_API_NAME, &io_plugin_lua);
+  }
+
   // Watch the "scripts" directory for changes
   io_filesystem->watch_data_source_directory("media/scripts",
                                              on_script_changed);
@@ -934,6 +946,7 @@ IO_API_EXPORT void IO_API_CALL unload_plugin()
   io_filesystem->remove_directory_watch(on_script_changed);
   io_api_manager->unregister_api(&io_user_events);
   io_api_manager->unregister_api(&io_user_task);
+  io_api_manager->unregister_api(&io_plugin_lua);
   io_custom_components->release_and_destroy_manager(script_manager);
   io_custom_event_streams->release_and_destroy_event_stream(event_stream);
 }
