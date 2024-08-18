@@ -925,9 +925,12 @@ IO_API_EXPORT int IO_API_CALL load_plugin(void* api_manager)
   // Register the interfaces we provide
   {
     io_plugin_lua.execute_script = [](const char* script) {
-      sol::state s;
-      script_init_state(s);
-      s.script(script);
+      sol::state state;
+      script_init_state(state);
+      auto s = state.load(script);
+
+      if (s.valid())
+        SOL_VALIDATE_RESULT(s(), "Call to 'execute_script'");
     };
 
     io_api_manager->register_api(IO_PLUGIN_LUA_API_NAME, &io_plugin_lua);
