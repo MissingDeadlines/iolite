@@ -2905,7 +2905,7 @@ void script_init_state(sol::state& s)
     // @function fill
     // @summary Fills all voxels in the range defined by min and max.
     // @param component Ref The voxel shape component.
-    // @param min U8Vec3 The min voxel coorindate of the area.
+    // @param min U8Vec3 The min voxel coordinate of the area.
     // @param max U8Vec3 The max voxel coordinate of the area.
     // @param palette_index number The palette index to set.
     s["VoxelShape"]["fill"] = io_component_voxel_shape->fill;

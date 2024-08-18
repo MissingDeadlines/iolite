@@ -22,11 +22,7 @@
 
 // Dependencies
 #include <vector>
-#include <glm.hpp>
-#include <gtc/quaternion.hpp>
 #include <gtx/norm.hpp>
-#include "ext/scalar_constants.hpp"
-#include "geometric.hpp"
 #include "imgui.h"
 #include "IconsFontAwesome6.h"
 

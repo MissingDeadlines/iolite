@@ -25,7 +25,7 @@ add_library(IoliteLuaPlugin SHARED
 )
 
 list(APPEND PLUGINS IoliteLuaPlugin)
-target_compile_definitions(IoliteLuaPlugin PUBLIC SOL_LUAJIT=1 SOL_ALL_SAFETIES_ON=1)
+target_compile_definitions(IoliteLuaPlugin PUBLIC SOL_LUAJIT=1 SOL_ALL_SAFETIES_ON=1 SOL_SAFE_FUNCTION_OBJECTS=1)
 target_link_libraries(IoliteLuaPlugin ${LUA_JIT_LIBRARIES})
 
 if(MSVC)

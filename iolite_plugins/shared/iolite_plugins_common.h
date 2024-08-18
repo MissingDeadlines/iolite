@@ -26,6 +26,7 @@
 #include "iolite_api.h"
 
 // Dependencies
+#include <vector>
 #include <string>
 #define STB_SPRINTF_IMPLEMENTATION
 #include "stb_sprintf.h"
@@ -53,7 +54,7 @@ void* load_library(const char* name)
 #ifdef _WIN32
   return LoadLibraryA(name);
 #else
-  void * handle = dlopen(name, RTLD_LAZY);
+  void* handle = dlopen(name, RTLD_LAZY);
   if (!handle)
     handle = dlopen((std::string("lib") + name).c_str(), RTLD_LAZY);
   if (!handle)
@@ -88,14 +89,14 @@ void unload_library(void* handle)
 inline static void log_message(const io_logging_i* io_logging, const char* fmt,
                                ...)
 {
-  char buffer[256];
+  std::vector<char> buffer(128u * 1024u);
 
   va_list args;
   va_start(args, fmt);
-  stbsp_vsnprintf(buffer, 256, fmt, args);
+  stbsp_vsnprintf(buffer.data(), buffer.size(), fmt, args);
   va_end(args);
 
-  io_logging->log_plugin(_IO_PLUGIN_NAME, buffer);
+  io_logging->log_plugin(_IO_PLUGIN_NAME, buffer.data());
 }
 
 //----------------------------------------------------------------------------//
