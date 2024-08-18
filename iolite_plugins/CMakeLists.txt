@@ -16,7 +16,7 @@ elseif(UNIX)
   find_library(LUA_JIT_LIBRARIES NAMES luajit PATHS "dependencies/lua/lib")
 endif()
 
-include_directories(../iolite_c_api/sample_plugins/dependencies/glm/glm ../iolite_c_api/sample_plugins/dependencies/imgui ../iolite_c_api dependencies dependencies/lua/include dependencies/oidn/include lua_plugin terrain_plugin shared)
+include_directories(../iolite_c_api/sample_plugins/dependencies/glm/glm ../iolite_c_api/sample_plugins/dependencies/imgui ../iolite_c_api dependencies dependencies/lua/include dependencies/oidn/include dependencies/curl/include dependencies/rapidjson/include lua_plugin terrain_plugin shared)
 
 # Lua plugin
 add_library(IoliteLuaPlugin SHARED
