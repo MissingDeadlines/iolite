@@ -6,7 +6,7 @@ IOLITE aims to make it easy to create fun and responsive voxel games. Let's star
 The overall game creation process
 ---------------------------------
 
-Compared to other *game engines* or *game makers*, a single copy of IOLITE does *not* support working with different *projects*. Instead, IOLITE aims to be portable and thus directly sources all data from the directories next to the executable. A single copy of IOLITE *becomes your game*, it's as simple as that.
+Compared to other *game engines* or *game makers*, a single copy of IOLITE does *not* support working with different *projects*. Instead, IOLITE aims to be portable, and thus directly sources all data from the directories next to the executable. A single copy of IOLITE *becomes your game*, it's as simple as that.
 
 Shipping your game
 ------------------

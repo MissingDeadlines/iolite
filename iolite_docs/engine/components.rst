@@ -40,7 +40,7 @@ Importing a flipbook animation from MagicaVoxel
 
 In this short tutorial, we will load a flipbook animation authored in MagicaVoxel.
 
-1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source, like, e.g., ``default/media/voxels``. For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
+1. Create a flipbook animation in MagicaVoxel and add the VOX file to a data source (e.g., ``default/media/voxels``). For testing purposes, you can also use one of the animated voxel assets that are shipped with MagicaVoxel, like the dinosaur or the deer
 2. Create a voxel shape for your asset by dragging it from the *Prefab Browser* to the viewport
 3. Attach a *Flipbook Animation* component to the entity you just created
 4. Head to the entity inspector and set the ``First Frame`` and ``Last Frame`` properties to values matching your animation
@@ -82,7 +82,7 @@ Additional meshes can be provided by adding OBJ files to the ``media/meshes`` di
 Node
 ----
 
-Node components are attached to every entity by default and provide a 3D-transformation, e.g., a position, orientation, and size. They also make it possible to create hierarchies of entities.
+Node components are attached to every entity by default and provide a 3D-transformation (i.e., a position, orientation, and size). They also make it possible to create hierarchies of entities.
 
 Post Effect Volume
 ------------------
@@ -116,16 +116,16 @@ Use this component to render text at different positions in the world. It's also
 Vehicle
 -------
 
-Vehicle components are used in the context of the :ref:`vehcile_physics` and form the base part of a vehicle.
+Vehicle components are used in the context of the :ref:`vehicle_physics` and form the base part of a vehicle.
 
 Vehicle Wheel
 -------------
 
-Vehicle wheel components are used in the context of the :ref:`vehcile_physics` and define the wheel of a vehcile.
+Vehicle wheel components are used in the context of the :ref:`vehicle_physics` and define the wheel of a vehicle.
 
 Voxel Shape
 -----------
 
-Voxel shapes are in charge of rendering and simulating everything voxel-related. Shapes are either initialized from authored VOX files available in the data sources, or they are procedurally filled with content like, e.g., terrain using a script.
+Voxel shapes are in charge of rendering and simulating everything voxel-related. Shapes are either initialized from authored VOX files available in the data sources, or they are procedurally filled with content (e.g., terrain using a script).
 
 In addition, voxel shapes support the generation of support structures and fracturing for physics-based destruction effects.
