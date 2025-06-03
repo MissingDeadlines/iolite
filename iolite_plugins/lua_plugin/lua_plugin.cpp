@@ -162,22 +162,22 @@ void queue_destroy_node(io_ref_t node)
 //----------------------------------------------------------------------------//
 void execute_queued_actions()
 {
-  for (auto node : queued_nodes_to_destroy)
-    io_component_node->base.destroy(node);
-  queued_nodes_to_destroy.clear();
-
   // Clear upfront to avoid recursions
   auto temp_worlds_to_load = queued_world_loads;
   queued_world_loads.clear();
+  auto temp_nodes_to_destroy = queued_nodes_to_destroy;
+  queued_nodes_to_destroy.clear();
+
+  for (auto node : temp_nodes_to_destroy)
+    io_component_node->base.destroy(node);
   for (const auto& world_name : temp_worlds_to_load)
     io_world->load_world(world_name.c_str());
 }
 
 //----------------------------------------------------------------------------//
-auto load_script(sol::state& state, const char* filepath)
-    -> sol::protected_function
+auto load_script(sol::state& state,
+                 const char* filepath) -> sol::protected_function
 {
-
   uint32_t buffer_length;
   if (io_filesystem->load_file_from_data_source(filepath, nullptr,
                                                 &buffer_length))
