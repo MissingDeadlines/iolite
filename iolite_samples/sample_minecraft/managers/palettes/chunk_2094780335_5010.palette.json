@@ -1,0 +1,2058 @@
+{
+  "name": "chunk_2094780335_5010",
+  "properties": {
+    "uuid": {
+      "value": 16988355469928842667
+    },
+    "name": {
+      "value": "chunk_2094780335_5010"
+    },
+    "category": {
+      "value": "Minecraft Import"
+    },
+    "palette": {
+      "values": [
+        {
+          "color": 4294901760,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": "invalid_marker"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_wool",
+          "blockType": 0,
+          "metadataNote": "gray_wool"
+        },
+        {
+          "color": 4288446286,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_planks",
+          "blockType": 0,
+          "metadataNote": "oak_planks"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_wool",
+          "blockType": 0,
+          "metadataNote": "white_wool"
+        },
+        {
+          "color": 4287918904,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_door",
+          "blockType": 0,
+          "metadataNote": "oak_door"
+        },
+        {
+          "color": 4292538612,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_glass",
+          "blockType": 0,
+          "metadataNote": "glass"
+        },
+        {
+          "color": 4287592005,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_glowstone",
+          "blockType": 0,
+          "metadataNote": "glowstone"
+        },
+        {
+          "color": 4284895537,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_log",
+          "blockType": 0,
+          "metadataNote": "oak_log"
+        },
+        {
+          "color": 4292664540,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobweb",
+          "blockType": 0,
+          "metadataNote": "cobweb"
+        },
+        {
+          "color": 4289103694,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_stairs",
+          "blockType": 0,
+          "metadataNote": "oak_stairs"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_petrified_oak_slab",
+          "blockType": 0,
+          "metadataNote": "petrified_oak_slab"
+        },
+        {
+          "color": 4287460418,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_fence",
+          "blockType": 0,
+          "metadataNote": "oak_fence"
+        },
+        {
+          "color": 4280697737,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lapis_block",
+          "blockType": 0,
+          "metadataNote": "lapis_block"
+        },
+        {
+          "color": 4286874756,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stone_button",
+          "blockType": 0,
+          "metadataNote": "stone_button"
+        },
+        {
+          "color": 4290288219,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_wall_sign",
+          "blockType": 0,
+          "metadataNote": "oak_wall_sign"
+        },
+        {
+          "color": 4294926592,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_wall_torch",
+          "blockType": 0,
+          "metadataNote": "redstone_wall_torch"
+        },
+        {
+          "color": 4284874752,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_torch",
+          "blockType": 0,
+          "metadataNote": "redstone_torch"
+        },
+        {
+          "color": 4285164138,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone_stairs",
+          "blockType": 0,
+          "metadataNote": "cobblestone_stairs"
+        },
+        {
+          "color": 4285159744,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lever",
+          "blockType": 0,
+          "metadataNote": "lever"
+        },
+        {
+          "color": 4294967040,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_wall_torch",
+          "blockType": 0,
+          "metadataNote": "wall_torch"
+        },
+        {
+          "color": 4287123502,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_crafting_table",
+          "blockType": 0,
+          "metadataNote": "crafting_table"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone_slab",
+          "blockType": 0,
+          "metadataNote": "cobblestone_slab"
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        }
+      ]
+    }
+  }
+}

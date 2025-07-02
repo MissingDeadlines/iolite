@@ -1,0 +1,2058 @@
+{
+  "name": "chunk_2094780335_5168",
+  "properties": {
+    "uuid": {
+      "value": 14662050028937579266
+    },
+    "name": {
+      "value": "chunk_2094780335_5168"
+    },
+    "category": {
+      "value": "Minecraft Import"
+    },
+    "palette": {
+      "values": [
+        {
+          "color": 4294901760,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": "invalid_marker"
+        },
+        {
+          "color": 4286996547,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dirt",
+          "blockType": 0,
+          "metadataNote": "dirt"
+        },
+        {
+          "color": 4286032687,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_grass_block",
+          "blockType": 0,
+          "metadataNote": "grass_block"
+        },
+        {
+          "color": 4288446286,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_planks",
+          "blockType": 0,
+          "metadataNote": "oak_planks"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_bubble_coral_block",
+          "blockType": 0,
+          "metadataNote": "dead_bubble_coral_block"
+        },
+        {
+          "color": 4286216826,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone",
+          "blockType": 0,
+          "metadataNote": "cobblestone"
+        },
+        {
+          "color": 4290288219,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_wall_sign",
+          "blockType": 0,
+          "metadataNote": "oak_wall_sign"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "gray_stained_glass_pane"
+        },
+        {
+          "color": 4284111450,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_tripwire",
+          "blockType": 0,
+          "metadataNote": "tripwire"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_quartz_slab",
+          "blockType": 0,
+          "metadataNote": "quartz_slab"
+        },
+        {
+          "color": 4290953922,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_iron_door",
+          "blockType": 0,
+          "metadataNote": "iron_door"
+        },
+        {
+          "color": 4289231272,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_purpur_stairs",
+          "blockType": 0,
+          "metadataNote": "purpur_stairs"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_wool",
+          "blockType": 0,
+          "metadataNote": "gray_wool"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_wool",
+          "blockType": 0,
+          "metadataNote": "green_wool"
+        },
+        {
+          "color": 4286996547,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_coarse_dirt",
+          "blockType": 0,
+          "metadataNote": "coarse_dirt"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smooth_stone_slab",
+          "blockType": 0,
+          "metadataNote": "smooth_stone_slab"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_wool",
+          "blockType": 0,
+          "metadataNote": "white_wool"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_concrete",
+          "blockType": 0,
+          "metadataNote": "green_concrete"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_carpet",
+          "blockType": 0,
+          "metadataNote": "gray_carpet"
+        },
+        {
+          "color": 4292079604,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_glass_pane",
+          "blockType": 0,
+          "metadataNote": "glass_pane"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "white_stained_glass_pane"
+        },
+        {
+          "color": 4290523142,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_bricks",
+          "blockType": 0,
+          "metadataNote": "bricks"
+        },
+        {
+          "color": 4287123502,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_crafting_table",
+          "blockType": 0,
+          "metadataNote": "crafting_table"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_horn_coral_block",
+          "blockType": 0,
+          "metadataNote": "dead_horn_coral_block"
+        },
+        {
+          "color": 4286216826,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_chiseled_stone_bricks",
+          "blockType": 0,
+          "metadataNote": "chiseled_stone_bricks"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_carpet",
+          "blockType": 0,
+          "metadataNote": "white_carpet"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_gray_carpet",
+          "blockType": 0,
+          "metadataNote": "light_gray_carpet"
+        },
+        {
+          "color": 4285164138,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone_stairs",
+          "blockType": 0,
+          "metadataNote": "cobblestone_stairs"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone_slab",
+          "blockType": 0,
+          "metadataNote": "cobblestone_slab"
+        },
+        {
+          "color": 4286479482,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gravel",
+          "blockType": 0,
+          "metadataNote": "gravel"
+        },
+        {
+          "color": 4291932833,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_terracotta",
+          "blockType": 0,
+          "metadataNote": "black_terracotta"
+        },
+        {
+          "color": 4289403657,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_block",
+          "blockType": 0,
+          "metadataNote": "redstone_block"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light",
+          "blockType": 0,
+          "metadataNote": "light"
+        },
+        {
+          "color": 4284045657,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_mossy_cobblestone_wall",
+          "blockType": 0,
+          "metadataNote": "mossy_cobblestone_wall"
+        },
+        {
+          "color": 4285361258,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_iron_bars",
+          "blockType": 0,
+          "metadataNote": "iron_bars"
+        },
+        {
+          "color": 4293584607,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_chiseled_quartz_block",
+          "blockType": 0,
+          "metadataNote": "chiseled_quartz_block"
+        },
+        {
+          "color": 4286032687,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_leaves",
+          "blockType": 1,
+          "metadataNote": "dark_oak_leaves"
+        },
+        {
+          "color": 4288446286,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_planks",
+          "blockType": 0,
+          "metadataNote": "birch_planks"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_gray_wool",
+          "blockType": 0,
+          "metadataNote": "light_gray_wool"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "red_stained_glass_pane"
+        },
+        {
+          "color": 4293650659,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_quartz_stairs",
+          "blockType": 0,
+          "metadataNote": "quartz_stairs"
+        },
+        {
+          "color": 4289484317,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smooth_red_sandstone",
+          "blockType": 0,
+          "metadataNote": "smooth_red_sandstone"
+        },
+        {
+          "color": 4285624689,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_hopper",
+          "blockType": 0,
+          "metadataNote": "hopper"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_trapdoor",
+          "blockType": 0,
+          "metadataNote": "oak_trapdoor"
+        },
+        {
+          "color": 4286668340,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_stairs",
+          "blockType": 0,
+          "metadataNote": "spruce_stairs"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_shulker_box",
+          "blockType": 0,
+          "metadataNote": "shulker_box"
+        },
+        {
+          "color": 4287918904,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_door",
+          "blockType": 0,
+          "metadataNote": "oak_door"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_shulker_box",
+          "blockType": 0,
+          "metadataNote": "white_shulker_box"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_blue_carpet",
+          "blockType": 0,
+          "metadataNote": "blue_carpet"
+        },
+        {
+          "color": 4282992969,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cauldron",
+          "blockType": 0,
+          "metadataNote": "cauldron"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_gray_bed",
+          "blockType": 0,
+          "metadataNote": "light_gray_bed"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_pink_shulker_box",
+          "blockType": 0,
+          "metadataNote": "pink_shulker_box"
+        },
+        {
+          "color": 4283316001,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_door",
+          "blockType": 0,
+          "metadataNote": "dark_oak_door"
+        },
+        {
+          "color": 4284966759,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_furnace",
+          "blockType": 0,
+          "metadataNote": "furnace"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_shulker_box",
+          "blockType": 0,
+          "metadataNote": "gray_shulker_box"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_brown_bed",
+          "blockType": 0,
+          "metadataNote": "brown_bed"
+        },
+        {
+          "color": 4288578889,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_slab",
+          "blockType": 0,
+          "metadataNote": "spruce_slab"
+        },
+        {
+          "color": 4293386920,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_sandstone_stairs",
+          "blockType": 0,
+          "metadataNote": "sandstone_stairs"
+        },
+        {
+          "color": 4287127365,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jungle_stairs",
+          "blockType": 0,
+          "metadataNote": "jungle_stairs"
+        },
+        {
+          "color": 4290479711,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jungle_fence",
+          "blockType": 0,
+          "metadataNote": "jungle_fence"
+        },
+        {
+          "color": 4285822068,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dropper",
+          "blockType": 0,
+          "metadataNote": "dropper"
+        },
+        {
+          "color": 4294967295,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_gray_stained_glass",
+          "blockType": 0,
+          "metadataNote": "light_gray_stained_glass"
+        },
+        {
+          "color": 4289769648,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_player_head",
+          "blockType": 0,
+          "metadataNote": "player_head"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_allium",
+          "blockType": 0,
+          "metadataNote": "potted_allium"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_acacia_trapdoor",
+          "blockType": 0,
+          "metadataNote": "acacia_trapdoor"
+        },
+        {
+          "color": 4289958489,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_button",
+          "blockType": 0,
+          "metadataNote": "oak_button"
+        },
+        {
+          "color": 4292658637,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_end_rod",
+          "blockType": 0,
+          "metadataNote": "end_rod"
+        },
+        {
+          "color": 4286348412,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_tripwire_hook",
+          "blockType": 0,
+          "metadataNote": "tripwire_hook"
+        },
+        {
+          "color": 4286144308,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_ladder",
+          "blockType": 0,
+          "metadataNote": "ladder"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_oxeye_daisy",
+          "blockType": 0,
+          "metadataNote": "potted_oxeye_daisy"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_brown_carpet",
+          "blockType": 0,
+          "metadataNote": "brown_carpet"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_shulker_box",
+          "blockType": 0,
+          "metadataNote": "black_shulker_box"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_orange_candle",
+          "blockType": 0,
+          "metadataNote": "orange_candle"
+        },
+        {
+          "color": 4281079322,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_nether_brick_stairs",
+          "blockType": 0,
+          "metadataNote": "nether_brick_stairs"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_nether_brick_slab",
+          "blockType": 0,
+          "metadataNote": "nether_brick_slab"
+        },
+        {
+          "color": 4281079322,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_nether_bricks",
+          "blockType": 0,
+          "metadataNote": "nether_bricks"
+        },
+        {
+          "color": 4283650899,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_bedrock",
+          "blockType": 0,
+          "metadataNote": "bedrock"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_polished_diorite",
+          "blockType": 0,
+          "metadataNote": "polished_diorite"
+        },
+        {
+          "color": 4290154577,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_rail",
+          "blockType": 0,
+          "metadataNote": "rail"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_trapdoor",
+          "blockType": 0,
+          "metadataNote": "spruce_trapdoor"
+        },
+        {
+          "color": 4284895537,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_log",
+          "blockType": 0,
+          "metadataNote": "oak_log"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_polished_andesite",
+          "blockType": 0,
+          "metadataNote": "polished_andesite"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_andesite",
+          "blockType": 0,
+          "metadataNote": "andesite"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stone",
+          "blockType": 0,
+          "metadataNote": "stone"
+        },
+        {
+          "color": 4292662175,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_sandstone",
+          "blockType": 0,
+          "metadataNote": "sandstone"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_fire_coral_fan",
+          "blockType": 0,
+          "metadataNote": "dead_fire_coral_fan"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_tube_coral",
+          "blockType": 0,
+          "metadataNote": "dead_tube_coral"
+        },
+        {
+          "color": 4293584607,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_quartz_block",
+          "blockType": 0,
+          "metadataNote": "quartz_block"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_blue_shulker_box",
+          "blockType": 0,
+          "metadataNote": "light_blue_shulker_box"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_bed",
+          "blockType": 0,
+          "metadataNote": "green_bed"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cyan_shulker_box",
+          "blockType": 0,
+          "metadataNote": "cyan_shulker_box"
+        },
+        {
+          "color": 4286216826,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stone_brick_stairs",
+          "blockType": 0,
+          "metadataNote": "stone_brick_stairs"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_trapdoor",
+          "blockType": 0,
+          "metadataNote": "dark_oak_trapdoor"
+        },
+        {
+          "color": 4289111718,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stone_brick_slab",
+          "blockType": 0,
+          "metadataNote": "stone_brick_slab"
+        },
+        {
+          "color": 4285225017,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_bookshelf",
+          "blockType": 0,
+          "metadataNote": "bookshelf"
+        },
+        {
+          "color": 4289747513,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_log",
+          "blockType": 0,
+          "metadataNote": "dark_oak_log"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_blue_orchid",
+          "blockType": 0,
+          "metadataNote": "potted_blue_orchid"
+        },
+        {
+          "color": 4282860355,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_anvil",
+          "blockType": 0,
+          "metadataNote": "anvil"
+        },
+        {
+          "color": 4289615645,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smooth_red_sandstone_stairs",
+          "blockType": 0,
+          "metadataNote": "smooth_red_sandstone_stairs"
+        },
+        {
+          "color": 4289615645,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cut_red_sandstone_slab",
+          "blockType": 0,
+          "metadataNote": "cut_red_sandstone_slab"
+        },
+        {
+          "color": 4291282887,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_iron_trapdoor",
+          "blockType": 0,
+          "metadataNote": "iron_trapdoor"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_carpet",
+          "blockType": 0,
+          "metadataNote": "red_carpet"
+        },
+        {
+          "color": 4294901760,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_wire",
+          "blockType": 0,
+          "metadataNote": "redstone_wire"
+        },
+        {
+          "color": 4285478452,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_netherrack",
+          "blockType": 0,
+          "metadataNote": "netherrack"
+        },
+        {
+          "color": 4288446286,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_planks",
+          "blockType": 0,
+          "metadataNote": "spruce_planks"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cyan_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "cyan_stained_glass_pane"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_scaffolding",
+          "blockType": 0,
+          "metadataNote": "scaffolding"
+        },
+        {
+          "color": 4290288219,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_wall_sign",
+          "blockType": 0,
+          "metadataNote": "birch_wall_sign"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_shulker_box",
+          "blockType": 0,
+          "metadataNote": "green_shulker_box"
+        },
+        {
+          "color": 4286032687,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_leaves",
+          "blockType": 1,
+          "metadataNote": "spruce_leaves"
+        },
+        {
+          "color": 4287592005,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_glowstone",
+          "blockType": 0,
+          "metadataNote": "glowstone"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_brown_shulker_box",
+          "blockType": 0,
+          "metadataNote": "brown_shulker_box"
+        },
+        {
+          "color": 4285164138,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_prismarine_stairs",
+          "blockType": 0,
+          "metadataNote": "dark_prismarine_stairs"
+        },
+        {
+          "color": 4290288219,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_wall_sign",
+          "blockType": 0,
+          "metadataNote": "dark_oak_wall_sign"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_shulker_box",
+          "blockType": 0,
+          "metadataNote": "red_shulker_box"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_blast_furnace",
+          "blockType": 0,
+          "metadataNote": "blast_furnace"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smithing_table",
+          "blockType": 0,
+          "metadataNote": "smithing_table"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_concrete",
+          "blockType": 0,
+          "metadataNote": "black_concrete"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jungle_trapdoor",
+          "blockType": 0,
+          "metadataNote": "jungle_trapdoor"
+        },
+        {
+          "color": 4289513406,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lantern",
+          "blockType": 0,
+          "metadataNote": "lantern"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_fern",
+          "blockType": 0,
+          "metadataNote": "potted_fern"
+        },
+        {
+          "color": 4289484317,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_chiseled_red_sandstone",
+          "blockType": 0,
+          "metadataNote": "chiseled_red_sandstone"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_polished_granite",
+          "blockType": 0,
+          "metadataNote": "polished_granite"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_concrete_powder",
+          "blockType": 0,
+          "metadataNote": "gray_concrete_powder"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jigsaw",
+          "blockType": 0,
+          "metadataNote": "jigsaw"
+        },
+        {
+          "color": 4286874756,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stone_button",
+          "blockType": 0,
+          "metadataNote": "stone_button"
+        },
+        {
+          "color": 4290954068,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_sponge",
+          "blockType": 0,
+          "metadataNote": "sponge"
+        },
+        {
+          "color": 4280697737,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lapis_block",
+          "blockType": 0,
+          "metadataNote": "lapis_block"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_bone_block",
+          "blockType": 0,
+          "metadataNote": "bone_block"
+        },
+        {
+          "color": 4292994730,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_end_stone_bricks",
+          "blockType": 0,
+          "metadataNote": "end_stone_bricks"
+        },
+        {
+          "color": 4289615645,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_sandstone_stairs",
+          "blockType": 0,
+          "metadataNote": "red_sandstone_stairs"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_blue_carpet",
+          "blockType": 0,
+          "metadataNote": "light_blue_carpet"
+        },
+        {
+          "color": 4289484317,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_sandstone",
+          "blockType": 0,
+          "metadataNote": "red_sandstone"
+        },
+        {
+          "color": 4289484317,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cut_red_sandstone",
+          "blockType": 0,
+          "metadataNote": "cut_red_sandstone"
+        },
+        {
+          "color": 4292866545,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_snow",
+          "blockType": 0,
+          "metadataNote": "snow"
+        },
+        {
+          "color": 4281079322,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_nether_brick_fence",
+          "blockType": 0,
+          "metadataNote": "nether_brick_fence"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_bubble_coral",
+          "blockType": 0,
+          "metadataNote": "dead_bubble_coral"
+        },
+        {
+          "color": 4288446286,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jungle_planks",
+          "blockType": 0,
+          "metadataNote": "jungle_planks"
+        },
+        {
+          "color": 4289747513,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stripped_oak_wood",
+          "blockType": 0,
+          "metadataNote": "stripped_oak_wood"
+        },
+        {
+          "color": 4294439904,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_door",
+          "blockType": 0,
+          "metadataNote": "birch_door"
+        },
+        {
+          "color": 4286471469,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_trapdoor",
+          "blockType": 0,
+          "metadataNote": "birch_trapdoor"
+        },
+        {
+          "color": 4292662175,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smooth_sandstone",
+          "blockType": 0,
+          "metadataNote": "smooth_sandstone"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_azure_bluet",
+          "blockType": 0,
+          "metadataNote": "potted_azure_bluet"
+        },
+        {
+          "color": 4292538612,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_glass",
+          "blockType": 0,
+          "metadataNote": "glass"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_orange_shulker_box",
+          "blockType": 0,
+          "metadataNote": "orange_shulker_box"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_bed",
+          "blockType": 0,
+          "metadataNote": "gray_bed"
+        },
+        {
+          "color": 4289485874,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_acacia_stairs",
+          "blockType": 0,
+          "metadataNote": "acacia_stairs"
+        },
+        {
+          "color": 4282854421,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_stairs",
+          "blockType": 0,
+          "metadataNote": "dark_oak_stairs"
+        },
+        {
+          "color": 4286471477,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_fence",
+          "blockType": 0,
+          "metadataNote": "spruce_fence"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_dandelion",
+          "blockType": 0,
+          "metadataNote": "potted_dandelion"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_poppy",
+          "blockType": 0,
+          "metadataNote": "potted_poppy"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_carpet",
+          "blockType": 0,
+          "metadataNote": "black_carpet"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_wool",
+          "blockType": 0,
+          "metadataNote": "black_wool"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_birch_sapling",
+          "blockType": 0,
+          "metadataNote": "potted_birch_sapling"
+        },
+        {
+          "color": 4285159744,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lever",
+          "blockType": 0,
+          "metadataNote": "lever"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_pink_wall_banner",
+          "blockType": 0,
+          "metadataNote": "pink_wall_banner"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_yellow_wall_banner",
+          "blockType": 0,
+          "metadataNote": "yellow_wall_banner"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_pink_carpet",
+          "blockType": 0,
+          "metadataNote": "pink_carpet"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_yellow_carpet",
+          "blockType": 0,
+          "metadataNote": "yellow_carpet"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_horn_coral",
+          "blockType": 0,
+          "metadataNote": "dead_horn_coral"
+        },
+        {
+          "color": 4284760882,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_note_block",
+          "blockType": 0,
+          "metadataNote": "note_block"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_bed",
+          "blockType": 0,
+          "metadataNote": "white_bed"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_yellow_shulker_box",
+          "blockType": 0,
+          "metadataNote": "yellow_shulker_box"
+        },
+        {
+          "color": 4294967295,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_stained_glass",
+          "blockType": 0,
+          "metadataNote": "red_stained_glass"
+        },
+        {
+          "color": 4292730333,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_wool",
+          "blockType": 0,
+          "metadataNote": "red_wool"
+        },
+        {
+          "color": 4286929211,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_jukebox",
+          "blockType": 0,
+          "metadataNote": "jukebox"
+        },
+        {
+          "color": 4294967040,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_wall_torch",
+          "blockType": 0,
+          "metadataNote": "wall_torch"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_brown_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "brown_stained_glass_pane"
+        },
+        {
+          "color": 4292598747,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_iron_block",
+          "blockType": 0,
+          "metadataNote": "iron_block"
+        },
+        {
+          "color": 4284045657,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_cobblestone_wall",
+          "blockType": 0,
+          "metadataNote": "cobblestone_wall"
+        },
+        {
+          "color": 4294700509,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_daylight_detector",
+          "blockType": 0,
+          "metadataNote": "daylight_detector"
+        },
+        {
+          "color": 4288578889,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_slab",
+          "blockType": 0,
+          "metadataNote": "birch_slab"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_nether_bricks",
+          "blockType": 0,
+          "metadataNote": "red_nether_bricks"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_brain_coral_block",
+          "blockType": 0,
+          "metadataNote": "dead_brain_coral_block"
+        },
+        {
+          "color": 4289747513,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_stripped_spruce_wood",
+          "blockType": 0,
+          "metadataNote": "stripped_spruce_wood"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_concrete",
+          "blockType": 0,
+          "metadataNote": "gray_concrete"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_fire_coral_block",
+          "blockType": 0,
+          "metadataNote": "dead_fire_coral_block"
+        },
+        {
+          "color": 4286808963,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dispenser",
+          "blockType": 0,
+          "metadataNote": "dispenser"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_observer",
+          "blockType": 0,
+          "metadataNote": "observer"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_white_tulip",
+          "blockType": 0,
+          "metadataNote": "potted_white_tulip"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_blue_wall_banner",
+          "blockType": 0,
+          "metadataNote": "light_blue_wall_banner"
+        },
+        {
+          "color": 4291739780,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_stairs",
+          "blockType": 0,
+          "metadataNote": "birch_stairs"
+        },
+        {
+          "color": 4291128122,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_acacia_fence",
+          "blockType": 0,
+          "metadataNote": "acacia_fence"
+        },
+        {
+          "color": 4292476941,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_azure_bluet",
+          "blockType": 2,
+          "metadataNote": "azure_bluet"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_red_tulip",
+          "blockType": 0,
+          "metadataNote": "potted_red_tulip"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_light_gray_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "light_gray_stained_glass_pane"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_fire_coral_wall_fan",
+          "blockType": 0,
+          "metadataNote": "dead_fire_coral_wall_fan"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_bed",
+          "blockType": 0,
+          "metadataNote": "red_bed"
+        },
+        {
+          "color": 4289103694,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_oak_stairs",
+          "blockType": 0,
+          "metadataNote": "oak_stairs"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_black_bed",
+          "blockType": 0,
+          "metadataNote": "black_bed"
+        },
+        {
+          "color": 4289958489,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_birch_button",
+          "blockType": 0,
+          "metadataNote": "birch_button"
+        },
+        {
+          "color": 4289615645,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_red_sandstone_slab",
+          "blockType": 0,
+          "metadataNote": "red_sandstone_slab"
+        },
+        {
+          "color": 4289100198,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_purpur_block",
+          "blockType": 0,
+          "metadataNote": "purpur_block"
+        },
+        {
+          "color": 4289363626,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_purpur_pillar",
+          "blockType": 0,
+          "metadataNote": "purpur_pillar"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_lime_shulker_box",
+          "blockType": 0,
+          "metadataNote": "lime_shulker_box"
+        },
+        {
+          "color": 4291480266,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_carpet",
+          "blockType": 0,
+          "metadataNote": "green_carpet"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_gray_glazed_terracotta",
+          "blockType": 0,
+          "metadataNote": "gray_glazed_terracotta"
+        },
+        {
+          "color": 4290954068,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_wet_sponge",
+          "blockType": 0,
+          "metadataNote": "wet_sponge"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_smooth_stone",
+          "blockType": 0,
+          "metadataNote": "smooth_stone"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_concrete_powder",
+          "blockType": 0,
+          "metadataNote": "white_concrete_powder"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_white_concrete",
+          "blockType": 0,
+          "metadataNote": "white_concrete"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_green_wall_banner",
+          "blockType": 0,
+          "metadataNote": "green_wall_banner"
+        },
+        {
+          "color": 4293980400,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_purple_shulker_box",
+          "blockType": 0,
+          "metadataNote": "purple_shulker_box"
+        },
+        {
+          "color": 4284895537,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_spruce_wood",
+          "blockType": 0,
+          "metadataNote": "spruce_wood"
+        },
+        {
+          "color": 4285940019,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_potted_pink_tulip",
+          "blockType": 0,
+          "metadataNote": "potted_pink_tulip"
+        },
+        {
+          "color": 4286348412,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_infested_chiseled_stone_bricks",
+          "blockType": 0,
+          "metadataNote": "infested_chiseled_stone_bricks"
+        },
+        {
+          "color": 4282330654,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dark_oak_fence",
+          "blockType": 0,
+          "metadataNote": "dark_oak_fence"
+        },
+        {
+          "color": 4289999926,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_blue_bed",
+          "blockType": 0,
+          "metadataNote": "blue_bed"
+        },
+        {
+          "color": 4288111409,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_lamp",
+          "blockType": 0,
+          "metadataNote": "redstone_lamp"
+        },
+        {
+          "color": 4286105701,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_slime_block",
+          "blockType": 0,
+          "metadataNote": "slime_block"
+        },
+        {
+          "color": 4294375158,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_blue_stained_glass_pane",
+          "blockType": 0,
+          "metadataNote": "blue_stained_glass_pane"
+        },
+        {
+          "color": 4286414205,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_dead_brain_coral_fan",
+          "blockType": 0,
+          "metadataNote": "dead_brain_coral_fan"
+        },
+        {
+          "color": 4284874752,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "mc_redstone_torch",
+          "blockType": 0,
+          "metadataNote": "redstone_torch"
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        },
+        {
+          "color": 4283124555,
+          "materialParameters": 255,
+          "emissive": 0,
+          "blockBaseImageName": "",
+          "blockType": 0,
+          "metadataNote": ""
+        }
+      ]
+    }
+  }
+}

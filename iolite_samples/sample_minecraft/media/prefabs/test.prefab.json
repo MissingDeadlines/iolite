@@ -1,0 +1,270 @@
+[
+  {
+    "name": {
+      "value": "chunk_2094780335_2998"
+    },
+    "offsetToParent": 0,
+    "propertyEntries": [
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
+            "value": ""
+          },
+          "paletteName": {
+            "value": "chunk_2094780335_2998"
+          },
+          "textureName": {
+            "value": ""
+          },
+          "roughnessTextureName": {
+            "value": ""
+          },
+          "normalTextureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "roughnessTextureBlendFactor": {
+            "value": 1.0
+          },
+          "normalTextureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              64,
+              64,
+              64
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 11713427984596476768
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              64.0,
+              64.0,
+              -384.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "value": "chunk_2094780335_2999"
+    },
+    "offsetToParent": -1,
+    "propertyEntries": [
+      {
+        "type": "VoxelShape",
+        "properties": {
+          "voxelShapeName": {
+            "value": ""
+          },
+          "paletteName": {
+            "value": "chunk_2094780335_2999"
+          },
+          "textureName": {
+            "value": ""
+          },
+          "roughnessTextureName": {
+            "value": ""
+          },
+          "normalTextureName": {
+            "value": ""
+          },
+          "textureOffset": {
+            "values": [
+              0,
+              0,
+              0
+            ]
+          },
+          "textureScalingFactor": {
+            "value": 1.0
+          },
+          "textureBlendFactor": {
+            "value": 1.0
+          },
+          "roughnessTextureBlendFactor": {
+            "value": 1.0
+          },
+          "normalTextureBlendFactor": {
+            "value": 1.0
+          },
+          "tint": {
+            "values": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "customSize": {
+            "values": [
+              56,
+              50,
+              60
+            ]
+          },
+          "group": {
+            "value": 0
+          },
+          "voxelShapeFlags": {
+            "value": 8
+          },
+          "rigidBodyFlags": {
+            "value": 0
+          },
+          "pivot": {
+            "values": [
+              -8.0,
+              0.0,
+              -4.0
+            ]
+          },
+          "linearDamping": {
+            "value": 0.10000000149011612
+          },
+          "angularDamping": {
+            "value": 0.10000000149011612
+          },
+          "density": {
+            "value": 1.0
+          },
+          "depenetrationVelocityFactor": {
+            "value": 3.0
+          },
+          "numPositionIterations": {
+            "value": 4
+          },
+          "numVelocityIterations": {
+            "value": 1
+          },
+          "fractureType": {
+            "value": 0
+          },
+          "maxNumConvexSubdivisions": {
+            "value": 0
+          },
+          "snapshotUuid": {
+            "value": 11964588112815916838
+          }
+        }
+      },
+      {
+        "type": "Node",
+        "properties": {
+          "flags": {
+            "value": 0
+          },
+          "localPos": {
+            "values": [
+              0.0,
+              64.0,
+              0.0
+            ]
+          },
+          "localOrient": {
+            "values": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "localSize": {
+            "values": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
