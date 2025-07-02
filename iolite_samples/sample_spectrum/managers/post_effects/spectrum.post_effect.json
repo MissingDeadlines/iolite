@@ -17,6 +17,10 @@
       ],
       "blendFactor": 1.0
     },
+    "skyPanorama": {
+      "value": "sky_city",
+      "blendFactor": 1.0
+    },
     "chromaShiftFactor": {
       "value": 1.0,
       "blendFactor": 1.0

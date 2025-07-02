@@ -7,24 +7,11 @@
     "name": {
       "value": "main"
     },
-    "globalDensityFactor": {
-      "value": 1.0,
-      "blendFactor": 1.0
+    "category": {
+      "value": ""
     },
     "heightFogDensity": {
       "value": 0.15000000596046448,
-      "blendFactor": 1.0
-    },
-    "heightFogYOffset": {
-      "value": 0.0,
-      "blendFactor": 1.0
-    },
-    "heightFogNoiseFactor": {
-      "value": 1.0,
-      "blendFactor": 1.0
-    },
-    "heightFogNoiseScale": {
-      "value": 0.5,
       "blendFactor": 1.0
     },
     "sunIntensity": {
